@@ -223,6 +223,16 @@
       box-shadow: 0 0 0 4px var(--primary-subtle);
     }
 
+    .topic-detail {
+      grid-column: 1 / -1;
+      padding: 10px 14px;
+      border-radius: var(--radius-md);
+      background: var(--primary-subtle);
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
     /* FLASHCARD VIEW */
     .flashcard-wrapper {
       display: flex;
@@ -653,10 +663,12 @@
       </select>
 
       <select id="topicSelect" onchange="onFilterChange()">
-        <option value="all">Tất cả các Topic</option>
+        <option value="all">Tất cả các chủ đề</option>
       </select>
 
       <input type="text" id="searchBox" placeholder="Tra cứu Kanji, Kana hoặc tiếng Việt..." oninput="onFilterChange()">
+
+      <div id="topicDetail" class="topic-detail">Chủ đề đang chọn: Tất cả các chủ đề</div>
     </div>
 
     <!-- 1. FLASHCARD MODE -->
@@ -1036,7 +1048,7 @@
       { l: 4, t: "季節・料理", k: "熱い", h: "あつい", m: "Nóng (nhiệt độ đồ vật)" },
       { l: 4, t: "季節・料理", k: "冷たい", h: "つめたい", m: "Lạnh (nhiệt độ đồ vật)" },
       { l: 4, t: "季節・料理", k: "甘い", h: "あまい", m: "Ngọt" },
-      { l: 4, t: "季節・料理", k: "辛い", h: " race ", m: "Cay" },
+      { l: 4, t: "季節・料理", k: "辛い", h: "からい", m: "Cay" },
       { l: 4, t: "季節・料理", k: "苦い", h: "にがい", m: "Đắng" },
       { l: 4, t: "季節・料理", k: "すっぱい", h: "すっぱい", m: "Chua" },
       { l: 4, t: "季節・料理", k: "一年中", h: "いちねんじゅう", m: "Suốt 1 năm, quanh năm" },
@@ -1281,7 +1293,7 @@
       { l: 15, t: "これ、知ってる?", k: "入院します", h: "にゅういんします", m: "Nhập viện" },
       { l: 15, t: "雑誌を見て町へ", k: "急ぎます", h: "いそぎます", m: "Vội vàng, gấp gáp" },
       { l: 15, t: "雑誌を見て町へ", k: "混みます", h: "こみます", m: "Đông đúc, kẹt xe" },
-      { l: 15, t: "雑誌を見て町へ", k: "間に合います", h: "まニアいます", m: "Kịp thời gian" },
+      { l: 15, t: "雑誌を見て町へ", k: "間に合います", h: "まにあいます", m: "Kịp thời gian" },
       { l: 15, t: "雑誌を見て町へ", k: "やみます", h: "やみます", m: "Tạnh (mưa)" },
       { l: 15, t: "雑誌を見て町へ", k: "晴れます", h: "はれます", m: "Trời quang đãng, nắng ráo" },
       { l: 15, t: "町を歩いて", k: "集まります", h: "あつまります", m: "Tập trung lại" },
@@ -1305,10 +1317,69 @@
     let quizQuestions = [];
     let quizScore = 0;
 
+    // Bản dịch tiếng Việt của các chủ đề, dùng để hỗ trợ lựa chọn bộ từ vựng.
+    const TOPIC_DETAILS = {
+      "私の名前・国・仕事": "Tên, quốc tịch và công việc của tôi",
+      "私の誕生日": "Sinh nhật của tôi",
+      "私の趣味": "Sở thích của tôi",
+      "どこですか": "Ở đâu?",
+      "いくらですか": "Bao nhiêu tiền?",
+      "レストラン": "Nhà hàng",
+      "何時までですか": "Đến mấy giờ?",
+      "私のスケジュール": "Lịch trình của tôi",
+      "どんな毎日?": "Mỗi ngày như thế nào?",
+      "どこ?": "Ở đâu?",
+      "どんなところ?": "Là nơi như thế nào?",
+      "季節・料理": "Mùa và ẩm thực",
+      "週末": "Cuối tuần",
+      "休みの後で": "Sau kỳ nghỉ",
+      "今度の休みに": "Kỳ nghỉ tới",
+      "一緒に行きませんか": "Đi cùng nhau nhé?",
+      "どちらがいいですか": "Cái nào tốt hơn?",
+      "約束": "Lời hẹn",
+      "道がわかりません": "Tôi không biết đường",
+      "パーティーの準備": "Chuẩn bị tiệc",
+      "みんなで楽しいパーティー": "Bữa tiệc vui vẻ cùng mọi người",
+      "家族・友達": "Gia đình và bạn bè",
+      "こんな人": "Người như thế này",
+      "プレゼント": "Quà tặng",
+      "いろいろな趣味": "Nhiều sở thích khác nhau",
+      "できること・できないこと": "Những việc có thể và không thể làm",
+      "楽しい週末": "Cuối tuần vui vẻ",
+      "私の集合": "Điểm hẹn của tôi",
+      "いろいろな注意": "Những lưu ý khác nhau",
+      "動物園で": "Ở sở thú",
+      "今の生活": "Cuộc sống hiện tại",
+      "私・前の私": "Tôi và tôi trước đây",
+      "友達と": "Cùng bạn bè",
+      "体の調子": "Tình trạng sức khỏe",
+      "アドバイス": "Lời khuyên",
+      "病院で": "Ở bệnh viện",
+      "私の経験から": "Từ kinh nghiệm của tôi",
+      "おすすめします": "Đề xuất và khuyên dùng",
+      "教えてください": "Hãy cho tôi biết",
+      "初めて見た! 初めて聞いた!": "Lần đầu thấy! Lần đầu nghe!",
+      "ルール・マナー": "Quy tắc và phép lịch sự",
+      "私の意見": "Ý kiến của tôi",
+      "これ、知ってる?": "Bạn có biết cái này không?",
+      "雑誌を見て町へ": "Xem tạp chí rồi đi vào thị trấn",
+      "町を歩いて": "Đi dạo trong thị trấn"
+    };
+
     // Elements
     const lessonSelect = document.getElementById('lessonSelect');
     const topicSelect = document.getElementById('topicSelect');
     const searchBox = document.getElementById('searchBox');
+
+    function getTopicLabel(topic) {
+      if (topic === 'all') return 'Tất cả các chủ đề';
+      const detail = TOPIC_DETAILS[topic] || 'Chủ đề từ vựng';
+      return `${topic} — ${detail}`;
+    }
+
+    function updateTopicDetail() {
+      document.getElementById('topicDetail').textContent = `Chủ đề đang chọn: ${getTopicLabel(topicSelect.value)}`;
+    }
 
     function initLessons() {
       for (let i = 1; i <= 15; i++) {
@@ -1322,14 +1393,15 @@
 
     function updateTopicList() {
       const curL = lessonSelect.value;
-      topicSelect.innerHTML = '<option value="all">Tất cả các Topic</option>';
+      topicSelect.innerHTML = '<option value="all">Tất cả các chủ đề</option>';
       const topics = [...new Set(RAW_VOCAB.filter(item => curL === 'all' || item.l == curL).map(i => i.t))];
       topics.forEach(t => {
         const opt = document.createElement('option');
         opt.value = t;
-        opt.textContent = t;
+        opt.textContent = getTopicLabel(t);
         topicSelect.appendChild(opt);
       });
+      updateTopicDetail();
     }
 
     function onLessonChange() {
@@ -1341,6 +1413,8 @@
       const l = lessonSelect.value;
       const t = topicSelect.value;
       const q = searchBox.value.trim().toLowerCase();
+
+      updateTopicDetail();
 
       currentFiltered = RAW_VOCAB.filter(item => {
         const matchL = l === 'all' || item.l == l;
@@ -1455,7 +1529,7 @@
 
       const count = currentFiltered.length;
       const lName = lessonSelect.value === 'all' ? 'Tất cả các bài' : `Bài ${lessonSelect.value}`;
-      const tName = topicSelect.value === 'all' ? 'Tất cả Topic' : topicSelect.value;
+      const tName = getTopicLabel(topicSelect.value);
       document.getElementById('setupDesc').textContent = `Phạm vi: ${lName} • ${tName} (Tổng: ${count} từ vựng)`;
 
       const optAll = document.querySelector('#quizCountSelect option[value="all"]');
