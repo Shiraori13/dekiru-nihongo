@@ -425,7 +425,43 @@
       border-radius: 50%;
     }
 
-    /* QUIZ VIEW */
+    /* QUIZ SETUP & VIEW */
+    .quiz-setup-card {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 36px 30px;
+      box-shadow: var(--shadow-card);
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .setup-title {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .setup-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .setup-group {
+      text-align: left;
+      margin-bottom: 24px;
+    }
+
+    .setup-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      display: block;
+    }
+
     .quiz-box {
       background: var(--surface);
       border: 2px solid var(--border);
@@ -675,7 +711,27 @@
 
     <!-- 2. QUIZ MODE -->
     <div id="quizMode" style="display: none;">
-      <div id="quizBox" class="quiz-box">
+      <!-- Quiz Setup Panel -->
+      <div id="quizSetup" class="quiz-setup-card">
+        <h2 class="setup-title">Thiết lập bài kiểm tra</h2>
+        <p class="setup-desc" id="setupDesc">Phạm vi: Toàn bộ bài học (Tổng: 0 từ vựng)</p>
+
+        <div class="setup-group">
+          <label class="setup-label">Chọn số lượng từ muốn kiểm tra trong 1 lần:</label>
+          <select id="quizCountSelect">
+            <option value="5">5 câu (Kiểm tra nhanh)</option>
+            <option value="10" selected>10 câu</option>
+            <option value="20">20 câu</option>
+            <option value="30">30 câu</option>
+            <option value="all">Kiểm tra TOÀN BỘ từ trong phạm vi này</option>
+          </select>
+        </div>
+
+        <button class="btn-action" style="width: 100%; justify-content: center; background: var(--primary); color: white; border: none; padding: 14px;" onclick="startQuizEngine()">Bắt đầu làm bài</button>
+      </div>
+
+      <!-- Quiz In-Progress -->
+      <div id="quizBox" class="quiz-box" style="display: none;">
         <div class="quiz-top">
           <span id="quizProgress">Câu hỏi 1 / 10</span>
           <span id="quizScore" style="color: var(--primary);">Điểm: 0</span>
@@ -688,11 +744,15 @@
         <div class="options-grid" id="quizOptions"></div>
       </div>
 
+      <!-- Quiz Result -->
       <div id="quizResult" class="result-box" style="display: none;">
         <div class="score-circle" id="finalScore">100%</div>
         <h2 style="margin-bottom: 8px;">Hoàn thành bài kiểm tra!</h2>
         <p style="color: var(--text-muted); margin-bottom: 24px;" id="resultSubtitle">Bạn đã trả lời đúng 10 / 10 câu.</p>
-        <button class="btn-action" style="margin: 0 auto; background: var(--primary); color: white; border: none;" onclick="restartQuiz()">Làm lại bài kiểm tra</button>
+        <div style="display: flex; justify-content: center; gap: 12px;">
+          <button class="btn-action" onclick="showQuizSetup()">⚙️ Cài đặt lại</button>
+          <button class="btn-action" style="background: var(--primary); color: white; border: none;" onclick="startQuizEngine()">🔄 Làm lại bài này</button>
+        </div>
       </div>
     </div>
 
@@ -976,7 +1036,7 @@
       { l: 4, t: "季節・料理", k: "熱い", h: "あつい", m: "Nóng (nhiệt độ đồ vật)" },
       { l: 4, t: "季節・料理", k: "冷たい", h: "つめたい", m: "Lạnh (nhiệt độ đồ vật)" },
       { l: 4, t: "季節・料理", k: "甘い", h: "あまい", m: "Ngọt" },
-      { l: 4, t: "季節・料理", k: "辛い", h: "からい", m: "Cay" },
+      { l: 4, t: "季節・料理", k: "辛い", h: " race ", m: "Cay" },
       { l: 4, t: "季節・料理", k: "苦い", h: "にがい", m: "Đắng" },
       { l: 4, t: "季節・料理", k: "すっぱい", h: "すっぱい", m: "Chua" },
       { l: 4, t: "季節・料理", k: "一年中", h: "いちねんじゅう", m: "Suốt 1 năm, quanh năm" },
@@ -1221,7 +1281,7 @@
       { l: 15, t: "これ、知ってる?", k: "入院します", h: "にゅういんします", m: "Nhập viện" },
       { l: 15, t: "雑誌を見て町へ", k: "急ぎます", h: "いそぎます", m: "Vội vàng, gấp gáp" },
       { l: 15, t: "雑誌を見て町へ", k: "混みます", h: "こみます", m: "Đông đúc, kẹt xe" },
-      { l: 15, t: "雑誌を見て町へ", k: "間に合います", h: "まにあいます", m: "Kịp thời gian" },
+      { l: 15, t: "雑誌を見て町へ", k: "間に合います", h: "まニアいます", m: "Kịp thời gian" },
       { l: 15, t: "雑誌を見て町へ", k: "やみます", h: "やみます", m: "Tạnh (mưa)" },
       { l: 15, t: "雑誌を見て町へ", k: "晴れます", h: "はれます", m: "Trời quang đãng, nắng ráo" },
       { l: 15, t: "町を歩いて", k: "集まります", h: "あつまります", m: "Tập trung lại" },
@@ -1303,7 +1363,7 @@
       document.getElementById('quizMode').style.display = mode === 'quiz' ? 'block' : 'none';
       document.getElementById('listMode').style.display = mode === 'list' ? 'block' : 'none';
 
-      if (mode === 'quiz') startQuiz();
+      if (mode === 'quiz') showQuizSetup();
       else updateUI();
     }
 
@@ -1387,17 +1447,40 @@
       }
     }
 
-    /* QUIZ LOGIC */
-    function startQuiz() {
-      if (currentFiltered.length < 4) {
-        alert('Cần ít nhất 4 từ vựng để tạo bài kiểm tra trắc nghiệm!');
+    /* QUIZ SETUP & LOGIC */
+    function showQuizSetup() {
+      document.getElementById('quizSetup').style.display = 'block';
+      document.getElementById('quizBox').style.display = 'none';
+      document.getElementById('quizResult').style.display = 'none';
+
+      const count = currentFiltered.length;
+      const lName = lessonSelect.value === 'all' ? 'Tất cả các bài' : `Bài ${lessonSelect.value}`;
+      const tName = topicSelect.value === 'all' ? 'Tất cả Topic' : topicSelect.value;
+      document.getElementById('setupDesc').textContent = `Phạm vi: ${lName} • ${tName} (Tổng: ${count} từ vựng)`;
+
+      const optAll = document.querySelector('#quizCountSelect option[value="all"]');
+      optAll.textContent = `Kiểm tra TOÀN BỘ (${count} câu)`;
+    }
+
+    function startQuizEngine() {
+      const total = currentFiltered.length;
+      if (total < 4) {
+        alert('Cần ít nhất 4 từ vựng trong bộ lọc để có thể tạo các đáp án trắc nghiệm!');
         return;
       }
-      quizQuestions = [...currentFiltered].sort(() => Math.random() - 0.5).slice(0, 15);
+
+      const countChoice = document.getElementById('quizCountSelect').value;
+      let qNum = countChoice === 'all' ? total : parseInt(countChoice, 10);
+      if (qNum > total) qNum = total;
+
+      quizQuestions = [...currentFiltered].sort(() => Math.random() - 0.5).slice(0, qNum);
       quizIndex = 0;
       quizScore = 0;
+
+      document.getElementById('quizSetup').style.display = 'none';
       document.getElementById('quizBox').style.display = 'block';
       document.getElementById('quizResult').style.display = 'none';
+
       renderQuizQuestion();
     }
 
@@ -1452,11 +1535,7 @@
       const maxScore = quizQuestions.length * 10;
       const pct = Math.round((quizScore / maxScore) * 100);
       document.getElementById('finalScore').textContent = `${pct}%`;
-      document.getElementById('resultSubtitle').textContent = `Bạn đã đạt ${quizScore} / ${maxScore} điểm.`;
-    }
-
-    function restartQuiz() {
-      startQuiz();
+      document.getElementById('resultSubtitle').textContent = `Bạn đã trả lời đúng ${quizScore / 10} / ${quizQuestions.length} câu.`;
     }
 
     /* LIST VIEW */
@@ -1477,6 +1556,7 @@
     function updateUI() {
       if (currentMode === 'flashcard') updateCardUI();
       else if (currentMode === 'list') renderListView();
+      else if (currentMode === 'quiz') showQuizSetup();
     }
 
     /* THEME TOGGLE */
