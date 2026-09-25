@@ -3,35 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dekiru Nihongo - Flashcard & Quiz Sơ Cấp</title>
+  <title>Dekiru Nihongo - Từ vựng & Luyện đọc Sơ Cấp</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/fonts/NotoSansJP-study.woff2" as="font" type="font/woff2" crossorigin>
   <style>
     :root {
       --primary: #4f46e5;
       --primary-hover: #4338ca;
       --primary-subtle: #eef2ff;
       --primary-glow: rgba(79, 70, 229, 0.15);
-      
+
       --bg: #f8fafc;
       --surface: #ffffff;
       --surface-subtle: #f1f5f9;
       --text: #0f172a;
       --text-muted: #64748b;
       --border: #e2e8f0;
-      
+
       --success: #10b981;
       --success-bg: #ecfdf5;
       --danger: #ef4444;
       --danger-bg: #fef2f2;
       --warning: #f59e0b;
-      
+
       --radius-xl: 24px;
       --radius-lg: 16px;
       --radius-md: 12px;
       --radius-sm: 8px;
-      
+
       --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.05);
       --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.01);
       --shadow-lg: 0 20px 35px -10px rgba(0,0,0,0.08);
@@ -43,17 +44,17 @@
       --primary-hover: #4f46e5;
       --primary-subtle: rgba(99, 102, 241, 0.15);
       --primary-glow: rgba(99, 102, 241, 0.25);
-      
+
       --bg: #0b0f19;
       --surface: #131b2e;
       --surface-subtle: #1e293b;
       --text: #f8fafc;
       --text-muted: #94a3b8;
       --border: #1e293b;
-      
+
       --success-bg: rgba(16, 185, 129, 0.15);
       --danger-bg: rgba(239, 68, 68, 0.15);
-      
+
       --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.4);
       --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.5);
       --shadow-lg: 0 20px 35px -10px rgba(0,0,0,0.6);
@@ -369,7 +370,7 @@
     }
 
     .kanji-text {
-      font-family: 'Zen Maru Gothic', sans-serif;
+      font-family: 'Noto Sans JP', 'Yu Gothic', sans-serif;
       font-size: 46px;
       font-weight: 900;
       letter-spacing: -0.5px;
@@ -505,7 +506,7 @@
     }
 
     .quiz-kanji {
-      font-family: 'Zen Maru Gothic', sans-serif;
+      font-family: 'Noto Sans JP', 'Yu Gothic', sans-serif;
       font-size: 42px;
       font-weight: 900;
       margin-bottom: 4px;
@@ -612,7 +613,7 @@
       border-left: 1px solid var(--border);
       border-top-left-radius: var(--radius-md);
       border-bottom-left-radius: var(--radius-md);
-      font-family: 'Zen Maru Gothic', sans-serif;
+      font-family: 'Noto Sans JP', 'Yu Gothic', sans-serif;
       font-size: 18px;
       font-weight: 700;
     }
@@ -634,6 +635,7 @@
       font-weight: 600;
     }
   </style>
+  <link rel="stylesheet" href="assets/study.css">
 </head>
 <body>
 
@@ -646,9 +648,10 @@
 
       <div class="nav-controls">
         <div class="mode-tabs">
-          <button class="tab-btn active" onclick="switchMode('flashcard')">🗂️ Thẻ ghi nhớ</button>
-          <button class="tab-btn" onclick="switchMode('quiz')">📝 Kiểm tra</button>
-          <button class="tab-btn" onclick="switchMode('list')">📋 Danh sách</button>
+          <button class="tab-btn active" data-mode="flashcard" aria-pressed="true" onclick="switchMode('flashcard')">🗂️ Thẻ ghi nhớ</button>
+          <button class="tab-btn" data-mode="quiz" aria-pressed="false" onclick="switchMode('quiz')">📝 Kiểm tra</button>
+          <button class="tab-btn" data-mode="list" aria-pressed="false" onclick="switchMode('list')">📋 Danh sách</button>
+          <button class="tab-btn" data-mode="reading" aria-pressed="false" onclick="switchMode('reading')">📖 Luyện đọc</button>
         </div>
         <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Đổi chế độ Sáng/Tối (Phím D)">🌙</button>
       </div>
@@ -656,21 +659,23 @@
   </header>
 
   <main>
+    <div class="study-intro" id="vocabIntro"><div><span class="eyebrow">DEKIRU NIHONGO · SƠ CẤP</span><h1>Mỗi từ mới, một bước tiến.</h1><p>15 bài học · 45 chủ đề · Học từ vựng theo cách của bạn.</p></div><span class="intro-stamp" lang="ja" aria-hidden="true">学</span></div>
     <!-- Filter Card -->
-    <div class="filter-card">
-      <select id="lessonSelect" onchange="onLessonChange()">
+    <div class="filter-card" id="vocabFilters">
+      <select aria-label="Chọn bài từ vựng" id="lessonSelect" onchange="onLessonChange()">
         <option value="all">Tất cả các bài (Bài 1 - 15)</option>
       </select>
 
-      <select id="topicSelect" onchange="onFilterChange()">
+      <select aria-label="Chọn chủ đề từ vựng" id="topicSelect" onchange="onFilterChange()">
         <option value="all">Tất cả các chủ đề</option>
       </select>
 
-      <input type="text" id="searchBox" placeholder="Tra cứu Kanji, Kana hoặc tiếng Việt..." oninput="onFilterChange()">
+      <input type="text" aria-label="Tìm từ vựng" id="searchBox" placeholder="Tra cứu Kanji, Kana hoặc tiếng Việt..." oninput="onFilterChange()">
 
       <div id="topicDetail" class="topic-detail">Chủ đề đang chọn: Tất cả các chủ đề</div>
     </div>
 
+    <div class="coverage-line" id="vocabCoverage"><span id="vocabCount" role="status"></span><a href="sources/new-words.pdf" target="_blank" rel="noopener">Danh sách từ vựng gốc ↗</a></div>
     <!-- 1. FLASHCARD MODE -->
     <div id="flashcardMode" class="flashcard-wrapper">
       <div style="width: 100%;">
@@ -683,15 +688,15 @@
         </div>
       </div>
 
-      <div class="flashcard-container" onclick="flipCard()">
+      <div class="flashcard-container" tabindex="0" role="group" aria-label="Thẻ từ vựng. Nhấn Space hoặc Enter để lật thẻ." onclick="flipCard()">
         <div class="flashcard-inner" id="flashcardInner">
           <!-- Mặt trước -->
           <div class="flashcard-face flashcard-front">
             <div class="card-top">
               <span class="badge-topic" id="fcTagFront">Bài 1</span>
               <div class="card-actions" onclick="event.stopPropagation()">
-                <button class="icon-btn" onclick="playAudioCurrent()" title="Nghe phát âm (Phím A)">🔊</button>
-                <button class="icon-btn" id="fcFavBtn" onclick="toggleFavCurrent()" title="Lưu từ yêu thích (Phím S)">★</button>
+                <button class="icon-btn" data-fc-audio onclick="playAudioCurrent()" title="Nghe phát âm (Phím A)">🔊</button>
+                <button class="icon-btn" id="fcFavBtn" aria-pressed="false" onclick="toggleFavCurrent()" title="Lưu từ yêu thích (Phím S)">★</button>
               </div>
             </div>
             <div class="card-center">
@@ -704,7 +709,7 @@
           <div class="flashcard-face flashcard-back">
             <div class="card-top">
               <span class="badge-topic">Ý nghĩa tiếng Việt</span>
-              <button class="icon-btn" onclick="event.stopPropagation(); playAudioCurrent()" title="Nghe phát âm">🔊</button>
+              <button class="icon-btn" data-fc-audio onclick="event.stopPropagation(); playAudioCurrent()" title="Nghe phát âm">🔊</button>
             </div>
             <div class="card-center">
               <div class="meaning-text" id="fcMeaning">Tôi</div>
@@ -715,9 +720,9 @@
       </div>
 
       <div class="controls-row">
-        <button class="btn-action nav-btn" onclick="prevCard()" title="Thẻ trước [←]">←</button>
-        <button class="btn-action" onclick="shuffleCards()">🔀 Xáo trộn</button>
-        <button class="btn-action nav-btn" onclick="nextCard()" title="Thẻ sau [→]">→</button>
+        <button class="btn-action nav-btn" id="fcPrev" onclick="prevCard()" title="Thẻ trước [←]">←</button>
+        <button class="btn-action" id="fcShuffle" onclick="shuffleCards()">🔀 Xáo trộn</button>
+        <button class="btn-action nav-btn" id="fcNext" onclick="nextCard()" title="Thẻ sau [→]">→</button>
       </div>
     </div>
 
@@ -769,553 +774,86 @@
     </div>
 
     <!-- 3. LIST VIEW MODE -->
-    <div id="listMode" style="display: none;">
-      <table class="vocab-table">
+    <div id="listMode" class="list-scroll" style="display: none;">
+      <table class="vocab-table"><caption class="sr-only">Từ vựng trong phạm vi đã chọn</caption><thead><tr><th scope="col">Từ vựng</th><th scope="col">Cách đọc</th><th scope="col">Nghĩa tiếng Việt</th><th scope="col">Nghe</th></tr></thead>
         <tbody id="vocabTableBody"></tbody>
       </table>
     </div>
+    <section id="readingMode" style="display:none" aria-label="Luyện đọc tiếng Nhật">
+      <div class="reading-intro">
+        <div><span class="eyebrow">JPD123 · ĐỌC & NÓI</span><h1>Đọc một chút, tiến bộ mỗi ngày.</h1><p>Chọn bài, bật gợi ý và luyện đọc thành tiếng theo nhịp của bạn.</p></div>
+        <div class="reading-progress"><strong id="readingProgressCount">0 / 71</strong><p>bài đã luyện</p><progress id="readingProgress" value="0" max="71" aria-label="Tiến độ luyện đọc"></progress></div>
+      </div>
+      <div class="reading-layout">
+        <aside class="reading-sidebar" aria-label="Chọn bài luyện đọc">
+          <div class="chooser-head">
+            <h2>Thư viện bài đọc <span aria-hidden="true">↗</span></h2>
+            <div class="chooser-filters">
+              <div><label for="readingLesson">Bài học</label><select id="readingLesson"><option value="all">Tất cả bài</option></select></div>
+              <div><label for="readingKind">Dạng bài</label><select id="readingKind"><option value="all">Tất cả dạng</option><option value="passage">Đoạn văn</option><option value="dialogue">Hội thoại</option><option value="sentences">Câu luyện đọc</option></select></div>
+            </div>
+            <label for="readingSearch">Tìm tên, từ trong bài hoặc số trang</label><input id="readingSearch" type="text" placeholder="Ví dụ: gia đình, 東京, 27…">
+          </div>
+          <p id="readingResultCount" class="chooser-count" role="status"></p>
+          <div id="exerciseList" class="exercise-list"></div>
+        </aside>
+        <div class="reader-column">
+          <div id="readingEmpty" class="reader-card empty-state" hidden><p>Chưa tìm thấy bài phù hợp.</p><button class="small-btn" id="clearReadingFilters" style="margin-top:16px">Xóa bộ lọc</button></div>
+          <div id="readerContent">
+            <article class="reader-card" id="readerArticle">
+              <div class="reader-heading">
+                <div class="reader-meta"><span class="badge-topic" id="readingLessonBadge"></span><span id="readingKindLabel"></span><a id="readingSource" class="source-link" target="_blank" rel="noopener">Trang PDF ↗</a></div>
+                <h2 id="readingTitle" lang="ja" tabindex="-1"></h2><p id="readingSubtitle"></p>
+              </div>
+              <div class="reader-controls" aria-label="Gợi ý và cỡ chữ">
+                <label class="hint-chip"><input type="checkbox" id="hintKanji" checked>Kanji · Furigana</label>
+                <label class="hint-chip"><input type="checkbox" id="hintKatakana" checked>Katakana · Kana</label>
+                <label class="hint-chip"><input type="checkbox" id="hintHiragana">Hiragana · Romaji</label>
+                <label class="size-control" for="readingFontSize">Cỡ chữ <select id="readingFontSize"><option value="22">22</option><option value="26" selected>26</option><option value="30">30</option><option value="34">34</option></select></label>
+              </div>
+              <p class="reader-tip">Chạm vào từ để xem cách đọc và nghĩa. Tắt gợi ý khi bạn muốn tự thử sức.</p>
+              <div id="readingBody" class="reading-text-body show-kanji show-katakana" lang="ja"></div>
+              <div class="reader-footer">
+                <div class="audio-controls"><button class="small-btn primary" id="listenReading">▷ Nghe bài</button><button class="small-btn" id="stopReading" disabled aria-label="Dừng nghe">■ Dừng</button><label class="sr-only" for="readingRate">Tốc độ đọc</label><select id="readingRate" class="audio-rate"><option value="0.65">0,65×</option><option value="0.85" selected>0,85×</option><option value="1">1×</option></select></div>
+                <button class="small-btn" id="completeReading" aria-pressed="false">✓ Đánh dấu đã luyện</button>
+              </div>
+              <p class="audio-status" id="readingAudioStatus" role="status">Giọng đọc tiếng Nhật của thiết bị.</p>
+            </article>
+            <div class="reader-navigation"><button class="small-btn" id="previousReading">← Bài trước</button><span id="readingPosition"></span><button class="small-btn" id="nextReading">Bài tiếp →</button></div>
+            <div class="word-detail" id="wordDetail" hidden role="dialog" aria-modal="false" aria-label="Giải nghĩa từ đang chọn" lang="vi" tabindex="-1"></div>
+            <section class="glossary-card" aria-labelledby="glossaryTitle">
+              <div class="glossary-heading"><h3 id="glossaryTitle">Từ vựng trong bài <span id="glossaryCount"></span></h3><label class="sr-only" for="glossaryFilter">Loại từ trong bài</label><select id="glossaryFilter"><option value="words">Từ & cụm từ</option><option value="all">Tất cả, gồm trợ từ</option><option value="kanji">Kanji</option><option value="katakana">Katakana</option><option value="hiragana">Hiragana</option></select></div>
+              <p class="glossary-desc">Theo thứ tự xuất hiện · Mỗi từ hiển thị một lần · Có cách đọc và nghĩa tiếng Việt.</p><div id="readingGlossary" class="glossary-grid"></div>
+            </section>
+            <details class="pronunciation-note"><summary>Mẹo đọc Kanji, Katakana và Hiragana</summary><p><strong>Kanji:</strong> đọc theo furigana phía trên. Chú ý số đếm: 4時 → よじ, 9時 → くじ, 1つ → ひとつ.</p><p><strong>Katakana:</strong> ー kéo dài âm trước (コーヒー); ッ ngắt một nhịp (サッカー); ャ・ュ・ョ nhỏ ghép với âm trước. Gợi ý kana giữ dấu ー để bạn thấy trường âm.</p><p><strong>Hiragana:</strong> は đọc <em>wa</em> khi là trợ từ, へ đọc <em>e</em>, を đọc <em>o</em>. っ ngắt một nhịp; ゃ・ゅ・ょ nhỏ là âm ghép. Romaji chỉ hỗ trợ bước đầu, hãy tập đọc trực tiếp kana.</p></details>
+          </div>
+        </div>
+      </div>
+      <p class="study-footer">Nguồn: Ôn speaking JPD123 – SV luyện đọc · 7 đoạn văn và 64 bài hội thoại/câu luyện đọc.<br>Tiến độ được lưu trên trình duyệt này.</p>
+    </section>
+
   </main>
 
+  <script src="data/vocabulary.js"></script>
   <script>
-    // TOÀN BỘ TỪ VỰNG TÁCH RỜI TỪNG THẺ 100% TỪ DEKIRU NIHONGO SƠ CẤP
-    const RAW_VOCAB = [
-      // Bài 1 - Topic 1
-      { l: 1, t: "私の名前・国・仕事", k: "私", h: "わたし", m: "Tôi" },
-      { l: 1, t: "私の名前・国・仕事", k: "(お)名前", h: "(お)なまえ", m: "Tên (của bạn)" },
-      { l: 1, t: "私の名前・国・仕事", k: "(お)国", h: "(お)くに", m: "Đất nước (của bạn)" },
-      { l: 1, t: "私の名前・国・仕事", k: "日本", h: "にほん", m: "Nhật Bản" },
-      { l: 1, t: "私の名前・国・仕事", k: "韓国", h: "かんこく", m: "Hàn Quốc" },
-      { l: 1, t: "私の名前・国・仕事", k: "中国", h: "ちゅうごく", m: "Trung Quốc" },
-      { l: 1, t: "私の名前・国・仕事", k: "アメリカ", h: "アメリカ", m: "Nước Mỹ" },
-      { l: 1, t: "私の名前・国・仕事", k: "イタリア", h: "イタリア", m: "Nước Ý" },
-      { l: 1, t: "私の名前・国・仕事", k: "オーストラリア", h: "オーストラリア", m: "Nước Úc" },
-      { l: 1, t: "私の名前・国・仕事", k: "ロシア", h: "ロシア", m: "Nước Nga" },
-      { l: 1, t: "私の名前・国・仕事", k: "タイ", h: "タイ", m: "Thái Lan" },
-      { l: 1, t: "私の名前・国・仕事", k: "高校", h: "こうこう", m: "Trường cấp 3 (THPT)" },
-      { l: 1, t: "私の名前・国・仕事", k: "大学", h: "だいがく", m: "Trường đại học" },
-      { l: 1, t: "私の名前・国・仕事", k: "日本語学校", h: "にほんごがっこう", m: "Trường tiếng Nhật" },
-      { l: 1, t: "私の名前・国・仕事", k: "(お)仕事", h: "(お)しごと", m: "Công việc (của bạn)" },
-      { l: 1, t: "私の名前・国・仕事", k: "学生", h: "がくせい", m: "Học sinh, sinh viên" },
-      { l: 1, t: "私の名前・国・仕事", k: "先生", h: "せんせい", m: "Thầy/Cô giáo" },
-      { l: 1, t: "私の名前・国・仕事", k: "教師", h: "きょうし", m: "Giáo viên" },
-      { l: 1, t: "私の名前・国・仕事", k: "会社員", h: "かいしゃいん", m: "Nhân viên văn phòng" },
-      { l: 1, t: "私の名前・国・仕事", k: "社員", h: "しゃいん", m: "Nhân viên (của 1 cty)" },
-      { l: 1, t: "私の名前・国・仕事", k: "～さん", h: "～さん", m: "Anh/Chị/Ông/Bà/Bạn ~" },
-      { l: 1, t: "私の名前・国・仕事", k: "～人", h: "～じん", m: "Người (nước ~)" },
-      { l: 1, t: "私の名前・国・仕事", k: "～語", h: "～ご", m: "Tiếng (nước ~)" },
-      { l: 1, t: "私の名前・国・仕事", k: "どちら", h: "どちら", m: "Ở đâu / Phía nào" },
-      { l: 1, t: "私の名前・国・仕事", k: "お国はどちらですか", h: "おくにはどちらですか", m: "Đất nước của bạn là nước nào?" },
-      { l: 1, t: "私の名前・国・仕事", k: "はじめまして", h: "はじめまして", m: "Xin chào (lần đầu gặp)" },
-      { l: 1, t: "私の名前・国・仕事", k: "よろしくお願いします", h: "よろしくおねがいします", m: "Rất mong được giúp đỡ" },
-      { l: 1, t: "私の名前・国・仕事", k: "こちらこそ", h: "こちらこそ", m: "Chính tôi mới cần giúp đỡ" },
-      { l: 1, t: "私の名前・国・仕事", k: "あのう", h: "あのう", m: "Anh/Chị ơi..." },
-      { l: 1, t: "私の名前・国・仕事", k: "すみません", h: "すみません", m: "Xin lỗi..." },
-      { l: 1, t: "私の名前・国・仕事", k: "そうですか", h: "そうですか", m: "Thế à!" },
+    function safeGet(key, fallback) { try { return localStorage.getItem(key) || fallback; } catch { return fallback; } }
+    function safeSet(key, value) { try { localStorage.setItem(key, value); } catch {} }
+    function readFavorites() { try { const value = JSON.parse(safeGet('dekiru_favs_v2', '[]')); return Array.isArray(value) ? value.filter(x => typeof x === 'string') : []; } catch { return []; } }
+    function escapeHTML(value) { const span = document.createElement('span'); span.textContent = String(value); return span.innerHTML.replace(/"/g, '&quot;').replace(/'/g, '&#39;'); }
 
-      // Bài 1 - Topic 2
-      { l: 1, t: "私の誕生日", k: "誕生日", h: "たんじょうび", m: "Ngày sinh nhật" },
-      { l: 1, t: "私の誕生日", k: "ブラジル", h: "ブラジル", m: "Brazil" },
-      { l: 1, t: "私の誕生日", k: "～月", h: "～がつ", m: "Tháng ~" },
-      { l: 1, t: "私の誕生日", k: "～日", h: "～にち / ～か", m: "Ngày (mùng) ~" },
-      { l: 1, t: "私の誕生日", k: "～歳", h: "～さい", m: "~ tuổi" },
-      { l: 1, t: "私の誕生日", k: "いつ", h: "いつ", m: "Khi nào / Lúc nào" },
-
-      // Bài 1 - Topic 3
-      { l: 1, t: "私の趣味", k: "趣味", h: "しゅみ", m: "Sở thích" },
-      { l: 1, t: "私の趣味", k: "スポーツ", h: "スポーツ", m: "Thể thao" },
-      { l: 1, t: "私の趣味", k: "サッカー", h: "サッカー", m: "Bóng đá" },
-      { l: 1, t: "私の趣味", k: "テニス", h: "テニス", m: "Quần vợt (Tennis)" },
-      { l: 1, t: "私の趣味", k: "水泳", h: "すいえい", m: "Bơi lội" },
-      { l: 1, t: "私の趣味", k: "音楽", h: "おんがく", m: "Âm nhạc" },
-      { l: 1, t: "私の趣味", k: "読書", h: "どくしょ", m: "Đọc sách" },
-      { l: 1, t: "私の趣味", k: "旅行", h: "りょこう", m: "Du lịch" },
-      { l: 1, t: "私の趣味", k: "料理", h: "りょうり", m: "Nấu ăn / Món ăn" },
-      { l: 1, t: "私の趣味", k: "何", h: "なん / なに", m: "Cái gì" },
-      { l: 1, t: "私の趣味", k: "あっ", h: "あっ", m: "A! / Á!" },
-
-      // Bài 2 - Topic 1
-      { l: 2, t: "どこですか", k: "ここ", h: "ここ", m: "Chỗ này, đây" },
-      { l: 2, t: "どこですか", k: "こちら", h: "こちら", m: "Phía này (lịch sự)" },
-      { l: 2, t: "どこですか", k: "そこ", h: "そこ", m: "Chỗ đó, đó" },
-      { l: 2, t: "どこですか", k: "そちら", h: "そちら", m: "Phía đó (lịch sự)" },
-      { l: 2, t: "どこですか", k: "あそこ", h: "あそこ", m: "Chỗ kia, kia" },
-      { l: 2, t: "どこですか", k: "あちら", h: "あちら", m: "Phía kia (lịch sự)" },
-      { l: 2, t: "どこですか", k: "インフォメーション", h: "インフォメーション", m: "Quầy thông tin" },
-      { l: 2, t: "どこですか", k: "ATM", h: "エーティーエム", m: "Máy rút tiền tự động" },
-      { l: 2, t: "どこですか", k: "エスカレーター", h: "エスカレーター", m: "Thang cuốn" },
-      { l: 2, t: "どこですか", k: "エレベーター", h: "エレベーター", m: "Thang máy" },
-      { l: 2, t: "どこですか", k: "喫煙所", h: "きつえんじょ", m: "Nơi hút thuốc" },
-      { l: 2, t: "どこですか", k: "トイレ", h: "トイレ", m: "Nhà vệ sinh" },
-      { l: 2, t: "どこですか", k: "レジ", h: "レジ", m: "Quầy thu ngân" },
-      { l: 2, t: "どこですか", k: "喫茶店", h: "きっさてん", m: "Quán giải khát" },
-      { l: 2, t: "どこですか", k: "スーパー", h: "スーパー", m: "Siêu thị" },
-      { l: 2, t: "どこですか", k: "100円ショップ", h: "ひゃくえんショップ", m: "Cửa hàng 100 Yên" },
-      { l: 2, t: "どこですか", k: "レストラン", h: "レストラン", m: "Nhà hàng, quán ăn" },
-      { l: 2, t: "どこですか", k: "地下", h: "ちか", m: "Ngầm, dưới lòng đất" },
-      { l: 2, t: "どこですか", k: "カメラ", h: "カメラ", m: "Máy ảnh" },
-      { l: 2, t: "どこですか", k: "携帯電話", h: "けいたいでんわ", m: "Điện thoại di động" },
-      { l: 2, t: "どこですか", k: "電子辞書", h: "でんしじしょ", m: "Từ điển điện tử" },
-      { l: 2, t: "どこですか", k: "パソコン", h: "パソコン", m: "Máy tính cá nhân" },
-      { l: 2, t: "どこですか", k: "靴", h: "くつ", m: "Giày, đôi giày" },
-      { l: 2, t: "どこですか", k: "消しゴム", h: "けしごむ", m: "Cục tẩy" },
-      { l: 2, t: "どこですか", k: "ペン", h: "ペン", m: "Cây bút" },
-      { l: 2, t: "どこですか", k: "トイレットペーパー", h: "トイレットペーパー", m: "Giấy vệ sinh" },
-      { l: 2, t: "どこですか", k: "本", h: "ほん", m: "Sách" },
-      { l: 2, t: "どこですか", k: "油", h: "あぶら", m: "Dầu ăn" },
-      { l: 2, t: "どこですか", k: "ケーキ", h: "ケーキ", m: "Bánh ngọt" },
-      { l: 2, t: "どこですか", k: "米", h: "こめ", m: "Gạo" },
-      { l: 2, t: "どこですか", k: "卵", h: "たまご", m: "Trứng" },
-      { l: 2, t: "どこですか", k: "パン", h: "パン", m: "Bánh mì" },
-      { l: 2, t: "どこですか", k: "水", h: "みず", m: "Nước" },
-      { l: 2, t: "どこですか", k: "店員", h: "てんいん", m: "Nhân viên bán hàng" },
-      { l: 2, t: "どこですか", k: "～階", h: "～かい / ～がい", m: "Tầng ~" },
-      { l: 2, t: "どこですか", k: "～屋", h: "～や", m: "Cửa hàng ~, Hiệu ~" },
-      { l: 2, t: "どこですか", k: "いらっしゃいませ", h: "いらっしゃいませ", m: "Kính chào quý khách" },
-
-      // Bài 2 - Topic 2
-      { l: 2, t: "いくらですか", k: "これ", h: "これ", m: "Cái này" },
-      { l: 2, t: "いくらですか", k: "それ", h: "それ", m: "Cái đó" },
-      { l: 2, t: "いくらですか", k: "あれ", h: "あれ", m: "Cái kia" },
-      { l: 2, t: "いくらですか", k: "どれ", h: "どれ", m: "Cái nào" },
-      { l: 2, t: "いくらですか", k: "この～", h: "この～", m: "~ này" },
-      { l: 2, t: "いくらですか", k: "その～", h: "その～", m: "~ đó" },
-      { l: 2, t: "いくらですか", k: "あの～", h: "あの～", m: "~ kia" },
-      { l: 2, t: "いくらですか", k: "どの～", h: "どの～", m: "~ nào" },
-      { l: 2, t: "いくらですか", k: "かばん", h: "かばん", m: "Cặp, túi xách" },
-      { l: 2, t: "いくらですか", k: "ズボン", h: "ズボン", m: "Quần dài" },
-      { l: 2, t: "いくらですか", k: "Tシャツ", h: "ティーシャツ", m: "Áo phông" },
-      { l: 2, t: "いくらですか", k: "時計", h: "とけい", m: "Đồng hồ" },
-      { l: 2, t: "いくらですか", k: "～円", h: "～えん", m: "~ Yên" },
-      { l: 2, t: "いくらですか", k: "いくら", h: "いくら", m: "Bao nhiêu tiền" },
-      { l: 2, t: "いくらですか", k: "じゃ", h: "じゃ", m: "Thế thì / Vậy thì" },
-
-      // Bài 2 - Topic 3
-      { l: 2, t: "レストラン", k: "魚", h: "さかな", m: "Cá" },
-      { l: 2, t: "レストラン", k: "肉", h: "にく", m: "Thịt" },
-      { l: 2, t: "レストラン", k: "牛肉", h: "ぎゅうにく", m: "Thịt bò" },
-      { l: 2, t: "レストラン", k: "豚肉", h: "ぶたにく", m: "Thịt lợn (heo)" },
-      { l: 2, t: "レストラン", k: "野菜", h: "やさい", m: "Rau" },
-      { l: 2, t: "レストラン", k: "いちご", h: "いちご", m: "Quả dâu" },
-      { l: 2, t: "レストラン", k: "りんご", h: "りんご", m: "Quả táo" },
-      { l: 2, t: "レストラン", k: "カレー", h: "カレー", m: "Món cà-ri" },
-      { l: 2, t: "レストラン", k: "スープ", h: "スープ", m: "Món canh, súp" },
-      { l: 2, t: "レストラン", k: "とんかつ", h: "とんかつ", m: "Thịt heo chiên xù" },
-      { l: 2, t: "レストラン", k: "ハンバーグ", h: "ハンバーグ", m: "Thịt bò băm viên" },
-      { l: 2, t: "レストラン", k: "ご飯", h: "ごはん", m: "Cơm" },
-      { l: 2, t: "レストラン", k: "ライス", h: "ライス", m: "Cơm (suất Tây)" },
-      { l: 2, t: "レストラン", k: "ジュース", h: "ジュース", m: "Nước ngọt / hoa quả" },
-      { l: 2, t: "レストラン", k: "コーヒー", h: "コーヒー", m: "Cà phê" },
-      { l: 2, t: "レストラン", k: "紅茶", h: "こうちゃ", m: "Trà đen" },
-      { l: 2, t: "レストラン", k: "(お)茶", h: "(お)ちゃ", m: "Trà xanh" },
-      { l: 2, t: "レストラン", k: "ビール", h: "ビール", m: "Bia" },
-      { l: 2, t: "レストラン", k: "ワイン", h: "ワイン", m: "Rượu vang" },
-      { l: 2, t: "レストラン", k: "財布", h: "さいふ", m: "Cái ví" },
-      { l: 2, t: "レストラン", k: "英語", h: "えいご", m: "Tiếng Anh" },
-      { l: 2, t: "レストラン", k: "～つ", h: "～つ", m: "~ cái, chiếc" },
-      { l: 2, t: "レストラン", k: "だれ", h: "だれ", m: "Ai" },
-      { l: 2, t: "レストラン", k: "注文をお願いします", h: "ちゅうもんをおねがいします", m: "Cho tôi gọi món" },
-      { l: 2, t: "レストラン", k: "どうぞ", h: "どうぞ", m: "Xin mời" },
-
-      // Bài 3 - Topic 1
-      { l: 3, t: "何時までですか", k: "今", h: "いま", m: "Bây giờ" },
-      { l: 3, t: "何時までですか", k: "午前", h: "ごぜん", m: "Buổi sáng (AM)" },
-      { l: 3, t: "何時までですか", k: "午後", h: "ごご", m: "Buổi chiều (PM)" },
-      { l: 3, t: "何時までですか", k: "昼", h: "ひる", m: "Buổi trưa" },
-      { l: 3, t: "何時までですか", k: "銀行", h: "ぎんこう", m: "Ngân hàng" },
-      { l: 3, t: "何時までですか", k: "体育館", h: "たいいくかん", m: "Nhà tập thể dục" },
-      { l: 3, t: "何時までですか", k: "図書館", h: "としょかん", m: "Thư viện" },
-      { l: 3, t: "何時までですか", k: "病院", h: "びょういん", m: "Bệnh viện" },
-      { l: 3, t: "何時までですか", k: "郵便局", h: "ゆうびんきょく", m: "Bưu điện" },
-      { l: 3, t: "何時までですか", k: "授業", h: "じゅぎょう", m: "Giờ học" },
-      { l: 3, t: "何時までですか", k: "テスト", h: "テスト", m: "Bài kiểm tra" },
-      { l: 3, t: "何時までですか", k: "休み", h: "やすみ", m: "Nghỉ ngơi / Ngày nghỉ" },
-      { l: 3, t: "何時までですか", k: "時間", h: "じかん", m: "Thời gian" },
-      { l: 3, t: "何時までですか", k: "～時", h: "～じ", m: "~ giờ" },
-      { l: 3, t: "何時までですか", k: "～分", h: "～ふん", m: "~ phút" },
-      { l: 3, t: "何時までですか", k: "～時半", h: "～じはん", m: "~ giờ rưỡi" },
-      { l: 3, t: "何時までですか", k: "～曜日", h: "～ようび", m: "Thứ ~" },
-
-      // Bài 3 - Topic 2
-      { l: 3, t: "私のスケジュール", k: "スケジュール", h: "スケジュール", m: "Lịch trình" },
-      { l: 3, t: "私のスケジュール", k: "アルバイト", h: "アルバイト", m: "Việc làm thêm" },
-      { l: 3, t: "私のスケジュール", k: "スキー", h: "スキー", m: "Trượt tuyết" },
-      { l: 3, t: "私のスケジュール", k: "パーティー", h: "パーティー", m: "Bữa tiệc" },
-      { l: 3, t: "私のスケジュール", k: "バーベキュー", h: "バーベキュー", m: "Tiệc nướng BBQ" },
-      { l: 3, t: "私のスケジュール", k: "花火", h: "はなび", m: "Pháo hoa" },
-      { l: 3, t: "私のスケジュール", k: "(お)花見", h: "(お)はなみ", m: "Ngắm hoa anh đào" },
-      { l: 3, t: "私のスケジュール", k: "ホームステイ", h: "ホームステイ", m: "Ở trọ cùng dân bản địa" },
-      { l: 3, t: "私のスケジュール", k: "(お)祭り", h: "(お)まつり", m: "Lễ hội" },
-      { l: 3, t: "私のスケジュール", k: "海", h: "うみ", m: "Biển" },
-      { l: 3, t: "私のスケジュール", k: "公園", h: "こうえん", m: "Công viên" },
-      { l: 3, t: "私のスケジュール", k: "桜", h: "さくら", m: "Hoa anh đào" },
-      { l: 3, t: "私のスケジュール", k: "(お)酒", h: "(お)さけ", m: "Rượu Nhật" },
-      { l: 3, t: "私のスケジュール", k: "(お)すし", h: "(お)すし", m: "Món Sushi" },
-      { l: 3, t: "私のスケジュール", k: "バス", h: "バス", m: "Xe buýt" },
-      { l: 3, t: "私のスケジュール", k: "(お)弁当", h: "(お)べんとう", m: "Cơm hộp" },
-      { l: 3, t: "私のスケジュール", k: "1年", h: "いちねん", m: "1 năm" },
-      { l: 3, t: "私のスケジュール", k: "春", h: "はる", m: "Mùa xuân" },
-      { l: 3, t: "私のスケジュール", k: "夏", h: "なつ", m: "Mùa hè" },
-      { l: 3, t: "私のスケジュール", k: "秋", h: "あき", m: "Mùa thu" },
-      { l: 3, t: "私のスケジュール", k: "冬", h: "ふゆ", m: "Mùa đông" },
-      { l: 3, t: "私のスケジュール", k: "ゴールデンウイーク", h: "ゴールデンウイーク", m: "Tuần lễ vàng" },
-      { l: 3, t: "私のスケジュール", k: "行きます", h: "いきます", m: "Đi" },
-      { l: 3, t: "私のスケジュール", k: "帰ります", h: "かえります", m: "Về, trở về" },
-      { l: 3, t: "私のスケジュール", k: "飲みます", h: "のみます", m: "Uống" },
-      { l: 3, t: "私のスケジュール", k: "食べます", h: "たべます", m: "Ăn" },
-      { l: 3, t: "私のスケジュール", k: "見ます", h: "みます", m: "Xem, nhìn" },
-      { l: 3, t: "私のスケジュール", k: "します", h: "します", m: "Làm, chơi" },
-      { l: 3, t: "私のスケジュール", k: "いいですね", h: "いいですね", m: "Hay quá nhỉ!" },
-      { l: 3, t: "私のスケジュール", k: "えっ", h: "えっ", m: "Ơ / Hả" },
-      { l: 3, t: "私のスケジュール", k: "へえ", h: "へえ", m: "Chà / Wow" },
-
-      // Bài 3 - Topic 3
-      { l: 3, t: "どんな毎日?", k: "朝", h: "あさ", m: "Buổi sáng" },
-      { l: 3, t: "どんな毎日?", k: "夜", h: "よる", m: "Buổi tối, đêm" },
-      { l: 3, t: "どんな毎日?", k: "毎日", h: "まいにち", m: "Hàng ngày" },
-      { l: 3, t: "どんな毎日?", k: "毎朝", h: "まいあさ", m: "Mỗi sáng" },
-      { l: 3, t: "どんな毎日?", k: "毎晩", h: "まいばん", m: "Mỗi tối" },
-      { l: 3, t: "どんな毎日?", k: "朝ご飯", h: "あさごはん", m: "Bữa sáng" },
-      { l: 3, t: "どんな毎日?", k: "昼ごはん", h: "ひるごはん", m: "Bữa trưa" },
-      { l: 3, t: "どんな毎日?", k: "家", h: "うち", m: "Nhà, ngôi nhà" },
-      { l: 3, t: "どんな毎日?", k: "会社", h: "かいしゃ", m: "Công ty" },
-      { l: 3, t: "どんな毎日?", k: "学校", h: "がっこう", m: "Trường học" },
-      { l: 3, t: "どんな毎日?", k: "コンビニ", h: "コンビニ", m: "Cửa hàng tiện lợi" },
-      { l: 3, t: "どんな毎日?", k: "牛乳", h: "ぎゅうにゅう", m: "Sữa bò" },
-      { l: 3, t: "どんな毎日?", k: "果物", h: "くだもの", m: "Trái cây, hoa quả" },
-      { l: 3, t: "どんな毎日?", k: "サラダ", h: "サラダ", m: "Salad" },
-      { l: 3, t: "どんな毎日?", k: "チーズ", h: "チーズ", m: "Pho-mát" },
-      { l: 3, t: "どんな毎日?", k: "インターネット", h: "インターネット", m: "Mạng Internet" },
-      { l: 3, t: "どんな毎日?", k: "新聞", h: "しんぶん", m: "Tờ báo" },
-      { l: 3, t: "どんな毎日?", k: "テレビ", h: "テレビ", m: "Ti-vi" },
-      { l: 3, t: "どんな毎日?", k: "買います", h: "かいます", m: "Mua" },
-      { l: 3, t: "どんな毎日?", k: "聞きます", h: "ききます", m: "Nghe" },
-      { l: 3, t: "どんな毎日?", k: "働きます", h: "はたらきます", m: "Làm việc" },
-      { l: 3, t: "どんな毎日?", k: "読みます", h: "よみます", m: "Đọc" },
-      { l: 3, t: "どんな毎日?", k: "寝ます", h: "ねます", m: "Ngủ" },
-      { l: 3, t: "どんな毎日?", k: "勉強します", h: "べんきょうします", m: "Học tập" },
-      { l: 3, t: "どんな毎日?", k: "来ます", h: "きます", m: "Đến, tới" },
-
-      // Bài 4 - Topic 1
-      { l: 4, t: "どこ?", k: "北", h: "きた", m: "Phía bắc" },
-      { l: 4, t: "どこ?", k: "南", h: "みなみ", m: "Phía nam" },
-      { l: 4, t: "どこ?", k: "東", h: "ひがし", m: "Phía đông" },
-      { l: 4, t: "どこ?", k: "西", h: "にし", m: "Phía tây" },
-      { l: 4, t: "どこ?", k: "真ん中", h: "まんなか", m: "Chính giữa, trung tâm" },
-      { l: 4, t: "どこ?", k: "車", h: "くるま", m: "Xe ô tô" },
-      { l: 4, t: "どこ?", k: "新幹線", h: "しんかんせん", m: "Tàu siêu tốc Shinkansen" },
-      { l: 4, t: "どこ?", k: "電車", h: "でんしゃ", m: "Tàu điện" },
-      { l: 4, t: "どこ?", k: "飛行機", h: "ひこうき", m: "Máy bay" },
-      { l: 4, t: "どこ?", k: "駅", h: "えき", m: "Nhà ga" },
-      { l: 4, t: "どこ?", k: "町", h: "まち", m: "Thành phố, thị trấn" },
-      { l: 4, t: "どこ?", k: "～時間", h: "～じかん", m: "~ tiếng đồng hồ" },
-      { l: 4, t: "どこ?", k: "歩いて", h: "あるいて", m: "Đi bộ" },
-      { l: 4, t: "どこ?", k: "どのくらい", h: "どのくらい", m: "Bao lâu / Cỡ nào" },
-
-      // Bài 4 - Topic 2
-      { l: 4, t: "どんなところ?", k: "温泉", h: "おんせん", m: "Suối nước nóng" },
-      { l: 4, t: "どんなところ?", k: "川", h: "かわ", m: "Con sông" },
-      { l: 4, t: "どんなところ?", k: "山", h: "やま", m: "Ngọn núi" },
-      { l: 4, t: "どんなところ?", k: "教会", h: "きょうかい", m: "Nhà thờ" },
-      { l: 4, t: "どんなところ?", k: "(お)城", h: "おしろ", m: "Lâu đài" },
-      { l: 4, t: "どんなところ?", k: "神社", h: "じんじゃ", m: "Đền thần đạo" },
-      { l: 4, t: "どんなところ?", k: "(お)寺", h: "おてら", m: "Chùa" },
-      { l: 4, t: "どんなところ?", k: "ビル", h: "ビル", m: "Tòa nhà cao tầng" },
-      { l: 4, t: "どんなところ?", k: "人", h: "ひと", m: "Người" },
-      { l: 4, t: "どんなところ?", k: "緑", h: "みどり", m: "Cây xanh" },
-      { l: 4, t: "どんなところ?", k: "あります", h: "あります", m: "Có (đồ vật)" },
-      { l: 4, t: "どんなところ?", k: "新しい", h: "あたらしい", m: "Mới" },
-      { l: 4, t: "どんなところ?", k: "古い", h: "ふるい", m: "Cũ" },
-      { l: 4, t: "どんなところ?", k: "いい", h: "いい", m: "Tốt" },
-      { l: 4, t: "どんなところ?", k: "多い", h: "おおい", m: "Nhiều" },
-      { l: 4, t: "どんなところ?", k: "少ない", h: "すくない", m: "Ít" },
-      { l: 4, t: "どんなところ?", k: "大きい", h: "おおきい", m: "To, lớn" },
-      { l: 4, t: "どんなところ?", k: "小さい", h: "ちいさい", m: "Nhỏ, bé" },
-      { l: 4, t: "どんなところ?", k: "高い", h: "たかい", m: "Cao / Đắt" },
-      { l: 4, t: "どんなところ?", k: "低い", h: "ひくい", m: "Thấp" },
-      { l: 4, t: "どんなところ?", k: "きれい(な)", h: "きれい(な)", m: "Đẹp / Sạch sẽ" },
-      { l: 4, t: "どんなところ?", k: "静か(な)", h: "しずか(な)", m: "Yên tĩnh" },
-      { l: 4, t: "どんなところ?", k: "にぎやか(な)", h: "にぎやか(な)", m: "Náo nhiệt, nhộn nhịp" },
-      { l: 4, t: "どんなところ?", k: "有名(な)", h: "ゆうめい(な)", m: "Nổi tiếng" },
-
-      // Bài 4 - Topic 3
-      { l: 4, t: "季節・料理", k: "雨", h: "あめ", m: "Mưa" },
-      { l: 4, t: "季節・料理", k: "雪", h: "ゆき", m: "Tuyết" },
-      { l: 4, t: "季節・料理", k: "暖かい", h: "あたたかい", m: "Ấm áp (thời tiết)" },
-      { l: 4, t: "季節・料理", k: "涼しい", h: "すずしい", m: "Mát mẻ" },
-      { l: 4, t: "季節・料理", k: "暑い", h: "あつい", m: "Nóng bức (thời tiết)" },
-      { l: 4, t: "季節・料理", k: "寒い", h: "さむい", m: "Lạnh rét (thời tiết)" },
-      { l: 4, t: "季節・料理", k: "温かい", h: "あたたかい", m: "Ấm (nhiệt độ đồ ăn/uống)" },
-      { l: 4, t: "季節・料理", k: "熱い", h: "あつい", m: "Nóng (nhiệt độ đồ vật)" },
-      { l: 4, t: "季節・料理", k: "冷たい", h: "つめたい", m: "Lạnh (nhiệt độ đồ vật)" },
-      { l: 4, t: "季節・料理", k: "甘い", h: "あまい", m: "Ngọt" },
-      { l: 4, t: "季節・料理", k: "辛い", h: "からい", m: "Cay" },
-      { l: 4, t: "季節・料理", k: "苦い", h: "にがい", m: "Đắng" },
-      { l: 4, t: "季節・料理", k: "すっぱい", h: "すっぱい", m: "Chua" },
-      { l: 4, t: "季節・料理", k: "一年中", h: "いちねんじゅう", m: "Suốt 1 năm, quanh năm" },
-
-      // Bài 5 - Topic 1
-      { l: 5, t: "週末", k: "今日", h: "きょう", m: "Hôm nay" },
-      { l: 5, t: "週末", k: "明日", h: "あした", m: "Ngày mai" },
-      { l: 5, t: "週末", k: "あさって", h: "あさって", m: "Ngày kia" },
-      { l: 5, t: "週末", k: "昨日", h: "きのう", m: "Hôm qua" },
-      { l: 5, t: "週末", k: "おととい", h: "おととい", m: "Hôm kia" },
-      { l: 5, t: "週末", k: "先週", h: "せんしゅう", m: "Tuần trước" },
-      { l: 5, t: "週末", k: "週末", h: "しゅうまつ", m: "Cuối tuần" },
-      { l: 5, t: "週末", k: "部屋", h: "へや", m: "Căn phòng" },
-      { l: 5, t: "週末", k: "家族", h: "かぞく", m: "Gia đình" },
-      { l: 5, t: "週末", k: "恋人", h: "こいびと", m: "Người yêu" },
-      { l: 5, t: "週末", k: "友達", h: "ともだち", m: "Bạn bè" },
-      { l: 5, t: "週末", k: "会います", h: "あいます", m: "Gặp gỡ" },
-      { l: 5, t: "週末", k: "買い物します", h: "かいものします", m: "Mua sắm" },
-      { l: 5, t: "週末", k: "洗濯します", h: "せんたくします", m: "Giặt giũ" },
-      { l: 5, t: "週末", k: "掃除します", h: "そうじします", m: "Lau dọn nhà" },
-
-      // Bài 5 - Topic 2
-      { l: 5, t: "休みの後で", k: "今朝", h: "けさ", m: "Sáng nay" },
-      { l: 5, t: "休みの後で", k: "先月", h: "せんげつ", m: "Tháng trước" },
-      { l: 5, t: "休みの後で", k: "去年", h: "きょねん", m: "Năm ngoái" },
-      { l: 5, t: "休みの後で", k: "風邪", h: "かぜ", m: "Cảm cúm" },
-      { l: 5, t: "休みの後で", k: "登ります", h: "のぼります", m: "Leo núi" },
-      { l: 5, t: "休みの後で", k: "忙しい", h: "いそがしい", m: "Bận rộn" },
-      { l: 5, t: "休みの後で", k: "気持ちがいい", h: "きもちがいい", m: "Sảng khoái, dễ chịu" },
-      { l: 5, t: "休みの後で", k: "安い", h: "やすい", m: "Rẻ" },
-      { l: 5, t: "休みの後で", k: "楽しい", h: "たのしい", m: "Vui vẻ" },
-      { l: 5, t: "休みの後で", k: "難しい", h: "むずかしい", m: "Khó" },
-      { l: 5, t: "休みの後で", k: "簡単(な)", h: "かんたん(な)", m: "Dễ, đơn giản" },
-      { l: 5, t: "休みの後で", k: "大変(な)", h: "たいへん(な)", m: "Vất vả" },
-      { l: 5, t: "休みの後で", k: "暇(な)", h: "ひま(な)", m: "Rảnh rỗi" },
-
-      // Bài 5 - Topic 3
-      { l: 5, t: "今度の休みに", k: "写真", h: "しゃしん", m: "Bức ảnh" },
-      { l: 5, t: "今度の休みに", k: "撮ります", h: "とります", m: "Chụp (ảnh)" },
-      { l: 5, t: "今度の休みに", k: "借ります", h: "かります", m: "Vay, mượn" },
-      { l: 5, t: "今度の休みに", k: "ほしい", h: "ほしい", m: "Muốn có" },
-      { l: 5, t: "今度の休みに", k: "好き(な)", h: "すき(な)", m: "Thích" },
-      { l: 5, t: "今度の休みに", k: "嫌い(な)", h: "きらい(な)", m: "Ghét" },
-
-      // Bài 6
-      { l: 6, t: "一緒に行きませんか", k: "今週", h: "こんしゅう", m: "Tuần này" },
-      { l: 6, t: "一緒に行きませんか", k: "来週", h: "らいしゅう", m: "Tuần sau" },
-      { l: 6, t: "一緒に行きませんか", k: "今月", h: "こんげつ", m: "Tháng này" },
-      { l: 6, t: "一緒に行きませんか", k: "来月", h: "らいげつ", m: "Tháng sau" },
-      { l: 6, t: "一緒に行きませんか", k: "コンサート", h: "コンサート", m: "Buổi hòa nhạc" },
-      { l: 6, t: "一緒に行きませんか", k: "セール", h: "セール", m: "Giảm giá" },
-      { l: 6, t: "一緒に行きませんか", k: "チケット", h: "チケット", m: "Tấm vé" },
-      { l: 6, t: "一緒に行きませんか", k: "約束", h: "やくそく", m: "Lời hứa, cuộc hẹn" },
-      { l: 6, t: "一緒に行きませんか", k: "用事", h: "ようじ", m: "Việc bận" },
-      { l: 6, t: "一緒に行きませんか", k: "残念(な)", h: "ざんねん(な)", m: "Đáng tiếc" },
-      { l: 6, t: "一緒に行きませんか", k: "一緒に", h: "いっしょに", m: "Cùng nhau" },
-      { l: 6, t: "どちらがいいですか", k: "食べ放題", h: "たべほうだい", m: "Ăn buffet tự chọn" },
-      { l: 6, t: "どちらがいいですか", k: "居酒屋", h: "いざかや", m: "Quán rượu Nhật" },
-      { l: 6, t: "どちらがいいですか", k: "映画館", h: "えいがかん", m: "Rạp chiếu phim" },
-      { l: 6, t: "どちらがいいですか", k: "地下鉄", h: "ちかてつ", m: "Tàu điện ngầm" },
-      { l: 6, t: "どちらがいいですか", k: "近い", h: "ちかい", m: "Gần" },
-      { l: 6, t: "どちらがいいですか", k: "遠い", h: "とおい", m: "Xa" },
-      { l: 6, t: "どちらがいいですか", k: "早い", h: "はやい", m: "Sớm, nhanh" },
-      { l: 6, t: "どちらがいいですか", k: "広い", h: "ひろい", m: "Rộng rãi" },
-      { l: 6, t: "どちらがいいですか", k: "いちばん", h: "いちばん", m: "Nhất" },
-      { l: 6, t: "約束", k: "遊びます", h: "あそびます", m: "Chơi, đi chơi" },
-      { l: 6, t: "約束", k: "ぜひ", h: "ぜひ", m: "Nhất định" },
-
-      // Bài 7
-      { l: 7, t: "道がわかりません", k: "改札", h: "かいさつ", m: "Cổng soát vé" },
-      { l: 7, t: "道がわかりません", k: "交番", h: "こうばん", m: "Đồn cảnh sát" },
-      { l: 7, t: "道がわかりません", k: "自動販売機", h: "じどうはんばいき", m: "Máy bán hàng tự động" },
-      { l: 7, t: "道がわかりません", k: "上", h: "うえ", m: "Bên trên" },
-      { l: 7, t: "道がわかりません", k: "下", h: "した", m: "Bên dưới" },
-      { l: 7, t: "道がわかりません", k: "前", h: "まえ", m: "Phía trước" },
-      { l: 7, t: "道がわかりません", k: "後ろ", h: "うしろ", m: "Phía sau" },
-      { l: 7, t: "道がわかりません", k: "隣", h: "となり", m: "Bên cạnh (sát vách)" },
-      { l: 7, t: "道がわかりません", k: "間", h: "あいだ", m: "Ở giữa" },
-      { l: 7, t: "道がわかりません", k: "迎えに行きます", h: "むかえにいきます", m: "Đi đón" },
-      { l: 7, t: "道がわかりません", k: "います", h: "います", m: "Có mặt (người, động vật)" },
-      { l: 7, t: "パーティーの準備", k: "冷蔵庫", h: "れいぞうこ", m: "Tủ lạnh" },
-      { l: 7, t: "パーティーの準備", k: "電子レンジ", h: "でんしレンジ", m: "Lò vi sóng" },
-      { l: 7, t: "パーティーの準備", k: "砂糖", h: "さとう", m: "Đường ăn" },
-      { l: 7, t: "パーティーの準備", k: "塩", h: "しお", m: "Muối" },
-      { l: 7, t: "パーティーの準備", k: "洗います", h: "あらいます", m: "Rửa, giặt" },
-      { l: 7, t: "パーティーの準備", k: "置きます", h: "おきます", m: "Đặt, để" },
-      { l: 7, t: "パーティーの準備", k: "貸します", h: "かします", m: "Cho mượn" },
-      { l: 7, t: "パーティーの準備", k: "切ります", h: "きります", m: "Cắt, thái" },
-      { l: 7, t: "パーティーの準備", k: "使います", h: "つかいます", m: "Dùng, sử dụng" },
-      { l: 7, t: "パーティーの準備", k: "手伝います", h: "てつだいます", m: "Giúp đỡ" },
-      { l: 7, t: "パーティーの準備", k: "持って行きます", h: "もっていきます", m: "Mang đi" },
-      { l: 7, t: "みんなで楽しいパーティー", k: "歌います", h: "うたいます", m: "Hát" },
-      { l: 7, t: "みんなで楽しいパーティー", k: "吸います", h: "すいます", m: "Hút (thuốc)" },
-      { l: 7, t: "みんなで楽しいパーティー", k: "話します", h: "はなします", m: "Nói chuyện" },
-      { l: 7, t: "みんなで楽しいパーティー", k: "開けます", h: "あけます", m: "Mở (cửa)" },
-      { l: 7, t: "みんなで楽しいパーティー", k: "閉めます", h: "しめます", m: "Đóng (cửa)" },
-      { l: 7, t: "みんなで楽しいパーティー", k: "持って来ます", h: "もってきます", m: "Mang đến" },
-
-      // Bài 8
-      { l: 8, t: "家族・友達", k: "両親", h: "りょうしん", m: "Bố mẹ (mình)" },
-      { l: 8, t: "家族・友達", k: "父", h: "ちち", m: "Bố (mình)" },
-      { l: 8, t: "家族・友達", k: "母", h: "はは", m: "Mẹ (mình)" },
-      { l: 8, t: "家族・友達", k: "お父さん", h: "おとうさん", m: "Bố (người khác)" },
-      { l: 8, t: "家族・友達", k: "お母さん", h: "おかあさん", m: "Mẹ (người khác)" },
-      { l: 8, t: "家族・友達", k: "兄", h: "あに", m: "Anh trai (mình)" },
-      { l: 8, t: "家族・友達", k: "姉", h: "あね", m: "Chị gái (mình)" },
-      { l: 8, t: "家族・友達", k: "弟", h: "おとうと", m: "Em trai (mình)" },
-      { l: 8, t: "家族・友達", k: "妹", h: "いもうと", m: "Em gái (mình)" },
-      { l: 8, t: "家族・友達", k: "夫", h: "おっと", m: "Chồng (mình)" },
-      { l: 8, t: "家族・友達", k: "妻", h: "つま", m: "Vợ (mình)" },
-      { l: 8, t: "家族・友達", k: "子ども", h: "こども", m: "Con cái" },
-      { l: 8, t: "家族・友達", k: "住みます", h: "すみます", m: "Sinh sống" },
-      { l: 8, t: "こんな人", k: "先輩", h: "せんぱい", m: "Đàn anh (tiền bối)" },
-      { l: 8, t: "こんな人", k: "後輩", h: "こうはい", m: "Đàn em (hậu bối)" },
-      { l: 8, t: "こんな人", k: "体", h: "からだ", m: "Cơ thể, thân thể" },
-      { l: 8, t: "こんな人", k: "頭がいい", h: "あたまがいい", m: "Thông minh" },
-      { l: 8, t: "こんな人", k: "かっこいい", h: "かっこいい", m: "Đẹp trai, bảnh bao" },
-      { l: 8, t: "こんな人", k: "かわいい", h: "かわいい", m: "Đáng yêu" },
-      { l: 8, t: "こんな人", k: "背が高い", h: "せがたかい", m: "Dáng người cao" },
-      { l: 8, t: "こんな人", k: "優しい", h: "やさしい", m: "Hiền lành, tốt bụng" },
-      { l: 8, t: "こんな人", k: "上手(な)", h: "じょうず(な)", m: "Giỏi, khéo" },
-      { l: 8, t: "こんな人", k: "下手(な)", h: "へた(な)", m: "Kém, vụng" },
-      { l: 8, t: "プレゼント", k: "送ります", h: "おくります", m: "Gửi" },
-      { l: 8, t: "プレゼント", k: "もらいます", h: "もらいます", m: "Nhận" },
-      { l: 8, t: "プレゼント", k: "あげます", h: "あげます", m: "Tặng, biếu" },
-      { l: 8, t: "プレゼント", k: "くれます", h: "くれます", m: "Cho (mình)" },
-
-      // Bài 9
-      { l: 9, t: "いろいろな趣味", k: "小説", h: "しょうせつ", m: "Tiểu thuyết" },
-      { l: 9, t: "いろいろな趣味", k: "漫画", h: "まんが", m: "Truyện tranh" },
-      { l: 9, t: "いろいろな趣味", k: "釣り", h: "つり", m: "Câu cá" },
-      { l: 9, t: "いろいろな趣味", k: "泳ぎます", h: "およぎます", m: "Bơi lội" },
-      { l: 9, t: "いろいろな趣味", k: "描きます", h: "かきます", m: "Vẽ (tranh)" },
-      { l: 9, t: "いろいろな趣味", k: "集めます", h: "あつめます", m: "Thu thập, sưu tập" },
-      { l: 9, t: "いろいろな趣味", k: "運転します", h: "うんてんします", m: "Lái xe" },
-      { l: 9, t: "できること・できないこと", k: "習います", h: "ならいます", m: "Học tập (từ ai)" },
-      { l: 9, t: "できること・できないこと", k: "乗ります", h: "のります", m: "Lên xe, đi tàu" },
-      { l: 9, t: "できること・できないこと", k: "申し込みます", h: "もうしこみます", m: "Đăng ký" },
-      { l: 9, t: "できること・できないこと", k: "できます", h: "できます", m: "Có thể, biết làm" },
-      { l: 9, t: "できること・できないこと", k: "参加します", h: "さんかします", m: "Tham gia" },
-      { l: 9, t: "楽しい週末", k: "言います", h: "いいます", m: "Nói" },
-      { l: 9, t: "楽しい週末", k: "払います", h: "はらいます", m: "Thanh toán, trả tiền" },
-      { l: 9, t: "楽しい週末", k: "降ります", h: "おります", m: "Xuống xe, xuống tàu" },
-      { l: 9, t: "楽しい週末", k: "見せます", h: "みせます", m: "Cho xem, xuất trình" },
-      { l: 9, t: "楽しい週末", k: "予約します", h: "よやくします", m: "Đặt trước" },
-
-      // Bài 10
-      { l: 10, t: "私の集合", k: "交差点", h: "こうさてん", m: "Ngã tư" },
-      { l: 10, t: "私の集合", k: "信号", h: "しんごう", m: "Đèn giao thông" },
-      { l: 10, t: "私の集合", k: "橋", h: "はし", m: "Cây cầu" },
-      { l: 10, t: "私の集合", k: "道", h: "みち", m: "Con đường" },
-      { l: 10, t: "私の集合", k: "曲がります", h: "まがります", m: "Rẽ, quẹo" },
-      { l: 10, t: "私の集合", k: "渡ります", h: "わたります", m: "Băng qua (đường, cầu)" },
-      { l: 10, t: "私の集合", k: "聞こえます", h: "きこえます", m: "Nghe thấy" },
-      { l: 10, t: "私の集合", k: "見えます", h: "みえます", m: "Nhìn thấy" },
-      { l: 10, t: "私の集合", k: "まっすぐ", h: "まっすぐ", m: "Đi thẳng" },
-      { l: 10, t: "いろいろな注意", k: "押します", h: "おします", m: "Ấn, đẩy" },
-      { l: 10, t: "いろいろな注意", k: "座ります", h: "すわります", m: "Ngồi" },
-      { l: 10, t: "いろいろな注意", k: "立ちます", h: "たちます", m: "Đứng" },
-      { l: 10, t: "いろいろな注意", k: "遅れます", h: "おくれます", m: "Đến muộn" },
-      { l: 10, t: "いろいろな注意", k: "捨てます", h: "すてます", m: "Vứt (rác)" },
-      { l: 10, t: "いろいろな注意", k: "集合します", h: "しゅうごうします", m: "Tập hợp, tụ họp" },
-      { l: 10, t: "いろいろな注意", k: "危ない", h: "あぶない", m: "Nguy hiểm" },
-      { l: 10, t: "いろいろな注意", k: "大切(な)", h: "たいせつ(な)", m: "Quan trọng" },
-      { l: 10, t: "動物園で", k: "おなかがすきます", h: "おなかがすきます", m: "Đói bụng" },
-      { l: 10, t: "動物園で", k: "のどがかわきます", h: "のどがかわきます", m: "Khát nước" },
-      { l: 10, t: "動物園で", k: "疲れます", h: "つかれます", m: "Mệt mỏi" },
-
-      // Bài 11
-      { l: 11, t: "今の生活", k: "平日", h: "へいじつ", m: "Ngày thường (trong tuần)" },
-      { l: 11, t: "今の生活", k: "毎週", h: "まいしゅう", m: "Hàng tuần" },
-      { l: 11, t: "今の生活", k: "終わります", h: "おわります", m: "Kết thúc" },
-      { l: 11, t: "今の生活", k: "通います", h: "かよいます", m: "Đi (học, làm) đều đặn" },
-      { l: 11, t: "今の生活", k: "慣れます", h: "なれます", m: "Quen thuộc" },
-      { l: 11, t: "今の生活", k: "忘れます", h: "わすれます", m: "Quên" },
-      { l: 11, t: "今の生活", k: "厳しい", h: "きびしい", m: "Nghiêm khắc" },
-      { l: 11, t: "今の生活", k: "眠い", h: "ねむい", m: "Buồn ngủ" },
-      { l: 11, t: "私・前の私", k: "始めます", h: "はじめます", m: "Bắt đầu" },
-      { l: 11, t: "私・前の私", k: "別れます", h: "わかれます", m: "Chia tay" },
-      { l: 11, t: "私・前の私", k: "卒業します", h: "そつぎょうします", m: "Tốt nghiệp" },
-      { l: 11, t: "私・前の私", k: "入学します", h: "にゅうがくします", m: "Nhập học" },
-      { l: 11, t: "友達と", k: "消します", h: "けします", m: "Tắt (điện), xóa" },
-      { l: 11, t: "友達と", k: "つけます", h: "つけます", m: "Bật (điện, máy)" },
-      { l: 11, t: "友達と", k: "引越しします", h: "ひっこしします", m: "Chuyển nhà" },
-
-      // Bài 12
-      { l: 12, t: "体の調子", k: "熱", h: "ねつ", m: "Sốt" },
-      { l: 12, t: "体の調子", k: "病気", h: "びょうき", m: "Bị ốm, bệnh tật" },
-      { l: 12, t: "体の調子", k: "治ります", h: "なおります", m: "Khỏi, lành bệnh" },
-      { l: 12, t: "体の調子", k: "気持ちが悪い", h: "きもちがわるい", m: "Khó chịu, buồn nôn" },
-      { l: 12, t: "体の調子", k: "お大事に", h: "おだいじに", m: "Chúc mau khỏe lại!" },
-      { l: 12, t: "アドバイス", k: "塗ります", h: "ぬります", m: "Bôi thuốc, quét" },
-      { l: 12, t: "アドバイス", k: "浴びます", h: "あびます", m: "Tắm (vòi sen)" },
-      { l: 12, t: "アドバイス", k: "出かけます", h: "でかけます", m: "Đi ra ngoài" },
-      { l: 12, t: "アドバイス", k: "運動します", h: "うんどうします", m: "Tập thể dục" },
-      { l: 12, t: "アドバイス", k: "体にいい", h: "からだにいい", m: "Tốt cho sức khỏe" },
-      { l: 12, t: "病院で", k: "保険証", h: "ほけんしょう", m: "Thẻ bảo hiểm y tế" },
-      { l: 12, t: "病院で", k: "薬局", h: "やっきょく", m: "Hiệu thuốc" },
-      { l: 12, t: "病院で", k: "脱ぎます", h: "ぬぎます", m: "Cởi (quần áo, giày)" },
-      { l: 12, t: "病院で", k: "磨きます", h: "みがきます", m: "Đánh (răng)" },
-      { l: 12, t: "病院で", k: "横になります", h: "よこになります", m: "Nằm nghỉ ngơi" },
-
-      // Bài 13
-      { l: 13, t: "私の経験から", k: "知ります", h: "しります", m: "Biết" },
-      { l: 13, t: "私の経験から", k: "デートします", h: "デートします", m: "Hẹn hò đôi lứa" },
-      { l: 13, t: "おすすめします", k: "売ります", h: "うります", m: "Bán" },
-      { l: 13, t: "おすすめします", k: "かぶります", h: "かぶります", m: "Đội (mũ)" },
-      { l: 13, t: "おすすめします", k: "泊まります", h: "とまります", m: "Trọ lại (khách sạn)" },
-      { l: 13, t: "おすすめします", k: "はきます", h: "はきます", m: "Mặc (quần, váy), đi (giày)" },
-      { l: 13, t: "おすすめします", k: "着ます", h: "きます", m: "Mặc (áo)" },
-      { l: 13, t: "おすすめします", k: "します", h: "します", m: "Đeo (cà vạt, phụ kiện)" },
-      { l: 13, t: "おすすめします", k: "新鮮(な)", h: "しんせん(な)", m: "Tươi mới" },
-      { l: 13, t: "教えてください", k: "練習します", h: "れんしゅうします", m: "Luyện tập" },
-
-      // Bài 14
-      { l: 14, t: "初めて見た! 初めて聞いた!", k: "開きます", h: "あきます", m: "(Cửa) tự mở" },
-      { l: 14, t: "初めて見た! 初めて聞いた!", k: "つきます", h: "つきます", m: "(Đèn) tự bật sáng" },
-      { l: 14, t: "初めて見た! 初めて聞いた!", k: "回します", h: "まわします", m: "Vặn, xoay" },
-      { l: 14, t: "初めて見た! 初めて聞いた!", k: "出ます", h: "でます", m: "(Tiền thừa) chảy ra" },
-      { l: 14, t: "初めて見た! 初めて聞いた!", k: "いただきます", h: "いただきます", m: "Mời ăn (trước bữa)" },
-      { l: 14, t: "初めて見た! 初めて聞いた!", k: "ごちそうさまでした", h: "ごちそうさまでした", m: "Cảm ơn bữa ăn (sau bữa)" },
-      { l: 14, t: "ルール・マナー", k: "並びます", h: "ならびます", m: "Xếp hàng" },
-      { l: 14, t: "ルール・マナー", k: "止めます", h: "とめます", m: "Dừng, đỗ (xe)" },
-      { l: 14, t: "ルール・マナー", k: "分けます", h: "わけます", m: "Phân chia" },
-      { l: 14, t: "私の意見", k: "思います", h: "おもいます", m: "Nghĩ rằng, cho là" },
-      { l: 14, t: "私の意見", k: "化粧します", h: "けしょうします", m: "Trang điểm" },
-      { l: 14, t: "私の意見", k: "経験します", h: "けいけんします", m: "Trải nghiệm qua" },
-      { l: 14, t: "私の意見", k: "うるさい", h: "うるさい", m: "Ồn ào, mất trật tự" },
-      { l: 14, t: "私の意見", k: "便利(な)", h: "べんり(な)", m: "Tiện lợi" },
-      { l: 14, t: "私の意見", k: "不便(な)", h: "ふべん(な)", m: "Bất tiện" },
-
-      // Bài 15
-      { l: 15, t: "これ、知ってる?", k: "死にます", h: "しにます", m: "Chết" },
-      { l: 15, t: "これ、知ってる?", k: "止まります", h: "とまります", m: "(Máy, xe) dừng lại" },
-      { l: 15, t: "これ、知ってる?", k: "始まります", h: "はじまります", m: "Bắt đầu" },
-      { l: 15, t: "これ、知ってる?", k: "降ります", h: "ふります", m: "Rơi (mưa, tuyết)" },
-      { l: 15, t: "これ、知ってる?", k: "勝ちます", h: "かちます", m: "Chiến thắng" },
-      { l: 15, t: "これ、知ってる?", k: "負けます", h: "まけます", m: "Thua cuộc" },
-      { l: 15, t: "これ、知ってる?", k: "倒れます", h: "たおれます", m: "Đổ, ngã" },
-      { l: 15, t: "これ、知ってる?", k: "割れます", h: "われます", m: "Bị vỡ" },
-      { l: 15, t: "これ、知ってる?", k: "結婚します", h: "けっこんします", m: "Kết hôn" },
-      { l: 15, t: "これ、知ってる?", k: "入院します", h: "にゅういんします", m: "Nhập viện" },
-      { l: 15, t: "雑誌を見て町へ", k: "急ぎます", h: "いそぎます", m: "Vội vàng, gấp gáp" },
-      { l: 15, t: "雑誌を見て町へ", k: "混みます", h: "こみます", m: "Đông đúc, kẹt xe" },
-      { l: 15, t: "雑誌を見て町へ", k: "間に合います", h: "まにあいます", m: "Kịp thời gian" },
-      { l: 15, t: "雑誌を見て町へ", k: "やみます", h: "やみます", m: "Tạnh (mưa)" },
-      { l: 15, t: "雑誌を見て町へ", k: "晴れます", h: "はれます", m: "Trời quang đãng, nắng ráo" },
-      { l: 15, t: "町を歩いて", k: "集まります", h: "あつまります", m: "Tập trung lại" },
-      { l: 15, t: "町を歩いて", k: "閉まります", h: "しまります", m: "(Cửa) tự đóng lại" },
-      { l: 15, t: "町を歩いて", k: "すきます", h: "すきます", m: "Vắng vẻ, rỗng" },
-      { l: 15, t: "町を歩いて", k: "落ちます", h: "おちます", m: "Bị rơi, rớt" },
-      { l: 15, t: "町を歩いて", k: "消えます", h: "きえます", m: "(Đèn) tắt ngúm, biến mất" },
-      { l: 15, t: "町を歩いて", k: "壊れます", h: "こわれます", m: "Bị hỏng" },
-      { l: 15, t: "町を歩いて", k: "汚れます", h: "よごれます", m: "Bị dính bẩn" }
-    ];
 
     // State Variables
     let currentFiltered = [...RAW_VOCAB];
     let currentIndex = 0;
     let isFlipped = false;
     let currentMode = 'flashcard';
-    let favorites = JSON.parse(localStorage.getItem('dekiru_favs_v2') || '[]');
+    let favorites = readFavorites();
 
     // Quiz State
     let quizIndex = 0;
     let quizQuestions = [];
     let quizScore = 0;
+    let quizTimer = null;
 
     // Bản dịch tiếng Việt của các chủ đề, dùng để hỗ trợ lựa chọn bộ từ vựng.
     const TOPIC_DETAILS = {
@@ -1350,7 +888,7 @@
       "いろいろな注意": "Những lưu ý khác nhau",
       "動物園で": "Ở sở thú",
       "今の生活": "Cuộc sống hiện tại",
-      "私・前の私": "Tôi và tôi trước đây",
+      "今の私・前の私": "Tôi hiện tại và trước đây",
       "友達と": "Cùng bạn bè",
       "体の調子": "Tình trạng sức khỏe",
       "アドバイス": "Lời khuyên",
@@ -1358,7 +896,7 @@
       "私の経験から": "Từ kinh nghiệm của tôi",
       "おすすめします": "Đề xuất và khuyên dùng",
       "教えてください": "Hãy cho tôi biết",
-      "初めて見た! 初めて聞いた!": "Lần đầu thấy! Lần đầu nghe!",
+      "初めて見た!初めて聞いた!": "Lần đầu thấy! Lần đầu nghe!",
       "ルール・マナー": "Quy tắc và phép lịch sự",
       "私の意見": "Ý kiến của tôi",
       "これ、知ってる?": "Bạn có biết cái này không?",
@@ -1410,50 +948,79 @@
     }
 
     function onFilterChange() {
+      clearTimeout(quizTimer);
       const l = lessonSelect.value;
       const t = topicSelect.value;
-      const q = searchBox.value.trim().toLowerCase();
+      const normalizeSearch = s => s.normalize('NFKC').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').toLowerCase();
+      const q = normalizeSearch(searchBox.value.trim());
 
       updateTopicDetail();
 
       currentFiltered = RAW_VOCAB.filter(item => {
         const matchL = l === 'all' || item.l == l;
         const matchT = t === 'all' || item.t === t;
-        const matchQ = !q || item.k.toLowerCase().includes(q) || item.h.toLowerCase().includes(q) || item.m.toLowerCase().includes(q);
+        const matchQ = !q || normalizeSearch(item.k).includes(q) || normalizeSearch(item.h).includes(q) || normalizeSearch(item.m).includes(q);
         return matchL && matchT && matchQ;
       });
 
       currentIndex = 0;
+      document.getElementById('vocabCount').textContent = `${currentFiltered.length} thẻ trong phạm vi chọn · ${RAW_VOCAB.length} thẻ đã đối chiếu PDF`;
       updateUI();
     }
 
     function switchMode(mode) {
+      clearTimeout(quizTimer);
+      if (window.stopReadingAudio) window.stopReadingAudio();
       currentMode = mode;
-      document.querySelectorAll('.tab-btn').forEach((btn, idx) => {
-        btn.classList.toggle('active', (mode === 'flashcard' && idx === 0) || (mode === 'quiz' && idx === 1) || (mode === 'list' && idx === 2));
+      document.querySelectorAll('[data-mode]').forEach(btn => {
+        const selected = btn.dataset.mode === mode;
+        btn.classList.toggle('active', selected);
+        btn.setAttribute('aria-pressed', String(selected));
       });
-
-      document.getElementById('flashcardMode').style.display = mode === 'flashcard' ? 'flex' : 'none';
-      document.getElementById('quizMode').style.display = mode === 'quiz' ? 'block' : 'none';
-      document.getElementById('listMode').style.display = mode === 'list' ? 'block' : 'none';
-
-      if (mode === 'quiz') showQuizSetup();
-      else updateUI();
+      ['flashcard', 'quiz', 'list', 'reading'].forEach(name => {
+        document.getElementById(name + 'Mode').style.display = mode === name ? (name === 'flashcard' ? 'flex' : 'block') : 'none';
+      });
+      ['vocabIntro','vocabFilters','vocabCoverage'].forEach(id => document.getElementById(id).hidden = mode === 'reading');
+      updateUI();
     }
 
     /* FLASHCARD LOGIC */
-    function flipCard() {
-      isFlipped = !isFlipped;
+    function syncCardFaces() {
       document.getElementById('flashcardInner').classList.toggle('is-flipped', isFlipped);
+      const front = document.querySelector('.flashcard-front');
+      const back = document.querySelector('.flashcard-back');
+      front.inert = isFlipped;
+      back.inert = !isFlipped;
+      front.setAttribute('aria-hidden', String(isFlipped));
+      back.setAttribute('aria-hidden', String(!isFlipped));
+    }
+
+    function flipCard() {
+      if (!currentFiltered.length) return;
+      isFlipped = !isFlipped;
+      syncCardFaces();
     }
 
     function updateCardUI() {
+      isFlipped = false;
+      syncCardFaces();
+      const empty = currentFiltered.length === 0;
+      document.getElementById('fcPrev').disabled = empty || currentIndex === 0;
+      document.getElementById('fcNext').disabled = empty || currentIndex === currentFiltered.length - 1;
+      document.getElementById('fcShuffle').disabled = currentFiltered.length < 2;
+      document.getElementById('fcFavBtn').disabled = empty;
+      document.querySelectorAll('[data-fc-audio]').forEach(btn => btn.disabled = empty);
+      document.querySelector('.flashcard-container').setAttribute('aria-disabled', String(empty));
       if (currentFiltered.length === 0) {
         document.getElementById('fcKanji').textContent = 'Không có từ';
         document.getElementById('fcKana').textContent = '';
         document.getElementById('fcMeaning').textContent = 'Đổi bộ lọc tra cứu';
         document.getElementById('fcProgressText').textContent = '0 / 0';
         document.getElementById('fcProgressBar').style.width = '0%';
+        document.getElementById('fcTopicTag').textContent = 'Không có kết quả';
+        document.getElementById('fcTagFront').textContent = 'Đổi bộ lọc';
+        document.getElementById('fcFavBtn').classList.remove('active');
+        document.getElementById('fcFavBtn').setAttribute('aria-pressed', 'false');
         return;
       }
 
@@ -1468,11 +1035,7 @@
 
       const isFav = favorites.includes(item.k);
       document.getElementById('fcFavBtn').classList.toggle('active', isFav);
-
-      if (isFlipped) {
-        isFlipped = false;
-        document.getElementById('flashcardInner').classList.remove('is-flipped');
-      }
+      document.getElementById('fcFavBtn').setAttribute('aria-pressed', String(isFav));
     }
 
     function nextCard() {
@@ -1506,14 +1069,14 @@
       const k = currentFiltered[currentIndex].k;
       if (favorites.includes(k)) favorites = favorites.filter(x => x !== k);
       else favorites.push(k);
-      localStorage.setItem('dekiru_favs_v2', JSON.stringify(favorites));
+      safeSet('dekiru_favs_v2', JSON.stringify(favorites));
       updateCardUI();
     }
 
     function playAudio(text) {
       if ('speechSynthesis' in window) {
         window.speechSynthesis.cancel();
-        const clean = text.replace(/\(.*?\)|\[.*?\]|～|~/g, '').trim();
+        const clean = text.replace(/\((.*?)\)/g, '$1').replace(/[～~]/g, '').split('/')[0].trim();
         const u = new SpeechSynthesisUtterance(clean);
         u.lang = 'ja-JP';
         u.rate = 0.85;
@@ -1523,6 +1086,7 @@
 
     /* QUIZ SETUP & LOGIC */
     function showQuizSetup() {
+      clearTimeout(quizTimer);
       document.getElementById('quizSetup').style.display = 'block';
       document.getElementById('quizBox').style.display = 'none';
       document.getElementById('quizResult').style.display = 'none';
@@ -1537,6 +1101,7 @@
     }
 
     function startQuizEngine() {
+      clearTimeout(quizTimer);
       const total = currentFiltered.length;
       if (total < 4) {
         alert('Cần ít nhất 4 từ vựng trong bộ lọc để có thể tạo các đáp án trắc nghiệm!');
@@ -1565,7 +1130,7 @@
       document.getElementById('quizKanji').textContent = q.k;
       document.getElementById('quizKana').textContent = q.h;
 
-      const wrongOptions = RAW_VOCAB.filter(x => x.m !== q.m).sort(() => Math.random() - 0.5).slice(0, 3).map(x => x.m);
+      const wrongOptions = [...new Set(RAW_VOCAB.filter(x => x.m !== q.m).map(x => x.m))].sort(() => Math.random() - 0.5).slice(0, 3);
       const allOptions = [q.m, ...wrongOptions].sort(() => Math.random() - 0.5);
 
       const optsBox = document.getElementById('quizOptions');
@@ -1593,7 +1158,7 @@
         });
       }
 
-      setTimeout(() => {
+      quizTimer = setTimeout(() => {
         quizIndex++;
         if (quizIndex < quizQuestions.length) {
           renderQuizQuestion();
@@ -1615,17 +1180,19 @@
     /* LIST VIEW */
     function renderListView() {
       const tbody = document.getElementById('vocabTableBody');
-      tbody.innerHTML = currentFiltered.map(i => `
+      tbody.innerHTML = currentFiltered.length ? currentFiltered.map((i,index) => `
         <tr class="vocab-row">
-          <td>${i.k}</td>
-          <td class="kana-cell">${i.h}</td>
-          <td class="meaning-cell">${i.m}</td>
-          <td>
-            <button class="icon-btn" onclick="playAudio('${i.h}')">🔊</button>
-          </td>
+          <td lang="ja">${escapeHTML(i.k)}<span class="source-cell" lang="vi">Bài ${i.l} · PDF tr. ${i.p}</span></td>
+          <td class="kana-cell" lang="ja">${escapeHTML(i.h)}</td>
+          <td class="meaning-cell">${escapeHTML(i.m)}</td>
+          <td><button class="icon-btn" data-vocab-audio="${index}" aria-label="Nghe ${escapeHTML(i.k)}">🔊</button></td>
         </tr>
-      `).join('');
+      `).join('') : '<tr><td colspan="4" class="empty-state">Không tìm thấy từ. Hãy đổi bộ lọc hoặc từ khóa.</td></tr>';
     }
+    document.getElementById('vocabTableBody').addEventListener('click', e => {
+      const btn = e.target.closest('[data-vocab-audio]');
+      if (btn) playAudio(currentFiltered[Number(btn.dataset.vocabAudio)].h);
+    });
 
     function updateUI() {
       if (currentMode === 'flashcard') updateCardUI();
@@ -1639,22 +1206,22 @@
       const newTheme = isDark ? 'light' : 'dark';
       document.body.setAttribute('data-theme', newTheme);
       document.getElementById('themeToggle').textContent = isDark ? '🌙' : '☀️';
-      localStorage.setItem('dekiru_theme', newTheme);
+      safeSet('dekiru_theme', newTheme);
     }
 
     // Khởi tạo Theme
-    const savedTheme = localStorage.getItem('dekiru_theme') || 'light';
+    const savedTheme = safeGet('dekiru_theme', 'light');
     document.body.setAttribute('data-theme', savedTheme);
     document.getElementById('themeToggle').textContent = savedTheme === 'dark' ? '☀️' : '🌙';
 
     /* KEYBOARD SHORTCUTS */
     document.addEventListener('keydown', (e) => {
-      if (['input', 'select'].includes(document.activeElement.tagName.toLowerCase())) return;
+      if (['input', 'select', 'button', 'textarea'].includes(document.activeElement.tagName.toLowerCase())) return;
 
       if (e.key.toLowerCase() === 'd') {
         toggleTheme();
       } else if (currentMode === 'flashcard') {
-        if (e.code === 'Space' || e.code === 'ArrowUp' || e.code === 'ArrowDown') {
+        if (e.code === 'Space' || e.code === 'ArrowUp' || e.code === 'ArrowDown' || (e.code === 'Enter' && document.activeElement.classList.contains('flashcard-container'))) {
           e.preventDefault();
           flipCard();
         } else if (e.code === 'ArrowRight') {
@@ -1673,5 +1240,7 @@
     initLessons();
     onFilterChange();
   </script>
+  <script src="data/readings.js"></script>
+  <script src="assets/reading.js"></script>
 </body>
 </html>
