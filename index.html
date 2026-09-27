@@ -652,6 +652,7 @@
           <button class="tab-btn" data-mode="quiz" aria-pressed="false" onclick="switchMode('quiz')">📝 Kiểm tra</button>
           <button class="tab-btn" data-mode="list" aria-pressed="false" onclick="switchMode('list')">📋 Danh sách</button>
           <button class="tab-btn" data-mode="reading" aria-pressed="false" onclick="switchMode('reading')">📖 Luyện đọc</button>
+          <button class="tab-btn" data-mode="kanji" aria-pressed="false" onclick="switchMode('kanji')">字 Hán tự</button>
         </div>
         <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Đổi chế độ Sáng/Tối (Phím D)">🌙</button>
       </div>
@@ -730,46 +731,91 @@
     <div id="quizMode" style="display: none;">
       <!-- Quiz Setup Panel -->
       <div id="quizSetup" class="quiz-setup-card">
+        <div class="quiz-setup-eyebrow"><span class="quiz-setup-icon" aria-hidden="true">✎</span> LUYỆN TẬP THEO NHỊP CỦA BẠN</div>
         <h2 class="setup-title">Thiết lập bài kiểm tra</h2>
         <p class="setup-desc" id="setupDesc">Phạm vi: Toàn bộ bài học (Tổng: 0 từ vựng)</p>
 
-        <div class="setup-group">
-          <label class="setup-label">Chọn số lượng từ muốn kiểm tra trong 1 lần:</label>
-          <select id="quizCountSelect">
-            <option value="5">5 câu (Kiểm tra nhanh)</option>
-            <option value="10" selected>10 câu</option>
-            <option value="20">20 câu</option>
-            <option value="30">30 câu</option>
-            <option value="all">Kiểm tra TOÀN BỘ từ trong phạm vi này</option>
-          </select>
-        </div>
+        <fieldset class="quiz-grading-options">
+          <legend class="setup-label">Cách làm bài</legend>
+          <label class="quiz-grading-choice"><input type="radio" name="quizGrading" value="submit" checked><span><strong>Nộp bài rồi xem đáp án</strong><small>Chọn đáp án, xem lại và chấm toàn bài khi nộp.</small></span></label>
+          <label class="quiz-grading-choice"><input type="radio" name="quizGrading" value="instant"><span><strong>Chấm từng câu</strong><small>Biết đúng sai ngay, tự chuyển sang câu tiếp theo.</small></span></label>
+        </fieldset>
 
-        <button class="btn-action" style="width: 100%; justify-content: center; background: var(--primary); color: white; border: none; padding: 14px;" onclick="startQuizEngine()">Bắt đầu làm bài</button>
+        <fieldset class="setup-group quiz-count-options" onchange="if(event.target.name === 'quizCount') { updateQuizCountInput(); if(event.target.value === 'custom') document.getElementById('quizCustomCount').focus(); }">
+          <legend class="setup-label">Chọn số câu bạn muốn làm</legend>
+          <div class="quiz-count-presets">
+            <label class="quiz-count-choice"><input type="radio" name="quizCount" value="5"><span><strong>5</strong><small>câu</small></span></label>
+            <label class="quiz-count-choice"><input type="radio" name="quizCount" value="10" checked><span><strong>10</strong><small>câu</small></span></label>
+            <label class="quiz-count-choice"><input type="radio" name="quizCount" value="15"><span><strong>15</strong><small>câu</small></span></label>
+            <label class="quiz-count-choice"><input type="radio" name="quizCount" value="20"><span><strong>20</strong><small>câu</small></span></label>
+            <label class="quiz-count-choice"><input type="radio" name="quizCount" value="30"><span><strong>30</strong><small>câu</small></span></label>
+            <label class="quiz-count-choice quiz-count-all"><input type="radio" name="quizCount" value="all"><span><strong>Tất cả</strong><small id="quizAllDetail">921 câu</small></span></label>
+          </div>
+          <div id="quizCustomGroup" class="quiz-custom-group">
+            <label class="quiz-custom-heading" for="quizCustomChoice"><input id="quizCustomChoice" type="radio" name="quizCount" value="custom" aria-controls="quizCustomBody"><span><strong>Tự nhập số câu</strong><small>Chọn một mục tiêu vừa sức với bạn</small></span><span class="quiz-custom-pencil" aria-hidden="true">✎</span></label>
+            <div id="quizCustomBody" class="quiz-custom-body" hidden>
+              <label class="sr-only" for="quizCustomCount">Số câu bạn muốn làm</label>
+              <div class="quiz-count-stepper">
+                <button type="button" id="quizCountDecrease" class="quiz-step-btn" aria-label="Giảm một câu" onclick="adjustQuizCount(-1)">−</button>
+                <div class="quiz-number-field"><input id="quizCustomCount" type="number" inputmode="numeric" min="1" step="1" placeholder="25" aria-describedby="quizCountHint quizCountError" oninput="clearQuizCountError(); updateQuizCountPreview();" onkeydown="if(event.key === 'Enter') { event.preventDefault(); startQuizEngine(); }"><span aria-hidden="true">câu hỏi</span></div>
+                <button type="button" id="quizCountIncrease" class="quiz-step-btn" aria-label="Tăng một câu" onclick="adjustQuizCount(1)">+</button>
+              </div>
+            </div>
+          </div>
+          <p id="quizCountHint" class="quiz-count-hint"></p>
+          <p id="quizCountError" class="quiz-count-error" role="alert" hidden></p>
+        </fieldset>
+
+        <div class="quiz-count-summary" role="status"><span>Bài kiểm tra của bạn</span><strong id="quizCountPreview">10 câu hỏi</strong></div>
+        <button class="btn-action quiz-start-btn" onclick="startQuizEngine()">Bắt đầu làm bài <span aria-hidden="true">→</span></button>
       </div>
 
       <!-- Quiz In-Progress -->
       <div id="quizBox" class="quiz-box" style="display: none;">
         <div class="quiz-top">
-          <span id="quizProgress">Câu hỏi 1 / 10</span>
+          <span id="quizProgress" tabindex="-1">Câu hỏi 1 / 10</span>
           <span id="quizScore" style="color: var(--primary);">Điểm: 0</span>
+        </div>
+        <div class="quiz-completion-label"><span id="quizAnsweredLabel" role="status">Đã trả lời 0 / 10 câu</span><strong id="quizPercent">0%</strong></div>
+        <progress id="quizProgressBar" class="quiz-progress-bar" value="0" max="10" aria-label="Tiến trình trả lời bài kiểm tra"></progress>
+        <p id="quizSessionInfo" class="quiz-session-info"></p>
+        <div id="quizQuestionNavigator" class="quiz-question-navigator" aria-label="Chọn câu hỏi" hidden>
+          <div class="quiz-map-heading"><span>Chuyển đến câu</span><small id="quizMapCurrentStatus" class="quiz-map-current-status" role="status"></small></div>
+          <div id="quizQuestionMap" class="quiz-question-map"></div>
+          <div class="quiz-map-legend" aria-label="Chú thích trạng thái câu hỏi"><span><i class="quiz-map-key current" aria-hidden="true"></i>Đang xem</span><span><i class="quiz-map-key answered" aria-hidden="true">✓</i>Đã trả lời</span><span><i class="quiz-map-key" aria-hidden="true">○</i>Chưa trả lời</span></div>
         </div>
         <div class="quiz-question-wrapper">
           <div class="quiz-label">Chọn nghĩa chính xác của từ sau:</div>
           <div class="quiz-kanji" id="quizKanji">先生</div>
           <div class="quiz-kana" id="quizKana">せんせい</div>
         </div>
-        <div class="options-grid" id="quizOptions"></div>
+        <div class="options-grid" id="quizOptions" role="group" aria-label="Chọn một đáp án"></div>
+        <p id="quizAnswerStatus" class="quiz-answer-status" role="status"></p>
+        <div id="quizExamActions" class="quiz-exam-actions" hidden>
+          <div class="quiz-question-controls"><button class="small-btn" id="quizPreviousQuestion" onclick="goToQuizQuestion(quizIndex - 1)">← Câu trước</button><button class="small-btn" id="quizNextQuestion" onclick="goToQuizQuestion(quizIndex + 1)">Câu tiếp →</button></div>
+          <button class="small-btn primary quiz-submit-btn" id="quizSubmit" onclick="requestQuizSubmission()">Nộp bài & xem kết quả</button>
+        </div>
+        <div id="quizSubmitNotice" class="quiz-submit-notice" hidden>
+          <p id="quizSubmitNoticeText" role="alert"></p>
+          <div><button class="small-btn" onclick="goToFirstUnanswered()">Làm câu còn trống</button><button class="small-btn primary" id="quizSubmitAnyway" onclick="submitQuiz()">Vẫn nộp bài</button></div>
+        </div>
+        <button class="quiz-new-setup" onclick="showQuizSetup()">Thiết lập bài mới</button>
       </div>
 
       <!-- Quiz Result -->
       <div id="quizResult" class="result-box" style="display: none;">
         <div class="score-circle" id="finalScore">100%</div>
-        <h2 style="margin-bottom: 8px;">Hoàn thành bài kiểm tra!</h2>
+        <h2 id="quizResultTitle" tabindex="-1" style="margin-bottom: 8px;">Kết quả bài kiểm tra</h2>
         <p style="color: var(--text-muted); margin-bottom: 24px;" id="resultSubtitle">Bạn đã trả lời đúng 10 / 10 câu.</p>
-        <div style="display: flex; justify-content: center; gap: 12px;">
+        <div class="quiz-result-stats"><div><strong id="quizCorrectCount">0</strong><span>Đúng</span></div><div><strong id="quizWrongCount">0</strong><span>Sai</span></div><div><strong id="quizSkippedCount">0</strong><span>Bỏ trống</span></div></div>
+        <div class="quiz-result-actions">
           <button class="btn-action" onclick="showQuizSetup()">⚙️ Cài đặt lại</button>
-          <button class="btn-action" style="background: var(--primary); color: white; border: none;" onclick="startQuizEngine()">🔄 Làm lại bài này</button>
+          <button class="small-btn primary" onclick="retryQuiz()">↻ Làm lại đề này</button>
         </div>
+        <section class="quiz-review" aria-labelledby="quizReviewHeading">
+          <div class="quiz-review-heading"><h3 id="quizReviewHeading">Xem lại từng câu</h3><div class="quiz-review-filters" role="group" aria-label="Lọc kết quả"><button class="small-btn" id="quizReviewAll" aria-pressed="true" onclick="renderQuizReview('all')">Tất cả</button><button class="small-btn" id="quizReviewMistakes" aria-pressed="false" onclick="renderQuizReview('mistakes')">Sai / bỏ trống</button></div></div>
+          <div id="quizReviewList"></div>
+        </section>
       </div>
     </div>
 
@@ -832,6 +878,72 @@
       <p class="study-footer">Nguồn: Ôn speaking JPD123 – SV luyện đọc · 7 đoạn văn và 64 bài hội thoại/câu luyện đọc.<br>Tiến độ được lưu trên trình duyệt này.</p>
     </section>
 
+    <section id="kanjiMode" style="display:none" aria-label="Học Hán tự theo bài và chủ đề">
+      <div class="reading-intro">
+        <div><span class="eyebrow">DEKIRU · HÁN TỰ & HÁN VIỆT</span><h1>Hiểu chữ, nhớ từ, luyện nét.</h1><p>Học chữ trong đúng từ vựng của bài. Dùng âm Hán Việt để ghi nhớ, đọc tiếng Nhật theo kana.</p></div>
+        <div class="reading-progress"><strong id="kanjiProgressCount">0 / 607</strong><p>từ đã học</p><progress id="kanjiProgress" value="0" max="607" aria-label="Tiến độ học Hán tự"></progress></div>
+      </div>
+      <div class="kanji-layout">
+        <aside class="kanji-sidebar" aria-label="Chọn từ Hán">
+          <div class="chooser-head">
+            <h2>Từ Hán theo bài</h2>
+            <label for="kanjiLesson">Bài học</label><select id="kanjiLesson"><option value="all">Tất cả 15 bài</option></select>
+            <label for="kanjiTopic">Chủ đề</label><select id="kanjiTopic"><option value="all">Tất cả chủ đề</option></select>
+            <label for="kanjiSearch">Tìm chữ, kana, âm Hán Việt hoặc nghĩa</label><input id="kanjiSearch" type="search" placeholder="Ví dụ: 学, がく, học, trường…">
+            <label for="kanjiStatus">Tiến độ</label><select id="kanjiStatus"><option value="all">Tất cả từ</option><option value="new">Chưa học</option><option value="done">Đã học</option></select>
+            <button class="small-btn kanji-clear" id="clearKanjiFilters">Xóa bộ lọc</button>
+          </div>
+          <p id="kanjiResultCount" class="chooser-count" role="status"></p>
+          <div id="kanjiWordList" class="kanji-word-list"></div>
+        </aside>
+        <div class="kanji-column">
+          <div id="kanjiEmpty" class="empty-state reader-card" hidden>Không tìm thấy từ Hán. Hãy đổi bài, chủ đề hoặc từ khóa.</div>
+          <div id="kanjiStudy">
+            <article class="reader-card kanji-word-card">
+              <div class="reader-heading">
+                <div class="reader-meta"><span id="kanjiWordLesson" class="badge-topic"></span><a id="kanjiPdfLink" class="source-link" target="_blank" rel="noopener">Xem PDF ↗</a></div>
+                <h2 id="kanjiWordTitle" lang="ja"></h2><p id="kanjiWordKana" lang="ja"></p><p id="kanjiWordMeaning" class="kanji-word-meaning"></p>
+                <p id="kanjiPdfSpelling" class="kanji-pdf-spelling"></p>
+              </div>
+              <div class="kanji-word-content">
+                <p class="kanji-small-label">Từng chữ & âm Hán Việt · Chọn chữ để tập viết</p>
+                <div id="kanjiCharacterTabs" class="kanji-character-tabs" role="group" aria-label="Chọn chữ trong từ"></div>
+                <p id="kanjiWordNote" class="kanji-note"></p>
+                <div class="kanji-word-actions"><button class="small-btn" id="kanjiPrevious">← Từ trước</button><span id="kanjiPosition"></span><button class="small-btn" id="kanjiNext">Từ tiếp →</button><button class="small-btn" id="kanjiComplete" aria-pressed="false">✓ Đánh dấu đã học</button></div>
+              </div>
+            </article>
+            <section class="kanji-writing-card" aria-labelledby="kanjiCharacterHeading">
+              <div class="kanji-character-summary">
+                <div><span class="kanji-small-label">CHỮ ĐANG HỌC</span><h2 id="kanjiCharacterHeading"></h2><p id="kanjiCharacterMeaning"></p><p id="kanjiParts" class="kanji-note"></p></div>
+                <span class="kanji-stroke-badge" id="kanjiStrokeCount"></span>
+              </div>
+              <details class="kanji-readings"><summary>Âm On / Kun tham khảo</summary><p id="kanjiOn"></p><p id="kanjiKun"></p><p>Dấu chấm ngăn phần chữ Hán và đuôi kana; dấu gạch chỉ vị trí ghép. Khi học từ này, ưu tiên cách đọc kana ở phía trên.</p></details>
+              <div class="kanji-writing-grid">
+                <div>
+                  <h3>1. Xem thứ tự nét</h3>
+                  <svg id="kanjiStrokeSvg" class="kanji-board" viewBox="0 0 109 109" role="img" aria-label="Thứ tự nét chữ Hán"></svg>
+                  <div class="kanji-stroke-controls"><button id="kanjiPlay" class="small-btn primary">▶ Viết mẫu</button><button id="kanjiStepBack" class="small-btn" aria-label="Lùi một nét">← Nét</button><button id="kanjiStepNext" class="small-btn" aria-label="Thêm một nét">Nét →</button><button id="kanjiShowAll" class="small-btn">Toàn chữ</button></div>
+                  <label class="kanji-slider-label" for="kanjiStrokeRange">Nét đang xem <span id="kanjiStrokeLabel" role="status"></span></label><input id="kanjiStrokeRange" type="range" min="0" max="1" value="0" step="1">
+                  <div class="kanji-options"><label><input id="kanjiNumbers" type="checkbox" checked> Số thứ tự</label><label for="kanjiSpeed">Tốc độ <select id="kanjiSpeed"><option value="1100">Chậm</option><option value="650" selected>Vừa</option><option value="350">Nhanh</option></select></label></div>
+                  <p class="kanji-note">Bắt đầu ở chấm màu. Đi theo nét tô sáng và nhấc bút khi chuyển sang nét kế tiếp.</p>
+                </div>
+                <div>
+                  <h3>2. Tự tập viết</h3>
+                  <div class="kanji-trace-board kanji-board"><svg id="kanjiTraceGuide" viewBox="0 0 109 109" aria-hidden="true"></svg><canvas id="kanjiCanvas" width="654" height="654" aria-label="Ô tập viết bằng chuột, bút hoặc ngón tay. Có thể tập trên giấy theo hình bên cạnh."></canvas></div>
+                  <div class="kanji-stroke-controls"><button id="kanjiUndo" class="small-btn" disabled>↶ Hoàn tác</button><button id="kanjiClearCanvas" class="small-btn" disabled>Xóa nét viết</button></div>
+                  <label class="kanji-guide-toggle"><input id="kanjiGuide" type="checkbox" checked> Hiện chữ mờ để viết theo</label>
+                  <p id="kanjiCanvasStatus" class="kanji-note" role="status">Dùng chuột, bút hoặc ngón tay. Ô viết không chấm điểm; bạn cũng có thể luyện trên giấy.</p>
+                </div>
+              </div>
+              <details class="pronunciation-note"><summary>Gợi ý khi luyện viết</summary><p>Thường viết từ trên xuống dưới, từ trái sang phải; nét ngang trước nét dọc khi chúng giao nhau. Với khung bao, phần đóng khung thường viết sau phần bên trong. Xem mô phỏng của từng chữ để theo đúng thứ tự cụ thể.</p><p>Đọc kana của cả từ, nhìn nghĩa, rồi viết từng chữ. Khi đã quen, tắt chữ mờ và thử viết lại từ trí nhớ. Âm Hán Việt của từng chữ không thay thế nghĩa của cả từ trong tiếng Nhật.</p></details>
+            </section>
+            <section class="glossary-card kanji-related"><h3>Từ khác có chữ này</h3><p class="glossary-desc">Trong danh sách từ vựng đã đối chiếu PDF. Chọn một từ để chuyển đến bài tương ứng.</p><div id="kanjiRelated" class="kanji-related-list"></div></section>
+          </div>
+        </div>
+      </div>
+      <p id="kanjiSaveStatus" class="study-footer" role="status"></p>
+      <p class="study-footer">Từ, bài và chủ đề: <a class="source-link" href="sources/new-words.pdf" target="_blank" rel="noopener">New words list ↗</a> · Âm Hán Việt và giải thích là phần bổ sung.<br>Âm đọc tham khảo: <a class="source-link" href="https://www.edrdg.org/kanjidic/kanjd2index_legacy.html" target="_blank" rel="noopener">KANJIDIC2 · EDRDG</a> (<a class="source-link" href="https://www.edrdg.org/edrdg/licence.html" target="_blank" rel="noopener">CC BY-SA 4.0</a>). Nét viết: <a class="source-link" href="https://kanjivg.tagaini.net/" target="_blank" rel="noopener">KanjiVG · Ulrich Apel</a> (<a class="source-link" href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>).</p>
+    </section>
   </main>
 
   <script src="data/vocabulary.js"></script>
@@ -854,6 +966,12 @@
     let quizQuestions = [];
     let quizScore = 0;
     let quizTimer = null;
+    let quizState = 'setup';
+    let quizGrading = 'submit';
+    let quizAnswers = [];
+    let quizOptionSets = [];
+    let quizScope = '';
+    let quizRun = 0;
 
     // Bản dịch tiếng Việt của các chủ đề, dùng để hỗ trợ lựa chọn bộ từ vựng.
     const TOPIC_DETAILS = {
@@ -971,16 +1089,17 @@
     function switchMode(mode) {
       clearTimeout(quizTimer);
       if (window.stopReadingAudio) window.stopReadingAudio();
+      if (window.stopKanjiAnimation) window.stopKanjiAnimation();
       currentMode = mode;
       document.querySelectorAll('[data-mode]').forEach(btn => {
         const selected = btn.dataset.mode === mode;
         btn.classList.toggle('active', selected);
         btn.setAttribute('aria-pressed', String(selected));
       });
-      ['flashcard', 'quiz', 'list', 'reading'].forEach(name => {
+      ['flashcard', 'quiz', 'list', 'reading', 'kanji'].forEach(name => {
         document.getElementById(name + 'Mode').style.display = mode === name ? (name === 'flashcard' ? 'flex' : 'block') : 'none';
       });
-      ['vocabIntro','vocabFilters','vocabCoverage'].forEach(id => document.getElementById(id).hidden = mode === 'reading');
+      ['vocabIntro','vocabFilters','vocabCoverage'].forEach(id => document.getElementById(id).hidden = mode === 'reading' || mode === 'kanji');
       updateUI();
     }
 
@@ -1087,6 +1206,8 @@
     /* QUIZ SETUP & LOGIC */
     function showQuizSetup() {
       clearTimeout(quizTimer);
+      quizRun++;
+      quizState = 'setup';
       document.getElementById('quizSetup').style.display = 'block';
       document.getElementById('quizBox').style.display = 'none';
       document.getElementById('quizResult').style.display = 'none';
@@ -1096,85 +1217,314 @@
       const tName = getTopicLabel(topicSelect.value);
       document.getElementById('setupDesc').textContent = `Phạm vi: ${lName} • ${tName} (Tổng: ${count} từ vựng)`;
 
-      const optAll = document.querySelector('#quizCountSelect option[value="all"]');
-      optAll.textContent = `Kiểm tra TOÀN BỘ (${count} câu)`;
+      document.getElementById('quizAllDetail').textContent = `${count} câu`;
+      updateQuizCountInput();
+      syncQuizChrome();
+    }
+
+    function syncQuizChrome() {
+      if (currentMode === 'quiz') {
+        ['vocabIntro','vocabFilters','vocabCoverage'].forEach(id => document.getElementById(id).hidden = quizState !== 'setup');
+      }
+    }
+
+    function shuffledQuizItems(items) {
+      const result = [...items];
+      for (let i = result.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [result[i], result[j]] = [result[j], result[i]];
+      }
+      return result;
+    }
+
+    function clearQuizCountError() {
+      document.getElementById('quizCountError').hidden = true;
+      document.getElementById('quizCustomCount').removeAttribute('aria-invalid');
+    }
+
+    function updateQuizCountInput() {
+      const custom = getQuizCountChoice() === 'custom';
+      document.getElementById('quizCustomBody').hidden = !custom;
+      document.getElementById('quizCustomGroup').classList.toggle('is-active', custom);
+      document.getElementById('quizCustomCount').max = currentFiltered.length;
+      document.getElementById('quizCountHint').textContent = currentFiltered.length
+        ? (custom ? `Nhập từ 1 đến ${currentFiltered.length} câu · Mỗi câu là một từ trong phạm vi đã chọn.` : `Có ${currentFiltered.length} từ để ôn tập. Số câu tối đa bằng số từ đang chọn.`)
+        : 'Chưa có từ để kiểm tra. Hãy đổi bộ lọc hoặc từ khóa.';
+      clearQuizCountError();
+      updateQuizCountPreview();
+    }
+
+    function getQuizCountChoice() {
+      return document.querySelector('input[name="quizCount"]:checked').value;
+    }
+
+    function updateQuizCountPreview() {
+      const choice = getQuizCountChoice();
+      const total = currentFiltered.length;
+      const input = document.getElementById('quizCustomCount');
+      const entered = Number(input.value);
+      const valid = input.value.trim() && Number.isSafeInteger(entered) && entered >= 1 && entered <= total;
+      const count = choice === 'custom' ? (valid ? entered : null) : choice === 'all' ? total : Math.min(Number(choice), total);
+      document.getElementById('quizCountPreview').textContent = !total ? 'Chưa có từ' : count === null ? 'Chờ bạn chọn số câu' : `${count} câu hỏi`;
+      document.getElementById('quizCountDecrease').disabled = !total || (valid && entered <= 1);
+      document.getElementById('quizCountIncrease').disabled = !total || (valid && entered >= total);
+    }
+
+    function adjustQuizCount(delta) {
+      const total = currentFiltered.length;
+      if (!total) return;
+      const input = document.getElementById('quizCustomCount');
+      const value = Number(input.value);
+      const base = input.value.trim() && Number.isSafeInteger(value) ? value : 0;
+      input.value = Math.min(total, Math.max(1, base + delta));
+      clearQuizCountError();
+      updateQuizCountPreview();
     }
 
     function startQuizEngine() {
       clearTimeout(quizTimer);
       const total = currentFiltered.length;
-      if (total < 4) {
-        alert('Cần ít nhất 4 từ vựng trong bộ lọc để có thể tạo các đáp án trắc nghiệm!');
+      if (!total) {
+        document.getElementById('quizCountError').textContent = 'Không có từ trong phạm vi chọn. Hãy đổi bộ lọc trước khi bắt đầu.';
+        document.getElementById('quizCountError').hidden = false;
         return;
       }
 
-      const countChoice = document.getElementById('quizCountSelect').value;
-      let qNum = countChoice === 'all' ? total : parseInt(countChoice, 10);
-      if (qNum > total) qNum = total;
+      const countChoice = getQuizCountChoice();
+      const customInput = document.getElementById('quizCustomCount');
+      const entered = Number(customInput.value);
+      if (countChoice === 'custom' && (!customInput.value.trim() || !Number.isSafeInteger(entered) || entered < 1 || entered > total)) {
+        document.getElementById('quizCountError').textContent = `Vui lòng nhập số nguyên từ 1 đến ${total}.`;
+        document.getElementById('quizCountError').hidden = false;
+        customInput.setAttribute('aria-invalid', 'true');
+        customInput.focus();
+        return;
+      }
+      clearQuizCountError();
+      const qNum = countChoice === 'custom' ? entered : countChoice === 'all' ? total : Math.min(Number(countChoice), total);
 
-      quizQuestions = [...currentFiltered].sort(() => Math.random() - 0.5).slice(0, qNum);
+      quizQuestions = shuffledQuizItems(currentFiltered).slice(0, qNum);
+      const meanings = [...new Set(RAW_VOCAB.map(word => word.m))];
+      quizOptionSets = quizQuestions.map(question => shuffledQuizItems([question.m, ...shuffledQuizItems(meanings.filter(meaning => meaning !== question.m)).slice(0, 3)]));
+      quizGrading = document.querySelector('input[name="quizGrading"]:checked').value;
+      quizScope = `${lessonSelect.value === 'all' ? 'Tất cả các bài' : `Bài ${lessonSelect.value}`} · ${getTopicLabel(topicSelect.value)}`;
+      beginQuizAttempt();
+    }
+
+    function beginQuizAttempt() {
+      clearTimeout(quizTimer);
+      quizRun++;
       quizIndex = 0;
       quizScore = 0;
-
+      quizAnswers = Array(quizQuestions.length).fill(null);
+      document.getElementById('quizQuestionMap').replaceChildren();
+      quizState = 'running';
+      document.getElementById('quizSubmitNotice').hidden = true;
+      document.getElementById('quizReviewList').replaceChildren();
       document.getElementById('quizSetup').style.display = 'none';
       document.getElementById('quizBox').style.display = 'block';
       document.getElementById('quizResult').style.display = 'none';
+      syncQuizChrome();
+      renderQuizQuestion();
+      document.getElementById('quizProgress').focus({preventScroll:true});
+    }
 
+    function retryQuiz() {
+      if (quizState === 'submitted' && quizQuestions.length) beginQuizAttempt();
+    }
+
+    function renderQuizView() {
+      if (quizState === 'setup') { showQuizSetup(); return; }
+      syncQuizChrome();
+      if (quizState === 'submitted') return;
+      // If a tab change stopped the feedback timer, resume at the next question.
+      if (quizGrading === 'instant' && getQuizAnswer(quizIndex) !== null) {
+        quizIndex++;
+        if (quizIndex === quizQuestions.length) { showQuizResult(); return; }
+      }
       renderQuizQuestion();
     }
 
-    function renderQuizQuestion() {
-      const q = quizQuestions[quizIndex];
-      document.getElementById('quizProgress').textContent = `Câu hỏi ${quizIndex + 1} / ${quizQuestions.length}`;
-      document.getElementById('quizScore').textContent = `Điểm: ${quizScore}`;
-      document.getElementById('quizKanji').textContent = q.k;
-      document.getElementById('quizKana').textContent = q.h;
-
-      const wrongOptions = [...new Set(RAW_VOCAB.filter(x => x.m !== q.m).map(x => x.m))].sort(() => Math.random() - 0.5).slice(0, 3);
-      const allOptions = [q.m, ...wrongOptions].sort(() => Math.random() - 0.5);
-
-      const optsBox = document.getElementById('quizOptions');
-      optsBox.innerHTML = '';
-      allOptions.forEach(opt => {
-        const btn = document.createElement('button');
-        btn.className = 'quiz-opt-btn';
-        btn.innerHTML = `<span>${opt}</span>`;
-        btn.onclick = () => handleQuizAnswer(btn, opt, q.m);
-        optsBox.appendChild(btn);
-      });
+    function getQuizAnswer(index) {
+      const answer = quizAnswers[index];
+      return typeof answer === 'string' && quizOptionSets[index]?.includes(answer) ? answer : null;
     }
 
-    function handleQuizAnswer(btn, chosen, correct) {
-      const allBtns = document.querySelectorAll('.quiz-opt-btn');
-      allBtns.forEach(b => b.disabled = true);
-
-      if (chosen === correct) {
-        btn.classList.add('correct');
-        quizScore += 10;
-      } else {
-        btn.classList.add('incorrect');
-        allBtns.forEach(b => {
-          if (b.innerText.trim() === correct) b.classList.add('correct');
+    function updateQuizProgress() {
+      const answered = quizQuestions.filter((_, index) => getQuizAnswer(index) !== null).length;
+      const percent = Math.round(answered / quizQuestions.length * 100);
+      document.getElementById('quizAnsweredLabel').textContent = `Đã trả lời ${answered} / ${quizQuestions.length} câu`;
+      document.getElementById('quizPercent').textContent = `${percent}%`;
+      const progress = document.getElementById('quizProgressBar');
+      progress.max = quizQuestions.length;
+      progress.value = answered;
+      document.getElementById('quizScore').textContent = `Điểm: ${quizScore}`;
+      const map = document.getElementById('quizQuestionMap');
+      if (quizGrading === 'submit') {
+        if (map.children.length !== quizQuestions.length) {
+          map.replaceChildren(...quizQuestions.map((_, index) => {
+            const button = document.createElement('button');
+            button.className = 'quiz-map-button';
+            button.innerHTML = `<span>${index + 1}</span><span class="quiz-map-answer-mark" aria-hidden="true">○</span>`;
+            button.onclick = () => goToQuizQuestion(index);
+            return button;
+          }));
+        }
+        [...map.children].forEach((button, index) => {
+          const hasAnswer = getQuizAnswer(index) !== null;
+          const viewing = index === quizIndex;
+          const label = `Câu ${index + 1}: ${hasAnswer ? 'đã trả lời' : 'chưa trả lời'}${viewing ? ' · đang xem' : ''}`;
+          button.classList.toggle('is-answered', hasAnswer);
+          button.querySelector('.quiz-map-answer-mark').textContent = hasAnswer ? '✓' : '○';
+          button.setAttribute('aria-current', viewing ? 'step' : 'false');
+          button.setAttribute('aria-label', label);
+          button.title = label;
         });
+        const currentStatus = document.getElementById('quizMapCurrentStatus');
+        const hasCurrentAnswer = getQuizAnswer(quizIndex) !== null;
+        currentStatus.textContent = `Câu ${quizIndex + 1}: ${hasCurrentAnswer ? 'Đã trả lời' : 'Chưa trả lời'}`;
+        currentStatus.classList.toggle('is-answered', hasCurrentAnswer);
       }
+      document.getElementById('quizPreviousQuestion').disabled = quizIndex === 0;
+      document.getElementById('quizNextQuestion').disabled = quizIndex === quizQuestions.length - 1;
+    }
 
+    function renderQuizQuestion() {
+      if (quizState !== 'running') return;
+      const q = quizQuestions[quizIndex];
+      const questionIndex = quizIndex;
+      const selected = getQuizAnswer(quizIndex);
+      const instant = quizGrading === 'instant';
+      document.getElementById('quizProgress').textContent = `Câu hỏi ${quizIndex + 1} / ${quizQuestions.length}`;
+      document.getElementById('quizScore').hidden = !instant;
+      document.getElementById('quizSessionInfo').textContent = `${quizScope} · ${instant ? 'Chấm ngay sau mỗi câu.' : 'Mỗi câu chọn một đáp án. Bạn có thể đổi lựa chọn trước khi nộp.'}`;
+      document.getElementById('quizQuestionNavigator').hidden = instant;
+      document.getElementById('quizExamActions').hidden = instant;
+      document.getElementById('quizKanji').textContent = q.k;
+      document.getElementById('quizKana').textContent = q.h;
+      document.getElementById('quizAnswerStatus').textContent = selected === null ? 'Chọn một đáp án bên dưới.' : instant ? (selected === q.m ? '✓ Chính xác.' : `✕ Chưa đúng. Đáp án: ${q.m}`) : 'Đã ghi nhận lựa chọn. Bạn có thể xem lại hoặc chuyển câu.';
+      const optsBox = document.getElementById('quizOptions');
+      optsBox.replaceChildren();
+      quizOptionSets[quizIndex].forEach((opt, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'quiz-opt-btn';
+        btn.classList.toggle('is-selected', selected === opt);
+        btn.setAttribute('aria-label', opt);
+        btn.setAttribute('aria-pressed', String(selected === opt));
+        btn.innerHTML = `<span class="quiz-option-letter" aria-hidden="true">${'ABCD'[index]}</span><span class="quiz-option-text">${escapeHTML(opt)}</span>`;
+        if (instant && selected !== null) {
+          btn.disabled = true;
+          btn.classList.toggle('correct', opt === q.m);
+          btn.classList.toggle('incorrect', selected === opt && opt !== q.m);
+        }
+        btn.onclick = () => handleQuizAnswer(opt, questionIndex);
+        optsBox.appendChild(btn);
+      });
+      updateQuizProgress();
+    }
+
+    function handleQuizAnswer(chosen, index) {
+      if (quizState !== 'running' || index !== quizIndex || !quizOptionSets[index].includes(chosen)) return;
+      if (quizGrading === 'instant' && getQuizAnswer(index) !== null) return;
+      quizAnswers[index] = chosen;
+      document.getElementById('quizSubmitNotice').hidden = true;
+      if (quizGrading === 'submit') {
+        // Keep the selected button focused; editing an answer does not advance.
+        [...document.getElementById('quizOptions').children].forEach((button, i) => {
+          const selected = quizOptionSets[index][i] === chosen;
+          button.classList.toggle('is-selected', selected);
+          button.setAttribute('aria-pressed', String(selected));
+        });
+        document.getElementById('quizAnswerStatus').textContent = 'Đã ghi nhận lựa chọn. Bạn có thể xem lại hoặc chuyển câu.';
+        updateQuizProgress();
+        return;
+      }
+      if (chosen === quizQuestions[index].m) quizScore += 10;
+      renderQuizQuestion();
+      const run = quizRun;
       quizTimer = setTimeout(() => {
+        if (quizRun !== run || quizState !== 'running' || currentMode !== 'quiz') return;
         quizIndex++;
         if (quizIndex < quizQuestions.length) {
           renderQuizQuestion();
+          document.getElementById('quizProgress').focus({preventScroll:true});
         } else {
           showQuizResult();
         }
       }, 900);
     }
 
+    function goToQuizQuestion(index) {
+      if (quizState !== 'running' || quizGrading !== 'submit' || index < 0 || index >= quizQuestions.length) return;
+      quizIndex = index;
+      document.getElementById('quizSubmitNotice').hidden = true;
+      renderQuizQuestion();
+      document.getElementById('quizProgress').focus({preventScroll:true});
+      const map = document.getElementById('quizQuestionMap');
+      const button = map.children[index];
+      if (button && (button.offsetTop < map.scrollTop || button.offsetTop + button.offsetHeight > map.scrollTop + map.clientHeight)) map.scrollTop = button.offsetTop - map.clientHeight / 2;
+    }
+
+    function goToFirstUnanswered() {
+      const index = quizQuestions.findIndex((_, i) => getQuizAnswer(i) === null);
+      if (index !== -1) goToQuizQuestion(index);
+    }
+
+    function requestQuizSubmission() {
+      if (quizState !== 'running' || quizGrading !== 'submit') return;
+      const skipped = quizQuestions.filter((_, index) => getQuizAnswer(index) === null).length;
+      if (!skipped) { submitQuiz(); return; }
+      document.getElementById('quizSubmitNoticeText').textContent = `Còn ${skipped} câu chưa trả lời. Nếu nộp ngay, các câu này sẽ được tính là bỏ trống và không có điểm.`;
+      document.getElementById('quizSubmitNotice').hidden = false;
+    }
+
+    function submitQuiz() {
+      if (quizState !== 'running' || quizGrading !== 'submit') return;
+      showQuizResult();
+    }
+
     function showQuizResult() {
+      if (quizState !== 'running' || !quizQuestions.length) return;
+      clearTimeout(quizTimer);
+      quizRun++;
+      quizState = 'submitted';
+      const correct = quizQuestions.filter((question, index) => getQuizAnswer(index) === question.m).length;
+      const skipped = quizQuestions.filter((_, index) => getQuizAnswer(index) === null).length;
+      const wrong = quizQuestions.length - correct - skipped;
+      quizScore = correct * 10;
       document.getElementById('quizBox').style.display = 'none';
       document.getElementById('quizResult').style.display = 'block';
-      const maxScore = quizQuestions.length * 10;
-      const pct = Math.round((quizScore / maxScore) * 100);
+      const pct = Math.round(correct / quizQuestions.length * 100);
       document.getElementById('finalScore').textContent = `${pct}%`;
-      document.getElementById('resultSubtitle').textContent = `Bạn đã trả lời đúng ${quizScore / 10} / ${quizQuestions.length} câu.`;
+      document.getElementById('resultSubtitle').textContent = `Bạn đã trả lời đúng ${correct} / ${quizQuestions.length} câu · ${quizScore} / ${quizQuestions.length * 10} điểm.`;
+      document.getElementById('quizCorrectCount').textContent = correct;
+      document.getElementById('quizWrongCount').textContent = wrong;
+      document.getElementById('quizSkippedCount').textContent = skipped;
+      syncQuizChrome();
+      renderQuizReview('all');
+      document.getElementById('quizResultTitle').focus({preventScroll:true});
+      document.getElementById('quizResult').scrollIntoView({block:'start',behavior:'instant'});
+    }
+
+    function renderQuizReview(filter) {
+      if (quizState !== 'submitted') return;
+      document.getElementById('quizReviewAll').setAttribute('aria-pressed', String(filter === 'all'));
+      document.getElementById('quizReviewMistakes').setAttribute('aria-pressed', String(filter === 'mistakes'));
+      const wrongCount = quizQuestions.filter((question, index) => getQuizAnswer(index) !== question.m).length;
+      document.getElementById('quizReviewAll').textContent = `Tất cả (${quizQuestions.length})`;
+      document.getElementById('quizReviewMistakes').textContent = `Sai / bỏ trống (${wrongCount})`;
+      document.getElementById('quizReviewList').innerHTML = quizQuestions.map((question, index) => {
+        const chosen = getQuizAnswer(index);
+        const correct = chosen === question.m;
+        if (filter === 'mistakes' && correct) return '';
+        const state = chosen === null ? 'skipped' : correct ? 'correct' : 'incorrect';
+        const label = chosen === null ? '— Bỏ trống' : correct ? '✓ Đúng' : '✕ Sai';
+        const options = quizOptionSets[index].map((option, i) => {
+          const right = option === question.m, selected = option === chosen;
+          return `<div class="quiz-review-option${right ? ' is-correct' : selected ? ' is-incorrect' : ''}"><span class="quiz-option-letter" aria-hidden="true">${'ABCD'[i]}</span><span class="quiz-option-text">${escapeHTML(option)}</span>${right || selected ? `<strong>${right ? (selected ? '✓ Bạn chọn · Đúng' : '✓ Đáp án đúng') : '✕ Bạn chọn · Sai'}</strong>` : ''}</div>`;
+        }).join('');
+        return `<article class="quiz-review-card ${state}" data-review-index="${index}"><div class="quiz-review-meta"><h4>Câu ${index + 1}</h4><span class="quiz-review-status">${label}</span></div><p class="quiz-review-word" lang="ja">${escapeHTML(question.k)}</p><p class="quiz-review-kana" lang="ja">${escapeHTML(question.h)}</p>${chosen === null ? '<p class="quiz-skipped-note">Bạn chưa chọn đáp án cho câu này.</p>' : ''}<div class="quiz-review-options">${options}</div><p class="quiz-review-source">Bài ${question.l} · ${escapeHTML(getTopicLabel(question.t))} · <a class="source-link" href="sources/new-words.pdf#page=${question.p}" target="_blank" rel="noopener">PDF trang ${question.p} ↗</a></p></article>`;
+      }).join('') || '<p class="empty-state">Bạn đã trả lời đúng tất cả các câu. Không có câu sai hoặc bỏ trống.</p>';
     }
 
     /* LIST VIEW */
@@ -1197,7 +1547,7 @@
     function updateUI() {
       if (currentMode === 'flashcard') updateCardUI();
       else if (currentMode === 'list') renderListView();
-      else if (currentMode === 'quiz') showQuizSetup();
+      else if (currentMode === 'quiz') renderQuizView();
     }
 
     /* THEME TOGGLE */
@@ -1242,5 +1592,7 @@
   </script>
   <script src="data/readings.js"></script>
   <script src="assets/reading.js"></script>
+  <script src="data/kanji.js"></script>
+  <script src="assets/kanji.js"></script>
 </body>
 </html>

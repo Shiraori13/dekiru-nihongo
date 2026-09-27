@@ -1,0 +1,5465 @@
+[
+  {
+    "index": 0,
+    "pdf": "私",
+    "supplement": false,
+    "word": "私",
+    "lesson": 1,
+    "topic": "私の名前・国・仕事",
+    "page": 2
+  },
+  {
+    "index": 1,
+    "pdf": "（お）名前",
+    "supplement": false,
+    "word": "(お)名前",
+    "lesson": 1,
+    "topic": "私の名前・国・仕事",
+    "page": 2
+  },
+  {
+    "index": 2,
+    "pdf": "（お）国",
+    "supplement": false,
+    "word": "(お)国",
+    "lesson": 1,
+    "topic": "私の名前・国・仕事",
+    "page": 2
+  },
+  {
+    "index": 3,
+    "pdf": "日本",
+    "supplement": false,
+    "word": "日本",
+    "lesson": 1,
+    "topic": "私の名前・国・仕事",
+    "page": 2
+  },
+  {
+    "index": 4,
+    "pdf": "韓国",
+    "supplement": false,
+    "word": "韓国",
+    "lesson": 1,
+    "topic": "私の名前・国・仕事",
+    "page": 2
+  },
+  {
+    "index": 5,
+    "pdf": "中国",
+    "supplement": false,
+    "word": "中国",
+    "lesson": 1,
+    "topic": "私の名前・国・仕事",
+    "page": 2
+  },
+  {
+    "index": 11,
+    "pdf": "高校",
+    "supplement": false,
+    "word": "高校",
+    "lesson": 1,
+    "topic": "私の名前・国・仕事",
+    "page": 2
+  },
+  {
+    "index": 12,
+    "pdf": "大学",
+    "supplement": false,
+    "word": "大学",
+    "lesson": 1,
+    "topic": "私の名前・国・仕事",
+    "page": 2
+  },
+  {
+    "index": 13,
+    "pdf": "日本語学校",
+    "supplement": false,
+    "word": "日本語学校",
+    "lesson": 1,
+    "topic": "私の名前・国・仕事",
+    "page": 2
+  },
+  {
+    "index": 14,
+    "pdf": "（お）仕事",
+    "supplement": false,
+    "word": "(お)仕事",
+    "lesson": 1,
+    "topic": "私の名前・国・仕事",
+    "page": 2
+  },
+  {
+    "index": 15,
+    "pdf": "学生",
+    "supplement": false,
+    "word": "学生",
+    "lesson": 1,
+    "topic": "私の名前・国・仕事",
+    "page": 2
+  },
+  {
+    "index": 16,
+    "pdf": "先生",
+    "supplement": false,
+    "word": "先生",
+    "lesson": 1,
+    "topic": "私の名前・国・仕事",
+    "page": 2
+  },
+  {
+    "index": 17,
+    "pdf": "教師",
+    "supplement": false,
+    "word": "教師",
+    "lesson": 1,
+    "topic": "私の名前・国・仕事",
+    "page": 2
+  },
+  {
+    "index": 18,
+    "pdf": "会社員",
+    "supplement": false,
+    "word": "会社員",
+    "lesson": 1,
+    "topic": "私の名前・国・仕事",
+    "page": 2
+  },
+  {
+    "index": 19,
+    "pdf": "社員",
+    "supplement": false,
+    "word": "社員",
+    "lesson": 1,
+    "topic": "私の名前・国・仕事",
+    "page": 2
+  },
+  {
+    "index": 21,
+    "pdf": "～人",
+    "supplement": false,
+    "word": "～人",
+    "lesson": 1,
+    "topic": "私の名前・国・仕事",
+    "page": 2
+  },
+  {
+    "index": 22,
+    "pdf": "～語",
+    "supplement": false,
+    "word": "～語",
+    "lesson": 1,
+    "topic": "私の名前・国・仕事",
+    "page": 2
+  },
+  {
+    "index": 25,
+    "pdf": "（どうぞ）よろしくお願いします。",
+    "supplement": false,
+    "word": "(どうぞ)よろしくお願いします。",
+    "lesson": 1,
+    "topic": "私の名前・国・仕事",
+    "page": 2
+  },
+  {
+    "index": 30,
+    "pdf": "誕生日",
+    "supplement": false,
+    "word": "誕生日",
+    "lesson": 1,
+    "topic": "私の誕生日",
+    "page": 3
+  },
+  {
+    "index": 32,
+    "pdf": "～月",
+    "supplement": false,
+    "word": "～月",
+    "lesson": 1,
+    "topic": "私の誕生日",
+    "page": 3
+  },
+  {
+    "index": 33,
+    "pdf": "～日",
+    "supplement": false,
+    "word": "～日",
+    "lesson": 1,
+    "topic": "私の誕生日",
+    "page": 3
+  },
+  {
+    "index": 34,
+    "pdf": "～歳",
+    "supplement": false,
+    "word": "～歳",
+    "lesson": 1,
+    "topic": "私の誕生日",
+    "page": 3
+  },
+  {
+    "index": 36,
+    "pdf": "趣味",
+    "supplement": false,
+    "word": "趣味",
+    "lesson": 1,
+    "topic": "私の趣味",
+    "page": 3
+  },
+  {
+    "index": 40,
+    "pdf": "水泳",
+    "supplement": false,
+    "word": "水泳",
+    "lesson": 1,
+    "topic": "私の趣味",
+    "page": 3
+  },
+  {
+    "index": 41,
+    "pdf": "音楽",
+    "supplement": false,
+    "word": "音楽",
+    "lesson": 1,
+    "topic": "私の趣味",
+    "page": 3
+  },
+  {
+    "index": 42,
+    "pdf": "読書",
+    "supplement": false,
+    "word": "読書",
+    "lesson": 1,
+    "topic": "私の趣味",
+    "page": 3
+  },
+  {
+    "index": 43,
+    "pdf": "旅行",
+    "supplement": false,
+    "word": "旅行",
+    "lesson": 1,
+    "topic": "私の趣味",
+    "page": 3
+  },
+  {
+    "index": 44,
+    "pdf": "料理",
+    "supplement": false,
+    "word": "料理",
+    "lesson": 1,
+    "topic": "私の趣味",
+    "page": 3
+  },
+  {
+    "index": 45,
+    "pdf": "何",
+    "supplement": false,
+    "word": "何",
+    "lesson": 1,
+    "topic": "私の趣味",
+    "page": 3
+  },
+  {
+    "index": 58,
+    "pdf": "きつえんじょ",
+    "supplement": true,
+    "word": "喫煙所",
+    "lesson": 2,
+    "topic": "どこですか",
+    "page": 4
+  },
+  {
+    "index": 61,
+    "pdf": "きっさてん",
+    "supplement": true,
+    "word": "喫茶店",
+    "lesson": 2,
+    "topic": "どこですか",
+    "page": 4
+  },
+  {
+    "index": 63,
+    "pdf": "１００円ショップ",
+    "supplement": false,
+    "word": "100円ショップ",
+    "lesson": 2,
+    "topic": "どこですか",
+    "page": 4
+  },
+  {
+    "index": 65,
+    "pdf": "地下",
+    "supplement": false,
+    "word": "地下",
+    "lesson": 2,
+    "topic": "どこですか",
+    "page": 4
+  },
+  {
+    "index": 67,
+    "pdf": "携帯電話",
+    "supplement": false,
+    "word": "携帯電話",
+    "lesson": 2,
+    "topic": "どこですか",
+    "page": 4
+  },
+  {
+    "index": 68,
+    "pdf": "電子辞書",
+    "supplement": false,
+    "word": "電子辞書",
+    "lesson": 2,
+    "topic": "どこですか",
+    "page": 4
+  },
+  {
+    "index": 70,
+    "pdf": "くつ",
+    "supplement": true,
+    "word": "靴",
+    "lesson": 2,
+    "topic": "どこですか",
+    "page": 4
+  },
+  {
+    "index": 71,
+    "pdf": "消しゴム",
+    "supplement": false,
+    "word": "消しゴム",
+    "lesson": 2,
+    "topic": "どこですか",
+    "page": 4
+  },
+  {
+    "index": 74,
+    "pdf": "本",
+    "supplement": false,
+    "word": "本",
+    "lesson": 2,
+    "topic": "どこですか",
+    "page": 4
+  },
+  {
+    "index": 75,
+    "pdf": "油",
+    "supplement": false,
+    "word": "油",
+    "lesson": 2,
+    "topic": "どこですか",
+    "page": 4
+  },
+  {
+    "index": 77,
+    "pdf": "米",
+    "supplement": false,
+    "word": "米",
+    "lesson": 2,
+    "topic": "どこですか",
+    "page": 4
+  },
+  {
+    "index": 78,
+    "pdf": "卵",
+    "supplement": false,
+    "word": "卵",
+    "lesson": 2,
+    "topic": "どこですか",
+    "page": 5
+  },
+  {
+    "index": 80,
+    "pdf": "水",
+    "supplement": false,
+    "word": "水",
+    "lesson": 2,
+    "topic": "どこですか",
+    "page": 5
+  },
+  {
+    "index": 81,
+    "pdf": "店員",
+    "supplement": false,
+    "word": "店員",
+    "lesson": 2,
+    "topic": "どこですか",
+    "page": 5
+  },
+  {
+    "index": 82,
+    "pdf": "～階",
+    "supplement": false,
+    "word": "～階",
+    "lesson": 2,
+    "topic": "どこですか",
+    "page": 5
+  },
+  {
+    "index": 83,
+    "pdf": "～屋",
+    "supplement": false,
+    "word": "～屋",
+    "lesson": 2,
+    "topic": "どこですか",
+    "page": 5
+  },
+  {
+    "index": 96,
+    "pdf": "時計",
+    "supplement": false,
+    "word": "時計",
+    "lesson": 2,
+    "topic": "いくらですか",
+    "page": 5
+  },
+  {
+    "index": 97,
+    "pdf": "～円",
+    "supplement": false,
+    "word": "～円",
+    "lesson": 2,
+    "topic": "いくらですか",
+    "page": 5
+  },
+  {
+    "index": 100,
+    "pdf": "魚",
+    "supplement": false,
+    "word": "魚",
+    "lesson": 2,
+    "topic": "レストラン",
+    "page": 6
+  },
+  {
+    "index": 101,
+    "pdf": "肉",
+    "supplement": false,
+    "word": "肉",
+    "lesson": 2,
+    "topic": "レストラン",
+    "page": 6
+  },
+  {
+    "index": 102,
+    "pdf": "牛肉",
+    "supplement": false,
+    "word": "牛肉",
+    "lesson": 2,
+    "topic": "レストラン",
+    "page": 6
+  },
+  {
+    "index": 103,
+    "pdf": "豚肉",
+    "supplement": false,
+    "word": "豚肉",
+    "lesson": 2,
+    "topic": "レストラン",
+    "page": 6
+  },
+  {
+    "index": 104,
+    "pdf": "野菜",
+    "supplement": false,
+    "word": "野菜",
+    "lesson": 2,
+    "topic": "レストラン",
+    "page": 6
+  },
+  {
+    "index": 107,
+    "pdf": "料理",
+    "supplement": false,
+    "word": "料理",
+    "lesson": 2,
+    "topic": "レストラン",
+    "page": 6
+  },
+  {
+    "index": 112,
+    "pdf": "ご飯",
+    "supplement": false,
+    "word": "ご飯",
+    "lesson": 2,
+    "topic": "レストラン",
+    "page": 6
+  },
+  {
+    "index": 116,
+    "pdf": "紅茶",
+    "supplement": false,
+    "word": "紅茶",
+    "lesson": 2,
+    "topic": "レストラン",
+    "page": 6
+  },
+  {
+    "index": 117,
+    "pdf": "（お）茶",
+    "supplement": false,
+    "word": "(お)茶",
+    "lesson": 2,
+    "topic": "レストラン",
+    "page": 6
+  },
+  {
+    "index": 123,
+    "pdf": "財布",
+    "supplement": false,
+    "word": "財布",
+    "lesson": 2,
+    "topic": "レストラン",
+    "page": 6
+  },
+  {
+    "index": 124,
+    "pdf": "英語",
+    "supplement": false,
+    "word": "英語",
+    "lesson": 2,
+    "topic": "レストラン",
+    "page": 6
+  },
+  {
+    "index": 127,
+    "pdf": "注文をお願いします",
+    "supplement": false,
+    "word": "注文をお願いします",
+    "lesson": 2,
+    "topic": "レストラン",
+    "page": 7
+  },
+  {
+    "index": 129,
+    "pdf": "今",
+    "supplement": false,
+    "word": "今",
+    "lesson": 3,
+    "topic": "何時までですか",
+    "page": 8
+  },
+  {
+    "index": 130,
+    "pdf": "午前",
+    "supplement": false,
+    "word": "午前",
+    "lesson": 3,
+    "topic": "何時までですか",
+    "page": 8
+  },
+  {
+    "index": 131,
+    "pdf": "午後",
+    "supplement": false,
+    "word": "午後",
+    "lesson": 3,
+    "topic": "何時までですか",
+    "page": 8
+  },
+  {
+    "index": 132,
+    "pdf": "昼",
+    "supplement": false,
+    "word": "昼",
+    "lesson": 3,
+    "topic": "何時までですか",
+    "page": 8
+  },
+  {
+    "index": 133,
+    "pdf": "銀行",
+    "supplement": false,
+    "word": "銀行",
+    "lesson": 3,
+    "topic": "何時までですか",
+    "page": 8
+  },
+  {
+    "index": 134,
+    "pdf": "体育館",
+    "supplement": false,
+    "word": "体育館",
+    "lesson": 3,
+    "topic": "何時までですか",
+    "page": 8
+  },
+  {
+    "index": 135,
+    "pdf": "図書館",
+    "supplement": false,
+    "word": "図書館",
+    "lesson": 3,
+    "topic": "何時までですか",
+    "page": 8
+  },
+  {
+    "index": 136,
+    "pdf": "病院",
+    "supplement": false,
+    "word": "病院",
+    "lesson": 3,
+    "topic": "何時までですか",
+    "page": 8
+  },
+  {
+    "index": 137,
+    "pdf": "郵便局",
+    "supplement": false,
+    "word": "郵便局",
+    "lesson": 3,
+    "topic": "何時までですか",
+    "page": 8
+  },
+  {
+    "index": 138,
+    "pdf": "授業",
+    "supplement": false,
+    "word": "授業",
+    "lesson": 3,
+    "topic": "何時までですか",
+    "page": 8
+  },
+  {
+    "index": 140,
+    "pdf": "休み",
+    "supplement": false,
+    "word": "休み",
+    "lesson": 3,
+    "topic": "何時までですか",
+    "page": 8
+  },
+  {
+    "index": 141,
+    "pdf": "時間",
+    "supplement": false,
+    "word": "時間",
+    "lesson": 3,
+    "topic": "何時までですか",
+    "page": 8
+  },
+  {
+    "index": 142,
+    "pdf": "～時",
+    "supplement": false,
+    "word": "～時",
+    "lesson": 3,
+    "topic": "何時までですか",
+    "page": 8
+  },
+  {
+    "index": 143,
+    "pdf": "～分",
+    "supplement": false,
+    "word": "～分",
+    "lesson": 3,
+    "topic": "何時までですか",
+    "page": 8
+  },
+  {
+    "index": 144,
+    "pdf": "～時半",
+    "supplement": false,
+    "word": "～時半",
+    "lesson": 3,
+    "topic": "何時までですか",
+    "page": 8
+  },
+  {
+    "index": 145,
+    "pdf": "～曜日",
+    "supplement": false,
+    "word": "～曜日",
+    "lesson": 3,
+    "topic": "何時までですか",
+    "page": 8
+  },
+  {
+    "index": 151,
+    "pdf": "花火",
+    "supplement": false,
+    "word": "花火",
+    "lesson": 3,
+    "topic": "私のスケジュール",
+    "page": 8
+  },
+  {
+    "index": 152,
+    "pdf": "（お）花見",
+    "supplement": false,
+    "word": "(お)花見",
+    "lesson": 3,
+    "topic": "私のスケジュール",
+    "page": 8
+  },
+  {
+    "index": 154,
+    "pdf": "（お）祭り",
+    "supplement": false,
+    "word": "(お)祭り",
+    "lesson": 3,
+    "topic": "私のスケジュール",
+    "page": 9
+  },
+  {
+    "index": 155,
+    "pdf": "海",
+    "supplement": false,
+    "word": "海",
+    "lesson": 3,
+    "topic": "私のスケジュール",
+    "page": 9
+  },
+  {
+    "index": 156,
+    "pdf": "公園",
+    "supplement": false,
+    "word": "公園",
+    "lesson": 3,
+    "topic": "私のスケジュール",
+    "page": 9
+  },
+  {
+    "index": 157,
+    "pdf": "桜",
+    "supplement": false,
+    "word": "桜",
+    "lesson": 3,
+    "topic": "私のスケジュール",
+    "page": 9
+  },
+  {
+    "index": 158,
+    "pdf": "（お）酒",
+    "supplement": false,
+    "word": "(お)酒",
+    "lesson": 3,
+    "topic": "私のスケジュール",
+    "page": 9
+  },
+  {
+    "index": 161,
+    "pdf": "（お）弁当",
+    "supplement": false,
+    "word": "(お)弁当",
+    "lesson": 3,
+    "topic": "私のスケジュール",
+    "page": 9
+  },
+  {
+    "index": 162,
+    "pdf": "１年",
+    "supplement": false,
+    "word": "1年",
+    "lesson": 3,
+    "topic": "私のスケジュール",
+    "page": 9
+  },
+  {
+    "index": 163,
+    "pdf": "春",
+    "supplement": false,
+    "word": "春",
+    "lesson": 3,
+    "topic": "私のスケジュール",
+    "page": 9
+  },
+  {
+    "index": 164,
+    "pdf": "夏",
+    "supplement": false,
+    "word": "夏",
+    "lesson": 3,
+    "topic": "私のスケジュール",
+    "page": 9
+  },
+  {
+    "index": 165,
+    "pdf": "秋",
+    "supplement": false,
+    "word": "秋",
+    "lesson": 3,
+    "topic": "私のスケジュール",
+    "page": 9
+  },
+  {
+    "index": 166,
+    "pdf": "冬",
+    "supplement": false,
+    "word": "冬",
+    "lesson": 3,
+    "topic": "私のスケジュール",
+    "page": 9
+  },
+  {
+    "index": 168,
+    "pdf": "何",
+    "supplement": false,
+    "word": "何",
+    "lesson": 3,
+    "topic": "私のスケジュール",
+    "page": 9
+  },
+  {
+    "index": 169,
+    "pdf": "行きます",
+    "supplement": false,
+    "word": "行きます",
+    "lesson": 3,
+    "topic": "私のスケジュール",
+    "page": 9
+  },
+  {
+    "index": 170,
+    "pdf": "帰ります",
+    "supplement": false,
+    "word": "帰ります",
+    "lesson": 3,
+    "topic": "私のスケジュール",
+    "page": 9
+  },
+  {
+    "index": 171,
+    "pdf": "飲みます",
+    "supplement": false,
+    "word": "飲みます",
+    "lesson": 3,
+    "topic": "私のスケジュール",
+    "page": 9
+  },
+  {
+    "index": 172,
+    "pdf": "食べます",
+    "supplement": false,
+    "word": "食べます",
+    "lesson": 3,
+    "topic": "私のスケジュール",
+    "page": 9
+  },
+  {
+    "index": 173,
+    "pdf": "見ます",
+    "supplement": false,
+    "word": "見ます",
+    "lesson": 3,
+    "topic": "私のスケジュール",
+    "page": 9
+  },
+  {
+    "index": 178,
+    "pdf": "朝",
+    "supplement": false,
+    "word": "朝",
+    "lesson": 3,
+    "topic": "どんな毎日?",
+    "page": 10
+  },
+  {
+    "index": 179,
+    "pdf": "夜",
+    "supplement": false,
+    "word": "夜",
+    "lesson": 3,
+    "topic": "どんな毎日?",
+    "page": 10
+  },
+  {
+    "index": 180,
+    "pdf": "毎日",
+    "supplement": false,
+    "word": "毎日",
+    "lesson": 3,
+    "topic": "どんな毎日?",
+    "page": 10
+  },
+  {
+    "index": 181,
+    "pdf": "毎朝",
+    "supplement": false,
+    "word": "毎朝",
+    "lesson": 3,
+    "topic": "どんな毎日?",
+    "page": 10
+  },
+  {
+    "index": 182,
+    "pdf": "毎晩",
+    "supplement": false,
+    "word": "毎晩",
+    "lesson": 3,
+    "topic": "どんな毎日?",
+    "page": 10
+  },
+  {
+    "index": 183,
+    "pdf": "朝ご飯",
+    "supplement": false,
+    "word": "朝ご飯",
+    "lesson": 3,
+    "topic": "どんな毎日?",
+    "page": 10
+  },
+  {
+    "index": 184,
+    "pdf": "昼ごはん",
+    "supplement": false,
+    "word": "昼ごはん",
+    "lesson": 3,
+    "topic": "どんな毎日?",
+    "page": 10
+  },
+  {
+    "index": 185,
+    "pdf": "家",
+    "supplement": false,
+    "word": "家",
+    "lesson": 3,
+    "topic": "どんな毎日?",
+    "page": 10
+  },
+  {
+    "index": 186,
+    "pdf": "会社",
+    "supplement": false,
+    "word": "会社",
+    "lesson": 3,
+    "topic": "どんな毎日?",
+    "page": 10
+  },
+  {
+    "index": 187,
+    "pdf": "学校",
+    "supplement": false,
+    "word": "学校",
+    "lesson": 3,
+    "topic": "どんな毎日?",
+    "page": 10
+  },
+  {
+    "index": 189,
+    "pdf": "牛乳",
+    "supplement": false,
+    "word": "牛乳",
+    "lesson": 3,
+    "topic": "どんな毎日?",
+    "page": 10
+  },
+  {
+    "index": 190,
+    "pdf": "果物",
+    "supplement": false,
+    "word": "果物",
+    "lesson": 3,
+    "topic": "どんな毎日?",
+    "page": 10
+  },
+  {
+    "index": 194,
+    "pdf": "新聞",
+    "supplement": false,
+    "word": "新聞",
+    "lesson": 3,
+    "topic": "どんな毎日?",
+    "page": 10
+  },
+  {
+    "index": 198,
+    "pdf": "何も",
+    "supplement": false,
+    "word": "何も",
+    "lesson": 3,
+    "topic": "どんな毎日?",
+    "page": 10
+  },
+  {
+    "index": 200,
+    "pdf": "買います",
+    "supplement": false,
+    "word": "買います",
+    "lesson": 3,
+    "topic": "どんな毎日?",
+    "page": 10
+  },
+  {
+    "index": 201,
+    "pdf": "聞きます",
+    "supplement": false,
+    "word": "聞きます",
+    "lesson": 3,
+    "topic": "どんな毎日?",
+    "page": 10
+  },
+  {
+    "index": 202,
+    "pdf": "働きます",
+    "supplement": false,
+    "word": "働きます",
+    "lesson": 3,
+    "topic": "どんな毎日?",
+    "page": 10
+  },
+  {
+    "index": 203,
+    "pdf": "読みます",
+    "supplement": false,
+    "word": "読みます",
+    "lesson": 3,
+    "topic": "どんな毎日?",
+    "page": 10
+  },
+  {
+    "index": 204,
+    "pdf": "寝ます",
+    "supplement": false,
+    "word": "寝ます",
+    "lesson": 3,
+    "topic": "どんな毎日?",
+    "page": 10
+  },
+  {
+    "index": 205,
+    "pdf": "勉強します",
+    "supplement": false,
+    "word": "勉強します",
+    "lesson": 3,
+    "topic": "どんな毎日?",
+    "page": 11
+  },
+  {
+    "index": 206,
+    "pdf": "来ます",
+    "supplement": false,
+    "word": "来ます",
+    "lesson": 3,
+    "topic": "どんな毎日?",
+    "page": 11
+  },
+  {
+    "index": 207,
+    "pdf": "北",
+    "supplement": false,
+    "word": "北",
+    "lesson": 4,
+    "topic": "どこ?",
+    "page": 12
+  },
+  {
+    "index": 208,
+    "pdf": "南",
+    "supplement": false,
+    "word": "南",
+    "lesson": 4,
+    "topic": "どこ?",
+    "page": 12
+  },
+  {
+    "index": 209,
+    "pdf": "東",
+    "supplement": false,
+    "word": "東",
+    "lesson": 4,
+    "topic": "どこ?",
+    "page": 12
+  },
+  {
+    "index": 210,
+    "pdf": "西",
+    "supplement": false,
+    "word": "西",
+    "lesson": 4,
+    "topic": "どこ?",
+    "page": 12
+  },
+  {
+    "index": 211,
+    "pdf": "真ん中",
+    "supplement": false,
+    "word": "真ん中",
+    "lesson": 4,
+    "topic": "どこ?",
+    "page": 12
+  },
+  {
+    "index": 212,
+    "pdf": "車",
+    "supplement": false,
+    "word": "車",
+    "lesson": 4,
+    "topic": "どこ?",
+    "page": 12
+  },
+  {
+    "index": 213,
+    "pdf": "新幹線",
+    "supplement": false,
+    "word": "新幹線",
+    "lesson": 4,
+    "topic": "どこ?",
+    "page": 12
+  },
+  {
+    "index": 214,
+    "pdf": "電車",
+    "supplement": false,
+    "word": "電車",
+    "lesson": 4,
+    "topic": "どこ?",
+    "page": 12
+  },
+  {
+    "index": 215,
+    "pdf": "飛行機",
+    "supplement": false,
+    "word": "飛行機",
+    "lesson": 4,
+    "topic": "どこ?",
+    "page": 12
+  },
+  {
+    "index": 216,
+    "pdf": "駅",
+    "supplement": false,
+    "word": "駅",
+    "lesson": 4,
+    "topic": "どこ?",
+    "page": 12
+  },
+  {
+    "index": 217,
+    "pdf": "町",
+    "supplement": false,
+    "word": "町",
+    "lesson": 4,
+    "topic": "どこ?",
+    "page": 12
+  },
+  {
+    "index": 218,
+    "pdf": "～時間",
+    "supplement": false,
+    "word": "～時間",
+    "lesson": 4,
+    "topic": "どこ?",
+    "page": 12
+  },
+  {
+    "index": 219,
+    "pdf": "～時間半",
+    "supplement": false,
+    "word": "～時間半",
+    "lesson": 4,
+    "topic": "どこ?",
+    "page": 12
+  },
+  {
+    "index": 220,
+    "pdf": "～分",
+    "supplement": false,
+    "word": "～分",
+    "lesson": 4,
+    "topic": "どこ?",
+    "page": 12
+  },
+  {
+    "index": 221,
+    "pdf": "歩いて",
+    "supplement": false,
+    "word": "歩いて",
+    "lesson": 4,
+    "topic": "どこ?",
+    "page": 12
+  },
+  {
+    "index": 224,
+    "pdf": "温泉",
+    "supplement": false,
+    "word": "温泉",
+    "lesson": 4,
+    "topic": "どんなところ?",
+    "page": 12
+  },
+  {
+    "index": 225,
+    "pdf": "川",
+    "supplement": false,
+    "word": "川",
+    "lesson": 4,
+    "topic": "どんなところ?",
+    "page": 12
+  },
+  {
+    "index": 226,
+    "pdf": "山",
+    "supplement": false,
+    "word": "山",
+    "lesson": 4,
+    "topic": "どんなところ?",
+    "page": 12
+  },
+  {
+    "index": 227,
+    "pdf": "教会",
+    "supplement": false,
+    "word": "教会",
+    "lesson": 4,
+    "topic": "どんなところ?",
+    "page": 12
+  },
+  {
+    "index": 228,
+    "pdf": "（お）城",
+    "supplement": false,
+    "word": "(お)城",
+    "lesson": 4,
+    "topic": "どんなところ?",
+    "page": 12
+  },
+  {
+    "index": 229,
+    "pdf": "神社",
+    "supplement": false,
+    "word": "神社",
+    "lesson": 4,
+    "topic": "どんなところ?",
+    "page": 12
+  },
+  {
+    "index": 230,
+    "pdf": "（お）寺",
+    "supplement": false,
+    "word": "(お)寺",
+    "lesson": 4,
+    "topic": "どんなところ?",
+    "page": 13
+  },
+  {
+    "index": 233,
+    "pdf": "人",
+    "supplement": false,
+    "word": "人",
+    "lesson": 4,
+    "topic": "どんなところ?",
+    "page": 13
+  },
+  {
+    "index": 234,
+    "pdf": "緑",
+    "supplement": false,
+    "word": "緑",
+    "lesson": 4,
+    "topic": "どんなところ?",
+    "page": 13
+  },
+  {
+    "index": 236,
+    "pdf": "新しい",
+    "supplement": false,
+    "word": "新しい",
+    "lesson": 4,
+    "topic": "どんなところ?",
+    "page": 13
+  },
+  {
+    "index": 237,
+    "pdf": "古い",
+    "supplement": false,
+    "word": "古い",
+    "lesson": 4,
+    "topic": "どんなところ?",
+    "page": 13
+  },
+  {
+    "index": 239,
+    "pdf": "（～が）多い",
+    "supplement": false,
+    "word": "多い",
+    "lesson": 4,
+    "topic": "どんなところ?",
+    "page": 13
+  },
+  {
+    "index": 240,
+    "pdf": "（～が）少ない",
+    "supplement": false,
+    "word": "少ない",
+    "lesson": 4,
+    "topic": "どんなところ?",
+    "page": 13
+  },
+  {
+    "index": 241,
+    "pdf": "大きい",
+    "supplement": false,
+    "word": "大きい",
+    "lesson": 4,
+    "topic": "どんなところ?",
+    "page": 13
+  },
+  {
+    "index": 242,
+    "pdf": "小さい",
+    "supplement": false,
+    "word": "小さい",
+    "lesson": 4,
+    "topic": "どんなところ?",
+    "page": 13
+  },
+  {
+    "index": 243,
+    "pdf": "高い",
+    "supplement": false,
+    "word": "高い",
+    "lesson": 4,
+    "topic": "どんなところ?",
+    "page": 13
+  },
+  {
+    "index": 244,
+    "pdf": "低い",
+    "supplement": false,
+    "word": "低い",
+    "lesson": 4,
+    "topic": "どんなところ?",
+    "page": 13
+  },
+  {
+    "index": 246,
+    "pdf": "静か（な）",
+    "supplement": false,
+    "word": "静か(な)",
+    "lesson": 4,
+    "topic": "どんなところ?",
+    "page": 13
+  },
+  {
+    "index": 248,
+    "pdf": "有名（な）",
+    "supplement": false,
+    "word": "有名(な)",
+    "lesson": 4,
+    "topic": "どんなところ?",
+    "page": 13
+  },
+  {
+    "index": 251,
+    "pdf": "雨",
+    "supplement": false,
+    "word": "雨",
+    "lesson": 4,
+    "topic": "季節・料理",
+    "page": 14
+  },
+  {
+    "index": 252,
+    "pdf": "雪",
+    "supplement": false,
+    "word": "雪",
+    "lesson": 4,
+    "topic": "季節・料理",
+    "page": 14
+  },
+  {
+    "index": 253,
+    "pdf": "日",
+    "supplement": false,
+    "word": "日",
+    "lesson": 4,
+    "topic": "季節・料理",
+    "page": 14
+  },
+  {
+    "index": 255,
+    "pdf": "暖かい",
+    "supplement": false,
+    "word": "暖かい",
+    "lesson": 4,
+    "topic": "季節・料理",
+    "page": 14
+  },
+  {
+    "index": 256,
+    "pdf": "涼しい",
+    "supplement": false,
+    "word": "涼しい",
+    "lesson": 4,
+    "topic": "季節・料理",
+    "page": 14
+  },
+  {
+    "index": 257,
+    "pdf": "暑い",
+    "supplement": false,
+    "word": "暑い",
+    "lesson": 4,
+    "topic": "季節・料理",
+    "page": 14
+  },
+  {
+    "index": 258,
+    "pdf": "寒い",
+    "supplement": false,
+    "word": "寒い",
+    "lesson": 4,
+    "topic": "季節・料理",
+    "page": 14
+  },
+  {
+    "index": 259,
+    "pdf": "天気がいい",
+    "supplement": false,
+    "word": "天気がいい",
+    "lesson": 4,
+    "topic": "季節・料理",
+    "page": 14
+  },
+  {
+    "index": 260,
+    "pdf": "天気がわるい",
+    "supplement": true,
+    "word": "天気が悪い",
+    "lesson": 4,
+    "topic": "季節・料理",
+    "page": 14
+  },
+  {
+    "index": 261,
+    "pdf": "温かい",
+    "supplement": false,
+    "word": "温かい",
+    "lesson": 4,
+    "topic": "季節・料理",
+    "page": 14
+  },
+  {
+    "index": 262,
+    "pdf": "熱い",
+    "supplement": false,
+    "word": "熱い",
+    "lesson": 4,
+    "topic": "季節・料理",
+    "page": 14
+  },
+  {
+    "index": 263,
+    "pdf": "冷たい",
+    "supplement": false,
+    "word": "冷たい",
+    "lesson": 4,
+    "topic": "季節・料理",
+    "page": 14
+  },
+  {
+    "index": 265,
+    "pdf": "甘い",
+    "supplement": false,
+    "word": "甘い",
+    "lesson": 4,
+    "topic": "季節・料理",
+    "page": 14
+  },
+  {
+    "index": 266,
+    "pdf": "辛い",
+    "supplement": false,
+    "word": "辛い",
+    "lesson": 4,
+    "topic": "季節・料理",
+    "page": 14
+  },
+  {
+    "index": 267,
+    "pdf": "苦い",
+    "supplement": false,
+    "word": "苦い",
+    "lesson": 4,
+    "topic": "季節・料理",
+    "page": 14
+  },
+  {
+    "index": 269,
+    "pdf": "一年中",
+    "supplement": false,
+    "word": "一年中",
+    "lesson": 4,
+    "topic": "季節・料理",
+    "page": 14
+  },
+  {
+    "index": 271,
+    "pdf": "少し",
+    "supplement": false,
+    "word": "少し",
+    "lesson": 4,
+    "topic": "季節・料理",
+    "page": 14
+  },
+  {
+    "index": 275,
+    "pdf": "今日",
+    "supplement": false,
+    "word": "今日",
+    "lesson": 5,
+    "topic": "週末",
+    "page": 15
+  },
+  {
+    "index": 276,
+    "pdf": "明日",
+    "supplement": false,
+    "word": "明日",
+    "lesson": 5,
+    "topic": "週末",
+    "page": 15
+  },
+  {
+    "index": 278,
+    "pdf": "昨日",
+    "supplement": false,
+    "word": "昨日",
+    "lesson": 5,
+    "topic": "週末",
+    "page": 15
+  },
+  {
+    "index": 280,
+    "pdf": "先週",
+    "supplement": false,
+    "word": "先週",
+    "lesson": 5,
+    "topic": "週末",
+    "page": 15
+  },
+  {
+    "index": 281,
+    "pdf": "週末",
+    "supplement": false,
+    "word": "週末",
+    "lesson": 5,
+    "topic": "週末",
+    "page": 15
+  },
+  {
+    "index": 282,
+    "pdf": "家",
+    "supplement": false,
+    "word": "家",
+    "lesson": 5,
+    "topic": "週末",
+    "page": 15
+  },
+  {
+    "index": 283,
+    "pdf": "部屋",
+    "supplement": false,
+    "word": "部屋",
+    "lesson": 5,
+    "topic": "週末",
+    "page": 15
+  },
+  {
+    "index": 285,
+    "pdf": "美術館",
+    "supplement": false,
+    "word": "美術館",
+    "lesson": 5,
+    "topic": "週末",
+    "page": 15
+  },
+  {
+    "index": 287,
+    "pdf": "家族",
+    "supplement": false,
+    "word": "家族",
+    "lesson": 5,
+    "topic": "週末",
+    "page": 15
+  },
+  {
+    "index": 288,
+    "pdf": "恋人",
+    "supplement": false,
+    "word": "恋人",
+    "lesson": 5,
+    "topic": "週末",
+    "page": 15
+  },
+  {
+    "index": 289,
+    "pdf": "友達",
+    "supplement": false,
+    "word": "友達",
+    "lesson": 5,
+    "topic": "週末",
+    "page": 15
+  },
+  {
+    "index": 292,
+    "pdf": "会います",
+    "supplement": false,
+    "word": "会います",
+    "lesson": 5,
+    "topic": "週末",
+    "page": 15
+  },
+  {
+    "index": 293,
+    "pdf": "作ります",
+    "supplement": false,
+    "word": "作ります",
+    "lesson": 5,
+    "topic": "週末",
+    "page": 15
+  },
+  {
+    "index": 294,
+    "pdf": "買い物します",
+    "supplement": false,
+    "word": "買い物します",
+    "lesson": 5,
+    "topic": "週末",
+    "page": 15
+  },
+  {
+    "index": 295,
+    "pdf": "食事します",
+    "supplement": false,
+    "word": "食事します",
+    "lesson": 5,
+    "topic": "週末",
+    "page": 15
+  },
+  {
+    "index": 296,
+    "pdf": "洗濯します",
+    "supplement": false,
+    "word": "洗濯します",
+    "lesson": 5,
+    "topic": "週末",
+    "page": 15
+  },
+  {
+    "index": 297,
+    "pdf": "掃除します",
+    "supplement": false,
+    "word": "掃除します",
+    "lesson": 5,
+    "topic": "週末",
+    "page": 15
+  },
+  {
+    "index": 299,
+    "pdf": "一人で",
+    "supplement": false,
+    "word": "一人で",
+    "lesson": 5,
+    "topic": "週末",
+    "page": 15
+  },
+  {
+    "index": 300,
+    "pdf": "今朝",
+    "supplement": false,
+    "word": "今朝",
+    "lesson": 5,
+    "topic": "休みの後で",
+    "page": 16
+  },
+  {
+    "index": 301,
+    "pdf": "先月",
+    "supplement": false,
+    "word": "先月",
+    "lesson": 5,
+    "topic": "休みの後で",
+    "page": 16
+  },
+  {
+    "index": 302,
+    "pdf": "去年",
+    "supplement": false,
+    "word": "去年",
+    "lesson": 5,
+    "topic": "休みの後で",
+    "page": 16
+  },
+  {
+    "index": 303,
+    "pdf": "風邪",
+    "supplement": false,
+    "word": "風邪",
+    "lesson": 5,
+    "topic": "休みの後で",
+    "page": 16
+  },
+  {
+    "index": 304,
+    "pdf": "天気",
+    "supplement": false,
+    "word": "天気",
+    "lesson": 5,
+    "topic": "休みの後で",
+    "page": 16
+  },
+  {
+    "index": 305,
+    "pdf": "晩ご飯",
+    "supplement": false,
+    "word": "晩ご飯",
+    "lesson": 5,
+    "topic": "休みの後で",
+    "page": 16
+  },
+  {
+    "index": 306,
+    "pdf": "服",
+    "supplement": false,
+    "word": "服",
+    "lesson": 5,
+    "topic": "休みの後で",
+    "page": 16
+  },
+  {
+    "index": 307,
+    "pdf": "登ります",
+    "supplement": false,
+    "word": "登ります",
+    "lesson": 5,
+    "topic": "休みの後で",
+    "page": 16
+  },
+  {
+    "index": 308,
+    "pdf": "入ります",
+    "supplement": false,
+    "word": "入ります",
+    "lesson": 5,
+    "topic": "休みの後で",
+    "page": 16
+  },
+  {
+    "index": 309,
+    "pdf": "忙しい",
+    "supplement": false,
+    "word": "忙しい",
+    "lesson": 5,
+    "topic": "休みの後で",
+    "page": 16
+  },
+  {
+    "index": 311,
+    "pdf": "気持ちがいい",
+    "supplement": false,
+    "word": "気持ちがいい",
+    "lesson": 5,
+    "topic": "休みの後で",
+    "page": 16
+  },
+  {
+    "index": 312,
+    "pdf": "高い",
+    "supplement": false,
+    "word": "高い",
+    "lesson": 5,
+    "topic": "休みの後で",
+    "page": 16
+  },
+  {
+    "index": 313,
+    "pdf": "安い",
+    "supplement": false,
+    "word": "安い",
+    "lesson": 5,
+    "topic": "休みの後で",
+    "page": 16
+  },
+  {
+    "index": 314,
+    "pdf": "楽しい",
+    "supplement": false,
+    "word": "楽しい",
+    "lesson": 5,
+    "topic": "休みの後で",
+    "page": 16
+  },
+  {
+    "index": 315,
+    "pdf": "難しい",
+    "supplement": false,
+    "word": "難しい",
+    "lesson": 5,
+    "topic": "休みの後で",
+    "page": 16
+  },
+  {
+    "index": 316,
+    "pdf": "簡単（な）",
+    "supplement": false,
+    "word": "簡単(な)",
+    "lesson": 5,
+    "topic": "休みの後で",
+    "page": 16
+  },
+  {
+    "index": 317,
+    "pdf": "大変（な）",
+    "supplement": false,
+    "word": "大変(な)",
+    "lesson": 5,
+    "topic": "休みの後で",
+    "page": 16
+  },
+  {
+    "index": 318,
+    "pdf": "暇（な）",
+    "supplement": false,
+    "word": "暇(な)",
+    "lesson": 5,
+    "topic": "休みの後で",
+    "page": 16
+  },
+  {
+    "index": 320,
+    "pdf": "今度",
+    "supplement": false,
+    "word": "今度",
+    "lesson": 5,
+    "topic": "今度の休みに",
+    "page": 17
+  },
+  {
+    "index": 321,
+    "pdf": "今晩",
+    "supplement": false,
+    "word": "今晩",
+    "lesson": 5,
+    "topic": "今度の休みに",
+    "page": 17
+  },
+  {
+    "index": 322,
+    "pdf": "今年",
+    "supplement": false,
+    "word": "今年",
+    "lesson": 5,
+    "topic": "今度の休みに",
+    "page": 17
+  },
+  {
+    "index": 323,
+    "pdf": "来年",
+    "supplement": false,
+    "word": "来年",
+    "lesson": 5,
+    "topic": "今度の休みに",
+    "page": 17
+  },
+  {
+    "index": 325,
+    "pdf": "絵",
+    "supplement": false,
+    "word": "絵",
+    "lesson": 5,
+    "topic": "今度の休みに",
+    "page": 17
+  },
+  {
+    "index": 326,
+    "pdf": "景色",
+    "supplement": false,
+    "word": "景色",
+    "lesson": 5,
+    "topic": "今度の休みに",
+    "page": 17
+  },
+  {
+    "index": 327,
+    "pdf": "自転車",
+    "supplement": false,
+    "word": "自転車",
+    "lesson": 5,
+    "topic": "今度の休みに",
+    "page": 17
+  },
+  {
+    "index": 328,
+    "pdf": "写真",
+    "supplement": false,
+    "word": "写真",
+    "lesson": 5,
+    "topic": "今度の休みに",
+    "page": 17
+  },
+  {
+    "index": 329,
+    "pdf": "撮ります",
+    "supplement": false,
+    "word": "撮ります",
+    "lesson": 5,
+    "topic": "今度の休みに",
+    "page": 17
+  },
+  {
+    "index": 330,
+    "pdf": "借ります",
+    "supplement": false,
+    "word": "借ります",
+    "lesson": 5,
+    "topic": "今度の休みに",
+    "page": 17
+  },
+  {
+    "index": 332,
+    "pdf": "好き（な）",
+    "supplement": false,
+    "word": "好き(な)",
+    "lesson": 5,
+    "topic": "今度の休みに",
+    "page": 17
+  },
+  {
+    "index": 333,
+    "pdf": "嫌い（な）",
+    "supplement": false,
+    "word": "嫌い(な)",
+    "lesson": 5,
+    "topic": "今度の休みに",
+    "page": 17
+  },
+  {
+    "index": 334,
+    "pdf": "今週",
+    "supplement": false,
+    "word": "今週",
+    "lesson": 6,
+    "topic": "一緒に行きませんか",
+    "page": 18
+  },
+  {
+    "index": 335,
+    "pdf": "来週",
+    "supplement": false,
+    "word": "来週",
+    "lesson": 6,
+    "topic": "一緒に行きませんか",
+    "page": 18
+  },
+  {
+    "index": 336,
+    "pdf": "今月",
+    "supplement": false,
+    "word": "今月",
+    "lesson": 6,
+    "topic": "一緒に行きませんか",
+    "page": 18
+  },
+  {
+    "index": 337,
+    "pdf": "来月",
+    "supplement": false,
+    "word": "来月",
+    "lesson": 6,
+    "topic": "一緒に行きませんか",
+    "page": 18
+  },
+  {
+    "index": 340,
+    "pdf": "試合",
+    "supplement": false,
+    "word": "試合",
+    "lesson": 6,
+    "topic": "一緒に行きませんか",
+    "page": 18
+  },
+  {
+    "index": 343,
+    "pdf": "地図",
+    "supplement": false,
+    "word": "地図",
+    "lesson": 6,
+    "topic": "一緒に行きませんか",
+    "page": 18
+  },
+  {
+    "index": 345,
+    "pdf": "水着",
+    "supplement": false,
+    "word": "水着",
+    "lesson": 6,
+    "topic": "一緒に行きませんか",
+    "page": 18
+  },
+  {
+    "index": 346,
+    "pdf": "野球",
+    "supplement": false,
+    "word": "野球",
+    "lesson": 6,
+    "topic": "一緒に行きませんか",
+    "page": 18
+  },
+  {
+    "index": 347,
+    "pdf": "約束",
+    "supplement": false,
+    "word": "約束",
+    "lesson": 6,
+    "topic": "一緒に行きませんか",
+    "page": 18
+  },
+  {
+    "index": 348,
+    "pdf": "用事",
+    "supplement": false,
+    "word": "用事",
+    "lesson": 6,
+    "topic": "一緒に行きませんか",
+    "page": 18
+  },
+  {
+    "index": 349,
+    "pdf": "～枚",
+    "supplement": false,
+    "word": "～枚",
+    "lesson": 6,
+    "topic": "一緒に行きませんか",
+    "page": 18
+  },
+  {
+    "index": 351,
+    "pdf": "残念（な）",
+    "supplement": false,
+    "word": "残念(な)",
+    "lesson": 6,
+    "topic": "一緒に行きませんか",
+    "page": 18
+  },
+  {
+    "index": 352,
+    "pdf": "一緒に",
+    "supplement": false,
+    "word": "一緒に",
+    "lesson": 6,
+    "topic": "一緒に行きませんか",
+    "page": 18
+  },
+  {
+    "index": 356,
+    "pdf": "また今度",
+    "supplement": false,
+    "word": "また今度",
+    "lesson": 6,
+    "topic": "一緒に行きませんか",
+    "page": 19
+  },
+  {
+    "index": 358,
+    "pdf": "食べ物",
+    "supplement": false,
+    "word": "食べ物",
+    "lesson": 6,
+    "topic": "どちらがいいですか",
+    "page": 19
+  },
+  {
+    "index": 359,
+    "pdf": "飲み物",
+    "supplement": false,
+    "word": "飲み物",
+    "lesson": 6,
+    "topic": "どちらがいいですか",
+    "page": 19
+  },
+  {
+    "index": 360,
+    "pdf": "焼き肉",
+    "supplement": false,
+    "word": "焼き肉",
+    "lesson": 6,
+    "topic": "どちらがいいですか",
+    "page": 19
+  },
+  {
+    "index": 362,
+    "pdf": "食べ放題",
+    "supplement": false,
+    "word": "食べ放題",
+    "lesson": 6,
+    "topic": "どちらがいいですか",
+    "page": 19
+  },
+  {
+    "index": 364,
+    "pdf": "居酒屋",
+    "supplement": false,
+    "word": "居酒屋",
+    "lesson": 6,
+    "topic": "どちらがいいですか",
+    "page": 19
+  },
+  {
+    "index": 365,
+    "pdf": "映画館",
+    "supplement": false,
+    "word": "映画館",
+    "lesson": 6,
+    "topic": "どちらがいいですか",
+    "page": 19
+  },
+  {
+    "index": 366,
+    "pdf": "地下鉄",
+    "supplement": false,
+    "word": "地下鉄",
+    "lesson": 6,
+    "topic": "どちらがいいですか",
+    "page": 19
+  },
+  {
+    "index": 367,
+    "pdf": "歌手",
+    "supplement": false,
+    "word": "歌手",
+    "lesson": 6,
+    "topic": "どちらがいいですか",
+    "page": 19
+  },
+  {
+    "index": 368,
+    "pdf": "季節",
+    "supplement": false,
+    "word": "季節",
+    "lesson": 6,
+    "topic": "どちらがいいですか",
+    "page": 19
+  },
+  {
+    "index": 374,
+    "pdf": "近い",
+    "supplement": false,
+    "word": "近い",
+    "lesson": 6,
+    "topic": "どちらがいいですか",
+    "page": 19
+  },
+  {
+    "index": 375,
+    "pdf": "遠い",
+    "supplement": false,
+    "word": "遠い",
+    "lesson": 6,
+    "topic": "どちらがいいですか",
+    "page": 19
+  },
+  {
+    "index": 376,
+    "pdf": "早い",
+    "supplement": false,
+    "word": "早い",
+    "lesson": 6,
+    "topic": "どちらがいいですか",
+    "page": 20
+  },
+  {
+    "index": 377,
+    "pdf": "広い",
+    "supplement": false,
+    "word": "広い",
+    "lesson": 6,
+    "topic": "どちらがいいですか",
+    "page": 20
+  },
+  {
+    "index": 379,
+    "pdf": "全部",
+    "supplement": false,
+    "word": "全部",
+    "lesson": 6,
+    "topic": "どちらがいいですか",
+    "page": 20
+  },
+  {
+    "index": 381,
+    "pdf": "お好み焼き",
+    "supplement": false,
+    "word": "お好み焼き",
+    "lesson": 6,
+    "topic": "約束",
+    "page": 20
+  },
+  {
+    "index": 382,
+    "pdf": "すき焼き",
+    "supplement": false,
+    "word": "すき焼き",
+    "lesson": 6,
+    "topic": "約束",
+    "page": 20
+  },
+  {
+    "index": 383,
+    "pdf": "遊びます",
+    "supplement": false,
+    "word": "遊びます",
+    "lesson": 6,
+    "topic": "約束",
+    "page": 20
+  },
+  {
+    "index": 389,
+    "pdf": "改札",
+    "supplement": false,
+    "word": "改札",
+    "lesson": 7,
+    "topic": "道がわかりません",
+    "page": 21
+  },
+  {
+    "index": 390,
+    "pdf": "木",
+    "supplement": false,
+    "word": "木",
+    "lesson": 7,
+    "topic": "道がわかりません",
+    "page": 21
+  },
+  {
+    "index": 391,
+    "pdf": "交番",
+    "supplement": false,
+    "word": "交番",
+    "lesson": 7,
+    "topic": "道がわかりません",
+    "page": 21
+  },
+  {
+    "index": 392,
+    "pdf": "自動販売機",
+    "supplement": false,
+    "word": "自動販売機",
+    "lesson": 7,
+    "topic": "道がわかりません",
+    "page": 21
+  },
+  {
+    "index": 394,
+    "pdf": "花",
+    "supplement": false,
+    "word": "花",
+    "lesson": 7,
+    "topic": "道がわかりません",
+    "page": 21
+  },
+  {
+    "index": 395,
+    "pdf": "犬",
+    "supplement": false,
+    "word": "犬",
+    "lesson": 7,
+    "topic": "道がわかりません",
+    "page": 21
+  },
+  {
+    "index": 396,
+    "pdf": "間",
+    "supplement": false,
+    "word": "間",
+    "lesson": 7,
+    "topic": "道がわかりません",
+    "page": 21
+  },
+  {
+    "index": 397,
+    "pdf": "上",
+    "supplement": false,
+    "word": "上",
+    "lesson": 7,
+    "topic": "道がわかりません",
+    "page": 21
+  },
+  {
+    "index": 398,
+    "pdf": "下",
+    "supplement": false,
+    "word": "下",
+    "lesson": 7,
+    "topic": "道がわかりません",
+    "page": 21
+  },
+  {
+    "index": 399,
+    "pdf": "近く",
+    "supplement": false,
+    "word": "近く",
+    "lesson": 7,
+    "topic": "道がわかりません",
+    "page": 21
+  },
+  {
+    "index": 400,
+    "pdf": "隣",
+    "supplement": false,
+    "word": "隣",
+    "lesson": 7,
+    "topic": "道がわかりません",
+    "page": 21
+  },
+  {
+    "index": 401,
+    "pdf": "中",
+    "supplement": false,
+    "word": "中",
+    "lesson": 7,
+    "topic": "道がわかりません",
+    "page": 21
+  },
+  {
+    "index": 402,
+    "pdf": "外",
+    "supplement": false,
+    "word": "外",
+    "lesson": 7,
+    "topic": "道がわかりません",
+    "page": 21
+  },
+  {
+    "index": 403,
+    "pdf": "前",
+    "supplement": false,
+    "word": "前",
+    "lesson": 7,
+    "topic": "道がわかりません",
+    "page": 21
+  },
+  {
+    "index": 404,
+    "pdf": "後ろ",
+    "supplement": false,
+    "word": "後ろ",
+    "lesson": 7,
+    "topic": "道がわかりません",
+    "page": 21
+  },
+  {
+    "index": 405,
+    "pdf": "横",
+    "supplement": false,
+    "word": "横",
+    "lesson": 7,
+    "topic": "道がわかりません",
+    "page": 21
+  },
+  {
+    "index": 406,
+    "pdf": "迎えに行きます",
+    "supplement": false,
+    "word": "迎えに行きます",
+    "lesson": 7,
+    "topic": "道がわかりません",
+    "page": 21
+  },
+  {
+    "index": 411,
+    "pdf": "電子レンジ",
+    "supplement": false,
+    "word": "電子レンジ",
+    "lesson": 7,
+    "topic": "パーティーの準備",
+    "page": 22
+  },
+  {
+    "index": 412,
+    "pdf": "冷蔵庫",
+    "supplement": false,
+    "word": "冷蔵庫",
+    "lesson": 7,
+    "topic": "パーティーの準備",
+    "page": 22
+  },
+  {
+    "index": 413,
+    "pdf": "砂糖",
+    "supplement": false,
+    "word": "砂糖",
+    "lesson": 7,
+    "topic": "パーティーの準備",
+    "page": 22
+  },
+  {
+    "index": 414,
+    "pdf": "塩",
+    "supplement": false,
+    "word": "塩",
+    "lesson": 7,
+    "topic": "パーティーの準備",
+    "page": 22
+  },
+  {
+    "index": 417,
+    "pdf": "（お）皿",
+    "supplement": false,
+    "word": "(お)皿",
+    "lesson": 7,
+    "topic": "パーティーの準備",
+    "page": 22
+  },
+  {
+    "index": 422,
+    "pdf": "漢字",
+    "supplement": false,
+    "word": "漢字",
+    "lesson": 7,
+    "topic": "パーティーの準備",
+    "page": 22
+  },
+  {
+    "index": 425,
+    "pdf": "洗います",
+    "supplement": false,
+    "word": "洗います",
+    "lesson": 7,
+    "topic": "パーティーの準備",
+    "page": 22
+  },
+  {
+    "index": 426,
+    "pdf": "置きます",
+    "supplement": false,
+    "word": "置きます",
+    "lesson": 7,
+    "topic": "パーティーの準備",
+    "page": 22
+  },
+  {
+    "index": 427,
+    "pdf": "書きます",
+    "supplement": false,
+    "word": "書きます",
+    "lesson": 7,
+    "topic": "パーティーの準備",
+    "page": 22
+  },
+  {
+    "index": 428,
+    "pdf": "貸します",
+    "supplement": false,
+    "word": "貸します",
+    "lesson": 7,
+    "topic": "パーティーの準備",
+    "page": 22
+  },
+  {
+    "index": 429,
+    "pdf": "聞きます",
+    "supplement": false,
+    "word": "聞きます",
+    "lesson": 7,
+    "topic": "パーティーの準備",
+    "page": 22
+  },
+  {
+    "index": 430,
+    "pdf": "切ります",
+    "supplement": false,
+    "word": "切ります",
+    "lesson": 7,
+    "topic": "パーティーの準備",
+    "page": 22
+  },
+  {
+    "index": 431,
+    "pdf": "使います",
+    "supplement": false,
+    "word": "使います",
+    "lesson": 7,
+    "topic": "パーティーの準備",
+    "page": 22
+  },
+  {
+    "index": 432,
+    "pdf": "手伝います",
+    "supplement": false,
+    "word": "手伝います",
+    "lesson": 7,
+    "topic": "パーティーの準備",
+    "page": 22
+  },
+  {
+    "index": 433,
+    "pdf": "取ります",
+    "supplement": false,
+    "word": "取ります",
+    "lesson": 7,
+    "topic": "パーティーの準備",
+    "page": 22
+  },
+  {
+    "index": 434,
+    "pdf": "持って行きます",
+    "supplement": false,
+    "word": "持って行きます",
+    "lesson": 7,
+    "topic": "パーティーの準備",
+    "page": 22
+  },
+  {
+    "index": 436,
+    "pdf": "出します",
+    "supplement": false,
+    "word": "出します",
+    "lesson": 7,
+    "topic": "パーティーの準備",
+    "page": 23
+  },
+  {
+    "index": 437,
+    "pdf": "入れます",
+    "supplement": false,
+    "word": "入れます",
+    "lesson": 7,
+    "topic": "パーティーの準備",
+    "page": 23
+  },
+  {
+    "index": 438,
+    "pdf": "教えます",
+    "supplement": false,
+    "word": "教えます",
+    "lesson": 7,
+    "topic": "パーティーの準備",
+    "page": 23
+  },
+  {
+    "index": 443,
+    "pdf": "歌",
+    "supplement": false,
+    "word": "歌",
+    "lesson": 7,
+    "topic": "みんなで楽しいパーティー",
+    "page": 23
+  },
+  {
+    "index": 445,
+    "pdf": "台所",
+    "supplement": false,
+    "word": "台所",
+    "lesson": 7,
+    "topic": "みんなで楽しいパーティー",
+    "page": 23
+  },
+  {
+    "index": 447,
+    "pdf": "電話",
+    "supplement": false,
+    "word": "電話",
+    "lesson": 7,
+    "topic": "みんなで楽しいパーティー",
+    "page": 23
+  },
+  {
+    "index": 449,
+    "pdf": "窓",
+    "supplement": false,
+    "word": "窓",
+    "lesson": 7,
+    "topic": "みんなで楽しいパーティー",
+    "page": 23
+  },
+  {
+    "index": 450,
+    "pdf": "歌います",
+    "supplement": false,
+    "word": "歌います",
+    "lesson": 7,
+    "topic": "みんなで楽しいパーティー",
+    "page": 23
+  },
+  {
+    "index": 451,
+    "pdf": "吸います",
+    "supplement": false,
+    "word": "吸います",
+    "lesson": 7,
+    "topic": "みんなで楽しいパーティー",
+    "page": 23
+  },
+  {
+    "index": 452,
+    "pdf": "話します",
+    "supplement": false,
+    "word": "話します",
+    "lesson": 7,
+    "topic": "みんなで楽しいパーティー",
+    "page": 23
+  },
+  {
+    "index": 453,
+    "pdf": "弾きます",
+    "supplement": false,
+    "word": "弾きます",
+    "lesson": 7,
+    "topic": "みんなで楽しいパーティー",
+    "page": 23
+  },
+  {
+    "index": 454,
+    "pdf": "持ちます",
+    "supplement": false,
+    "word": "持ちます",
+    "lesson": 7,
+    "topic": "みんなで楽しいパーティー",
+    "page": 23
+  },
+  {
+    "index": 455,
+    "pdf": "開けます",
+    "supplement": false,
+    "word": "開けます",
+    "lesson": 7,
+    "topic": "みんなで楽しいパーティー",
+    "page": 23
+  },
+  {
+    "index": 456,
+    "pdf": "閉めます",
+    "supplement": false,
+    "word": "閉めます",
+    "lesson": 7,
+    "topic": "みんなで楽しいパーティー",
+    "page": 23
+  },
+  {
+    "index": 458,
+    "pdf": "持って来ます",
+    "supplement": false,
+    "word": "持って来ます",
+    "lesson": 7,
+    "topic": "みんなで楽しいパーティー",
+    "page": 23
+  },
+  {
+    "index": 459,
+    "pdf": "両親",
+    "supplement": false,
+    "word": "両親",
+    "lesson": 8,
+    "topic": "家族・友達",
+    "page": 24
+  },
+  {
+    "index": 460,
+    "pdf": "父",
+    "supplement": false,
+    "word": "父",
+    "lesson": 8,
+    "topic": "家族・友達",
+    "page": 24
+  },
+  {
+    "index": 461,
+    "pdf": "母",
+    "supplement": false,
+    "word": "母",
+    "lesson": 8,
+    "topic": "家族・友達",
+    "page": 24
+  },
+  {
+    "index": 462,
+    "pdf": "兄弟",
+    "supplement": false,
+    "word": "兄弟",
+    "lesson": 8,
+    "topic": "家族・友達",
+    "page": 24
+  },
+  {
+    "index": 463,
+    "pdf": "兄",
+    "supplement": false,
+    "word": "兄",
+    "lesson": 8,
+    "topic": "家族・友達",
+    "page": 24
+  },
+  {
+    "index": 464,
+    "pdf": "姉",
+    "supplement": false,
+    "word": "姉",
+    "lesson": 8,
+    "topic": "家族・友達",
+    "page": 24
+  },
+  {
+    "index": 465,
+    "pdf": "弟",
+    "supplement": false,
+    "word": "弟",
+    "lesson": 8,
+    "topic": "家族・友達",
+    "page": 24
+  },
+  {
+    "index": 466,
+    "pdf": "妹",
+    "supplement": false,
+    "word": "妹",
+    "lesson": 8,
+    "topic": "家族・友達",
+    "page": 24
+  },
+  {
+    "index": 467,
+    "pdf": "夫",
+    "supplement": false,
+    "word": "夫",
+    "lesson": 8,
+    "topic": "家族・友達",
+    "page": 24
+  },
+  {
+    "index": 468,
+    "pdf": "妻",
+    "supplement": false,
+    "word": "妻",
+    "lesson": 8,
+    "topic": "家族・友達",
+    "page": 24
+  },
+  {
+    "index": 469,
+    "pdf": "子ども",
+    "supplement": false,
+    "word": "子ども",
+    "lesson": 8,
+    "topic": "家族・友達",
+    "page": 24
+  },
+  {
+    "index": 470,
+    "pdf": "息子",
+    "supplement": false,
+    "word": "息子",
+    "lesson": 8,
+    "topic": "家族・友達",
+    "page": 24
+  },
+  {
+    "index": 471,
+    "pdf": "娘",
+    "supplement": false,
+    "word": "娘",
+    "lesson": 8,
+    "topic": "家族・友達",
+    "page": 24
+  },
+  {
+    "index": 472,
+    "pdf": "お父さん",
+    "supplement": false,
+    "word": "お父さん",
+    "lesson": 8,
+    "topic": "家族・友達",
+    "page": 24
+  },
+  {
+    "index": 473,
+    "pdf": "お母さん",
+    "supplement": false,
+    "word": "お母さん",
+    "lesson": 8,
+    "topic": "家族・友達",
+    "page": 24
+  },
+  {
+    "index": 474,
+    "pdf": "お兄さん",
+    "supplement": false,
+    "word": "お兄さん",
+    "lesson": 8,
+    "topic": "家族・友達",
+    "page": 24
+  },
+  {
+    "index": 475,
+    "pdf": "お姉さん",
+    "supplement": false,
+    "word": "お姉さん",
+    "lesson": 8,
+    "topic": "家族・友達",
+    "page": 24
+  },
+  {
+    "index": 476,
+    "pdf": "弟さん",
+    "supplement": false,
+    "word": "弟さん",
+    "lesson": 8,
+    "topic": "家族・友達",
+    "page": 24
+  },
+  {
+    "index": 477,
+    "pdf": "妹さん",
+    "supplement": false,
+    "word": "妹さん",
+    "lesson": 8,
+    "topic": "家族・友達",
+    "page": 24
+  },
+  {
+    "index": 478,
+    "pdf": "お子さん",
+    "supplement": false,
+    "word": "お子さん",
+    "lesson": 8,
+    "topic": "家族・友達",
+    "page": 24
+  },
+  {
+    "index": 480,
+    "pdf": "猫",
+    "supplement": false,
+    "word": "猫",
+    "lesson": 8,
+    "topic": "家族・友達",
+    "page": 24
+  },
+  {
+    "index": 482,
+    "pdf": "医者",
+    "supplement": false,
+    "word": "医者",
+    "lesson": 8,
+    "topic": "家族・友達",
+    "page": 24
+  },
+  {
+    "index": 483,
+    "pdf": "高校生",
+    "supplement": false,
+    "word": "高校生",
+    "lesson": 8,
+    "topic": "家族・友達",
+    "page": 24
+  },
+  {
+    "index": 484,
+    "pdf": "大学生",
+    "supplement": false,
+    "word": "大学生",
+    "lesson": 8,
+    "topic": "家族・友達",
+    "page": 24
+  },
+  {
+    "index": 485,
+    "pdf": "～人",
+    "supplement": false,
+    "word": "～人",
+    "lesson": 8,
+    "topic": "家族・友達",
+    "page": 25
+  },
+  {
+    "index": 486,
+    "pdf": "～匹",
+    "supplement": false,
+    "word": "～匹",
+    "lesson": 8,
+    "topic": "家族・友達",
+    "page": 25
+  },
+  {
+    "index": 487,
+    "pdf": "住みます",
+    "supplement": false,
+    "word": "住みます",
+    "lesson": 8,
+    "topic": "家族・友達",
+    "page": 25
+  },
+  {
+    "index": 489,
+    "pdf": "ご主人",
+    "supplement": false,
+    "word": "ご主人",
+    "lesson": 8,
+    "topic": "こんな人",
+    "page": 25
+  },
+  {
+    "index": 490,
+    "pdf": "奥さん",
+    "supplement": false,
+    "word": "奥さん",
+    "lesson": 8,
+    "topic": "こんな人",
+    "page": 25
+  },
+  {
+    "index": 491,
+    "pdf": "先輩",
+    "supplement": false,
+    "word": "先輩",
+    "lesson": 8,
+    "topic": "こんな人",
+    "page": 25
+  },
+  {
+    "index": 492,
+    "pdf": "後輩",
+    "supplement": false,
+    "word": "後輩",
+    "lesson": 8,
+    "topic": "こんな人",
+    "page": 25
+  },
+  {
+    "index": 494,
+    "pdf": "体",
+    "supplement": false,
+    "word": "体",
+    "lesson": 8,
+    "topic": "こんな人",
+    "page": 25
+  },
+  {
+    "index": 495,
+    "pdf": "足",
+    "supplement": false,
+    "word": "足",
+    "lesson": 8,
+    "topic": "こんな人",
+    "page": 25
+  },
+  {
+    "index": 496,
+    "pdf": "顔",
+    "supplement": false,
+    "word": "顔",
+    "lesson": 8,
+    "topic": "こんな人",
+    "page": 25
+  },
+  {
+    "index": 497,
+    "pdf": "髪",
+    "supplement": false,
+    "word": "髪",
+    "lesson": 8,
+    "topic": "こんな人",
+    "page": 25
+  },
+  {
+    "index": 498,
+    "pdf": "口",
+    "supplement": false,
+    "word": "口",
+    "lesson": 8,
+    "topic": "こんな人",
+    "page": 25
+  },
+  {
+    "index": 499,
+    "pdf": "鼻",
+    "supplement": false,
+    "word": "鼻",
+    "lesson": 8,
+    "topic": "こんな人",
+    "page": 25
+  },
+  {
+    "index": 500,
+    "pdf": "目",
+    "supplement": false,
+    "word": "目",
+    "lesson": 8,
+    "topic": "こんな人",
+    "page": 25
+  },
+  {
+    "index": 501,
+    "pdf": "耳",
+    "supplement": false,
+    "word": "耳",
+    "lesson": 8,
+    "topic": "こんな人",
+    "page": 25
+  },
+  {
+    "index": 502,
+    "pdf": "頭がいい",
+    "supplement": false,
+    "word": "頭がいい",
+    "lesson": 8,
+    "topic": "こんな人",
+    "page": 25
+  },
+  {
+    "index": 505,
+    "pdf": "背が高い",
+    "supplement": false,
+    "word": "背が高い",
+    "lesson": 8,
+    "topic": "こんな人",
+    "page": 25
+  },
+  {
+    "index": 506,
+    "pdf": "長い",
+    "supplement": false,
+    "word": "長い",
+    "lesson": 8,
+    "topic": "こんな人",
+    "page": 25
+  },
+  {
+    "index": 507,
+    "pdf": "短い",
+    "supplement": false,
+    "word": "短い",
+    "lesson": 8,
+    "topic": "こんな人",
+    "page": 25
+  },
+  {
+    "index": 508,
+    "pdf": "優しい",
+    "supplement": false,
+    "word": "優しい",
+    "lesson": 8,
+    "topic": "こんな人",
+    "page": 25
+  },
+  {
+    "index": 509,
+    "pdf": "黒い",
+    "supplement": false,
+    "word": "黒い",
+    "lesson": 8,
+    "topic": "こんな人",
+    "page": 25
+  },
+  {
+    "index": 510,
+    "pdf": "白い",
+    "supplement": false,
+    "word": "白い",
+    "lesson": 8,
+    "topic": "こんな人",
+    "page": 26
+  },
+  {
+    "index": 511,
+    "pdf": "茶色い",
+    "supplement": false,
+    "word": "茶色い",
+    "lesson": 8,
+    "topic": "こんな人",
+    "page": 26
+  },
+  {
+    "index": 512,
+    "pdf": "元気（な）",
+    "supplement": false,
+    "word": "元気(な)",
+    "lesson": 8,
+    "topic": "こんな人",
+    "page": 26
+  },
+  {
+    "index": 513,
+    "pdf": "親切（な）",
+    "supplement": false,
+    "word": "親切(な)",
+    "lesson": 8,
+    "topic": "こんな人",
+    "page": 26
+  },
+  {
+    "index": 515,
+    "pdf": "上手（な）",
+    "supplement": false,
+    "word": "上手(な)",
+    "lesson": 8,
+    "topic": "こんな人",
+    "page": 26
+  },
+  {
+    "index": 516,
+    "pdf": "下手（な）",
+    "supplement": false,
+    "word": "下手(な)",
+    "lesson": 8,
+    "topic": "こんな人",
+    "page": 26
+  },
+  {
+    "index": 518,
+    "pdf": "傘",
+    "supplement": false,
+    "word": "傘",
+    "lesson": 8,
+    "topic": "プレゼント",
+    "page": 26
+  },
+  {
+    "index": 519,
+    "pdf": "（お）金",
+    "supplement": false,
+    "word": "(お)金",
+    "lesson": 8,
+    "topic": "プレゼント",
+    "page": 26
+  },
+  {
+    "index": 520,
+    "pdf": "靴下",
+    "supplement": false,
+    "word": "靴下",
+    "lesson": 8,
+    "topic": "プレゼント",
+    "page": 26
+  },
+  {
+    "index": 521,
+    "pdf": "辞書",
+    "supplement": false,
+    "word": "辞書",
+    "lesson": 8,
+    "topic": "プレゼント",
+    "page": 26
+  },
+  {
+    "index": 523,
+    "pdf": "手紙",
+    "supplement": false,
+    "word": "手紙",
+    "lesson": 8,
+    "topic": "プレゼント",
+    "page": 26
+  },
+  {
+    "index": 528,
+    "pdf": "祖母",
+    "supplement": false,
+    "word": "祖母",
+    "lesson": 8,
+    "topic": "プレゼント",
+    "page": 26
+  },
+  {
+    "index": 530,
+    "pdf": "結婚式",
+    "supplement": false,
+    "word": "結婚式",
+    "lesson": 8,
+    "topic": "プレゼント",
+    "page": 26
+  },
+  {
+    "index": 532,
+    "pdf": "何か",
+    "supplement": false,
+    "word": "何か",
+    "lesson": 8,
+    "topic": "プレゼント",
+    "page": 26
+  },
+  {
+    "index": 533,
+    "pdf": "送ります",
+    "supplement": false,
+    "word": "送ります",
+    "lesson": 8,
+    "topic": "プレゼント",
+    "page": 26
+  },
+  {
+    "index": 537,
+    "pdf": "電話します",
+    "supplement": false,
+    "word": "電話します",
+    "lesson": 8,
+    "topic": "プレゼント",
+    "page": 27
+  },
+  {
+    "index": 541,
+    "pdf": "（お）菓子",
+    "supplement": false,
+    "word": "(お)菓子",
+    "lesson": 9,
+    "topic": "いろいろな趣味",
+    "page": 28
+  },
+  {
+    "index": 542,
+    "pdf": "切手",
+    "supplement": false,
+    "word": "切手",
+    "lesson": 9,
+    "topic": "いろいろな趣味",
+    "page": 28
+  },
+  {
+    "index": 545,
+    "pdf": "小説",
+    "supplement": false,
+    "word": "小説",
+    "lesson": 9,
+    "topic": "いろいろな趣味",
+    "page": 28
+  },
+  {
+    "index": 546,
+    "pdf": "漫画",
+    "supplement": false,
+    "word": "漫画",
+    "lesson": 9,
+    "topic": "いろいろな趣味",
+    "page": 28
+  },
+  {
+    "index": 547,
+    "pdf": "釣り",
+    "supplement": false,
+    "word": "釣り",
+    "lesson": 9,
+    "topic": "いろいろな趣味",
+    "page": 28
+  },
+  {
+    "index": 550,
+    "pdf": "最近",
+    "supplement": false,
+    "word": "最近",
+    "lesson": 9,
+    "topic": "いろいろな趣味",
+    "page": 28
+  },
+  {
+    "index": 551,
+    "pdf": "～日",
+    "supplement": false,
+    "word": "～日",
+    "lesson": 9,
+    "topic": "いろいろな趣味",
+    "page": 28
+  },
+  {
+    "index": 552,
+    "pdf": "～週間",
+    "supplement": false,
+    "word": "～週間",
+    "lesson": 9,
+    "topic": "いろいろな趣味",
+    "page": 28
+  },
+  {
+    "index": 553,
+    "pdf": "～か月",
+    "supplement": false,
+    "word": "～か月",
+    "lesson": 9,
+    "topic": "いろいろな趣味",
+    "page": 28
+  },
+  {
+    "index": 554,
+    "pdf": "～年",
+    "supplement": false,
+    "word": "～年",
+    "lesson": 9,
+    "topic": "いろいろな趣味",
+    "page": 28
+  },
+  {
+    "index": 555,
+    "pdf": "～回",
+    "supplement": false,
+    "word": "～回",
+    "lesson": 9,
+    "topic": "いろいろな趣味",
+    "page": 28
+  },
+  {
+    "index": 556,
+    "pdf": "～冊",
+    "supplement": false,
+    "word": "～冊",
+    "lesson": 9,
+    "topic": "いろいろな趣味",
+    "page": 28
+  },
+  {
+    "index": 557,
+    "pdf": "～杯",
+    "supplement": false,
+    "word": "～杯",
+    "lesson": 9,
+    "topic": "いろいろな趣味",
+    "page": 28
+  },
+  {
+    "index": 558,
+    "pdf": "～本",
+    "supplement": false,
+    "word": "～本",
+    "lesson": 9,
+    "topic": "いろいろな趣味",
+    "page": 28
+  },
+  {
+    "index": 559,
+    "pdf": "～料理",
+    "supplement": false,
+    "word": "～料理",
+    "lesson": 9,
+    "topic": "いろいろな趣味",
+    "page": 28
+  },
+  {
+    "index": 560,
+    "pdf": "泳ぎます",
+    "supplement": false,
+    "word": "泳ぎます",
+    "lesson": 9,
+    "topic": "いろいろな趣味",
+    "page": 28
+  },
+  {
+    "index": 561,
+    "pdf": "描きます",
+    "supplement": false,
+    "word": "描きます",
+    "lesson": 9,
+    "topic": "いろいろな趣味",
+    "page": 28
+  },
+  {
+    "index": 562,
+    "pdf": "集めます",
+    "supplement": false,
+    "word": "集めます",
+    "lesson": 9,
+    "topic": "いろいろな趣味",
+    "page": 28
+  },
+  {
+    "index": 563,
+    "pdf": "運転します",
+    "supplement": false,
+    "word": "運転します",
+    "lesson": 9,
+    "topic": "いろいろな趣味",
+    "page": 28
+  },
+  {
+    "index": 564,
+    "pdf": "特に",
+    "supplement": false,
+    "word": "特に",
+    "lesson": 9,
+    "topic": "いろいろな趣味",
+    "page": 28
+  },
+  {
+    "index": 569,
+    "pdf": "全然",
+    "supplement": false,
+    "word": "全然",
+    "lesson": 9,
+    "topic": "いろいろな趣味",
+    "page": 29
+  },
+  {
+    "index": 574,
+    "pdf": "食堂",
+    "supplement": false,
+    "word": "食堂",
+    "lesson": 9,
+    "topic": "できること・できないこと",
+    "page": 29
+  },
+  {
+    "index": 578,
+    "pdf": "～教室",
+    "supplement": false,
+    "word": "～教室",
+    "lesson": 9,
+    "topic": "できること・できないこと",
+    "page": 29
+  },
+  {
+    "index": 579,
+    "pdf": "習います",
+    "supplement": false,
+    "word": "習います",
+    "lesson": 9,
+    "topic": "できること・できないこと",
+    "page": 29
+  },
+  {
+    "index": 580,
+    "pdf": "乗ります",
+    "supplement": false,
+    "word": "乗ります",
+    "lesson": 9,
+    "topic": "できること・できないこと",
+    "page": 29
+  },
+  {
+    "index": 581,
+    "pdf": "入ります",
+    "supplement": false,
+    "word": "入ります",
+    "lesson": 9,
+    "topic": "できること・できないこと",
+    "page": 29
+  },
+  {
+    "index": 582,
+    "pdf": "申し込みます",
+    "supplement": false,
+    "word": "申し込みます",
+    "lesson": 9,
+    "topic": "できること・できないこと",
+    "page": 29
+  },
+  {
+    "index": 584,
+    "pdf": "参加します",
+    "supplement": false,
+    "word": "参加します",
+    "lesson": 9,
+    "topic": "できること・できないこと",
+    "page": 29
+  },
+  {
+    "index": 587,
+    "pdf": "上手に",
+    "supplement": false,
+    "word": "上手に",
+    "lesson": 9,
+    "topic": "できること・できないこと",
+    "page": 30
+  },
+  {
+    "index": 588,
+    "pdf": "受付",
+    "supplement": false,
+    "word": "受付",
+    "lesson": 9,
+    "topic": "楽しい週末",
+    "page": 30
+  },
+  {
+    "index": 590,
+    "pdf": "外国人登録証",
+    "supplement": false,
+    "word": "外国人登録証",
+    "lesson": 9,
+    "topic": "楽しい週末",
+    "page": 30
+  },
+  {
+    "index": 591,
+    "pdf": "住所",
+    "supplement": false,
+    "word": "住所",
+    "lesson": 9,
+    "topic": "楽しい週末",
+    "page": 30
+  },
+  {
+    "index": 592,
+    "pdf": "宿題",
+    "supplement": false,
+    "word": "宿題",
+    "lesson": 9,
+    "topic": "楽しい週末",
+    "page": 30
+  },
+  {
+    "index": 593,
+    "pdf": "電話番号",
+    "supplement": false,
+    "word": "電話番号",
+    "lesson": 9,
+    "topic": "楽しい週末",
+    "page": 30
+  },
+  {
+    "index": 594,
+    "pdf": "～番",
+    "supplement": false,
+    "word": "～番",
+    "lesson": 9,
+    "topic": "楽しい週末",
+    "page": 30
+  },
+  {
+    "index": 595,
+    "pdf": "言います",
+    "supplement": false,
+    "word": "言います",
+    "lesson": 9,
+    "topic": "楽しい週末",
+    "page": 30
+  },
+  {
+    "index": 596,
+    "pdf": "払います",
+    "supplement": false,
+    "word": "払います",
+    "lesson": 9,
+    "topic": "楽しい週末",
+    "page": 30
+  },
+  {
+    "index": 597,
+    "pdf": "降ります",
+    "supplement": false,
+    "word": "降ります",
+    "lesson": 9,
+    "topic": "楽しい週末",
+    "page": 30
+  },
+  {
+    "index": 598,
+    "pdf": "見せます",
+    "supplement": false,
+    "word": "見せます",
+    "lesson": 9,
+    "topic": "楽しい週末",
+    "page": 30
+  },
+  {
+    "index": 599,
+    "pdf": "予約します",
+    "supplement": false,
+    "word": "予約します",
+    "lesson": 9,
+    "topic": "楽しい週末",
+    "page": 30
+  },
+  {
+    "index": 601,
+    "pdf": "音",
+    "supplement": false,
+    "word": "音",
+    "lesson": 10,
+    "topic": "私の集合",
+    "page": 31
+  },
+  {
+    "index": 602,
+    "pdf": "声",
+    "supplement": false,
+    "word": "声",
+    "lesson": 10,
+    "topic": "私の集合",
+    "page": 31
+  },
+  {
+    "index": 603,
+    "pdf": "薬",
+    "supplement": false,
+    "word": "薬",
+    "lesson": 10,
+    "topic": "私の集合",
+    "page": 31
+  },
+  {
+    "index": 604,
+    "pdf": "右",
+    "supplement": false,
+    "word": "右",
+    "lesson": 10,
+    "topic": "私の集合",
+    "page": 31
+  },
+  {
+    "index": 605,
+    "pdf": "左",
+    "supplement": false,
+    "word": "左",
+    "lesson": 10,
+    "topic": "私の集合",
+    "page": 31
+  },
+  {
+    "index": 606,
+    "pdf": "角",
+    "supplement": false,
+    "word": "角",
+    "lesson": 10,
+    "topic": "私の集合",
+    "page": 31
+  },
+  {
+    "index": 607,
+    "pdf": "交差点",
+    "supplement": false,
+    "word": "交差点",
+    "lesson": 10,
+    "topic": "私の集合",
+    "page": 31
+  },
+  {
+    "index": 608,
+    "pdf": "信号",
+    "supplement": false,
+    "word": "信号",
+    "lesson": 10,
+    "topic": "私の集合",
+    "page": 31
+  },
+  {
+    "index": 609,
+    "pdf": "橋",
+    "supplement": false,
+    "word": "橋",
+    "lesson": 10,
+    "topic": "私の集合",
+    "page": 31
+  },
+  {
+    "index": 610,
+    "pdf": "道",
+    "supplement": false,
+    "word": "道",
+    "lesson": 10,
+    "topic": "私の集合",
+    "page": 31
+  },
+  {
+    "index": 611,
+    "pdf": "～つ目",
+    "supplement": false,
+    "word": "～つ目",
+    "lesson": 10,
+    "topic": "私の集合",
+    "page": 31
+  },
+  {
+    "index": 612,
+    "pdf": "探します",
+    "supplement": false,
+    "word": "探します",
+    "lesson": 10,
+    "topic": "私の集合",
+    "page": 31
+  },
+  {
+    "index": 613,
+    "pdf": "飲みます",
+    "supplement": false,
+    "word": "飲みます",
+    "lesson": 10,
+    "topic": "私の集合",
+    "page": 31
+  },
+  {
+    "index": 614,
+    "pdf": "曲がります",
+    "supplement": false,
+    "word": "曲がります",
+    "lesson": 10,
+    "topic": "私の集合",
+    "page": 31
+  },
+  {
+    "index": 615,
+    "pdf": "渡ります",
+    "supplement": false,
+    "word": "渡ります",
+    "lesson": 10,
+    "topic": "私の集合",
+    "page": 31
+  },
+  {
+    "index": 616,
+    "pdf": "聞こえます",
+    "supplement": false,
+    "word": "聞こえます",
+    "lesson": 10,
+    "topic": "私の集合",
+    "page": 31
+  },
+  {
+    "index": 617,
+    "pdf": "見えます",
+    "supplement": false,
+    "word": "見えます",
+    "lesson": 10,
+    "topic": "私の集合",
+    "page": 31
+  },
+  {
+    "index": 623,
+    "pdf": "（お）客（さん）",
+    "supplement": false,
+    "word": "(お)客(さん)",
+    "lesson": 10,
+    "topic": "いろいろな注意",
+    "page": 32
+  },
+  {
+    "index": 625,
+    "pdf": "手",
+    "supplement": false,
+    "word": "手",
+    "lesson": 10,
+    "topic": "いろいろな注意",
+    "page": 32
+  },
+  {
+    "index": 626,
+    "pdf": "荷物",
+    "supplement": false,
+    "word": "荷物",
+    "lesson": 10,
+    "topic": "いろいろな注意",
+    "page": 32
+  },
+  {
+    "index": 628,
+    "pdf": "他",
+    "supplement": false,
+    "word": "他",
+    "lesson": 10,
+    "topic": "いろいろな注意",
+    "page": 32
+  },
+  {
+    "index": 629,
+    "pdf": "皆さん",
+    "supplement": false,
+    "word": "皆さん",
+    "lesson": 10,
+    "topic": "いろいろな注意",
+    "page": 32
+  },
+  {
+    "index": 630,
+    "pdf": "（お）土産",
+    "supplement": false,
+    "word": "(お)土産",
+    "lesson": 10,
+    "topic": "いろいろな注意",
+    "page": 32
+  },
+  {
+    "index": 631,
+    "pdf": "押します",
+    "supplement": false,
+    "word": "押します",
+    "lesson": 10,
+    "topic": "いろいろな注意",
+    "page": 32
+  },
+  {
+    "index": 632,
+    "pdf": "座ります",
+    "supplement": false,
+    "word": "座ります",
+    "lesson": 10,
+    "topic": "いろいろな注意",
+    "page": 32
+  },
+  {
+    "index": 633,
+    "pdf": "立ちます",
+    "supplement": false,
+    "word": "立ちます",
+    "lesson": 10,
+    "topic": "いろいろな注意",
+    "page": 32
+  },
+  {
+    "index": 634,
+    "pdf": "入ります",
+    "supplement": false,
+    "word": "入ります",
+    "lesson": 10,
+    "topic": "いろいろな注意",
+    "page": 32
+  },
+  {
+    "index": 635,
+    "pdf": "持って帰ります",
+    "supplement": false,
+    "word": "持って帰ります",
+    "lesson": 10,
+    "topic": "いろいろな注意",
+    "page": 32
+  },
+  {
+    "index": 636,
+    "pdf": "遅れます",
+    "supplement": false,
+    "word": "遅れます",
+    "lesson": 10,
+    "topic": "いろいろな注意",
+    "page": 32
+  },
+  {
+    "index": 637,
+    "pdf": "捨てます",
+    "supplement": false,
+    "word": "捨てます",
+    "lesson": 10,
+    "topic": "いろいろな注意",
+    "page": 32
+  },
+  {
+    "index": 638,
+    "pdf": "集合します",
+    "supplement": false,
+    "word": "集合します",
+    "lesson": 10,
+    "topic": "いろいろな注意",
+    "page": 32
+  },
+  {
+    "index": 639,
+    "pdf": "危ない",
+    "supplement": false,
+    "word": "危ない",
+    "lesson": 10,
+    "topic": "いろいろな注意",
+    "page": 32
+  },
+  {
+    "index": 640,
+    "pdf": "大切（な）",
+    "supplement": false,
+    "word": "大切(な)",
+    "lesson": 10,
+    "topic": "いろいろな注意",
+    "page": 32
+  },
+  {
+    "index": 641,
+    "pdf": "迷惑（な）",
+    "supplement": false,
+    "word": "迷惑(な)",
+    "lesson": 10,
+    "topic": "いろいろな注意",
+    "page": 32
+  },
+  {
+    "index": 642,
+    "pdf": "動物園",
+    "supplement": false,
+    "word": "動物園",
+    "lesson": 10,
+    "topic": "動物園で",
+    "page": 32
+  },
+  {
+    "index": 647,
+    "pdf": "鳥",
+    "supplement": false,
+    "word": "鳥",
+    "lesson": 10,
+    "topic": "動物園で",
+    "page": 33
+  },
+  {
+    "index": 650,
+    "pdf": "入り口",
+    "supplement": false,
+    "word": "入り口",
+    "lesson": 10,
+    "topic": "動物園で",
+    "page": 33
+  },
+  {
+    "index": 651,
+    "pdf": "出口",
+    "supplement": false,
+    "word": "出口",
+    "lesson": 10,
+    "topic": "動物園で",
+    "page": 33
+  },
+  {
+    "index": 654,
+    "pdf": "観覧車",
+    "supplement": false,
+    "word": "観覧車",
+    "lesson": 10,
+    "topic": "動物園で",
+    "page": 33
+  },
+  {
+    "index": 658,
+    "pdf": "歩きます",
+    "supplement": false,
+    "word": "歩きます",
+    "lesson": 10,
+    "topic": "動物園で",
+    "page": 33
+  },
+  {
+    "index": 659,
+    "pdf": "飛びます",
+    "supplement": false,
+    "word": "飛びます",
+    "lesson": 10,
+    "topic": "動物園で",
+    "page": 33
+  },
+  {
+    "index": 661,
+    "pdf": "休みます",
+    "supplement": false,
+    "word": "休みます",
+    "lesson": 10,
+    "topic": "動物園で",
+    "page": 33
+  },
+  {
+    "index": 665,
+    "pdf": "疲れます",
+    "supplement": false,
+    "word": "疲れます",
+    "lesson": 10,
+    "topic": "動物園で",
+    "page": 33
+  },
+  {
+    "index": 666,
+    "pdf": "痛い",
+    "supplement": false,
+    "word": "痛い",
+    "lesson": 10,
+    "topic": "動物園で",
+    "page": 33
+  },
+  {
+    "index": 667,
+    "pdf": "暗い",
+    "supplement": false,
+    "word": "暗い",
+    "lesson": 10,
+    "topic": "動物園で",
+    "page": 33
+  },
+  {
+    "index": 669,
+    "pdf": "本当だ",
+    "supplement": false,
+    "word": "本当だ",
+    "lesson": 10,
+    "topic": "動物園で",
+    "page": 33
+  },
+  {
+    "index": 670,
+    "pdf": "頭",
+    "supplement": false,
+    "word": "頭",
+    "lesson": 11,
+    "topic": "今の生活",
+    "page": 34
+  },
+  {
+    "index": 671,
+    "pdf": "会話",
+    "supplement": false,
+    "word": "会話",
+    "lesson": 11,
+    "topic": "今の生活",
+    "page": 34
+  },
+  {
+    "index": 672,
+    "pdf": "作文",
+    "supplement": false,
+    "word": "作文",
+    "lesson": 11,
+    "topic": "今の生活",
+    "page": 34
+  },
+  {
+    "index": 674,
+    "pdf": "雑誌",
+    "supplement": false,
+    "word": "雑誌",
+    "lesson": 11,
+    "topic": "今の生活",
+    "page": 34
+  },
+  {
+    "index": 676,
+    "pdf": "生活",
+    "supplement": false,
+    "word": "生活",
+    "lesson": 11,
+    "topic": "今の生活",
+    "page": 34
+  },
+  {
+    "index": 677,
+    "pdf": "店長",
+    "supplement": false,
+    "word": "店長",
+    "lesson": 11,
+    "topic": "今の生活",
+    "page": 34
+  },
+  {
+    "index": 678,
+    "pdf": "日記",
+    "supplement": false,
+    "word": "日記",
+    "lesson": 11,
+    "topic": "今の生活",
+    "page": 34
+  },
+  {
+    "index": 679,
+    "pdf": "初め",
+    "supplement": false,
+    "word": "初め",
+    "lesson": 11,
+    "topic": "今の生活",
+    "page": 34
+  },
+  {
+    "index": 680,
+    "pdf": "一人暮らし",
+    "supplement": false,
+    "word": "一人暮らし",
+    "lesson": 11,
+    "topic": "今の生活",
+    "page": 34
+  },
+  {
+    "index": 682,
+    "pdf": "平日",
+    "supplement": false,
+    "word": "平日",
+    "lesson": 11,
+    "topic": "今の生活",
+    "page": 34
+  },
+  {
+    "index": 683,
+    "pdf": "毎週",
+    "supplement": false,
+    "word": "毎週",
+    "lesson": 11,
+    "topic": "今の生活",
+    "page": 34
+  },
+  {
+    "index": 684,
+    "pdf": "終わります",
+    "supplement": false,
+    "word": "終わります",
+    "lesson": 11,
+    "topic": "今の生活",
+    "page": 34
+  },
+  {
+    "index": 685,
+    "pdf": "通います",
+    "supplement": false,
+    "word": "通います",
+    "lesson": 11,
+    "topic": "今の生活",
+    "page": 34
+  },
+  {
+    "index": 687,
+    "pdf": "休みます",
+    "supplement": false,
+    "word": "休みます",
+    "lesson": 11,
+    "topic": "今の生活",
+    "page": 34
+  },
+  {
+    "index": 688,
+    "pdf": "慣れます",
+    "supplement": false,
+    "word": "慣れます",
+    "lesson": 11,
+    "topic": "今の生活",
+    "page": 34
+  },
+  {
+    "index": 689,
+    "pdf": "忘れます",
+    "supplement": false,
+    "word": "忘れます",
+    "lesson": 11,
+    "topic": "今の生活",
+    "page": 34
+  },
+  {
+    "index": 690,
+    "pdf": "散歩します",
+    "supplement": false,
+    "word": "散歩します",
+    "lesson": 11,
+    "topic": "今の生活",
+    "page": 34
+  },
+  {
+    "index": 691,
+    "pdf": "厳しい",
+    "supplement": false,
+    "word": "厳しい",
+    "lesson": 11,
+    "topic": "今の生活",
+    "page": 34
+  },
+  {
+    "index": 692,
+    "pdf": "眠い",
+    "supplement": false,
+    "word": "眠い",
+    "lesson": 11,
+    "topic": "今の生活",
+    "page": 34
+  },
+  {
+    "index": 697,
+    "pdf": "外国",
+    "supplement": false,
+    "word": "外国",
+    "lesson": 11,
+    "topic": "今の私・前の私",
+    "page": 35
+  },
+  {
+    "index": 698,
+    "pdf": "小学生",
+    "supplement": false,
+    "word": "小学生",
+    "lesson": 11,
+    "topic": "今の私・前の私",
+    "page": 35
+  },
+  {
+    "index": 699,
+    "pdf": "中学生",
+    "supplement": false,
+    "word": "中学生",
+    "lesson": 11,
+    "topic": "今の私・前の私",
+    "page": 35
+  },
+  {
+    "index": 700,
+    "pdf": "選手",
+    "supplement": false,
+    "word": "選手",
+    "lesson": 11,
+    "topic": "今の私・前の私",
+    "page": 35
+  },
+  {
+    "index": 701,
+    "pdf": "祖父",
+    "supplement": false,
+    "word": "祖父",
+    "lesson": 11,
+    "topic": "今の私・前の私",
+    "page": 35
+  },
+  {
+    "index": 702,
+    "pdf": "始めます",
+    "supplement": false,
+    "word": "始めます",
+    "lesson": 11,
+    "topic": "今の私・前の私",
+    "page": 35
+  },
+  {
+    "index": 703,
+    "pdf": "別れます",
+    "supplement": false,
+    "word": "別れます",
+    "lesson": 11,
+    "topic": "今の私・前の私",
+    "page": 35
+  },
+  {
+    "index": 704,
+    "pdf": "卒業します",
+    "supplement": false,
+    "word": "卒業します",
+    "lesson": 11,
+    "topic": "今の私・前の私",
+    "page": 35
+  },
+  {
+    "index": 705,
+    "pdf": "入学します",
+    "supplement": false,
+    "word": "入学します",
+    "lesson": 11,
+    "topic": "今の私・前の私",
+    "page": 35
+  },
+  {
+    "index": 707,
+    "pdf": "初めて",
+    "supplement": false,
+    "word": "初めて",
+    "lesson": 11,
+    "topic": "今の私・前の私",
+    "page": 35
+  },
+  {
+    "index": 711,
+    "pdf": "消します",
+    "supplement": false,
+    "word": "消します",
+    "lesson": 11,
+    "topic": "友達と",
+    "page": 35
+  },
+  {
+    "index": 713,
+    "pdf": "引越しします",
+    "supplement": false,
+    "word": "引越しします",
+    "lesson": 11,
+    "topic": "友達と",
+    "page": 35
+  },
+  {
+    "index": 720,
+    "pdf": "食欲",
+    "supplement": false,
+    "word": "食欲",
+    "lesson": 12,
+    "topic": "体の調子",
+    "page": 36
+  },
+  {
+    "index": 721,
+    "pdf": "調子",
+    "supplement": false,
+    "word": "調子",
+    "lesson": 12,
+    "topic": "体の調子",
+    "page": 36
+  },
+  {
+    "index": 722,
+    "pdf": "熱",
+    "supplement": false,
+    "word": "熱",
+    "lesson": 12,
+    "topic": "体の調子",
+    "page": 36
+  },
+  {
+    "index": 723,
+    "pdf": "病気",
+    "supplement": false,
+    "word": "病気",
+    "lesson": 12,
+    "topic": "体の調子",
+    "page": 36
+  },
+  {
+    "index": 725,
+    "pdf": "歯",
+    "supplement": false,
+    "word": "歯",
+    "lesson": 12,
+    "topic": "体の調子",
+    "page": 36
+  },
+  {
+    "index": 726,
+    "pdf": "飲み会",
+    "supplement": false,
+    "word": "飲み会",
+    "lesson": 12,
+    "topic": "体の調子",
+    "page": 36
+  },
+  {
+    "index": 727,
+    "pdf": "～度",
+    "supplement": false,
+    "word": "～度",
+    "lesson": 12,
+    "topic": "体の調子",
+    "page": 36
+  },
+  {
+    "index": 728,
+    "pdf": "治ります",
+    "supplement": false,
+    "word": "治ります",
+    "lesson": 12,
+    "topic": "体の調子",
+    "page": 36
+  },
+  {
+    "index": 729,
+    "pdf": "悪い",
+    "supplement": false,
+    "word": "悪い",
+    "lesson": 12,
+    "topic": "体の調子",
+    "page": 36
+  },
+  {
+    "index": 730,
+    "pdf": "気持ちが悪い",
+    "supplement": false,
+    "word": "気持ちが悪い",
+    "lesson": 12,
+    "topic": "体の調子",
+    "page": 36
+  },
+  {
+    "index": 731,
+    "pdf": "大丈夫（な）",
+    "supplement": false,
+    "word": "大丈夫(な)",
+    "lesson": 12,
+    "topic": "体の調子",
+    "page": 36
+  },
+  {
+    "index": 732,
+    "pdf": "早く",
+    "supplement": false,
+    "word": "早く",
+    "lesson": 12,
+    "topic": "体の調子",
+    "page": 36
+  },
+  {
+    "index": 734,
+    "pdf": "お大事に",
+    "supplement": false,
+    "word": "お大事に",
+    "lesson": 12,
+    "topic": "体の調子",
+    "page": 36
+  },
+  {
+    "index": 737,
+    "pdf": "睡眠",
+    "supplement": false,
+    "word": "睡眠",
+    "lesson": 12,
+    "topic": "アドバイス",
+    "page": 36
+  },
+  {
+    "index": 738,
+    "pdf": "歯医者",
+    "supplement": false,
+    "word": "歯医者",
+    "lesson": 12,
+    "topic": "アドバイス",
+    "page": 36
+  },
+  {
+    "index": 742,
+    "pdf": "以上",
+    "supplement": false,
+    "word": "以上",
+    "lesson": 12,
+    "topic": "アドバイス",
+    "page": 36
+  },
+  {
+    "index": 743,
+    "pdf": "出します",
+    "supplement": false,
+    "word": "出します",
+    "lesson": 12,
+    "topic": "アドバイス",
+    "page": 37
+  },
+  {
+    "index": 744,
+    "pdf": "塗ります",
+    "supplement": false,
+    "word": "塗ります",
+    "lesson": 12,
+    "topic": "アドバイス",
+    "page": 37
+  },
+  {
+    "index": 745,
+    "pdf": "浴びます",
+    "supplement": false,
+    "word": "浴びます",
+    "lesson": 12,
+    "topic": "アドバイス",
+    "page": 37
+  },
+  {
+    "index": 746,
+    "pdf": "出かけます",
+    "supplement": false,
+    "word": "出かけます",
+    "lesson": 12,
+    "topic": "アドバイス",
+    "page": 37
+  },
+  {
+    "index": 747,
+    "pdf": "運動します",
+    "supplement": false,
+    "word": "運動します",
+    "lesson": 12,
+    "topic": "アドバイス",
+    "page": 37
+  },
+  {
+    "index": 748,
+    "pdf": "固い",
+    "supplement": false,
+    "word": "固い",
+    "lesson": 12,
+    "topic": "アドバイス",
+    "page": 37
+  },
+  {
+    "index": 749,
+    "pdf": "柔らかい",
+    "supplement": false,
+    "word": "柔らかい",
+    "lesson": 12,
+    "topic": "アドバイス",
+    "page": 37
+  },
+  {
+    "index": 750,
+    "pdf": "体にいい",
+    "supplement": false,
+    "word": "体にいい",
+    "lesson": 12,
+    "topic": "アドバイス",
+    "page": 37
+  },
+  {
+    "index": 751,
+    "pdf": "自分で",
+    "supplement": false,
+    "word": "自分で",
+    "lesson": 12,
+    "topic": "アドバイス",
+    "page": 37
+  },
+  {
+    "index": 754,
+    "pdf": "薬剤師",
+    "supplement": false,
+    "word": "薬剤師",
+    "lesson": 12,
+    "topic": "病院で",
+    "page": 37
+  },
+  {
+    "index": 755,
+    "pdf": "上着",
+    "supplement": false,
+    "word": "上着",
+    "lesson": 12,
+    "topic": "病院で",
+    "page": 37
+  },
+  {
+    "index": 757,
+    "pdf": "説明書",
+    "supplement": false,
+    "word": "説明書",
+    "lesson": 12,
+    "topic": "病院で",
+    "page": 37
+  },
+  {
+    "index": 758,
+    "pdf": "（お）風呂",
+    "supplement": false,
+    "word": "(お)風呂",
+    "lesson": 12,
+    "topic": "病院で",
+    "page": 37
+  },
+  {
+    "index": 759,
+    "pdf": "保険証",
+    "supplement": false,
+    "word": "保険証",
+    "lesson": 12,
+    "topic": "病院で",
+    "page": 37
+  },
+  {
+    "index": 760,
+    "pdf": "待合室",
+    "supplement": false,
+    "word": "待合室",
+    "lesson": 12,
+    "topic": "病院で",
+    "page": 37
+  },
+  {
+    "index": 761,
+    "pdf": "薬局",
+    "supplement": false,
+    "word": "薬局",
+    "lesson": 12,
+    "topic": "病院で",
+    "page": 37
+  },
+  {
+    "index": 762,
+    "pdf": "出します",
+    "supplement": false,
+    "word": "出します",
+    "lesson": 12,
+    "topic": "病院で",
+    "page": 37
+  },
+  {
+    "index": 763,
+    "pdf": "脱ぎます",
+    "supplement": false,
+    "word": "脱ぎます",
+    "lesson": 12,
+    "topic": "病院で",
+    "page": 37
+  },
+  {
+    "index": 764,
+    "pdf": "走ります",
+    "supplement": false,
+    "word": "走ります",
+    "lesson": 12,
+    "topic": "病院で",
+    "page": 38
+  },
+  {
+    "index": 765,
+    "pdf": "待ちます",
+    "supplement": false,
+    "word": "待ちます",
+    "lesson": 12,
+    "topic": "病院で",
+    "page": 38
+  },
+  {
+    "index": 766,
+    "pdf": "磨きます",
+    "supplement": false,
+    "word": "磨きます",
+    "lesson": 12,
+    "topic": "病院で",
+    "page": 38
+  },
+  {
+    "index": 767,
+    "pdf": "横になります",
+    "supplement": false,
+    "word": "横になります",
+    "lesson": 12,
+    "topic": "病院で",
+    "page": 38
+  },
+  {
+    "index": 768,
+    "pdf": "準備します",
+    "supplement": false,
+    "word": "準備します",
+    "lesson": 12,
+    "topic": "病院で",
+    "page": 38
+  },
+  {
+    "index": 770,
+    "pdf": "紅葉",
+    "supplement": false,
+    "word": "紅葉",
+    "lesson": 13,
+    "topic": "私の経験から",
+    "page": 39
+  },
+  {
+    "index": 772,
+    "pdf": "相撲",
+    "supplement": false,
+    "word": "相撲",
+    "lesson": 13,
+    "topic": "私の経験から",
+    "page": 39
+  },
+  {
+    "index": 774,
+    "pdf": "知ります",
+    "supplement": false,
+    "word": "知ります",
+    "lesson": 13,
+    "topic": "私の経験から",
+    "page": 39
+  },
+  {
+    "index": 776,
+    "pdf": "１回も",
+    "supplement": false,
+    "word": "1回も",
+    "lesson": 13,
+    "topic": "私の経験から",
+    "page": 39
+  },
+  {
+    "index": 777,
+    "pdf": "何回も",
+    "supplement": false,
+    "word": "何回も",
+    "lesson": 13,
+    "topic": "私の経験から",
+    "page": 39
+  },
+  {
+    "index": 778,
+    "pdf": "男の人",
+    "supplement": false,
+    "word": "男の人",
+    "lesson": 13,
+    "topic": "おすすめします",
+    "page": 39
+  },
+  {
+    "index": 779,
+    "pdf": "女の人",
+    "supplement": false,
+    "word": "女の人",
+    "lesson": 13,
+    "topic": "おすすめします",
+    "page": 39
+  },
+  {
+    "index": 780,
+    "pdf": "（お）店",
+    "supplement": false,
+    "word": "(お)店",
+    "lesson": 13,
+    "topic": "おすすめします",
+    "page": 39
+  },
+  {
+    "index": 781,
+    "pdf": "遊園地",
+    "supplement": false,
+    "word": "遊園地",
+    "lesson": 13,
+    "topic": "おすすめします",
+    "page": 39
+  },
+  {
+    "index": 783,
+    "pdf": "電気製品",
+    "supplement": false,
+    "word": "電気製品",
+    "lesson": 13,
+    "topic": "おすすめします",
+    "page": 39
+  },
+  {
+    "index": 785,
+    "pdf": "眼鏡",
+    "supplement": false,
+    "word": "眼鏡",
+    "lesson": 13,
+    "topic": "おすすめします",
+    "page": 39
+  },
+  {
+    "index": 789,
+    "pdf": "帽子",
+    "supplement": false,
+    "word": "帽子",
+    "lesson": 13,
+    "topic": "おすすめします",
+    "page": 39
+  },
+  {
+    "index": 790,
+    "pdf": "人気",
+    "supplement": false,
+    "word": "人気",
+    "lesson": 13,
+    "topic": "おすすめします",
+    "page": 39
+  },
+  {
+    "index": 791,
+    "pdf": "売ります",
+    "supplement": false,
+    "word": "売ります",
+    "lesson": 13,
+    "topic": "おすすめします",
+    "page": 39
+  },
+  {
+    "index": 793,
+    "pdf": "泊まります",
+    "supplement": false,
+    "word": "泊まります",
+    "lesson": 13,
+    "topic": "おすすめします",
+    "page": 39
+  },
+  {
+    "index": 796,
+    "pdf": "着ます",
+    "supplement": false,
+    "word": "着ます",
+    "lesson": 13,
+    "topic": "おすすめします",
+    "page": 40
+  },
+  {
+    "index": 798,
+    "pdf": "青い",
+    "supplement": false,
+    "word": "青い",
+    "lesson": 13,
+    "topic": "おすすめします",
+    "page": 40
+  },
+  {
+    "index": 799,
+    "pdf": "赤い",
+    "supplement": false,
+    "word": "赤い",
+    "lesson": 13,
+    "topic": "おすすめします",
+    "page": 40
+  },
+  {
+    "index": 800,
+    "pdf": "黄色い",
+    "supplement": false,
+    "word": "黄色い",
+    "lesson": 13,
+    "topic": "おすすめします",
+    "page": 40
+  },
+  {
+    "index": 801,
+    "pdf": "若い",
+    "supplement": false,
+    "word": "若い",
+    "lesson": 13,
+    "topic": "おすすめします",
+    "page": 40
+  },
+  {
+    "index": 802,
+    "pdf": "新鮮(な)",
+    "supplement": false,
+    "word": "新鮮(な)",
+    "lesson": 13,
+    "topic": "おすすめします",
+    "page": 40
+  },
+  {
+    "index": 803,
+    "pdf": "材料",
+    "supplement": false,
+    "word": "材料",
+    "lesson": 13,
+    "topic": "教えてください",
+    "page": 40
+  },
+  {
+    "index": 804,
+    "pdf": "場所",
+    "supplement": false,
+    "word": "場所",
+    "lesson": 13,
+    "topic": "教えてください",
+    "page": 40
+  },
+  {
+    "index": 806,
+    "pdf": "浴衣",
+    "supplement": false,
+    "word": "浴衣",
+    "lesson": 13,
+    "topic": "教えてください",
+    "page": 40
+  },
+  {
+    "index": 808,
+    "pdf": "練習します",
+    "supplement": false,
+    "word": "練習します",
+    "lesson": 13,
+    "topic": "教えてください",
+    "page": 40
+  },
+  {
+    "index": 814,
+    "pdf": "字",
+    "supplement": false,
+    "word": "字",
+    "lesson": 14,
+    "topic": "初めて見た!初めて聞いた!",
+    "page": 41
+  },
+  {
+    "index": 815,
+    "pdf": "食券",
+    "supplement": false,
+    "word": "食券",
+    "lesson": 14,
+    "topic": "初めて見た!初めて聞いた!",
+    "page": 41
+  },
+  {
+    "index": 816,
+    "pdf": "（お）釣り",
+    "supplement": false,
+    "word": "(お)釣り",
+    "lesson": 14,
+    "topic": "初めて見た!初めて聞いた!",
+    "page": 41
+  },
+  {
+    "index": 817,
+    "pdf": "電気",
+    "supplement": false,
+    "word": "電気",
+    "lesson": 14,
+    "topic": "初めて見た!初めて聞いた!",
+    "page": 41
+  },
+  {
+    "index": 819,
+    "pdf": "唐辛子",
+    "supplement": false,
+    "word": "唐辛子",
+    "lesson": 14,
+    "topic": "初めて見た!初めて聞いた!",
+    "page": 41
+  },
+  {
+    "index": 820,
+    "pdf": "風鈴",
+    "supplement": false,
+    "word": "風鈴",
+    "lesson": 14,
+    "topic": "初めて見た!初めて聞いた!",
+    "page": 41
+  },
+  {
+    "index": 821,
+    "pdf": "布団",
+    "supplement": false,
+    "word": "布団",
+    "lesson": 14,
+    "topic": "初めて見た!初めて聞いた!",
+    "page": 41
+  },
+  {
+    "index": 824,
+    "pdf": "（お）湯",
+    "supplement": false,
+    "word": "(お)湯",
+    "lesson": 14,
+    "topic": "初めて見た!初めて聞いた!",
+    "page": 41
+  },
+  {
+    "index": 825,
+    "pdf": "湯たんぽ",
+    "supplement": false,
+    "word": "湯たんぽ",
+    "lesson": 14,
+    "topic": "初めて見た!初めて聞いた!",
+    "page": 41
+  },
+  {
+    "index": 827,
+    "pdf": "開きます",
+    "supplement": false,
+    "word": "開きます",
+    "lesson": 14,
+    "topic": "初めて見た!初めて聞いた!",
+    "page": 41
+  },
+  {
+    "index": 828,
+    "pdf": "座ります",
+    "supplement": false,
+    "word": "座ります",
+    "lesson": 14,
+    "topic": "初めて見た!初めて聞いた!",
+    "page": 41
+  },
+  {
+    "index": 830,
+    "pdf": "回します",
+    "supplement": false,
+    "word": "回します",
+    "lesson": 14,
+    "topic": "初めて見た!初めて聞いた!",
+    "page": 41
+  },
+  {
+    "index": 831,
+    "pdf": "出ます",
+    "supplement": false,
+    "word": "出ます",
+    "lesson": 14,
+    "topic": "初めて見た!初めて聞いた!",
+    "page": 41
+  },
+  {
+    "index": 836,
+    "pdf": "以下",
+    "supplement": false,
+    "word": "以下",
+    "lesson": 14,
+    "topic": "ルール・マナー",
+    "page": 42
+  },
+  {
+    "index": 837,
+    "pdf": "玄関",
+    "supplement": false,
+    "word": "玄関",
+    "lesson": 14,
+    "topic": "ルール・マナー",
+    "page": 42
+  },
+  {
+    "index": 841,
+    "pdf": "身分証",
+    "supplement": false,
+    "word": "身分証",
+    "lesson": 14,
+    "topic": "ルール・マナー",
+    "page": 42
+  },
+  {
+    "index": 842,
+    "pdf": "料金",
+    "supplement": false,
+    "word": "料金",
+    "lesson": 14,
+    "topic": "ルール・マナー",
+    "page": 42
+  },
+  {
+    "index": 843,
+    "pdf": "入場料",
+    "supplement": false,
+    "word": "入場料",
+    "lesson": 14,
+    "topic": "ルール・マナー",
+    "page": 42
+  },
+  {
+    "index": 844,
+    "pdf": "並びます",
+    "supplement": false,
+    "word": "並びます",
+    "lesson": 14,
+    "topic": "ルール・マナー",
+    "page": 42
+  },
+  {
+    "index": 845,
+    "pdf": "止めます",
+    "supplement": false,
+    "word": "止めます",
+    "lesson": 14,
+    "topic": "ルール・マナー",
+    "page": 42
+  },
+  {
+    "index": 846,
+    "pdf": "分けます",
+    "supplement": false,
+    "word": "分けます",
+    "lesson": 14,
+    "topic": "ルール・マナー",
+    "page": 42
+  },
+  {
+    "index": 850,
+    "pdf": "田舎",
+    "supplement": false,
+    "word": "田舎",
+    "lesson": 14,
+    "topic": "私の意見",
+    "page": 42
+  },
+  {
+    "index": 851,
+    "pdf": "都会",
+    "supplement": false,
+    "word": "都会",
+    "lesson": 14,
+    "topic": "私の意見",
+    "page": 42
+  },
+  {
+    "index": 852,
+    "pdf": "空気",
+    "supplement": false,
+    "word": "空気",
+    "lesson": 14,
+    "topic": "私の意見",
+    "page": 42
+  },
+  {
+    "index": 853,
+    "pdf": "交通",
+    "supplement": false,
+    "word": "交通",
+    "lesson": 14,
+    "topic": "私の意見",
+    "page": 42
+  },
+  {
+    "index": 854,
+    "pdf": "時給",
+    "supplement": false,
+    "word": "時給",
+    "lesson": 14,
+    "topic": "私の意見",
+    "page": 42
+  },
+  {
+    "index": 855,
+    "pdf": "自由",
+    "supplement": false,
+    "word": "自由",
+    "lesson": 14,
+    "topic": "私の意見",
+    "page": 42
+  },
+  {
+    "index": 857,
+    "pdf": "番組",
+    "supplement": false,
+    "word": "番組",
+    "lesson": 14,
+    "topic": "私の意見",
+    "page": 42
+  },
+  {
+    "index": 861,
+    "pdf": "思います",
+    "supplement": false,
+    "word": "思います",
+    "lesson": 14,
+    "topic": "私の意見",
+    "page": 43
+  },
+  {
+    "index": 862,
+    "pdf": "化粧します",
+    "supplement": false,
+    "word": "化粧します",
+    "lesson": 14,
+    "topic": "私の意見",
+    "page": 43
+  },
+  {
+    "index": 863,
+    "pdf": "経験します",
+    "supplement": false,
+    "word": "経験します",
+    "lesson": 14,
+    "topic": "私の意見",
+    "page": 43
+  },
+  {
+    "index": 866,
+    "pdf": "複雑（な）",
+    "supplement": false,
+    "word": "複雑(な)",
+    "lesson": 14,
+    "topic": "私の意見",
+    "page": 43
+  },
+  {
+    "index": 867,
+    "pdf": "便利（な）",
+    "supplement": false,
+    "word": "便利(な)",
+    "lesson": 14,
+    "topic": "私の意見",
+    "page": 43
+  },
+  {
+    "index": 868,
+    "pdf": "不便（な）",
+    "supplement": false,
+    "word": "不便(な)",
+    "lesson": 14,
+    "topic": "私の意見",
+    "page": 43
+  },
+  {
+    "index": 872,
+    "pdf": "私もそう思います",
+    "supplement": false,
+    "word": "私もそう思います",
+    "lesson": 14,
+    "topic": "私の意見",
+    "page": 43
+  },
+  {
+    "index": 874,
+    "pdf": "曇り",
+    "supplement": false,
+    "word": "曇り",
+    "lesson": 15,
+    "topic": "これ、知ってる?",
+    "page": 44
+  },
+  {
+    "index": 875,
+    "pdf": "台風",
+    "supplement": false,
+    "word": "台風",
+    "lesson": 15,
+    "topic": "これ、知ってる?",
+    "page": 44
+  },
+  {
+    "index": 876,
+    "pdf": "地震",
+    "supplement": false,
+    "word": "地震",
+    "lesson": 15,
+    "topic": "これ、知ってる?",
+    "page": 44
+  },
+  {
+    "index": 877,
+    "pdf": "事故",
+    "supplement": false,
+    "word": "事故",
+    "lesson": 15,
+    "topic": "これ、知ってる?",
+    "page": 44
+  },
+  {
+    "index": 878,
+    "pdf": "～大会",
+    "supplement": false,
+    "word": "～大会",
+    "lesson": 15,
+    "topic": "これ、知ってる?",
+    "page": 44
+  },
+  {
+    "index": 880,
+    "pdf": "中止",
+    "supplement": false,
+    "word": "中止",
+    "lesson": 15,
+    "topic": "これ、知ってる?",
+    "page": 44
+  },
+  {
+    "index": 882,
+    "pdf": "本当",
+    "supplement": false,
+    "word": "本当",
+    "lesson": 15,
+    "topic": "これ、知ってる?",
+    "page": 44
+  },
+  {
+    "index": 883,
+    "pdf": "昔",
+    "supplement": false,
+    "word": "昔",
+    "lesson": 15,
+    "topic": "これ、知ってる?",
+    "page": 44
+  },
+  {
+    "index": 884,
+    "pdf": "無料",
+    "supplement": false,
+    "word": "無料",
+    "lesson": 15,
+    "topic": "これ、知ってる?",
+    "page": 44
+  },
+  {
+    "index": 885,
+    "pdf": "夕方",
+    "supplement": false,
+    "word": "夕方",
+    "lesson": 15,
+    "topic": "これ、知ってる?",
+    "page": 44
+  },
+  {
+    "index": 886,
+    "pdf": "死にます",
+    "supplement": false,
+    "word": "死にます",
+    "lesson": 15,
+    "topic": "これ、知ってる?",
+    "page": 44
+  },
+  {
+    "index": 887,
+    "pdf": "亡くなります",
+    "supplement": false,
+    "word": "亡くなります",
+    "lesson": 15,
+    "topic": "これ、知ってる?",
+    "page": 44
+  },
+  {
+    "index": 888,
+    "pdf": "止まります",
+    "supplement": false,
+    "word": "止まります",
+    "lesson": 15,
+    "topic": "これ、知ってる?",
+    "page": 44
+  },
+  {
+    "index": 889,
+    "pdf": "始まります",
+    "supplement": false,
+    "word": "始まります",
+    "lesson": 15,
+    "topic": "これ、知ってる?",
+    "page": 44
+  },
+  {
+    "index": 890,
+    "pdf": "降ります",
+    "supplement": false,
+    "word": "降ります",
+    "lesson": 15,
+    "topic": "これ、知ってる?",
+    "page": 44
+  },
+  {
+    "index": 891,
+    "pdf": "勝ちます",
+    "supplement": false,
+    "word": "勝ちます",
+    "lesson": 15,
+    "topic": "これ、知ってる?",
+    "page": 44
+  },
+  {
+    "index": 892,
+    "pdf": "負けます",
+    "supplement": false,
+    "word": "負けます",
+    "lesson": 15,
+    "topic": "これ、知ってる?",
+    "page": 44
+  },
+  {
+    "index": 893,
+    "pdf": "倒れます",
+    "supplement": false,
+    "word": "倒れます",
+    "lesson": 15,
+    "topic": "これ、知ってる?",
+    "page": 44
+  },
+  {
+    "index": 895,
+    "pdf": "割れます",
+    "supplement": false,
+    "word": "割れます",
+    "lesson": 15,
+    "topic": "これ、知ってる?",
+    "page": 44
+  },
+  {
+    "index": 896,
+    "pdf": "結婚します",
+    "supplement": false,
+    "word": "結婚します",
+    "lesson": 15,
+    "topic": "これ、知ってる?",
+    "page": 44
+  },
+  {
+    "index": 897,
+    "pdf": "入院します",
+    "supplement": false,
+    "word": "入院します",
+    "lesson": 15,
+    "topic": "これ、知ってる?",
+    "page": 44
+  },
+  {
+    "index": 898,
+    "pdf": "怖い",
+    "supplement": false,
+    "word": "怖い",
+    "lesson": 15,
+    "topic": "これ、知ってる?",
+    "page": 45
+  },
+  {
+    "index": 899,
+    "pdf": "心配（な）",
+    "supplement": false,
+    "word": "心配(な)",
+    "lesson": 15,
+    "topic": "これ、知ってる?",
+    "page": 45
+  },
+  {
+    "index": 900,
+    "pdf": "風",
+    "supplement": false,
+    "word": "風",
+    "lesson": 15,
+    "topic": "雑誌を見て町へ",
+    "page": 45
+  },
+  {
+    "index": 902,
+    "pdf": "席",
+    "supplement": false,
+    "word": "席",
+    "lesson": 15,
+    "topic": "雑誌を見て町へ",
+    "page": 45
+  },
+  {
+    "index": 903,
+    "pdf": "急ぎます",
+    "supplement": false,
+    "word": "急ぎます",
+    "lesson": 15,
+    "topic": "雑誌を見て町へ",
+    "page": 45
+  },
+  {
+    "index": 904,
+    "pdf": "混みます",
+    "supplement": false,
+    "word": "混みます",
+    "lesson": 15,
+    "topic": "雑誌を見て町へ",
+    "page": 45
+  },
+  {
+    "index": 905,
+    "pdf": "間に合います",
+    "supplement": false,
+    "word": "間に合います",
+    "lesson": 15,
+    "topic": "雑誌を見て町へ",
+    "page": 45
+  },
+  {
+    "index": 907,
+    "pdf": "晴れます",
+    "supplement": false,
+    "word": "晴れます",
+    "lesson": 15,
+    "topic": "雑誌を見て町へ",
+    "page": 45
+  },
+  {
+    "index": 909,
+    "pdf": "～引き",
+    "supplement": false,
+    "word": "～引き",
+    "lesson": 15,
+    "topic": "雑誌を見て町へ",
+    "page": 45
+  },
+  {
+    "index": 910,
+    "pdf": "強い",
+    "supplement": false,
+    "word": "強い",
+    "lesson": 15,
+    "topic": "雑誌を見て町へ",
+    "page": 45
+  },
+  {
+    "index": 914,
+    "pdf": "集まります",
+    "supplement": false,
+    "word": "集まります",
+    "lesson": 15,
+    "topic": "町を歩いて",
+    "page": 45
+  },
+  {
+    "index": 915,
+    "pdf": "閉まります",
+    "supplement": false,
+    "word": "閉まります",
+    "lesson": 15,
+    "topic": "町を歩いて",
+    "page": 45
+  },
+  {
+    "index": 917,
+    "pdf": "落ちます",
+    "supplement": false,
+    "word": "落ちます",
+    "lesson": 15,
+    "topic": "町を歩いて",
+    "page": 45
+  },
+  {
+    "index": 918,
+    "pdf": "消えます",
+    "supplement": false,
+    "word": "消えます",
+    "lesson": 15,
+    "topic": "町を歩いて",
+    "page": 45
+  },
+  {
+    "index": 919,
+    "pdf": "壊れます",
+    "supplement": false,
+    "word": "壊れます",
+    "lesson": 15,
+    "topic": "町を歩いて",
+    "page": 45
+  },
+  {
+    "index": 920,
+    "pdf": "汚れます",
+    "supplement": false,
+    "word": "汚れます",
+    "lesson": 15,
+    "topic": "町を歩いて",
+    "page": 45
+  }
+]

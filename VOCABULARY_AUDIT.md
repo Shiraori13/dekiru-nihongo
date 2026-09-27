@@ -72,3 +72,14 @@ Tổng: **475 → 921 thẻ (+446)**. Riêng bài 4–8: **163 → 333 thẻ (+1
 `tests/check_interactions.py` kiểm tra 921 flashcard trên màn hình 320 px khi không có mạng, trạng thái tìm kiếm rỗng khi đang lật thẻ, lật bằng bàn phím, giọng đọc tải chậm, đọc nối tiếp, dừng/đổi bài/đổi tab, xử lý lỗi và sự kiện âm thanh trả về trễ. Phần âm thanh dùng giả lập để kiểm tra logic.
 
 Giọng đọc thật phụ thuộc thiết bị. Nếu chưa có giọng Nhật, nút nghe bị vô hiệu hóa và hiển thị hướng dẫn; các chức năng đọc vẫn dùng được.
+
+## Hán tự và số câu tự nhập (bổ sung 25/09/2026)
+
+- Tách 607 mục từ có chữ Hán từ 921 thẻ; không tính câu ví dụ riêng của bản cũ. Tổng cộng 496 chữ khác nhau.
+- Số mục từ theo bài 1–15: **29, 30, 56, 51, 48, 31, 48, 61, 40, 46, 31, 39, 25, 35, 37**. Một từ có thể xuất hiện ở nhiều bài/chủ đề; các lần xuất hiện giữ riêng nghĩa và trang nguồn.
+- Mỗi mục giữ nguyên bài, chủ đề, cách đọc và nghĩa trong bộ từ đã đối chiếu; bổ sung cách viết gốc trong PDF. Bốn mục có chữ Hán bổ sung cho kana được ghi rõ, xem [nguồn Hán tự](sources/kanji/README.md).
+- Âm Hán Việt, nghĩa gợi nhớ từng chữ và ghi chú học từ là nội dung bổ sung; PDF không chứa các phần này. Các âm On/Kun tham khảo từ KANJIDIC2; nét viết từ KanjiVG. 496/496 hình chữ có số đường nét khớp số nét trong KANJIDIC2.
+- Có mô phỏng nét, tiến/lùi từng nét, chọn tốc độ, số thứ tự, ô tập viết tự do, hoàn tác/xóa, chữ mờ và tiến độ đã học. Viết mẫu dừng khi đổi chữ/từ/tab; giảm chuyển động theo tùy chọn của thiết bị.
+- Quiz cho nhập số nguyên từ 1 đến số từ được lọc, có thông báo lỗi cho ô trống/số âm/số lẻ/vượt giới hạn. Đáp án nhiễu lấy từ kho chung nên phạm vi chỉ có một từ vẫn kiểm tra được.
+- Bổ sung thanh tiến trình cho cả hai cách làm bài: chấm từng câu hoặc nộp toàn bài. Đề và đáp án lựa chọn được tạo một lần, giữ nguyên khi quay lại câu trước hoặc chuyển tab.
+- Chế độ nộp toàn bài không báo đúng/sai trước khi nộp. Kết quả hiển thị từng câu, đánh dấu lựa chọn sai, đáp án đúng và câu bỏ trống; có lọc các câu cần ôn lại. Điểm đúng mỗi câu là 10, câu sai/bỏ trống là 0; tỷ lệ đúng tính trên toàn bộ đề.

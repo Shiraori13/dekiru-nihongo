@@ -36,7 +36,8 @@ with sync_playwright() as p:
     page.fill('#searchBox','khong-co-tu-nay')
     assert page.locator('#vocabTableBody').inner_text().startswith('Không tìm thấy')
     page.fill('#searchBox','');page.select_option('#lessonSelect','4')
-    page.locator('[data-mode=quiz]').click();page.select_option('#quizCountSelect','5')
+    page.locator('[data-mode=quiz]').click();page.locator('input[name="quizCount"][value="5"]').check()
+    page.locator('input[name="quizGrading"][value="instant"]').check()
     page.get_by_role('button',name='Bắt đầu làm bài',exact=True).click()
     for index in range(5):
         correct=page.evaluate('quizQuestions[quizIndex].m')
