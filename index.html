@@ -273,22 +273,35 @@
     .flashcard-container {
       width: 100%;
       height: 380px;
-      perspective: 1200px;
+      border-radius: var(--radius-xl);
+      background: var(--surface);
       cursor: pointer;
+    }
+
+    .flashcard-container:focus { outline: none; }
+    .flashcard-container:focus-visible {
+      outline: 3px solid var(--primary);
+      outline-offset: 4px;
     }
 
     .flashcard-inner {
       width: 100%;
       height: 100%;
       position: relative;
-      transform-style: preserve-3d;
-      transition: transform 0.5s cubic-bezier(0.34, 1.4, 0.64, 1);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow-card);
     }
 
-    .flashcard-inner.is-flipped {
-      transform: rotateY(180deg);
+    /* Keep faces in 2D so focus outlines do not enter a rotating 3D layer. */
+    .flashcard-back, .is-flipped .flashcard-front { visibility: hidden; pointer-events: none; }
+    .is-flipped .flashcard-back { visibility: visible; pointer-events: auto; }
+    .flashcard-front .card-center, .is-flipped .flashcard-back .card-center {
+      animation: reveal-card .18s ease-out;
+    }
+    .is-flipped .flashcard-front .card-center { animation: none; }
+    @keyframes reveal-card {
+      from { opacity: .35; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .flashcard-face {
@@ -298,7 +311,6 @@
       border-radius: var(--radius-xl);
       background: var(--surface);
       border: 2px solid var(--border);
-      backface-visibility: hidden;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -307,7 +319,6 @@
     }
 
     .flashcard-back {
-      transform: rotateY(180deg);
       background: var(--surface);
       border-color: var(--primary);
     }
@@ -636,6 +647,7 @@
     }
   </style>
   <link rel="stylesheet" href="assets/study.css">
+  <link rel="stylesheet" href="assets/grammar.css">
 </head>
 <body>
 
@@ -653,6 +665,7 @@
           <button class="tab-btn" data-mode="list" aria-pressed="false" onclick="switchMode('list')">📋 Danh sách</button>
           <button class="tab-btn" data-mode="reading" aria-pressed="false" onclick="switchMode('reading')">📖 Luyện đọc</button>
           <button class="tab-btn" data-mode="kanji" aria-pressed="false" onclick="switchMode('kanji')">字 Hán tự</button>
+          <button class="tab-btn" data-mode="grammar" aria-pressed="false" onclick="switchMode('grammar')">✎ Ngữ pháp</button>
         </div>
         <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Đổi chế độ Sáng/Tối (Phím D)">🌙</button>
       </div>
@@ -689,7 +702,7 @@
         </div>
       </div>
 
-      <div class="flashcard-container" tabindex="0" role="group" aria-label="Thẻ từ vựng. Nhấn Space hoặc Enter để lật thẻ." onclick="flipCard()">
+      <div class="flashcard-container" tabindex="0" role="group" aria-label="Thẻ từ vựng. Enter, Space hoặc mũi tên lên, xuống để lật; mũi tên trái, phải để chuyển thẻ." onclick="flipCard()">
         <div class="flashcard-inner" id="flashcardInner">
           <!-- Mặt trước -->
           <div class="flashcard-face flashcard-front">
@@ -704,7 +717,7 @@
               <div class="kanji-text" id="fcKanji">私</div>
               <div class="reading-text" id="fcKana">わたし</div>
             </div>
-            <div class="card-footer">Nhấp vào thẻ hoặc bấm phím [Space] để lật nghĩa</div>
+            <div class="card-footer">Nhấp hoặc Enter / Space / ↑ / ↓ để lật · ← / → để chuyển thẻ</div>
           </div>
           <!-- Mặt sau -->
           <div class="flashcard-face flashcard-back">
@@ -715,7 +728,7 @@
             <div class="card-center">
               <div class="meaning-text" id="fcMeaning">Tôi</div>
             </div>
-            <div class="card-footer">Nhấp để quay lại từ vựng</div>
+            <div class="card-footer">Nhấp hoặc Enter / Space / ↑ / ↓ để lật · ← / → để chuyển thẻ</div>
           </div>
         </div>
       </div>
@@ -944,6 +957,7 @@
       <p id="kanjiSaveStatus" class="study-footer" role="status"></p>
       <p class="study-footer">Từ, bài và chủ đề: <a class="source-link" href="sources/new-words.pdf" target="_blank" rel="noopener">New words list ↗</a> · Âm Hán Việt và giải thích là phần bổ sung.<br>Âm đọc tham khảo: <a class="source-link" href="https://www.edrdg.org/kanjidic/kanjd2index_legacy.html" target="_blank" rel="noopener">KANJIDIC2 · EDRDG</a> (<a class="source-link" href="https://www.edrdg.org/edrdg/licence.html" target="_blank" rel="noopener">CC BY-SA 4.0</a>). Nét viết: <a class="source-link" href="https://kanjivg.tagaini.net/" target="_blank" rel="noopener">KanjiVG · Ulrich Apel</a> (<a class="source-link" href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>).</p>
     </section>
+    <section id="grammarMode" style="display:none" aria-label="Ôn ngữ pháp bài 4 đến 7"></section>
   </main>
 
   <script src="data/vocabulary.js"></script>
@@ -1096,18 +1110,22 @@
         btn.classList.toggle('active', selected);
         btn.setAttribute('aria-pressed', String(selected));
       });
-      ['flashcard', 'quiz', 'list', 'reading', 'kanji'].forEach(name => {
+      ['flashcard', 'quiz', 'list', 'reading', 'kanji', 'grammar'].forEach(name => {
         document.getElementById(name + 'Mode').style.display = mode === name ? (name === 'flashcard' ? 'flex' : 'block') : 'none';
       });
-      ['vocabIntro','vocabFilters','vocabCoverage'].forEach(id => document.getElementById(id).hidden = mode === 'reading' || mode === 'kanji');
+      ['vocabIntro','vocabFilters','vocabCoverage'].forEach(id => document.getElementById(id).hidden = ['reading', 'kanji', 'grammar'].includes(mode));
       updateUI();
     }
 
     /* FLASHCARD LOGIC */
     function syncCardFaces() {
-      document.getElementById('flashcardInner').classList.toggle('is-flipped', isFlipped);
       const front = document.querySelector('.flashcard-front');
       const back = document.querySelector('.flashcard-back');
+      const hiddenFace = isFlipped ? front : back;
+      if (hiddenFace.contains(document.activeElement)) {
+        document.querySelector('.flashcard-container').focus({ preventScroll: true });
+      }
+      document.getElementById('flashcardInner').classList.toggle('is-flipped', isFlipped);
       front.inert = isFlipped;
       back.inert = !isFlipped;
       front.setAttribute('aria-hidden', String(isFlipped));
@@ -1566,19 +1584,31 @@
 
     /* KEYBOARD SHORTCUTS */
     document.addEventListener('keydown', (e) => {
-      if (['input', 'select', 'button', 'textarea'].includes(document.activeElement.tagName.toLowerCase())) return;
+      const target = document.activeElement;
+      if (e.defaultPrevented || e.isComposing || e.ctrlKey || e.altKey || e.metaKey || e.shiftKey) return;
+      if (target.isContentEditable || target.closest('input, select, textarea, [role="textbox"]')) return;
+
+      // Override native Enter activation on card controls, including Shuffle.
+      // Space still activates focused buttons for keyboard accessibility.
+      const nativeControl = target.closest('button, a, summary, [role="button"]');
+      const inCards = target.closest('#flashcardMode');
+      if (currentMode === 'flashcard' && (!nativeControl || inCards)) {
+        const flipKey = ['Enter', 'ArrowUp', 'ArrowDown'].includes(e.key) || (e.code === 'Space' && !nativeControl);
+        if (flipKey || e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+          e.preventDefault();
+          if (e.repeat) return;
+          if (flipKey) flipCard();
+          else if (e.key === 'ArrowRight') nextCard();
+          else prevCard();
+          return;
+        }
+      }
+      if (nativeControl) return;
 
       if (e.key.toLowerCase() === 'd') {
         toggleTheme();
       } else if (currentMode === 'flashcard') {
-        if (e.code === 'Space' || e.code === 'ArrowUp' || e.code === 'ArrowDown' || (e.code === 'Enter' && document.activeElement.classList.contains('flashcard-container'))) {
-          e.preventDefault();
-          flipCard();
-        } else if (e.code === 'ArrowRight') {
-          nextCard();
-        } else if (e.code === 'ArrowLeft') {
-          prevCard();
-        } else if (e.key.toLowerCase() === 'a') {
+        if (e.key.toLowerCase() === 'a') {
           playAudioCurrent();
         } else if (e.key.toLowerCase() === 's') {
           toggleFavCurrent();
@@ -1594,5 +1624,7 @@
   <script src="assets/reading.js"></script>
   <script src="data/kanji.js"></script>
   <script src="assets/kanji.js"></script>
+  <script src="data/grammar.js"></script>
+  <script src="assets/grammar.js"></script>
 </body>
 </html>

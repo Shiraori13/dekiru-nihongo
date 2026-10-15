@@ -1,5 +1,39 @@
 # Các thay đổi mới của Dekiru
 
+## 15/10/2026 — Bản cập nhật ngữ pháp và thao tác thẻ
+
+So với bản trước trên GitHub, commit [`0a8ab99`](https://github.com/Shiraori13/dekiru-nihongo/commit/0a8ab99cfd6533ea17704a86b32166d98b0a6632):
+
+| Tính năng | Trước | Bản cập nhật |
+|---|---|---|
+| Ôn ngữ pháp | Chưa có chế độ riêng | Tab Ngữ pháp cho bài 4–7: 12 topic, 37 mục học, công thức, giải thích, ví dụ và lỗi thường gặp |
+| Luyện ngữ pháp | Chưa có | 127 câu: 57 trắc nghiệm, 37 ghép câu, 33 điền dạng từ; chọn phạm vi, dạng bài và số câu |
+| Chấm và ôn lại | Chưa có bài luyện ngữ pháp | Nộp rồi chấm, đánh dấu đúng/sai/bỏ trống, giải thích từng câu, luyện lại câu cần ôn |
+| Tiến độ ngữ pháp | Chưa có | Lưu mục đã nắm vững, câu cần ôn và bài đang làm qua lần tải lại trang |
+| Phím tắt thẻ | Enter có thể kích hoạt lại nút điều hướng/Xáo trộn đang giữ focus | Enter/↑/↓ lật thẻ; ←/→ chuyển thẻ; giữ phím không lặp hành động |
+| Hiển thị thẻ | Viền focus mặc định và xoay 3D | Viền tím bo góc khi dùng bàn phím, chuyển mặt nhẹ để tránh mảng trắng |
+| Giao diện di động | 5 chế độ trên một hàng | 6 chế độ trên hai hàng, bổ sung giao diện ngữ pháp sáng/tối và font Nhật |
+
+Chi tiết nội dung, nguồn PDF và phân loại: [GRAMMAR_AUDIT.md](GRAMMAR_AUDIT.md). Các ghi chú triển khai ngày 08–09/10 được giữ bên dưới.
+
+## 09/10/2026 — Ôn ngữ pháp bài 4–7
+
+- Thêm tab **Ngữ pháp**, gồm 37 mục theo 4 bài/12 topic; có giải thích, công thức, ví dụ mới, cách đọc, nghĩa, nghe câu, lỗi thường gặp và liên kết trang PDF để đối chiếu.
+- Phân loại từ PDF từ vựng, đối chiếu PDF ôn speaking và đề cương chính thức; tách mẫu mới của bài khỏi mẫu ôn lại/xuất hiện sớm. Chi tiết: [GRAMMAR_AUDIT.md](GRAMMAR_AUDIT.md).
+- Thêm 127 câu luyện: 57 chọn đáp án, 37 sắp xếp, 33 điền dạng từ; bảng chia thể て với 16 động từ và các ngoại lệ.
+- Lọc bài/topic, tìm kiếm không dấu, tự đánh dấu nắm vững, luyện riêng mẫu, chọn dạng bài và tự nhập số câu.
+- Làm rồi nộp, tiến trình theo số câu hoàn tất, sửa đáp án trước nộp; kết quả phân biệt đúng/sai/bỏ trống, giải thích và luyện lại câu cần ôn.
+- Lưu bài luyện ngữ pháp và tiến độ qua lần tải lại trang. Bài đang làm không thay đổi khi đổi bộ lọc hoặc chuyển tab.
+- Điều chỉnh thanh chế độ thành 2 hàng trên di động, bổ sung giao diện sáng/tối và font Nhật cho nội dung mới.
+
+## 08/10/2026 — Sửa phím tắt và hiển thị thẻ ghi nhớ
+
+- Enter và ↑/↓ lật thẻ; ←/→ chuyển thẻ, kể cả khi nút điều hướng hoặc Xáo trộn đang giữ focus. Enter không còn vô tình bấm lại các nút này.
+- Chặn cuộn trang và lặp hành động khi giữ các phím điều khiển thẻ. Không can thiệp ô nhập, bộ lọc hoặc phím tắt có Ctrl/Alt/Shift/Meta.
+- Giữ thao tác chuột và Space trên các nút; Space trên thẻ vẫn lật thẻ.
+- Thay viền focus mặc định bằng viền tím bo góc khi dùng bàn phím. Thay xoay 3D bằng chuyển mặt với hiệu ứng hiện nội dung nhẹ để tránh các mảng trắng khi lật; hỗ trợ giảm chuyển động.
+- Cập nhật hướng dẫn phím trên cả hai mặt thẻ; chuyển focus về khung thẻ nếu nút đang được focus sắp bị ẩn.
+
 ## 27/09/2026 — Học Hán tự và cải tiến bài kiểm tra
 
 Mốc so sánh: bản `main` trước đợt cập nhật này, commit [`72673f0`](https://github.com/Shiraori13/dekiru-nihongo/commit/72673f0c86798346ba91201c87f865c49ba9863e).

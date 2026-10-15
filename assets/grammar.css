@@ -1,0 +1,137 @@
+/* Grammar uses the shared theme and local Japanese font. */
+.grammar-hero { display:flex; justify-content:space-between; gap:28px; align-items:center; margin:12px 0 24px; }
+.grammar-hero h1 { font-size:clamp(25px,3.3vw,40px); line-height:1.4; letter-spacing:-1.2px; margin:10px 0; }
+.grammar-hero h1 span { color:var(--primary); }
+.grammar-hero p, .gr-muted { color:var(--text-muted); line-height:1.8; font-size:13px; }
+.grammar-stat { background:var(--surface); border:1px solid var(--border); border-radius:22px; padding:24px; min-width:235px; display:grid; gap:9px; box-shadow:var(--shadow-sm); }
+.grammar-stat strong { color:var(--primary); font-size:32px; }
+.grammar-stat span, .grammar-stat small { color:var(--text-muted); font-size:12px; }
+#grammarMode progress { width:100%; height:8px; accent-color:var(--primary); border:0; border-radius:8px; overflow:hidden; }
+#grammarMode progress::-webkit-progress-bar { background:var(--surface-subtle); }
+#grammarMode progress::-webkit-progress-value { background:var(--primary); }
+.gr-source { color:var(--text-muted); font-size:13px; line-height:1.85; margin-bottom:22px; }
+#grammarMode summary { cursor:pointer; font-weight:650; }
+#grammarMode a { color:var(--primary); text-underline-offset:3px; }
+#grammarMode button { border:1px solid var(--border); background:var(--surface); color:var(--text); border-radius:12px; padding:11px 15px; cursor:pointer; min-height:44px; font-weight:650; line-height:1.6; }
+#grammarMode button:hover:not(:disabled) { border-color:var(--primary); background:var(--primary-subtle); }
+#grammarMode button:disabled { cursor:not-allowed; opacity:.45; }
+#grammarMode .gr-primary { background:var(--primary); border-color:var(--primary); color:var(--surface); }
+[data-theme="dark"] #grammarMode .gr-primary { color:#101627; }
+#grammarMode .gr-primary:hover:not(:disabled) { background:var(--primary-hover); }
+.gr-chapters { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:10px; }
+.gr-chapters button { text-align:left; }
+.gr-chapters span { display:block; font-size:12px; color:var(--text-muted); font-weight:450; margin-top:4px; }
+#grammarMode button[aria-pressed="true"], #grammarMode button[aria-current="true"] { background:var(--primary-subtle); border-color:var(--primary); color:var(--primary); }
+.gr-filters { display:grid; grid-template-columns:1.3fr 1fr .8fr; gap:16px; background:var(--surface); border:1px solid var(--border); border-radius:18px; padding:20px; margin:18px 0; }
+#grammarMode label { display:grid; gap:8px; font-size:12px; font-weight:650; color:var(--text-muted); }
+#grammarMode input, #grammarMode select { min-width:0; width:100%; font-size:14px; padding:12px; background:var(--surface-subtle); color:var(--text); border:1px solid var(--border); border-radius:10px; }
+#grammarMode input::placeholder { color:var(--text-muted); opacity:1; }
+#grammarMode input:focus-visible, #grammarMode select:focus-visible { outline:2px solid var(--primary); outline-offset:2px; }
+.gr-tabs { display:flex; gap:8px; margin:22px 0; }
+.gr-layout { display:grid; grid-template-columns:310px minmax(0,1fr); gap:24px; align-items:start; }
+.gr-sidebar { background:var(--surface); border:1px solid var(--border); border-radius:20px; padding:12px; position:sticky; top:100px; }
+#grUnitCount { padding:6px 6px 14px; color:var(--text-muted); font-size:12px; }
+#grUnitList { max-height:65vh; overflow:auto; padding:4px; scrollbar-width:thin; }
+#grUnitList button { display:block; width:100%; text-align:left; margin-bottom:8px; }
+#grUnitList small, #grUnitList span, #grUnitList em { display:block; font-size:11px; font-weight:450; color:var(--text-muted); font-style:normal; }
+#grUnitList strong { display:block; font-size:14px; margin:5px 0; }
+#grUnitList span { font-size:12px; line-height:1.8; }
+#grUnitList em { margin-top:8px; color:var(--primary); }
+.gr-detail { background:var(--surface); border:1px solid var(--border); border-radius:24px; padding:30px; min-width:0; }
+.gr-detail-top { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; font-size:12px; color:var(--text-muted); }
+.gr-tag { display:inline-block; border-radius:20px; padding:5px 12px; background:var(--primary-subtle); color:var(--primary); font-weight:700; }
+#grammarMode h2 { font-size:24px; line-height:1.65; margin:16px 0 6px; }
+#grammarMode h3 { font-size:15px; line-height:1.8; margin:16px 0 8px; }
+.gr-detail p, .gr-review p { font-size:14px; line-height:1.95; margin:8px 0; }
+.gr-topic { color:var(--text-muted); }
+.gr-formula { font-size:clamp(18px,2vw,23px); padding:22px; margin:24px 0; background:var(--primary-subtle); color:var(--primary); border-radius:16px; line-height:1.9; overflow-wrap:anywhere; }
+.gr-note { border-left:3px solid var(--primary); background:var(--surface-subtle); border-radius:0 12px 12px 0; padding:16px 20px; margin:22px 0; }
+.gr-note strong { font-size:13px; color:var(--primary); }
+.gr-note p { margin-bottom:0; }
+.gr-example { padding:20px; border:1px solid var(--border); border-radius:16px; margin:22px 0; }
+.gr-example h3 { margin:0!important; }
+.gr-example > p[lang="ja"] { font-size:25px; line-height:1.9; margin:18px 0; }
+.gr-example .gr-kana { color:var(--primary); font-size:17px; }
+.gr-example summary { font-size:12px; color:var(--text-muted); }
+.gr-detail-actions { display:flex; flex-wrap:wrap; gap:12px; margin:24px 0; }
+.gr-citations { border-top:1px solid var(--border); padding-top:18px; color:var(--text-muted); font-size:12px; }
+.gr-citations p { font-size:12px; }
+.gr-table-scroll { overflow:auto; margin-top:12px; }
+.gr-te-table table { width:100%; min-width:390px; border-collapse:collapse; font-size:14px; }
+.gr-te-table td[lang="ja"] { white-space:nowrap; }
+.gr-te-table th, .gr-te-table td { padding:12px; border-bottom:1px solid var(--border); text-align:left; }
+.gr-te-table small { display:block; font-size:12px; color:var(--text-muted); }
+.gr-setup { background:var(--surface); border:1px solid var(--border); border-radius:20px; padding:24px; }
+.gr-setup h2 { margin-top:0!important; }
+#grSetupForm { display:grid; grid-template-columns:1.5fr .6fr 1fr 1fr; gap:14px; align-items:end; margin-top:22px; }
+#grSetupError { color:var(--danger,#c24141); font-size:13px; margin-top:10px; }
+.gr-session { margin-top:24px; background:var(--surface); border:1px solid var(--border); border-radius:22px; padding:26px; }
+.gr-session progress { margin:16px 0; }
+.gr-question-map { display:flex; flex-wrap:wrap; gap:8px; max-height:180px; overflow:auto; padding:5px; }
+#grammarMode .gr-question-map button { min-width:43px; padding:5px 8px; font-size:12px; }
+.gr-question-map small { display:block; font-size:10px; }
+#grammarMode .gr-map-answered { color:var(--katakana); background:var(--surface-subtle); border-color:var(--katakana); }
+#grammarMode [aria-current="step"] { outline:2px solid var(--primary); outline-offset:2px; }
+.gr-question { padding:24px 0 12px; }
+.gr-question h2 { font-size:20px!important; margin-bottom:22px!important; }
+.gr-options { border:0; display:grid; grid-template-columns:1fr 1fr; gap:12px; min-width:0; }
+.gr-option { position:relative; cursor:pointer; }
+.gr-option > input { position:absolute; width:18px!important; height:18px; top:calc(50% - 9px); left:12px; accent-color:var(--primary); }
+.gr-option > span { display:flex; align-items:center; gap:10px; border:1px solid var(--border); border-radius:14px; padding:18px 16px 18px 40px; min-height:76px; color:var(--text); background:var(--bg); }
+.gr-option b { color:var(--text-muted); font-size:11px; }
+.gr-option span[lang] { font-size:18px; overflow-wrap:anywhere; }
+.gr-option:has(input:checked) > span { border-color:var(--primary); background:var(--primary-subtle); color:var(--primary); }
+.gr-option:has(input:focus-visible) > span { outline:3px solid var(--primary); outline-offset:3px; }
+#grammarMode .gr-fill input { font-size:22px; margin:4px 0 8px; }
+.gr-order-answer { display:flex; flex-wrap:wrap; align-items:center; gap:8px; min-height:85px; padding:16px; background:var(--primary-subtle); border:1px dashed var(--primary); border-radius:15px; margin:18px 0; }
+.gr-order-answer > span { color:var(--text-muted); font-size:13px; }
+.gr-token-bank { display:flex; gap:8px; flex-wrap:wrap; }
+.gr-token-bank button, .gr-order-answer button { font-size:18px; }
+.gr-hint-toggle { margin:22px 0 12px; }
+.gr-hint { padding:16px; border-radius:12px; background:var(--surface-subtle); font:16px/1.9 var(--jp-font); }
+.gr-question-actions { display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap; margin-top:22px; }
+.gr-submit-row { display:flex; align-items:center; justify-content:space-between; gap:20px; border-top:1px solid var(--border); padding-top:20px; }
+.gr-submit-row > span { max-width:420px; }
+.gr-results { margin-top:24px; }
+.gr-result-header { padding:26px; background:var(--primary-subtle); border:1px solid var(--primary); border-radius:22px; display:flex; flex-wrap:wrap; justify-content:space-between; gap:22px; align-items:center; }
+.gr-result-actions { display:grid; gap:10px; }
+.gr-weak-summary { padding:22px 0; }
+.gr-weak-summary button { font-size:12px; margin:8px 4px 0 0; }
+.gr-review { padding:24px; background:var(--surface); border:1px solid var(--border); border-left:4px solid var(--katakana); border-radius:16px; margin-bottom:16px; }
+.gr-review.is-wrong { border-left-color:#dc6868; }
+.gr-review.is-skipped { border-left-color:var(--text-muted); }
+.gr-review.is-wrong .gr-detail-top strong { color:#ce5151; }
+[data-theme="dark"] .gr-review.is-wrong .gr-detail-top strong { color:#ffaaa3; }
+.gr-correct-answer { color:var(--katakana); }
+.gr-empty { padding:35px 20px; text-align:center; color:var(--text-muted); line-height:1.9; }
+#grSaveStatus { margin-top:20px; }
+#grammarMode [lang="ja"], #grammarMode .gr-question h2, #grammarMode .gr-review h3 { font-family:var(--jp-font); }
+#grammarMode p, #grammarMode h2, #grammarMode button { overflow-wrap:anywhere; }
+@media(min-width:761px) and (max-width:1200px) { .nav-container { flex-wrap:wrap; } .nav-controls { margin-left:auto; } }
+@media(max-width:900px) { .gr-layout { grid-template-columns:245px minmax(0,1fr); gap:16px; } .gr-detail { padding:22px; } .gr-options { grid-template-columns:1fr; } }
+@media(max-width:760px) {
+  .mode-tabs { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .grammar-hero { display:block; margin-top:0; }
+  .grammar-stat { margin-top:20px; min-width:0; padding:18px; }
+  .grammar-hero h1 { font-size:28px; }
+  .gr-chapters { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .gr-chapters button:first-child { grid-column:1/-1; }
+  .gr-filters { grid-template-columns:1fr; padding:16px; gap:12px; }
+  .gr-layout { grid-template-columns:minmax(0,1fr); }
+  .gr-sidebar { position:static; }
+  #grUnitList { max-height:225px; }
+  .gr-detail { padding:20px 16px; }
+  #grammarMode h2 { font-size:21px; }
+  .gr-formula { padding:16px; }
+  .gr-example { padding:15px; }
+  .gr-example > p[lang="ja"] { font-size:22px; }
+  .gr-tabs { gap:6px; }
+  #grammarMode .gr-tabs button { flex:1; padding:10px 6px; font-size:12px; }
+  .gr-setup, .gr-session { padding:20px 16px; }
+  #grSetupForm { grid-template-columns:minmax(0,1fr) 85px; gap:12px; }
+  #grSetupForm button { grid-column:1/-1; }
+  .gr-submit-row { flex-direction:column; align-items:stretch; }
+  .gr-question-actions button { flex:1; font-size:12px; padding:8px!important; }
+  .gr-review, .gr-result-header { padding:20px 16px; }
+  .gr-result-actions { width:100%; }
+}
