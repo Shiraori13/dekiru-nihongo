@@ -7,12 +7,13 @@ Mở `index.html` bằng trình duyệt để học từ vựng và luyện đ�
 - **Thẻ ghi nhớ / Kiểm tra / Danh sách:** 921 thẻ, 15 bài, 45 chủ đề. Bộ lọc và tìm kiếm tiếng Việt không dấu.
 - **Luyện đọc:** 71 mục từ PDF speaking; lọc theo bài, dạng bài và từ khóa. Bật/tắt furigana, kana, romaji; chỉnh cỡ chữ; chạm vào từ để xem nghĩa; xem từ vựng riêng cho từng bài.
 - **Hán tự:** 607 mục từ, 496 chữ Hán theo 15 bài/45 chủ đề; âm Hán Việt, giải thích, On/Kun, trang PDF gốc. Xem viết mẫu, từng nét, luyện viết bằng chuột/cảm ứng, tra từ cùng chữ và lưu tiến độ. Tìm kiếm hỗ trợ âm Hán Việt không dấu.
-- **Ngữ pháp:** bài 4–7, 12 topic, 37 mục học và 127 bài tập. Giải thích, ví dụ có cách đọc/nghĩa và nghe, lỗi thường gặp, bảng thể て; luyện chọn đáp án, điền dạng từ, ghép câu. Nộp rồi chấm, xem giải thích, luyện lại câu sai/bỏ trống và lưu bài đang làm qua lần tải lại trang. [Tổng hợp và đối chiếu ngữ pháp](GRAMMAR_AUDIT.md).
+- **Ngữ pháp:** bài 4–7, 12 topic, 37 mục học, **18 câu mỗi mục / 666 bài tập**. Giải thích, ví dụ có cách đọc/nghĩa và nghe, lỗi thường gặp, bảng thể て; luyện chọn đáp án, điền dạng từ, ghép câu. Nộp rồi chấm, xem giải thích, luyện lại câu sai/bỏ trống và lưu bài đang làm qua lần tải lại trang. [Tổng hợp và đối chiếu ngữ pháp](GRAMMAR_AUDIT.md).
+- **Đề ngữ pháp độc lập:** câu điền và ghép dùng ngữ cảnh riêng. Khi tạo đề, hệ thống loại các cặp chứa sẵn câu/dạng từ đang được hỏi ở câu khác; số câu nhập tối đa điều chỉnh theo phạm vi. Ngân hàng giữ 18 câu/mục; một lượt ôn riêng có 15–18 câu không lộ trực tiếp cho nhau. Ngay dưới câu hỏi có mục mở **gợi ý chữ Hán: từ, cách đọc và nghĩa**; động/tính từ dùng từ gốc để tránh cho sẵn dạng chia.
 - **Số câu kiểm tra:** giữ các mức có sẵn và thêm “Tự nhập số câu…”. Nhập số nguyên từ 1 đến số từ trong bộ lọc; số không hợp lệ có thông báo ngay trong phần thiết lập.
 - **Cách chấm bài:** mặc định “Nộp bài rồi xem đáp án”, hoặc chọn “Chấm từng câu” để biết kết quả ngay. Thanh tiến trình hiển thị số câu đã trả lời. Ở chế độ nộp sau, mỗi câu chọn một đáp án, có thể đổi lựa chọn và chuyển câu bằng bảng số câu trước khi nộp.
 - **Xem kết quả:** thống kê đúng/sai/bỏ trống; từng câu đánh dấu lựa chọn sai và đáp án đúng, có bộ lọc “Sai / bỏ trống”. Câu bỏ trống không được điểm; nộp thiếu có thông báo để quay lại làm tiếp hoặc vẫn nộp. “Làm lại đề này” giữ nguyên đề và xóa các lựa chọn cũ.
 - Bài kiểm tra **từ vựng** đang làm được giữ khi chuyển tab trong trang; bộ từ của đề giữ nguyên dù tra cứu bài khác. Tải lại trang hoặc chọn “Thiết lập bài mới” sẽ bắt đầu lại, không lưu bài kiểm tra từ vựng qua lần mở trình duyệt. Bài luyện **ngữ pháp** có lưu qua lần tải lại trang trên cùng trình duyệt.
-- Tiến độ, gợi ý và bài đọc gần nhất được lưu trong trình duyệt. Nghe bài dùng giọng tiếng Nhật của thiết bị; không có giọng Nhật thì có thông báo.
+- Tiến độ, gợi ý và bài đọc gần nhất được lưu trong trình duyệt. Phát âm dùng **1.178 MP3 đi kèm website**, hoạt động trên Firefox/Edge mà không cần cài giọng Nhật. Giọng thiết bị chỉ là dự phòng khi thiếu file; có thông báo khi bị chặn quyền hoặc không phát được. [Nguồn giọng tổng hợp và cách tạo file cục bộ](assets/audio/README.md).
 - Nội dung, dữ liệu và font tiếng Nhật Noto Sans JP chạy cục bộ. Font giao diện Plus Jakarta Sans tải từ Google Fonts; khi ngoại tuyến phần tiếng Việt dùng font hệ thống.
 
 Chi tiết đối chiếu: [VOCABULARY_AUDIT.md](VOCABULARY_AUDIT.md).
@@ -27,6 +28,9 @@ Các thay đổi cụ thể so với bản trước trên repo: [CHANGELOG.md](C
 - `assets/reading.js`, `assets/study.css`: tương tác và giao diện luyện đọc.
 - `assets/kanji.js`, `data/kanji.js`: học Hán tự và tập viết, dùng được ngoại tuyến.
 - `data/grammar.js`, `assets/grammar.js`, `assets/grammar.css`: học ngữ pháp bài 4–7 và bộ luyện tập riêng.
+- `data/grammar-practice.js`: bổ sung câu hỏi theo từng mục, đưa mỗi mục lên 18 câu. Câu không đổi nội dung giữ ID cũ; câu viết lại có ID mới.
+- `assets/grammar-support.js`: kiểm tra câu hỏi tiết lộ đáp án cho nhau, chọn đề phù hợp và tra từ Hán cho câu hỏi. Câu đã thay nội dung có ID mới; bài lưu cũ được cập nhật kèm thông báo, giữ câu trả lời còn phù hợp.
+- `assets/audio.js`, `data/audio.js`, `assets/audio/`: bộ phát dùng chung, ánh xạ và MP3 cục bộ. Khi sao chép hoặc deploy phải giữ đầy đủ các file này.
 - `data/kanji-source.json`, `data/kanji-meanings.tsv`: cách viết gốc trong PDF, âm Hán Việt được chọn và nghĩa gợi nhớ. [Nguồn, giấy phép và cách tạo dữ liệu Hán tự](sources/kanji/README.md).
 - `sources/`: hai tài liệu PDF do người dùng cung cấp.
 
@@ -45,6 +49,8 @@ python tests/check_kanji.py
 python tests/check_quiz.py
 python tests/check_flashcard_keyboard.py
 python tests/check_grammar.py
+python tests/check_grammar_independence.py
+python tests/check_audio.py
 ```
 
 Nếu chưa có Playwright, cài vào môi trường Python: `python -m pip install playwright`. Kiểm thử mở Edge ở chế độ ẩn, không dùng hồ sơ trình duyệt cá nhân. Ảnh kiểm tra được ghi vào `.work`. Kịch bản thứ hai kiểm tra 921 flashcard ở 320 px khi ngoại tuyến, bàn phím, cùng chu trình nghe/dừng/đổi bài bằng giọng giả lập; không đánh giá chất lượng phát âm thực tế của thiết bị.
@@ -52,3 +58,5 @@ Nếu chưa có Playwright, cài vào môi trường Python: `python -m pip inst
 Kịch bản Hán tự kiểm tra 607 ánh xạ PDF, 496 sơ đồ nét, 45 chủ đề, tìm kiếm, lưu tiến độ và dữ liệu lưu lỗi/bị chặn, đổi chữ/đổi tab khi viết mẫu, thao tác tập viết, màn hình nhỏ và giới hạn số câu tự nhập.
 
 Kịch bản quiz kiểm tra tiến trình, chỉ một đáp án được chọn cho mỗi câu, sửa đáp án và giữ thứ tự lựa chọn, chấm khi nộp, câu sai/bỏ trống, tính điểm, làm lại cùng đề, chuyển tab, hủy sự kiện chấm từng câu trả về trễ và phạm vi tối đa 921 câu.
+
+Kịch bản âm thanh chạy cả Firefox (cài bằng `python -m playwright install firefox`) và Edge: phát MP3 thật khi không có giọng hệ điều hành, tiến trình giải mã, dừng/đổi chế độ, đọc nối câu, lỗi quyền phát, file bị thiếu và mở qua `file://`. Kịch bản ngữ pháp kiểm tra mọi câu trong 666 câu qua UI và yêu cầu đúng 18 câu/mục. Kiểm thử tự động xác nhận luồng phát và giải mã, không đo được âm lượng vật lý của loa người dùng.

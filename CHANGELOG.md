@@ -1,5 +1,24 @@
 # Các thay đổi mới của Dekiru
 
+## 19/10/2026 — Tách câu dễ lộ đáp án và thêm gợi ý chữ Hán
+
+- Thay ngữ cảnh của 261 câu ghép bổ sung, một câu ghép gốc và một số câu chọn dạng từ còn trùng để tách khỏi câu liên quan. Giữ ngân hàng 666 bài tập / 18 câu mỗi mục thuộc bài 4–7.
+- Thêm kiểm tra khi tạo đề: không chọn cùng các câu chứa sẵn câu hoàn chỉnh hoặc dạng từ đang được hỏi ở câu khác, kể cả trong lựa chọn đáp án. Số câu tối đa theo bộ lọc phản ánh các câu ghép được độc lập; lượt ôn riêng một mục có 15–18 câu.
+- Thêm mục mở/đóng **Gợi ý chữ Hán · cách đọc và nghĩa** ngay dưới đề; động/tính từ giải thích theo từ gốc. Phân biệt mục này với gợi ý ngữ pháp cũ; xem từ không tự chọn/chấm đáp án.
+- Gợi ý có cách đọc cụm từ, tên riêng, số giờ/phút/tháng và lượng từ; không ghép âm On/Kun tùy ý. Kiểm tra toàn bộ câu hỏi hiện không thiếu mục từ Hán trong phần đề/mảnh ghép.
+- Lưu trạng thái mở gợi ý qua chuyển câu/tải lại. Bài cũ được rà lại, giữ các câu trả lời còn phù hợp và hiện thông báo nếu nội dung câu đã đổi hoặc cặp tiết lộ đáp án được loại.
+- Bổ sung kiểm thử ngữ cảnh khác nhau, đề không chứa cặp tiết lộ, cách đọc/nghĩa, giao diện di động và giữ đáp án khi mở gợi ý.
+
+## 18/10/2026 — Sửa phát âm Firefox và mở rộng bài tập ngữ pháp
+
+- Thay việc phụ thuộc hoàn toàn `speechSynthesis` bằng bộ phát chung, ưu tiên **1.178 MP3** đi kèm trang cho từ vựng, ví dụ ngữ pháp và câu luyện đọc. Firefox không còn cần giọng Nhật trong hệ điều hành để nghe các nội dung đã đóng gói.
+- MP3 được tổng hợp cục bộ bằng Open JTalk / giọng HTS Mei, dung lượng khoảng 10,9 MB; bổ sung nguồn và giấy phép. Không gửi tài liệu tới dịch vụ TTS ngoài để tạo bộ file này.
+- Thêm trạng thái tải/đang phát/lỗi, nút dừng, hướng dẫn khi Firefox chặn quyền âm thanh. Giọng Nhật của thiết bị làm dự phòng khi bản ghi không tải được; có kiểm tra giọng sẵn có, giữ đối tượng đọc và giới hạn chờ khởi động.
+- Dùng chung cơ chế phát ở thẻ từ vựng, danh sách, ngữ pháp và luyện đọc; phát từng câu, đổi chế độ/đổi thẻ sẽ dừng nội dung cũ; callback cũ không tự bật lại sau khi dừng.
+- Tăng **127 → 666 bài tập ngữ pháp**, đúng **18 câu cho mỗi mục** trong 37 mục của bài 4–7: 335 trắc nghiệm, 298 ghép câu, 33 điền dạng từ. Giữ ID câu cũ và tiến độ đã lưu.
+- Phân bổ: bài 4 — 162 câu; bài 5 — 180; bài 6 — 126; bài 7 — 198. Mỗi tình huống mới bám công thức của mục tương ứng; một tình huống có thể luyện cả chọn đáp án và ghép câu.
+- Bổ sung kiểm thử MP3 thật trên Firefox/Edge không có giọng Nhật, quyền phát bị chặn, thiếu file và mở cục bộ; kiểm tra đủ 18 câu/mục, chấm toàn bộ 666 câu, lưu/khôi phục và luyện lại.
+
 ## 15/10/2026 — Bản cập nhật ngữ pháp và thao tác thẻ
 
 So với bản trước trên GitHub, commit [`0a8ab99`](https://github.com/Shiraori13/dekiru-nihongo/commit/0a8ab99cfd6533ea17704a86b32166d98b0a6632):

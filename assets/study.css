@@ -9,6 +9,15 @@
 [data-theme="dark"] { --primary: #a5a7ff; --primary-hover: #c4b5fd; --kanji: #b6adff; --katakana: #72d8ce; --hiragana: #f3c27a; }
 [data-theme="dark"] .small-btn.primary { color: #101627; }
 [hidden] { display: none !important; }
+.audio-feedback { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); width:min(560px,calc(100% - 28px)); background:var(--surface); color:var(--text); border:1px solid var(--primary); border-radius:16px; padding:15px 18px; z-index:1000; box-shadow:0 8px 30px #0004; font-size:13px; line-height:1.8; }
+.audio-feedback > div { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.audio-feedback-actions { display:flex; gap:8px; flex-shrink:0; }
+.audio-feedback button { min-height:36px; border:1px solid var(--border); border-radius:8px; padding:4px 10px; background:var(--surface-subtle); color:var(--text); cursor:pointer; }
+.audio-feedback.has-error { border-color:var(--danger,#dc6868); }
+.audio-feedback details { margin-top:10px; }
+.audio-feedback summary { cursor:pointer; color:var(--primary); }
+.audio-credit { display:block; font-size:10px; color:var(--text-muted); margin-top:5px; }
+.audio-credit a { color:var(--primary); text-underline-offset:2px; }
 body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
 button, input, select { font: inherit; }
 button { -webkit-tap-highlight-color: transparent; }

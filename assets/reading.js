@@ -14,9 +14,7 @@
   const done = new Set(Array.isArray(savedDone) ? savedDone.filter(id => READINGS.some(r => r.id === id)) : []);
   let active = READINGS.find(r => r.id === prefs.selected) || READINGS.find(r => r.page === 5);
   let filtered = [...READINGS];
-  let voice = null;
   let speechVersion = 0;
-  let utterance = null;
   let speaking = false;
   const sourceText = reading => reading.blocks.map(block => block.map(t => typeof t === 'number' ? READING_LEXICON[t].k : t).join('')).join('\n');
   const searchIndex = new Map(READINGS.map(r => [r.id, normalize(`${r.title} ${r.jp} ${r.page} ${sourceText(r)} ${r.blocks.flat().filter(t => typeof t === 'number').map(t => { const w = READING_LEXICON[t]; return `${w.h} ${w.r} ${w.m}`; }).join(' ')}`)]));
@@ -121,54 +119,39 @@
     detailOrigin?.focus({ preventScroll: true });
   }
   function updateVoice() {
-    if (!('speechSynthesis' in window)) {
-      voice = null;
-      $('listenReading').disabled = true;
-      $('readingAudioStatus').textContent = 'Trình duyệt này chưa hỗ trợ đọc thành tiếng. Bạn vẫn có thể luyện bằng gợi ý.';
-      return;
-    }
-    voice = speechSynthesis.getVoices().find(v => /^ja([_-]|$)/i.test(v.lang)) || null;
-    $('listenReading').disabled = !voice;
-    if (!speaking) $('readingAudioStatus').textContent = voice ? `Giọng Nhật: ${voice.name} · Âm thanh tổng hợp của thiết bị.` : 'Thiết bị chưa có giọng đọc tiếng Nhật. Thêm giọng Japanese trong cài đặt giọng nói để nghe bài.';
+    const first=readingPieces()[0]?.text;
+    const available=!!first&&StudyAudio.available(first);
+    $('listenReading').disabled=!available;
+    if(!speaking) $('readingAudioStatus').textContent=available?'Bản ghi tiếng Nhật đi kèm trang; dùng được trên Firefox và không cần cài giọng Nhật.':'Chưa có bản ghi hoặc giọng Nhật. Kiểm tra thư mục assets/audio hoặc cài giọng Japanese.';
   }
   function stopAudio() {
     speechVersion++;
     speaking = false;
-    if ('speechSynthesis' in window) speechSynthesis.cancel();
-    utterance = null;
+    StudyAudio.stop();
     $('stopReading').disabled = true;
     $('listenReading').textContent = '▷ Nghe bài';
     document.querySelectorAll('.is-speaking').forEach(el => el.classList.remove('is-speaking'));
     updateVoice();
   }
-  function playReading() {
-    if (!active || !voice) return;
-    stopAudio();
-    const version = speechVersion;
-    speaking = true;
-    $('stopReading').disabled = false;
-    $('listenReading').textContent = '↻ Nghe từ đầu';
-    const pieces = active.blocks.flatMap((tokens,index) => {
+  function readingPieces() {
+    return active ? active.blocks.flatMap((tokens,index) => {
       const dialogue = typeof tokens[0] === 'string' && /^[AB]$/.test(tokens[0]);
       const text = (dialogue ? tokens.slice(2) : tokens).map(t => typeof t === 'number' ? READING_LEXICON[t].h : t).join('').replace(/[（）「」／—]/g,'');
       return (text.match(/[^。！？]+[。！？]?/g) || []).map(text => ({text,index}));
-    });
-    function speakPiece(i) {
-      if (version !== speechVersion) return;
-      if (i >= pieces.length) { stopAudio(); $('readingAudioStatus').textContent = 'Đã nghe hết bài. Đến lượt bạn đọc thành tiếng!'; return; }
-      const piece = pieces[i];
+    }) : [];
+  }
+  function playReading() {
+    if (!active) return;
+    stopAudio();
+    const version=speechVersion,pieces=readingPieces();
+    speaking=true;$('stopReading').disabled=false;$('listenReading').textContent='↻ Nghe từ đầu';
+    const reset=()=>{speaking=false;$('stopReading').disabled=true;$('listenReading').textContent='▷ Nghe bài';document.querySelectorAll('.is-speaking').forEach(el=>el.classList.remove('is-speaking'));};
+    StudyAudio.play(pieces,{rate:Number($('readingRate').value),onPiece(i,piece){
+      if(version!==speechVersion)return;
       document.querySelectorAll('.is-speaking').forEach(el => el.classList.remove('is-speaking'));
       document.querySelector(`[data-block="${piece.index}"]`)?.classList.add('is-speaking');
       $('readingAudioStatus').textContent = `Đang đọc · ${i+1} / ${pieces.length} câu`;
-      utterance = new SpeechSynthesisUtterance(piece.text);
-      utterance.voice = voice;
-      utterance.lang = 'ja-JP';
-      utterance.rate = Number($('readingRate').value);
-      utterance.onend = () => speakPiece(i+1);
-      utterance.onerror = event => { if (version !== speechVersion) return; stopAudio(); if (event.error !== 'canceled' && event.error !== 'interrupted') $('readingAudioStatus').textContent = 'Chưa phát được giọng đọc. Hãy thử lại hoặc kiểm tra giọng Nhật trên thiết bị.'; };
-      speechSynthesis.speak(utterance);
-    }
-    speakPiece(0);
+    },onEnd(){if(version===speechVersion){reset();$('readingAudioStatus').textContent='Đã nghe hết bài. Đến lượt bạn đọc thành tiếng!';}},onError(text){if(version===speechVersion){reset();$('readingAudioStatus').textContent='Chưa phát được: '+text;}},onStop(){reset();}});
   }
   window.stopReadingAudio = stopAudio;
   ['readingLesson','readingKind'].forEach(id => $(id).addEventListener('change', filterReadings));
@@ -192,7 +175,7 @@
   $('listenReading').addEventListener('click',playReading);
   $('stopReading').addEventListener('click',stopAudio);
   window.addEventListener('pagehide',stopAudio);
-  if ('speechSynthesis' in window) speechSynthesis.addEventListener('voiceschanged',updateVoice);
+  StudyAudio.subscribe(updateVoice);
   for (let i=1;i<=7;i++) { const option = document.createElement('option'); option.value = i; option.textContent = `Bài ${i}`; $('readingLesson').append(option); }
   for (const type of ['kanji','katakana','hiragana']) if (typeof prefs[type] === 'boolean') $(`hint${type[0].toUpperCase()+type.slice(1)}`).checked = prefs[type];
   if (['22','26','30','34'].includes(prefs.fontSize)) $('readingFontSize').value = prefs.fontSize;

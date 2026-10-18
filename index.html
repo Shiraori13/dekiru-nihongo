@@ -961,6 +961,8 @@
   </main>
 
   <script src="data/vocabulary.js"></script>
+  <script src="data/audio.js"></script>
+  <script src="assets/audio.js"></script>
   <script>
     function safeGet(key, fallback) { try { return localStorage.getItem(key) || fallback; } catch { return fallback; } }
     function safeSet(key, value) { try { localStorage.setItem(key, value); } catch {} }
@@ -1103,6 +1105,7 @@
     function switchMode(mode) {
       clearTimeout(quizTimer);
       if (window.stopReadingAudio) window.stopReadingAudio();
+      window.StudyAudio?.stop();
       if (window.stopKanjiAnimation) window.stopKanjiAnimation();
       currentMode = mode;
       document.querySelectorAll('[data-mode]').forEach(btn => {
@@ -1177,6 +1180,7 @@
 
     function nextCard() {
       if (currentIndex < currentFiltered.length - 1) {
+        window.StudyAudio.stop();
         currentIndex++;
         updateCardUI();
       }
@@ -1184,12 +1188,14 @@
 
     function prevCard() {
       if (currentIndex > 0) {
+        window.StudyAudio.stop();
         currentIndex--;
         updateCardUI();
       }
     }
 
     function shuffleCards() {
+      window.StudyAudio.stop();
       currentFiltered.sort(() => Math.random() - 0.5);
       currentIndex = 0;
       updateCardUI();
@@ -1211,14 +1217,7 @@
     }
 
     function playAudio(text) {
-      if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-        const clean = text.replace(/\((.*?)\)/g, '$1').replace(/[～~]/g, '').split('/')[0].trim();
-        const u = new SpeechSynthesisUtterance(clean);
-        u.lang = 'ja-JP';
-        u.rate = 0.85;
-        window.speechSynthesis.speak(u);
-      }
+      window.StudyAudio.play(text, {rate:0.85});
     }
 
     /* QUIZ SETUP & LOGIC */
@@ -1625,6 +1624,8 @@
   <script src="data/kanji.js"></script>
   <script src="assets/kanji.js"></script>
   <script src="data/grammar.js"></script>
+  <script src="data/grammar-practice.js"></script>
+  <script src="assets/grammar-support.js"></script>
   <script src="assets/grammar.js"></script>
 </body>
 </html>

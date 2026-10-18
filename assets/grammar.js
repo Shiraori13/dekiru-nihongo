@@ -23,18 +23,23 @@
   const done = new Set((Array.isArray(saved.done)?saved.done:[]).filter(id => byId.has(id)));
   const weak = new Set((Array.isArray(saved.weak)?saved.weak:[]).filter(id => questionById.has(id)));
   let active = byId.get(saved.active) || units[0];
-  let panel = 'learn', session = null;
+  let panel = 'learn', session = null, restoredNotice=false;
   function validAnswer(q,a) {
     if (q.type === 'choice') return typeof a === 'string' && q.options.includes(a);
     if (q.type === 'fill') return typeof a === 'string' && a.length <= 300;
     return Array.isArray(a) && a.every(n=>Number.isInteger(n)&&n>=0&&n<q.tokens.length) && new Set(a).size===a.length;
   }
   if (saved.session && Array.isArray(saved.session.ids)) {
-    const ids = [...new Set(saved.session.ids)].filter(id=>questionById.has(id)).slice(0,questions.length);
+    let ids = [...new Set(saved.session.ids)].filter(id=>questionById.has(id)).slice(0,questions.length);
+    if(!saved.session.submitted) {
+      const safe=[];ids.forEach(id=>{if(safe.every(other=>GrammarSupport.compatible(questionById.get(id),questionById.get(other))))safe.push(id);});ids=safe;
+    }
+    restoredNotice=ids.length!==saved.session.ids.length;
     if (ids.length) {
       const answers = {}, hints = {};
       ids.forEach(id=>{const a=saved.session.answers?.[id]; if(validAnswer(questionById.get(id),a)) answers[id]=a; if(saved.session.hints?.[id]===true) hints[id]=true;});
-      session={ids,answers,hints,index:Math.min(ids.length-1,Math.max(0,Number.isInteger(saved.session.index)?saved.session.index:0)),submitted:saved.session.submitted===true};
+      const kanjiHints={};ids.forEach(id=>{if(saved.session.kanjiHints?.[id]===true)kanjiHints[id]=true;});
+      session={ids,answers,hints,kanjiHints,index:Math.min(ids.length-1,Math.max(0,Number.isInteger(saved.session.index)?saved.session.index:0)),submitted:saved.session.submitted===true};
     }
   }
   let optionOrders = {};
@@ -47,7 +52,8 @@
     <details class="gr-source" id="grRecap"><summary>Mẫu ôn lại và mẫu xuất hiện sớm trong bài đọc</summary><div id="grRecapContent"></div></details>
     <div class="gr-tabs" role="group" aria-label="Cách ôn ngữ pháp"><button type="button" id="grLearnTab" aria-pressed="true">01 · Học mẫu câu</button><button type="button" id="grPracticeTab" aria-pressed="false">02 · Luyện tập <span id="grSessionBadge"></span></button></div>
     <div id="grLearn" class="gr-layout"><aside class="gr-sidebar"><p id="grUnitCount" role="status"></p><div id="grUnitList"></div></aside><article id="grDetail" class="gr-detail" aria-label="Chi tiết mẫu ngữ pháp"></article></div>
-    <div id="grPractice" hidden><section class="gr-setup"><div><h2>Luyện trong phạm vi đang chọn</h2><p id="grPoolLabel"></p><p class="gr-muted">Làm bài theo nhịp riêng, có thể quay lại sửa. Chỉ chấm khi bạn nộp bài.</p></div><form id="grSetupForm"><label>Dạng bài<select id="grType"><option value="all">Trộn 3 dạng</option><option value="choice">Chọn đáp án</option><option value="fill">Điền dạng từ</option><option value="order">Sắp xếp câu</option></select></label><label>Số câu<input id="grCount" type="number" min="1" step="1" value="10" required></label><button class="gr-primary" id="grStart" type="submit">Bắt đầu</button><button id="grWeakStart" type="button">Luyện câu cần ôn</button></form><p id="grSetupError" role="alert"></p></section><div id="grAttempt"></div></div>
+    <div id="grPractice" hidden><section class="gr-setup"><div><h2>Luyện trong phạm vi đang chọn</h2><p id="grPoolLabel"></p><p class="gr-muted">Mỗi đề chọn các câu không tiết lộ trực tiếp đáp án cho nhau. Bạn có thể quay lại sửa và chỉ chấm khi nộp bài.</p></div><form id="grSetupForm"><label>Dạng bài<select id="grType"><option value="all">Trộn 3 dạng</option><option value="choice">Chọn đáp án</option><option value="fill">Điền dạng từ</option><option value="order">Sắp xếp câu</option></select></label><label>Số câu<input id="grCount" type="number" min="1" step="1" value="10" required></label><button class="gr-primary" id="grStart" type="submit">Bắt đầu</button><button id="grWeakStart" type="button">Luyện câu cần ôn</button></form><p id="grSetupError" role="alert"></p></section><div id="grAttempt"></div></div>
+    <p id="grUpdateNotice" class="gr-muted" ${restoredNotice?'':'hidden'}>Một số câu đã được thay nội dung hoặc tách khỏi câu tiết lộ đáp án. Bài đang lưu đã được cập nhật; các câu trả lời còn phù hợp được giữ lại.</p>
     <p id="grSaveStatus" class="gr-muted" role="status"></p>`;
   let selectedChapter = 'all';
   function save() {
@@ -68,10 +74,10 @@
     $('grSessionBadge').textContent=session?(session.submitted?'· Kết quả':'· Đang làm'):'';
   }
   function updatePool() {
-    const available=pool(), count=$('grCount');
-    count.max=String(available.length||1);
-    if(Number(count.value)>available.length||!count.value) count.value=String(Math.min(10,available.length)||1);
-    $('grPoolLabel').textContent=`${filtered().length} mục ngữ pháp · ${available.length} câu phù hợp · ${pool(true).length} câu cần ôn lại.`;
+    const available=pool(), count=$('grCount'),limit=GrammarSupport.capacity(available);
+    count.max=String(limit||1);
+    if(Number(count.value)>limit||!count.value) count.value=String(Math.min(10,limit)||1);
+    $('grPoolLabel').textContent=`${filtered().length} mục ngữ pháp · ${available.length} câu trong ngân hàng · Tối đa ${limit} câu độc lập/lượt · ${pool(true).length} câu cần ôn lại.`;
     $('grStart').disabled=!available.length;
     $('grWeakStart').disabled=!pool(true).length;
     $('grStart').textContent=session?'Bắt đầu bài mới':'Bắt đầu';
@@ -96,7 +102,7 @@
     const u=active, c=chapter(u);
     $('grDetail').innerHTML=`<div class="gr-detail-top"><span class="gr-tag">${esc(label(u))}</span><span>${esc(u.category)}</span></div><h2 tabindex="-1" id="grDetailTitle">${esc(u.title)}</h2><p class="gr-topic" lang="ja">${esc(c.name)} / ${esc(c.topics[u.topic])}</p><div class="gr-formula" lang="ja">${esc(u.formula)}</div><h3>Cách dùng</h3><p>${esc(u.explain)}</p><aside class="gr-note"><strong>Điểm dễ nhầm</strong><p>${esc(u.note)}</p></aside><section class="gr-example"><div class="gr-detail-top"><h3>Ví dụ luyện tập</h3><button type="button" data-gr-audio aria-label="Nghe câu ví dụ">🔊 Nghe</button></div><p lang="ja">${esc(u.example.jp)}</p><details><summary>Xem cách đọc và nghĩa</summary><p lang="ja" class="gr-kana">${esc(u.example.kana)}</p><p>${esc(u.example.vi)}</p></details></section>
     ${u.id==='g7-te'?`<details class="gr-te-table" open><summary>Bảng chia thể て · 16 động từ</summary><div class="gr-table-scroll"><table><thead><tr><th>Từ điển</th><th>Thể て</th><th>Nhóm / quy tắc</th></tr></thead><tbody>${teForms.map(([v,k,a,h,r])=>`<tr><td lang="ja">${esc(v)}<small>${esc(k)}</small></td><td lang="ja">${esc(a)}<small>${esc(h)}</small></td><td>${esc(r)}</td></tr>`).join('')}</tbody></table></div></details>`:''}
-    <div class="gr-detail-actions"><button type="button" data-gr-done aria-pressed="${done.has(u.id)}">${done.has(u.id)?'✓ Đã nắm vững':'○ Đánh dấu đã nắm vững'}</button><button type="button" class="gr-primary" data-gr-drill>Luyện mẫu này (${questions.filter(q=>q.unit===u.id).length} câu)</button></div><footer class="gr-citations"><strong>Đối chiếu nội dung</strong><p>Topic từ vựng: <a href="sources/new-words.pdf#page=${c.pages[u.topic]}" target="_blank" rel="noopener">trang ${c.pages[u.topic]} ↗</a>. Mẫu liên quan trong ôn speaking: ${u.pages.map(p=>`<a href="sources/speaking.pdf#page=${p}" target="_blank" rel="noopener">tr. ${p} ↗</a>`).join(' · ')}.</p><p>Ví dụ trên được biên soạn mới. N = danh từ; V = động từ; A = tính từ; “bỏ ます” = gốc của động từ dạng ます. Số trang là trang của file PDF.</p></footer>`;
+    <div class="gr-detail-actions"><button type="button" data-gr-done aria-pressed="${done.has(u.id)}">${done.has(u.id)?'✓ Đã nắm vững':'○ Đánh dấu đã nắm vững'}</button><button type="button" class="gr-primary" data-gr-drill>Luyện mẫu này (${GrammarSupport.capacity(questions.filter(q=>q.unit===u.id))} câu/lượt)</button></div><footer class="gr-citations"><strong>Đối chiếu nội dung</strong><p>Topic từ vựng: <a href="sources/new-words.pdf#page=${c.pages[u.topic]}" target="_blank" rel="noopener">trang ${c.pages[u.topic]} ↗</a>. Mẫu liên quan trong ôn speaking: ${u.pages.map(p=>`<a href="sources/speaking.pdf#page=${p}" target="_blank" rel="noopener">tr. ${p} ↗</a>`).join(' · ')}.</p><p>Ví dụ trên được biên soạn mới. N = danh từ; V = động từ; A = tính từ; “bỏ ます” = gốc của động từ dạng ます. Số trang là trang của file PDF.</p></footer>`;
   }
   function showPanel(next) {
     panel=next; $('grLearn').hidden=panel!=='learn'; $('grPractice').hidden=panel!=='practice';
@@ -130,6 +136,8 @@
     if(!session) { $('grAttempt').innerHTML='<p class="gr-empty">Chọn phạm vi ở phía trên và bắt đầu. Kết quả sẽ chỉ rõ mẫu cần ôn lại.</p>'; return; }
     if(session.submitted) {renderResults(); return;}
     const q=questionById.get(session.ids[session.index]),u=byId.get(q.unit),a=session.answers[q.id];
+    const lexical=GrammarSupport.hintsFor(q);
+    const kanjiHint=`<details id="grKanjiHints" class="gr-kanji-hints" ${session.kanjiHints?.[q.id]?'open':''}><summary>Gợi ý chữ Hán · cách đọc và nghĩa (${lexical.words.length} từ)</summary><p class="gr-muted">Tra từ trong đề. Động từ và tính từ được giải nghĩa theo từ gốc; bạn tự chọn dạng ngữ pháp cần dùng.</p>${lexical.words.length?`<dl>${lexical.words.map(w=>`<div><dt lang="ja">${esc(w.word)}</dt><dd lang="ja" class="gr-kanji-reading">${esc(w.reading)}</dd><dd>${esc(w.meaning)}</dd></div>`).join('')}</dl>`:'<p>Câu này không có từ Hán cần tra trong danh sách gợi ý.</p>'}${lexical.unknown.length?`<p class="gr-muted">Chưa có mục từ cho: ${lexical.unknown.map(esc).join('、')}.</p>`:''}</details>`;
     if(!optionOrders[q.id]) optionOrders[q.id]=shuffle(q.type==='order'?q.tokens.map((_,i)=>i):q.options||[]);
     let input='';
     if(q.type==='choice') input=`<fieldset class="gr-options"><legend class="sr-only">Chọn một đáp án</legend>${optionOrders[q.id].map((opt,i)=>`<label class="gr-option"><input type="radio" name="grAnswer" value="${esc(opt)}" ${a===opt?'checked':''}><span><b>${String.fromCharCode(65+i)}</b><span lang="ja">${esc(opt)}</span></span></label>`).join('')}</fieldset>`;
@@ -138,7 +146,7 @@
       const chosen=Array.isArray(a)?a:[];
       input=`<p class="gr-muted">Chọn các mảnh theo thứ tự. Bấm mảnh đã chọn để bỏ ra; cần dùng hết các mảnh.</p><div class="gr-order-answer" aria-label="Câu đang ghép">${chosen.length?chosen.map((n,i)=>`<button type="button" data-gr-remove="${i}" lang="ja" aria-label="Bỏ mảnh ${esc(q.tokens[n])}">${esc(q.tokens[n])} <small>×</small></button>`).join(''):'<span>Ghép câu của bạn tại đây…</span>'}</div><div class="gr-token-bank">${optionOrders[q.id].map(n=>`<button type="button" data-gr-token="${n}" lang="ja" ${chosen.includes(n)?'disabled':''}>${esc(q.tokens[n])}</button>`).join('')}</div>`;
     }
-    $('grAttempt').innerHTML=`<section class="gr-session"><div class="gr-detail-top"><strong id="grAnswered"></strong><span>Đáp án chưa được chấm</span></div><progress id="grProgress" max="${session.ids.length}" value="0" aria-label="Số câu đã trả lời"></progress><nav id="grMap" class="gr-question-map" aria-label="Chuyển câu hỏi"></nav><div class="gr-question"><div class="gr-detail-top"><span class="gr-tag">Câu ${session.index+1} · ${names[q.type]}</span><span>${esc(label(u))}</span></div><h2 id="grQuestionTitle" tabindex="-1">${esc(q.prompt)}</h2>${input}<button type="button" class="gr-hint-toggle" data-gr-hint aria-expanded="${!!session.hints[q.id]}">${session.hints[q.id]?'Ẩn':'Xem'} gợi ý</button><p class="gr-hint" id="grHint" ${session.hints[q.id]?'':'hidden'}>${esc(q.hint)}</p><div class="gr-question-actions"><button type="button" data-gr-prev ${session.index===0?'disabled':''}>← Câu trước</button><button type="button" data-gr-clear>Xóa trả lời</button><button type="button" data-gr-next ${session.index===session.ids.length-1?'disabled':''}>Câu sau →</button></div></div><div class="gr-submit-row"><span class="gr-muted">Bộ lọc chỉ áp dụng khi bắt đầu bài mới. Bài đang làm được giữ nguyên.</span><button type="button" id="grSubmit" class="gr-primary" data-gr-submit></button></div></section>`;
+    $('grAttempt').innerHTML=`<section class="gr-session"><div class="gr-detail-top"><strong id="grAnswered"></strong><span>Đáp án chưa được chấm</span></div><progress id="grProgress" max="${session.ids.length}" value="0" aria-label="Số câu đã trả lời"></progress><nav id="grMap" class="gr-question-map" aria-label="Chuyển câu hỏi"></nav><div class="gr-question"><div class="gr-detail-top"><span class="gr-tag">Câu ${session.index+1} · ${names[q.type]}</span><span>${esc(label(u))}</span></div><h2 id="grQuestionTitle" tabindex="-1">${esc(q.prompt)}</h2>${kanjiHint}${input}<button type="button" class="gr-hint-toggle" data-gr-hint aria-expanded="${!!session.hints[q.id]}">${session.hints[q.id]?'Ẩn':'Xem'} gợi ý ngữ pháp</button><p class="gr-hint" id="grHint" ${session.hints[q.id]?'':'hidden'}>${esc(q.hint)}</p><div class="gr-question-actions"><button type="button" data-gr-prev ${session.index===0?'disabled':''}>← Câu trước</button><button type="button" data-gr-clear>Xóa trả lời</button><button type="button" data-gr-next ${session.index===session.ids.length-1?'disabled':''}>Câu sau →</button></div></div><div class="gr-submit-row"><span class="gr-muted">Bộ lọc chỉ áp dụng khi bắt đầu bài mới. Bài đang làm được giữ nguyên.</span><button type="button" id="grSubmit" class="gr-primary" data-gr-submit></button></div></section>`;
     updateAttemptProgress();
     if(focus) $('grQuestionTitle').focus({preventScroll:true});
   }
@@ -153,10 +161,11 @@
   }
   function start(items) {
     if(!items.length) return;
-    session={ids:items.map(q=>q.id),answers:{},hints:{},index:0,submitted:false};
+    const selected=GrammarSupport.plan(items);
+    session={ids:selected.map(q=>q.id),answers:{},hints:{},kanjiHints:{},index:0,submitted:false};
     optionOrders={};save();updateStats();showPanel('practice');$('grQuestionTitle').focus();
   }
-  function selectUnit(id) { active=byId.get(id);save();renderList();showPanel('learn');$('grDetailTitle')?.focus({preventScroll:true}); }
+  function selectUnit(id) { StudyAudio.stop();active=byId.get(id);save();renderList();showPanel('learn');$('grDetailTitle')?.focus({preventScroll:true}); }
   function refreshTopics() {
     $('grTopic').innerHTML='<option value="all">Tất cả chủ đề</option>'+chapters.filter(c=>selectedChapter==='all'||c.id===Number(selectedChapter)).map(c=>c.topics.map((t,i)=>`<option value="${c.id}-${i}">Bài ${c.id} · ${esc(c.labels[i])} — ${esc(t)}</option>`).join('')).join('');
   }
@@ -187,7 +196,7 @@
     else if(btn.hasAttribute('data-gr-remove')) session.answers[q.id].splice(Number(btn.dataset.grRemove),1);
     else if(btn.hasAttribute('data-gr-hint')) {
       // Remember that a hint was used even when subsequently collapsed.
-      session.hints[q.id]=true;const hint=$('grHint');hint.hidden=!hint.hidden;btn.setAttribute('aria-expanded',String(!hint.hidden));btn.textContent=hint.hidden?'Xem gợi ý':'Ẩn gợi ý';save();return;
+      session.hints[q.id]=true;const hint=$('grHint');hint.hidden=!hint.hidden;btn.setAttribute('aria-expanded',String(!hint.hidden));btn.textContent=hint.hidden?'Xem gợi ý ngữ pháp':'Ẩn gợi ý ngữ pháp';save();return;
     }
     else if(btn.hasAttribute('data-gr-submit')) {
       session.submitted=true;session.ids.forEach(id=>{correct(questionById.get(id))?weak.delete(id):weak.add(id);});
@@ -204,10 +213,15 @@
     if(e.target.id==='grSearch') renderList();
     else if(e.target.id==='grFill'&&session&&!session.submitted) {session.answers[session.ids[session.index]]=e.target.value;save();updateAttemptProgress();}
   });
+  root.addEventListener('toggle',e=>{
+    if(e.target.id!=='grKanjiHints'||!e.target.isConnected||!session||session.submitted)return;
+    session.kanjiHints??={};session.kanjiHints[session.ids[session.index]]=e.target.open;save();
+  },true);
   $('grSetupForm').addEventListener('submit',e=>{
     e.preventDefault();const count=Number($('grCount').value),available=pool();
-    if(!Number.isInteger(count)||count<1||count>available.length) {$('grSetupError').textContent=`Nhập số nguyên từ 1 đến ${available.length}.`;return;}
-    start(shuffle(available).slice(0,count));
+    const limit=GrammarSupport.capacity(available);
+    if(!Number.isInteger(count)||count<1||count>limit) {$('grSetupError').textContent=`Nhập số nguyên từ 1 đến ${limit} câu độc lập.`;return;}
+    start(GrammarSupport.plan(available,count));
   });
   refreshTopics();renderList();save();
 })();

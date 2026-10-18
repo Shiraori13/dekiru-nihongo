@@ -27,6 +27,8 @@ with sync_playwright() as p:
     page=context.new_page();errors=[]
     page.on('pageerror',lambda e:errors.append(str(e)))
     page.goto((ROOT/'index.html').as_uri())
+    # Exercise native fallback separately from the recorded-audio Firefox checks.
+    page.evaluate('window.DEKIRU_AUDIO.files = {}; stopReadingAudio()')
     page.wait_for_function('typeof READINGS !== "undefined"')
     page.evaluate('document.fonts.ready')
     assert page.evaluate('document.fonts.check(\'26px "Noto Sans JP"\')')

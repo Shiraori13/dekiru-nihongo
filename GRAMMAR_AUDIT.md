@@ -1,6 +1,6 @@
 # Đối chiếu ngữ pháp Dekiru — bài 4–7
 
-Ngày đối chiếu: **09/10/2026**. Phạm vi triển khai: **4 chapter, 12 topic, 37 mục ôn tập, 127 bài tập**.
+Ngày đối chiếu ban đầu: **09/10/2026**; mở rộng bài tập **18/10/2026**, tách câu tiết lộ đáp án và thêm gợi ý Hán **19/10/2026**. Phạm vi triển khai: **4 chapter, 12 topic, 37 mục ôn tập, 18 câu/mục / 666 bài tập**.
 
 ## Nguồn và cách phân loại
 
@@ -42,7 +42,12 @@ Các mục dưới đây gộp một số mẫu liên quan để học theo tìn
 
 ## Tính năng luyện tập
 
-- 57 câu chọn đáp án, 37 câu ghép mảnh thành câu, 33 câu điền dạng từ = **127 câu**. Tất cả có đáp án và giải thích, gắn với đúng mục học.
+- 335 câu chọn đáp án, 298 câu ghép mảnh thành câu, 33 câu điền dạng từ = **666 câu**, tăng từ 127 câu. Mỗi mục có đúng 18 câu; tất cả có đáp án và giải thích, gắn với đúng mục học.
+- Theo chapter: bài 4 có 162 câu; bài 5 có 180 câu; bài 6 có 126 câu; bài 7 có 198 câu. Nội dung mới luyện lại đúng mẫu của 37 mục hiện có, không bổ sung mục ngữ pháp bài 8 trở đi.
+- Đã thay 261 câu ghép bổ sung bằng ngữ cảnh được viết riêng, cùng một câu ghép gốc dễ trùng; câu điền và câu ghép tương ứng không còn dùng cùng câu hoàn chỉnh. Ngân hàng giữ 666 bài tập, 18 câu/mục; 33 câu điền dạng từ được giữ.
+- Đề mới kiểm tra ngữ cảnh hoàn chỉnh và các đáp án từ/cụm từ được hiện trực tiếp trong câu hoặc lựa chọn của câu khác. Các cặp đó không được chọn cùng lượt. Đáp án ngữ pháp dùng chung như trợ từ の/が không bị coi là câu trùng chỉ vì dùng chung một ký tự.
+- Mỗi lượt ôn riêng một mục hiện có 15–18 câu phù hợp; phạm vi tổng hợp có giới hạn số câu được tính lại. Không tạo đề quá số câu có thể ghép độc lập. Một mẫu ngữ pháp vẫn được lặp để luyện ở các ngữ cảnh khác nhau.
+- Gợi ý chữ Hán nằm ngay dưới câu hỏi, mặc định đóng: hiển thị từ gốc, kana và nghĩa Việt. Lấy từ xuất hiện trong câu hỏi hoặc mảnh ghép; với hướng dẫn chỉ có tiếng Việt, có thể giải nghĩa từ chung cho tất cả lựa chọn, không chỉ ra lựa chọn đúng. Không dịch toàn bộ câu sang đáp án, không đưa sẵn dạng chia đang được yêu cầu. Cách đọc số giờ/phút/tháng/lượng từ được xử lý theo cụm, ví dụ 4時 = よじ, 30分 = さんじゅっぷん.
 - Chọn bài/topic, tìm không dấu, lọc trạng thái học. Luyện riêng một mẫu hoặc luyện tập theo phạm vi đang chọn; chọn dạng bài và tự nhập số câu.
 - Trộn thứ tự câu hỏi, lựa chọn và mảnh ghép khi bắt đầu. Mỗi câu trắc nghiệm chỉ chọn một đáp án; có thể sửa trước khi nộp.
 - Bảng số câu và thanh tiến trình phân biệt chưa hoàn tất/đã trả lời. Câu ghép thiếu mảnh chưa tính là hoàn tất.
@@ -56,8 +61,11 @@ Các mục dưới đây gộp một số mẫu liên quan để học theo tìn
 ## Tệp và kiểm thử
 
 - `data/grammar.js`: nội dung, ví dụ, câu hỏi, đáp án và liên kết trang.
+- `data/grammar-practice.js`: các tình huống bổ sung, đáp án nhiễu và ghép câu; giới hạn đúng 18 câu cho từng mục. Câu không đổi giữ ID cũ; câu viết lại có ID mới.
+- `assets/grammar-support.js`: quan hệ câu tiết lộ đáp án, chọn câu hỏi không xung đột và từ điển gợi ý Hán. Câu ghép đã đổi nội dung dùng ID mới; đề lưu cũ được rà lại và thông báo nếu phải bỏ câu đã thay/cặp bị trùng, các trả lời còn phù hợp được giữ.
 - `assets/grammar.js`: lọc, học, luyện, chấm, lưu tiến độ.
 - `assets/grammar.css`: giao diện theo theme sẵn có.
 - `tests/check_grammar.py`: kiểm tra phủ 12 topic, 37 mục, mọi câu hỏi qua UI, chấm/nộp/luyện lại, tải lại trang, lọc không đổi đề, dữ liệu lưu hỏng/bị chặn, 320/390/1280px và hai theme.
+- `tests/check_grammar_independence.py`: kiểm tra riêng ngữ cảnh, nhiều đề tạo ngẫu nhiên, đủ gợi ý từ Hán, không gợi dạng chia đáp án, cách đọc số đếm, lưu trạng thái mở gợi ý và cập nhật đề cũ có cặp trùng.
 
 Nguồn chính thức chỉ phục vụ đối chiếu phân loại; website không cần truy cập mạng để tải nội dung ngữ pháp khi học.

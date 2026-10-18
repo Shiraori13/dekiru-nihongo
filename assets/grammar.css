@@ -89,6 +89,15 @@
 .gr-token-bank button, .gr-order-answer button { font-size:18px; }
 .gr-hint-toggle { margin:22px 0 12px; }
 .gr-hint { padding:16px; border-radius:12px; background:var(--surface-subtle); font:16px/1.9 var(--jp-font); }
+.gr-kanji-hints { margin:0 0 22px; padding:14px 16px; border:1px solid var(--border); border-radius:14px; background:var(--surface-subtle); }
+.gr-kanji-hints summary { color:var(--primary); font-size:13px; line-height:1.8; }
+.gr-kanji-hints p { margin:10px 0; }
+.gr-kanji-hints dl { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr)); gap:10px; }
+.gr-kanji-hints dl > div { display:grid; grid-template-columns:1fr 1fr; gap:4px 10px; padding:12px; background:var(--surface); border:1px solid var(--border); border-radius:10px; }
+.gr-kanji-hints dt { font-size:19px; font-weight:650; }
+.gr-kanji-hints dd { margin:0; font-size:13px; line-height:1.8; }
+.gr-kanji-hints dd:last-child { grid-column:1/-1; color:var(--text-muted); }
+.gr-kanji-reading { color:var(--primary); align-self:center; overflow-wrap:anywhere; }
 .gr-question-actions { display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap; margin-top:22px; }
 .gr-submit-row { display:flex; align-items:center; justify-content:space-between; gap:20px; border-top:1px solid var(--border); padding-top:20px; }
 .gr-submit-row > span { max-width:420px; }
