@@ -52,6 +52,16 @@ Mỗi đề mới phủ đủ **19 mục ngữ pháp / 6 topic**, cùng kiến t
 
 Các câu khác được chuẩn hóa dấu câu, khoảng trắng, chữ số và một số kana sang chữ Hán thông dụng; chức năng hỏi và nội dung chính được giữ. Câu mẫu có các từ 読解, 国会, 来日, 社会… được giữ theo ảnh, không gán chúng là từ mới bài 4–5. Mỗi câu chép có đường dẫn `source` đến đúng ảnh.
 
+## Thứ tự câu và lời giải sau khi nộp
+
+Mỗi lượt mới chọn một hoán vị của đủ 45 câu, không thay nội dung hay thứ tự A–D. Lượt làm lại dùng hoán vị mới; đổi câu, đổi chế độ, tải lại hoặc mở lịch sử giữ nguyên hoán vị đã lưu. Bài làm và lịch sử từ trước cập nhật chưa có `order` dùng thứ tự tự nhiên 1–45 để giữ đúng lựa chọn cũ. Hoán vị sai/trùng/thiếu bị từ chối thay vì gán lại đáp án vào câu khác.
+
+180 câu có lời giải biên soạn trong `scripts/exam_solutions.py`, được ghép vào `data/exams.js` khi chạy `scripts/build_exams.py`. Mỗi lời giải có câu hoàn chỉnh/từ chuẩn, nghĩa Việt, lý do đúng, quy tắc và lý do loại từng lựa chọn. Các ghi chú được ghép bằng ID câu và vị trí phương án thực tế, không dựa vào chữ A/B/C/D cố định. Người học chỉ thấy sau khi nộp, gồm cả câu đã đúng và câu bỏ trống. Phần phân tích cả 4 lựa chọn có thể mở/đóng.
+
+Câu 7 đề 03 hỏi rõ cách đọc theo mục từ bài 5 trong PDF là ことし. こんねん cũng là cách đọc có thật trong văn viết trang trọng; lời giải không tuyên bố đây là cách đọc sai. Đối chiếu: [NINJAL — 今年](https://mmsrv.ninjal.ac.jp/kamus/data/item1864.html). Chỉ làm rõ đề bài, không đổi vị trí lựa chọn/khóa đáp án; dấu nhận diện bản trước được giữ để khôi phục bài và lịch sử.
+
+File kết quả dùng `number` theo thứ tự lượt làm, `sourceNumber` theo câu gốc và `order` là mảng chỉ số câu gốc 0–44. Nội dung xuất có cả lời giải chi tiết. File xuất đề vẫn giữ thứ tự biên soạn để tác giả chỉnh sửa; khi nhập rồi bắt đầu làm, câu hỏi mới được xáo trộn.
+
 ## Cách thêm đề mới
 
 Trong **Luyện đề → Thêm đề**, có hai cách:
@@ -91,10 +101,29 @@ JSON tối thiểu có cấu trúc sau; `questions` phải có đúng 45 phần 
 
 `answer` là chỉ số 0–3 cho A–D; `topic` là 0–2; `lesson` từ 1–15. `category`: `reading`, `spelling`, `vocabulary`, `grammar`, `dialogue`, `translation`. `explanation` và `unit` có thể để trống. `image` tùy chọn là data URL của ảnh hợp lệ. ID câu/đề được ứng dụng cấp khi nhập; nhập không ghi đè các đề có sẵn.
 
+Để cung cấp lời giải có cấu trúc, thêm `solution` vào câu hỏi. Ví dụ cho câu `この町に川（　）あります。` bên trên:
+
+```json
+"solution": {
+  "completed": "この町に川があります。",
+  "meaning": "Ở thị trấn này có một con sông.",
+  "rule": "Địa điểm に + sự vật が + あります: に chỉ nơi tồn tại, が nêu sự vật.",
+  "options": [
+    "が đánh dấu con sông là sự vật tồn tại.",
+    "を không dùng đánh dấu tân ngữ với あります trong mẫu này.",
+    "へ chỉ hướng đến, không đánh dấu sự vật tồn tại.",
+    "と không đánh dấu sự vật được giới thiệu với あります."
+  ]
+}
+```
+
+`solution.options` có đúng 4 giải thích theo thứ tự A–D, bao gồm lý do đúng ở vị trí `answer`. Các trường là văn bản thuần, được kiểm tra độ dài và escape khi hiển thị. Phần này được giữ khi nhập/xuất và lưu nháp; nếu sửa nội dung câu, lựa chọn, đáp án hoặc giải thích trong trình soạn, lời giải có cấu trúc cũ bị bỏ để tránh hiển thị sai. Đề tự nhập không có `solution` vẫn hiển thị nguyên phần `explanation` tác giả cung cấp (hỗ trợ xuống dòng); ứng dụng không tự suy đoán lời giải từ khóa đáp án hoặc ảnh.
+
 ## Kiểm tra
 
 - `python scripts/build_exams.py` tái tạo `data/exams.js` từ nguồn soạn có thể rà soát.
 - `python tests/check_exams.py`: đủ 4 × 45 câu, 135 đề bài mới khác nhau, 19 mục/mỗi đề mới, đường dẫn 44 ảnh, chấm toàn bộ 180 đáp án qua giao diện; chọn/bỏ chọn/đánh dấu, khôi phục, đúng/sai/trống, bộ lọc xem lại, lịch sử/xuất kết quả, hết giờ, nhập JSON sai/đúng và chống chèn HTML, lưu đề qua IndexedDB, tải ảnh/soạn 45 câu/lưu nháp/xuất/xóa, bộ nhớ bị chặn, giao diện 320/390/1280 px sáng/tối, Firefox và file://.
+- `python tests/check_exam_shuffle.py`: 200 hoán vị, thứ tự qua tiếp tục/tải lại/lịch sử/xuất/làm lại; đủ 180 lời giải và ánh xạ phương án/ảnh; dữ liệu bài cũ tại commit `4763d2b`, khôi phục điểm và câu đang xem, thứ tự lỗi, kiểm tra `solution`, màn hình sáng/tối và Firefox.
 - Các bộ kiểm tra chức năng hiện có tiếp tục xác nhận tab mới không làm hỏng học từ, luyện đọc, ngữ pháp hay phím tắt thẻ.
 
 Giới hạn: trình kiểm tra cấu trúc file không xác minh kiến thức trong đề người dùng tự nhập; người thêm đề cần kiểm tra khóa đáp án ở màn hình xem trước. Bài có giới hạn thời gian dùng thời gian thực, tiếp tục tính khi đổi tab/ẩn trang; hết giờ sẽ tự nộp khi trang đang mở hoặc khi mở lại. Đây là công cụ tự ôn, không có máy chủ giám sát thi.

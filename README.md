@@ -9,6 +9,7 @@ Mở `index.html` bằng trình duyệt để học và luyện đề. Giữ cá
 - **Hán tự:** 607 mục từ, 496 chữ Hán theo 15 bài/45 chủ đề; âm Hán Việt, giải thích, On/Kun, trang PDF gốc. Xem viết mẫu, từng nét, luyện viết bằng chuột/cảm ứng, tra từ cùng chữ và lưu tiến độ. Tìm kiếm hỗ trợ âm Hán Việt không dấu.
 - **Ngữ pháp:** bài 4–7, 12 topic, 37 mục học, **18 câu mỗi mục / 666 bài tập**. Giải thích, ví dụ có cách đọc/nghĩa và nghe, lỗi thường gặp, bảng thể て; luyện chọn đáp án, điền dạng từ, ghép câu. Nộp rồi chấm, xem giải thích, luyện lại câu sai/bỏ trống và lưu bài đang làm qua lần tải lại trang. [Tổng hợp và đối chiếu ngữ pháp](GRAMMAR_AUDIT.md).
 - **Luyện đề:** 4 đề × 45 câu: một đề chuyển thể từ 44 ảnh trong Material (câu 18 bổ sung, có hiệu đính), và **3 đề mới chỉ tập trung bài 4–5**, mỗi đề phủ 19 mục ngữ pháp/6 topic. Đọc/viết chữ Hán, từ vựng, điền câu, hội thoại và dịch; tiến trình, đánh dấu câu, sửa trước khi nộp, tùy chọn thời gian/tự nộp, lưu bài qua lần mở lại. Kết quả đúng/sai/trống, giải thích từng câu, lọc xem lại, làm lại, lịch sử 30 lượt và xuất kết quả.
+- **Xáo trộn và lời giải đề:** mỗi lượt mới/làm lại trộn đủ 45 câu, giữ nguyên thứ tự khi tiếp tục hoặc tải lại. Sau khi nộp, cả 180 câu có từ/câu chuẩn, nghĩa Việt, lý do đúng, điểm cần nhớ và phân tích A–D; xem được trong lịch sử và file kết quả. Bài cũ đang làm giữ thứ tự và đáp án đã lưu.
 - **Thêm đề:** nhập JSON có kiểm tra/xem trước, hoặc soạn 45 câu và tải ảnh minh họa câu hỏi. Nhập thủ công nội dung và đáp án; không tự đọc chữ/đoán đáp án từ ảnh. Lưu bản nháp, xuất/nhập đề, xóa đề tự thêm. Đề và ảnh lưu cục bộ ở IndexedDB, không tự đồng bộ thiết bị; xuất file để sao lưu. [Nguồn, hiệu đính, cấu trúc đề và hướng dẫn thêm đề](EXAM_AUDIT.md).
 - **Đề ngữ pháp độc lập:** câu điền và ghép dùng ngữ cảnh riêng. Khi tạo đề, hệ thống loại các cặp chứa sẵn câu/dạng từ đang được hỏi ở câu khác; số câu nhập tối đa điều chỉnh theo phạm vi. Ngân hàng giữ 18 câu/mục; một lượt ôn riêng có 15–18 câu không lộ trực tiếp cho nhau. Ngay dưới câu hỏi có mục mở **gợi ý chữ Hán: từ, cách đọc và nghĩa**; động/tính từ dùng từ gốc để tránh cho sẵn dạng chia.
 - **Số câu kiểm tra:** giữ các mức có sẵn và thêm “Tự nhập số câu…”. Nhập số nguyên từ 1 đến số từ trong bộ lọc; số không hợp lệ có thông báo ngay trong phần thiết lập.
@@ -33,6 +34,7 @@ Các thay đổi cụ thể so với bản trước trên repo: [CHANGELOG.md](C
 - `data/grammar-practice.js`: bổ sung câu hỏi theo từng mục, đưa mỗi mục lên 18 câu. Câu không đổi nội dung giữ ID cũ; câu viết lại có ID mới.
 - `assets/grammar-support.js`: kiểm tra câu hỏi tiết lộ đáp án cho nhau, chọn đề phù hợp và tra từ Hán cho câu hỏi. Câu đã thay nội dung có ID mới; bài lưu cũ được cập nhật kèm thông báo, giữ câu trả lời còn phù hợp.
 - `data/exams.js`, `scripts/build_exams.py`: bốn đề 45 câu và nguồn soạn/tái tạo; đề gốc có đường dẫn đến từng ảnh trong `Material/`.
+- `scripts/exam_solutions.py`: lời giải biên soạn cho 180 câu, quy tắc và lý do loại từng phương án; chạy cùng `build_exams.py`, không cần dịch vụ ngoài.
 - `assets/exam-core.js`, `assets/exams.js`, `assets/exams.css`: kiểm tra định dạng file, bộ nhớ IndexedDB, chấm điểm, làm đề và trình nhập đề/ảnh. Không cần máy chủ ứng dụng.
 - `assets/audio.js`, `data/audio.js`, `assets/audio/`: bộ phát dùng chung, ánh xạ và MP3 cục bộ. Khi sao chép hoặc deploy phải giữ đầy đủ các file này.
 - `data/kanji-source.json`, `data/kanji-meanings.tsv`: cách viết gốc trong PDF, âm Hán Việt được chọn và nghĩa gợi nhớ. [Nguồn, giấy phép và cách tạo dữ liệu Hán tự](sources/kanji/README.md).
@@ -56,6 +58,7 @@ python tests/check_grammar.py
 python tests/check_grammar_independence.py
 python tests/check_audio.py
 python tests/check_exams.py
+python tests/check_exam_shuffle.py
 ```
 
 Nếu chưa có Playwright, cài vào môi trường Python: `python -m pip install playwright`. Kiểm thử mở Edge ở chế độ ẩn, không dùng hồ sơ trình duyệt cá nhân. Ảnh kiểm tra được ghi vào `.work`. Kịch bản thứ hai kiểm tra 921 flashcard ở 320 px khi ngoại tuyến, bàn phím, cùng chu trình nghe/dừng/đổi bài bằng giọng giả lập; không đánh giá chất lượng phát âm thực tế của thiết bị.

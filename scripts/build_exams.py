@@ -5,8 +5,19 @@ The sample is transcribed from 44 supplied screenshots; question 18 is a labelle
 """
 import json
 from pathlib import Path
+from exam_solutions import attach_solutions
 
 ROOT = Path(__file__).resolve().parents[1]
+
+def legacy_fingerprint(exam):
+    """Match the existing JS fingerprint before clarifying the scope of one prompt."""
+    fields=['prompt','options','answer','lesson','topic','category','unit','explanation']
+    document={'format':'dekiru-exam','version':1,'exam':{k:exam[k] for k in ['title','description','minutes']}}
+    document['exam']['questions']=[{k:q[k] for k in fields} for q in exam['questions']]
+    value=json.dumps(document,ensure_ascii=False,separators=(',',':')).encode('utf-16-le')
+    code=2166136261
+    for i in range(0,len(value),2):code=((code^(value[i]+value[i+1]*256))*16777619)&0xffffffff
+    return format(code,'x')
 
 def rows(text, prefix):
     result=[]
@@ -262,6 +273,10 @@ def build():
         assert len({q['id'] for q in questions})==45
         assert {q['unit'] for q in questions if q['unit']} >= {g[0] for g in grammar_variants}
         exams.append(dict(id=f'chapter45-{v+1}',title=f'Bài 4–5 · Đề {v+1:02}',description=['Hành trình và ngày nghỉ','Thành phố và trải nghiệm','Mùa, sở thích và kế hoạch'][v]+' · Đủ 19 mục ngữ pháp, 6 topic. Câu mới theo dạng đề ảnh, không dùng mẫu so sánh hay lời rủ của bài 6.',lessons=[4,5],minutes=45,kind='authored',questions=questions))
+    # こんねん is a real reading too. Ask specifically for the supplied lesson's reading.
+    exams[3]['legacyFingerprints']=[legacy_fingerprint(exams[3])]
+    exams[3]['questions'][6]['prompt']='Theo mục từ bài 5 trong PDF, chọn cách đọc của「今年」.'
+    attach_solutions(exams)
     (ROOT/'data/exams.js').write_text('// Authored exam bank; see EXAM_AUDIT.md and scripts/build_exams.py.\nwindow.DEKIRU_EXAMS = '+json.dumps(exams,ensure_ascii=False,indent=2)+';\n',encoding='utf-8')
     print('Built 4 exams x 45 questions: 44 transcribed + 1 labelled addition, 135 authored.')
 

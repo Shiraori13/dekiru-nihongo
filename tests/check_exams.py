@@ -82,7 +82,7 @@ try:
         page.locator('[data-ex-back]').click();page.select_option('#exMinutes','0')
         page.locator(f'[data-ex-start="{exam}"]').click()
         if page.locator('#exConfirm').is_visible():page.locator('#exConfirmAccept').click()
-        answers=page.evaluate('(id)=>DEKIRU_EXAMS.find(e=>e.id===id).questions.map(q=>q.answer)',exam)
+        answers=page.evaluate('(id)=>{const e=DEKIRU_EXAMS.find(e=>e.id===id),s=JSON.parse(localStorage.getItem("dekiru_exam_attempt_v1"));return s.order.map(i=>e.questions[i].answer);}',exam)
         for i,a in enumerate(answers):
             page.locator(f'[data-ex-jump="{i}"]').click();page.locator(f'[data-ex-answer="{a}"]').click()
         assert page.locator('.ex-progress').get_attribute('value')=='45'
@@ -183,6 +183,8 @@ try:
     image_id=card.locator('[data-ex-start]').get_attribute('data-ex-start')
     page.select_option('#exMinutes','0');card.locator('[data-ex-start]').click()
     page.locator('#exConfirmAccept').click()
+    image_position=page.evaluate('JSON.parse(localStorage.getItem("dekiru_exam_attempt_v1")).order.indexOf(0)')
+    page.locator(f'[data-ex-jump="{image_position}"]').click()
     assert page.locator('#exRun .ex-question-image').count()==1
     page.locator('[data-ex-back]').click()
     with page.expect_download() as saved:page.locator(f'[data-ex-export="{image_id}"]').click()

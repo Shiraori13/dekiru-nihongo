@@ -1,5 +1,15 @@
 # Các thay đổi mới của Dekiru
 
+## 20/10/2026 — Lời giải chi tiết và xáo trộn đề
+
+- Bổ sung lời giải cho **180/180 câu** trong 4 đề: từ/câu chuẩn, nghĩa tiếng Việt, lý do chọn đáp án, điểm ngữ pháp/từ vựng cần nhớ và phân tích từng lựa chọn A–D. Lời giải chỉ xuất hiện sau khi nộp; áp dụng cả câu đúng, sai và bỏ trống, xem lại lịch sử và file xuất kết quả.
+- Xáo trộn đủ 45 câu mỗi lần bắt đầu hoặc làm lại, áp dụng cả đề có sẵn và đề tự nhập. Lưu hoán vị riêng cho từng lượt; quay lại, đổi chế độ và tải lại không làm đổi câu hay lệch đáp án/đánh dấu. Làm lại tạo thứ tự mới so với lượt vừa xem.
+- Chấm điểm, lịch sử, bộ lọc xem lại, nguồn ảnh và xuất kết quả đều theo thứ tự của lượt làm. File kết quả có thêm `order`, `sourceNumber` và `solution` để đối chiếu câu gốc/lời giải.
+- Bài và lịch sử từ phiên bản trước chưa có hoán vị được giữ thứ tự gốc. Chỉ bổ sung lời giải không làm mất bài đang lưu. Dữ liệu thứ tự trùng/thiếu/không hợp lệ không được dùng để ghép đáp án.
+- Làm rõ câu 7 của đề 03 yêu cầu cách đọc **theo mục từ bài 5 trong PDF**; giải thích thêm rằng 今年 cũng có cách đọc こんねん trong văn viết trang trọng. Khóa đáp án và vị trí lựa chọn được giữ; bài cũ vẫn được khôi phục.
+- Đề JSON hỗ trợ `solution` tùy chọn với câu chuẩn, nghĩa, quy tắc và 4 phân tích. Giữ lời giải qua nhập/xuất/lưu nháp; khi tác giả sửa câu/đáp án, bỏ phần lời giải chi tiết cũ để tránh ghép sai. Đề không cung cấp lời giải vẫn hiện phần giải thích tác giả đã nhập, không tự đoán nội dung.
+- Thêm kiểm thử xáo trộn/khôi phục, dữ liệu phiên bản cũ, đúng/sai/trống, ánh xạ đủ 180 lời giải và ảnh nguồn, xuất file, giao diện sáng/tối 320–1280 px và Firefox.
+
 ## 20/10/2026 — Luyện đề 45 câu và thêm đề từ file/ảnh
 
 - Thêm tab **Luyện đề**, riêng với kiểm tra từ vựng và luyện từng mục ngữ pháp. Có 4 đề / 180 câu, mỗi đề đúng 45 câu, 4 lựa chọn, đáp án và giải thích sau khi nộp.

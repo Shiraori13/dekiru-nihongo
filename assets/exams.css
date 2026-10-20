@@ -98,6 +98,27 @@
 .ex-review li.is-key { color:var(--ex-ok); border:1px solid var(--ex-ok); }
 .ex-review li.is-choice-wrong { color:var(--ex-bad); border:1px solid var(--ex-bad); }
 .ex-review > p { margin-top:16px; }
+.ex-solution { margin:24px 0 16px; padding-top:22px; border-top:1px solid var(--border); }
+.ex-solution h3 { color:var(--primary); margin-bottom:14px; }
+.ex-solution h4 { font-size:13px; margin:18px 0 8px; }
+.ex-solution > p, .ex-solution dd { font-size:14px; line-height:1.95; white-space:pre-line; }
+.ex-solution-answer { display:flex; flex-wrap:wrap; align-items:center; gap:8px 16px; }
+.ex-solution-answer strong { font-size:12px; color:var(--ex-ok); }
+.ex-solution-answer span { font:500 20px/1.9 var(--jp-font); }
+.ex-solution-standard { background:var(--surface-subtle); border-radius:14px; padding:18px; margin:18px 0; }
+.ex-solution-standard h4 { color:var(--text-muted); margin:0 0 10px; }
+.ex-solution-standard p[lang=ja] { font:450 21px/2 var(--jp-font); white-space:pre-line; margin-bottom:10px; }
+.ex-solution-standard p:last-child { color:var(--text-muted); font-size:14px; }
+.ex-option-analysis { background:var(--surface-subtle); border:1px solid var(--border); border-radius:12px; margin-top:20px; padding:16px; }
+.ex-option-analysis summary { font-size:13px; font-weight:650; }
+.ex-option-analysis dl { display:grid; gap:12px; margin-top:18px; }
+.ex-option-analysis dl > div { padding:14px; border:1px solid var(--border); background:var(--surface); border-radius:10px; }
+.ex-option-analysis .is-key { border-color:var(--ex-ok); }
+.ex-option-analysis dt { display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 12px; margin-bottom:6px; }
+.ex-option-analysis dt b { font-size:12px; color:var(--text-muted); }
+.ex-option-analysis .is-key dt b { color:var(--ex-ok); }
+.ex-option-analysis dt span { font:450 18px/1.9 var(--jp-font); overflow-wrap:anywhere; }
+.ex-option-analysis dd { margin:0; color:var(--text-muted); overflow-wrap:anywhere; }
 .ex-review a { color:var(--primary); font-size:12px; }
 .ex-import { background:var(--surface); border:1px solid var(--border); padding:24px; border-radius:20px; margin-bottom:20px; }
 .ex-import .ex-actions { margin:16px 0; }
