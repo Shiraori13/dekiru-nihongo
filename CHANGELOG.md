@@ -1,5 +1,17 @@
 # Các thay đổi mới của Dekiru
 
+## 20/10/2026 — Luyện đề 45 câu và thêm đề từ file/ảnh
+
+- Thêm tab **Luyện đề**, riêng với kiểm tra từ vựng và luyện từng mục ngữ pháp. Có 4 đề / 180 câu, mỗi đề đúng 45 câu, 4 lựa chọn, đáp án và giải thích sau khi nộp.
+- Chuyển 44 ảnh trong Material thành đề mẫu hiệu đính, ghi rõ thiếu câu 18 và câu bổ sung; sửa lỗi gõ, lựa chọn trùng, thêm ngữ cảnh cho câu mơ hồ. Giữ liên kết từng ảnh để đối chiếu sau khi nộp. Đề mẫu có cả bài 6/chữ Hán mở rộng, được phân biệt với đề bài 4–5.
+- Biên soạn **3 đề mới / 135 câu** chỉ tập trung nội dung mới bài 4–5. Mỗi đề phủ đủ 19 mục ngữ pháp/6 topic, gồm đọc/viết chữ Hán, từ vựng, điền câu, hội thoại và dịch. Từ vựng được luân phiên giữa đề; không coi 45 câu là kiểm tra riêng toàn bộ 127 mục từ.
+- Thêm danh mục đủ 127 mục từ bài 4–5 theo 6 topic, với cách viết/đọc/nghĩa, để ôn ngoài màn hình làm bài. Ảnh tự thêm có chế độ phóng to/kích thước gốc.
+- Bổ sung bản đồ câu hỏi, tiến trình theo số câu đã chọn, đánh dấu xem lại, quay lại sửa/bỏ lựa chọn, chọn nhanh bằng phím 1–4. Câu chưa chọn không mang dấu đã trả lời; đáp án chỉ xuất hiện sau khi nộp.
+- Chọn 30/45/60 phút hoặc không giới hạn; lưu bài qua lần tải lại, tính thời gian khi ẩn/đổi tab và tự nộp khi hết giờ. Chấm đúng/sai/bỏ trống từng câu, lọc câu cần ôn, làm lại đề, giữ 30 lượt lịch sử, xuất kết quả JSON.
+- **Thêm đề**: nhập JSON với bước kiểm tra/xem trước; tải file đề mẫu để chỉnh; trình soạn 45 câu cho phép tải nhiều ảnh, nhập đề bài/lựa chọn/đáp án và lưu bản nháp. Không có OCR hoặc tự đoán đáp án từ ảnh.
+- Đề và ảnh lưu cục bộ trong IndexedDB; hỗ trợ xuất/nhập để chuyển thiết bị và xóa đề tự thêm. Kiểm tra dữ liệu, giới hạn file/ảnh, hiển thị lỗi khi bộ nhớ bị chặn. Giao diện dùng font Nhật cục bộ, hỗ trợ di động và sáng/tối.
+- Chi tiết nguồn, hiệu đính, phạm vi và định dạng file: [EXAM_AUDIT.md](EXAM_AUDIT.md). Thêm kiểm thử toàn bộ 180 câu và luồng nhập/ảnh/lưu/chấm, trên Edge/Firefox.
+
 ## 19/10/2026 — Tách câu dễ lộ đáp án và thêm gợi ý chữ Hán
 
 - Thay ngữ cảnh của 261 câu ghép bổ sung, một câu ghép gốc và một số câu chọn dạng từ còn trùng để tách khỏi câu liên quan. Giữ ngân hàng 666 bài tập / 18 câu mỗi mục thuộc bài 4–7.

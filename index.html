@@ -648,6 +648,7 @@
   </style>
   <link rel="stylesheet" href="assets/study.css">
   <link rel="stylesheet" href="assets/grammar.css">
+  <link rel="stylesheet" href="assets/exams.css">
 </head>
 <body>
 
@@ -666,6 +667,7 @@
           <button class="tab-btn" data-mode="reading" aria-pressed="false" onclick="switchMode('reading')">📖 Luyện đọc</button>
           <button class="tab-btn" data-mode="kanji" aria-pressed="false" onclick="switchMode('kanji')">字 Hán tự</button>
           <button class="tab-btn" data-mode="grammar" aria-pressed="false" onclick="switchMode('grammar')">✎ Ngữ pháp</button>
+          <button class="tab-btn" data-mode="exam" aria-pressed="false" onclick="switchMode('exam')">▤ Luyện đề</button>
         </div>
         <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Đổi chế độ Sáng/Tối (Phím D)">🌙</button>
       </div>
@@ -958,6 +960,7 @@
       <p class="study-footer">Từ, bài và chủ đề: <a class="source-link" href="sources/new-words.pdf" target="_blank" rel="noopener">New words list ↗</a> · Âm Hán Việt và giải thích là phần bổ sung.<br>Âm đọc tham khảo: <a class="source-link" href="https://www.edrdg.org/kanjidic/kanjd2index_legacy.html" target="_blank" rel="noopener">KANJIDIC2 · EDRDG</a> (<a class="source-link" href="https://www.edrdg.org/edrdg/licence.html" target="_blank" rel="noopener">CC BY-SA 4.0</a>). Nét viết: <a class="source-link" href="https://kanjivg.tagaini.net/" target="_blank" rel="noopener">KanjiVG · Ulrich Apel</a> (<a class="source-link" href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>).</p>
     </section>
     <section id="grammarMode" style="display:none" aria-label="Ôn ngữ pháp bài 4 đến 7"></section>
+    <section id="examMode" style="display:none" aria-label="Luyện đề 45 câu"></section>
   </main>
 
   <script src="data/vocabulary.js"></script>
@@ -1113,10 +1116,10 @@
         btn.classList.toggle('active', selected);
         btn.setAttribute('aria-pressed', String(selected));
       });
-      ['flashcard', 'quiz', 'list', 'reading', 'kanji', 'grammar'].forEach(name => {
+      ['flashcard', 'quiz', 'list', 'reading', 'kanji', 'grammar', 'exam'].forEach(name => {
         document.getElementById(name + 'Mode').style.display = mode === name ? (name === 'flashcard' ? 'flex' : 'block') : 'none';
       });
-      ['vocabIntro','vocabFilters','vocabCoverage'].forEach(id => document.getElementById(id).hidden = ['reading', 'kanji', 'grammar'].includes(mode));
+      ['vocabIntro','vocabFilters','vocabCoverage'].forEach(id => document.getElementById(id).hidden = ['reading', 'kanji', 'grammar', 'exam'].includes(mode));
       updateUI();
     }
 
@@ -1627,5 +1630,8 @@
   <script src="data/grammar-practice.js"></script>
   <script src="assets/grammar-support.js"></script>
   <script src="assets/grammar.js"></script>
+  <script src="data/exams.js"></script>
+  <script src="assets/exam-core.js"></script>
+  <script src="assets/exams.js"></script>
 </body>
 </html>
