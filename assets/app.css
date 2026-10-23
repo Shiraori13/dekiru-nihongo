@@ -1,55 +1,4 @@
-    :root {
-      --primary: #4f46e5;
-      --primary-hover: #4338ca;
-      --primary-subtle: #eef2ff;
-      --primary-glow: rgba(79, 70, 229, 0.15);
-
-      --bg: #f8fafc;
-      --surface: #ffffff;
-      --surface-subtle: #f1f5f9;
-      --text: #0f172a;
-      --text-muted: #64748b;
-      --border: #e2e8f0;
-
-      --success: #10b981;
-      --success-bg: #ecfdf5;
-      --danger: #ef4444;
-      --danger-bg: #fef2f2;
-      --warning: #f59e0b;
-
-      --radius-xl: 24px;
-      --radius-lg: 16px;
-      --radius-md: 12px;
-      --radius-sm: 8px;
-
-      --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.05);
-      --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.01);
-      --shadow-lg: 0 20px 35px -10px rgba(0,0,0,0.08);
-      --shadow-card: 0 12px 30px rgba(79, 70, 229, 0.08);
-    }
-
-    [data-theme="dark"] {
-      --primary: #6366f1;
-      --primary-hover: #4f46e5;
-      --primary-subtle: rgba(99, 102, 241, 0.15);
-      --primary-glow: rgba(99, 102, 241, 0.25);
-
-      --bg: #0b0f19;
-      --surface: #131b2e;
-      --surface-subtle: #1e293b;
-      --text: #f8fafc;
-      --text-muted: #94a3b8;
-      --border: #1e293b;
-
-      --success-bg: rgba(16, 185, 129, 0.15);
-      --danger-bg: rgba(239, 68, 68, 0.15);
-
-      --shadow-sm: 0 1px 3px 0 rgba(0,0,0,0.4);
-      --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.5);
-      --shadow-lg: 0 20px 35px -10px rgba(0,0,0,0.6);
-      --shadow-card: 0 12px 30px rgba(0,0,0,0.4);
-    }
-
+/* Components use shared theme values from tokens.css. */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -58,7 +7,7 @@
     }
 
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: var(--ui-font);
       background-color: var(--bg);
       color: var(--text);
       min-height: 100vh;

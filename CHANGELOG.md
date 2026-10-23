@@ -1,5 +1,37 @@
 # Các thay đổi mới của Dekiru
 
+## 23/10/2026 — Header, streak và bộ chọn bài
+
+- Bỏ giới hạn 720 px của tìm kiếm ở header; tìm kiếm co giãn, streak và sáng/tối sát phía phải với khoảng cách đều. Header mobile vẫn gọn, đủ vùng bấm ở 320 px.
+- Thêm ngọn lửa và bộ đếm ngày truy cập liên tiếp: lưu một dấu mỗi ngày theo lịch thiết bị, không tăng khi tải lại/mở nhiều tab. Có kỷ lục, tổng ngày, lịch 14 ngày, tự ghi nhận qua nửa đêm; bỏ ngày bắt đầu chuỗi mới. Lỗi lưu có thông báo và chế độ phiên hiện tại.
+- Khung quiz đang làm và kết quả dùng hết chiều rộng còn lại; ẩn lời giới thiệu lặp trong lúc làm bài, đưa lượt mới lên đầu vùng học. Giữ câu hỏi, phương án và lựa chọn khi đổi chế độ.
+- Bộ chọn Hán tự/ngữ pháp rộng 290–340 px trên PC, tăng chữ và khoảng cách, thêm nhãn “Đang xem” khác với đã học/nắm vững. Hán tự có bộ lọc gọn hai cột; tablet/mobile giữ bộ chọn thu gọn để ưu tiên nội dung chính.
+- Thêm kiểm thử ngày, lưu/bị chặn, nhiều tab, lịch thiết bị/DST, bố cục, tương tác và bảo toàn bài; CI chạy logic streak. [Báo cáo và ảnh](audits/STUDY_LAYOUT_STREAK.md).
+
+## 23/10/2026 — Sửa menu mobile và vùng học PC
+
+- Sửa menu Khác hiện hai lần chữ/icon: ẩn nhãn desktop đúng phạm vi mobile, giữ nguyên các nút gốc và đủ bảy chế độ.
+- Bỏ cột dành riêng cho Giao diện và giới hạn 1280 px của vùng học; flashcard dùng chiều rộng còn lại. Bảng tùy chỉnh luôn là overlay, không làm vùng học co giãn khi mở/đóng.
+- Menu và bảng Giao diện có nền rõ theo theme để chữ phía sau không hằn qua, gồm Firefox và ảnh nền chi tiết.
+- Thêm kiểm thử nhãn/icon hiển thị và kích thước vùng học trước/trong/sau mở bảng, cùng ảnh trước/sau. [Báo cáo](audits/UI_SPACE_FIX.md).
+
+## 23/10/2026 — Đối chiếu ảnh mẫu liquid glass
+
+- Chỉnh sidebar kính/logo mint lớn, header nổi bo tròn, nền SVG dải cong mint–xanh trời–lavender; thêm sakura và đại dương với thumbnail đúng tài nguyên thực.
+- Đổi hành động chính sang teal, đáp án chọn mint/viền teal, badge A–D tròn. Sửa rule cũ khiến quiz vẫn hiển thị 13 px; đáp án hiện 18–22 px, câu hỏi Nhật/ngữ pháp/đề lớn và có phân cấp.
+- Bảng Giao diện 350 px; màn rất rộng mở thành ba cột, màn hẹp giữ drawer. Giữ cài đặt đã lưu, dùng 66%/20 px cho mặc định mới; thêm nền đọc chữ đậm cho giới thiệu khi dùng ảnh chi tiết.
+- Bảng số quiz và thiết lập ngữ pháp đang làm thu gọn, giữ trạng thái mở/đóng; thêm ba thẻ pastel dẫn tới chức năng học thực. Không thay ngân hàng, chấm bài hoặc lưu tiến độ.
+- Thêm kiểm thử thị giác qua computed style, chụp cùng fixture câu hỏi/phương án và đối chiếu hash. [Báo cáo và bằng chứng](audits/REFERENCE_UI_REPORT.md).
+
+## 23/10/2026 — Liquid glass, sidebar và bảng Giao diện
+
+- Đổi giao diện sang nền mint/xanh trời/lavender và panel kính với mức nền riêng cho điều hướng/nội dung học. Chuẩn hóa palette sáng/tối, chữ nút chính, viền, bán kính và bóng vào token dùng chung; giữ màu đúng khi ngữ pháp/đề tải muộn.
+- Desktop dùng sidebar trái 232 px, tablet dùng rail gọn, mobile giữ thanh đáy/menu Khác với đủ bảy chế độ. Dùng lại nút gốc khi đổi kích thước; header có tên khu vực và tìm kiếm đúng phạm vi. Logo SVG sách mở/chữ 学 trở về thẻ mà không tải lại trang.
+- Thêm bảng **Giao diện** mở theo yêu cầu: sáng/tối, ba nền offline, tải/thay/xóa ảnh cá nhân, độ đậm/blur kính, cỡ chữ 16–20 px và khôi phục mặc định. Hỗ trợ bàn phím, Escape và khôi phục focus; giữ nguyên bài, lựa chọn/gợi ý và đồng hồ khi tùy chỉnh.
+- Cấu hình nhỏ lưu an toàn trong localStorage, ảnh Blob trong IndexedDB riêng; kiểm tra/thu gọn ảnh, thu hồi Blob URL cũ, chặn upload cũ ghi lại sau xóa/reset. Lỗi bộ nhớ có chế độ dùng trong phiên và thông báo; khôi phục giao diện giữ tiến độ, lịch sử và đề nhập.
+- Đóng gói Plus Jakarta Sans hỗ trợ Việt đầy đủ để dùng offline, tiếp tục dùng font Nhật cục bộ. Cỡ chữ luyện đọc độc lập; đáp án dài tự chuyển một cột.
+- Thêm kiểm thử tùy chỉnh, lưu ảnh/lỗi bộ nhớ, giữ ba loại bài đang làm, chuyển breakpoint, font offline, CSS tải muộn, UI20px và ảnh sáng/tối/zoom. [Báo cáo, danh sách file và bằng chứng thực tế](audits/GLASS_UI_REPORT.md).
+
 ## 23/10/2026 — Bốn đề chuyên bài 6–7
 
 - Thêm 4 đề × 45 câu, phủ đủ 18 mục ngữ pháp/6 topic bài 6–7. Bám đúng ma trận đề mẫu đã nhập: 6 đọc Hán tự, 8 chọn chữ Hán, 1 từ vựng, 21 ngữ pháp, 7 hội thoại, 2 dịch.

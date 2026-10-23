@@ -125,8 +125,8 @@ with sync_playwright() as p:
         page.evaluate('document.querySelector("#audioFeedback").hidden=true')
         page.locator('.close-detail').click()
     # Resizing back to desktop restores all 7 nav actions and the original full controls.
-    page.set_viewport_size({'width':1440,'height':1000});page.wait_for_function('document.querySelector(".nav-controls .mode-tabs")!==null')
-    assert page.locator('.nav-controls [data-mode]').count()==7
+    page.set_viewport_size({'width':1440,'height':1000});page.wait_for_function('document.querySelector("#sidebarNavigation .mode-tabs")!==null')
+    assert page.locator('#sidebarNavigation [data-mode]').count()==7
     assert page.locator('#mobileMore').count()==0
     mode(page,'reading');assert page.locator('#readingLesson').is_visible() and page.locator('#readingFontSize').is_visible()
     assert page.locator('.reading-sidebar').bounding_box()['width']>=230
@@ -142,7 +142,7 @@ with sync_playwright() as p:
     fp.goto((ROOT/'index.html').as_uri());fp.wait_for_selector('body[data-mobile-ready=true]');geometry(fp)
     for name in ['kanji','reading','grammar','exam','quiz','list','flashcard']:mode(fp,name);geometry(fp)
     fp.reload();fp.wait_for_selector('body[data-mobile-ready=true]');geometry(fp)
-    fp.set_viewport_size({'width':1280,'height':900});fp.wait_for_function('document.querySelectorAll(".nav-controls [data-mode]").length===7')
+    fp.set_viewport_size({'width':1280,'height':900});fp.wait_for_function('document.querySelectorAll("#sidebarNavigation [data-mode]").length===7')
     assert not ff_errors,ff_errors
     ff.close()
     print('PASS: mobile geometry/navigation, 7 modes, pickers/filters, progressive list, reading hints and panels, writing, grammar/quiz/exam flows, review disclosures, 320/390/430/740 light/dark, desktop restoration and Firefox.')

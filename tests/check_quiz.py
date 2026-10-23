@@ -8,6 +8,23 @@ from browser_support import launch, install_legacy_readiness, reset_attempt_stor
 install_legacy_readiness()
 (ROOT/'.work').mkdir(exist_ok=True)
 
+def open_question_map(page):
+    disclosure=page.locator('[data-mobile-key="quiz-map"]')
+    if disclosure.count() and not disclosure.evaluate('(e)=>e.open'):
+        disclosure.locator(':scope > summary').click()
+
+def choose_question(page,index):
+    open_question_map(page)
+    button = page.locator('#quizQuestionMap button').nth(index)
+    # A button can be inside the viewport but underneath the fixed bottom bar.
+    # Center the real control, as a user scrolling to the map would do.
+    button.evaluate('e=>e.scrollIntoView({block:"center",behavior:"instant"})')
+    page.evaluate('()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))')
+    button.click()
+    assert page.evaluate('quizIndex') == index, page.evaluate('''()=>({index:quizIndex,
+      progress:document.querySelector('#quizProgress').textContent,scrollY,
+      focused:document.activeElement.tagName+'#'+document.activeElement.id})''')
+
 with sync_playwright() as p:
     browser=launch(p)
     context=browser.new_context(viewport={'width':1440,'height':1100},reduced_motion='reduce')
@@ -26,16 +43,16 @@ with sync_playwright() as p:
     assert not page.locator('#vocabFilters').is_visible()
     # Visiting a question must never mark it answered; current and answered differ.
     for index in range(5):
-        page.locator('#quizQuestionMap button').nth(index).click()
+        choose_question(page,index)
         assert page.locator('#quizMapCurrentStatus').inner_text()==f'Câu {index+1}: Chưa trả lời'
         assert page.locator('#quizQuestionMap .is-answered').count()==0
         assert page.locator('.quiz-opt-btn[aria-pressed=true]').count()==0
         assert page.locator('#quizProgressBar').get_attribute('value')=='0'
     assert page.locator('.quiz-map-answer-mark').all_inner_texts()==['○']*5
     for index in range(4):
-        page.locator('#quizQuestionMap button').nth(index).click()
+        choose_question(page,index)
         page.locator('.quiz-opt-btn').first.click()
-    page.locator('#quizQuestionMap button').nth(4).click()
+    choose_question(page,4)
     assert page.locator('#quizMapCurrentStatus').inner_text()=='Câu 5: Chưa trả lời'
     assert page.locator('#quizQuestionMap .is-answered').count()==4
     assert page.locator('.quiz-map-answer-mark').all_inner_texts()==['✓']*4+['○']
@@ -67,13 +84,13 @@ with sync_playwright() as p:
     assert page.evaluate('quizScore')==0
     assert page.evaluate('quizIndex')==0
     for index,correct in [(1,True),(3,True),(4,False)]:
-        page.locator('#quizQuestionMap button').nth(index).click()
+        choose_question(page,index)
         selected=questions[index]['m'] if correct else next(opt for opt in options[index] if opt!=questions[index]['m'])
         page.get_by_role('button',name=selected,exact=True).click()
     assert page.locator('#quizProgressBar').get_attribute('value')=='4'
     assert page.locator('#quizPercent').inner_text()=='80%'
     assert page.locator('#quizQuestionMap .is-answered').count()==4
-    page.locator('#quizQuestionMap button').nth(0).click()
+    choose_question(page,0)
     assert page.locator('.quiz-opt-btn[aria-pressed=true]').get_attribute('aria-label')==wrong
     assert page.evaluate('quizOptionSets')==options
     saved_answers=page.evaluate('quizAnswers')
@@ -125,7 +142,7 @@ with sync_playwright() as p:
     assert page.locator('#quizMapCurrentStatus').text_content()=='Câu 1: Chưa trả lời'
     assert page.locator('.quiz-review-card').count()==0
     for index,q in enumerate(questions):
-        page.locator('#quizQuestionMap button').nth(index).click()
+        choose_question(page,index)
         page.get_by_role('button',name=q['m'],exact=True).click()
     assert page.locator('#quizProgressBar').get_attribute('value')=='5'
     assert page.locator('#quizPercent').inner_text()=='100%'
@@ -173,6 +190,7 @@ with sync_playwright() as p:
     page.locator('input[name="quizCount"][value="all"]').check()
     page.locator('.quiz-start-btn').click()
     assert page.locator('#quizQuestionMap button').count()==921
+    open_question_map(page)
     page.evaluate('goToQuizQuestion(920)')
     assert page.locator('#quizQuestionMap').evaluate('(e) => e.scrollTop')>0
     assert page.locator('#quizQuestionMap button').nth(920).get_attribute('aria-current')=='step'

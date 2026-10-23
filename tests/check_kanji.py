@@ -126,8 +126,12 @@ with sync_playwright() as p:
       }
     }''')
     page.screenshot(path=str(ROOT/'.work/kanji-mobile.png'),full_page=True)
+    previous_stroke=page.locator('#kanjiCanvas').evaluate('(e)=>e.getContext("2d").strokeStyle')
     page.locator('#themeToggle').click()
-    page.wait_for_function('document.querySelector("#kanjiCanvas").getContext("2d").strokeStyle === "#a5a7ff"')
+    page.wait_for_function('''()=>document.body.dataset.theme==="dark" &&
+      document.querySelector("#kanjiCanvas").getContext("2d").strokeStyle===
+        getComputedStyle(document.body).getPropertyValue("--primary").trim()''')
+    assert page.locator('#kanjiCanvas').evaluate('(e)=>e.getContext("2d").strokeStyle')!=previous_stroke
     # Exercise actual touch events through Chromium, with pointer capture on canvas.
     page.locator('#kanjiCanvas').scroll_into_view_if_needed()
     box=page.locator('#kanjiCanvas').bounding_box()

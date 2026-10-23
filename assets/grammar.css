@@ -15,8 +15,7 @@
 #grammarMode button { border:1px solid var(--border); background:var(--surface); color:var(--text); border-radius:12px; padding:11px 15px; cursor:pointer; min-height:44px; font-weight:650; line-height:1.6; }
 #grammarMode button:hover:not(:disabled) { border-color:var(--primary); background:var(--primary-subtle); }
 #grammarMode button:disabled { cursor:not-allowed; opacity:.45; }
-#grammarMode .gr-primary { background:var(--primary); border-color:var(--primary); color:var(--surface); }
-[data-theme="dark"] #grammarMode .gr-primary { color:#101627; }
+#grammarMode .gr-primary { background:var(--primary); border-color:var(--primary); color:var(--primary-text); }
 #grammarMode .gr-primary:hover:not(:disabled) { background:var(--primary-hover); }
 .gr-chapters { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:10px; }
 .gr-chapters button { text-align:left; }

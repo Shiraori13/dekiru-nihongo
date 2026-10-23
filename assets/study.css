@@ -12,9 +12,6 @@
   font-display: swap;
   unicode-range: U+3452, U+4E06, U+4E1A, U+620B, U+9FB0, U+9FB6-9FB7;
 }
-:root { --jp-font: 'Noto Sans JP', 'Dekiru Components', 'Yu Gothic', 'Meiryo', sans-serif; --kanji: #4f46b5; --katakana: #087e80; --hiragana: #975a16; }
-[data-theme="dark"] { --primary: #a5a7ff; --primary-hover: #c4b5fd; --kanji: #b6adff; --katakana: #72d8ce; --hiragana: #f3c27a; }
-[data-theme="dark"] .small-btn.primary { color: #101627; }
 [hidden] { display: none !important; }
 .audio-feedback { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); width:min(560px,calc(100% - 28px)); background:var(--surface); color:var(--text); border:1px solid var(--primary); border-radius:16px; padding:15px 18px; z-index:1000; box-shadow:0 8px 30px #0004; font-size:13px; line-height:1.8; }
 .audio-feedback > div { display:flex; align-items:center; justify-content:space-between; gap:12px; }
@@ -25,7 +22,7 @@
 .audio-feedback summary { cursor:pointer; color:var(--primary); }
 .audio-credit { display:block; font-size:10px; color:var(--text-muted); margin-top:5px; }
 .audio-credit a { color:var(--primary); text-underline-offset:2px; }
-body { font-family: 'Plus Jakarta Sans', 'Noto Sans JP', 'Dekiru Components', system-ui, sans-serif; }
+body { font-family:var(--ui-font); }
 /* Mixed Vietnamese/Japanese headings and explanations also need local glyphs. */
 button, input, select, textarea, h1, h2, h3, h4, p, summary, option {
   font-family: inherit;
@@ -241,7 +238,6 @@ main { max-width: 1220px; }
 .quiz-count-summary strong { color: var(--text); font-size: 13px; }
 .quiz-start-btn { width: 100%; justify-content: center; gap: 14px; min-height: 50px; border: 0; background: var(--primary); color: #fff; box-shadow: 0 4px 12px var(--primary-glow); }
 .quiz-start-btn:hover { background: var(--primary-hover); color: #fff; }
-[data-theme="dark"] .quiz-start-btn, [data-theme="dark"] .quiz-start-btn:hover { color: #101627; }
 @media (max-width: 520px) {
   .quiz-setup-card { padding: 22px 18px; border-radius: 20px; }
   .quiz-count-presets { grid-template-columns: repeat(3,minmax(0,1fr)); }
@@ -296,7 +292,7 @@ main { max-width: 1220px; }
 .quiz-option-letter { display: grid; place-items: center; flex-shrink: 0; width: 29px; height: 29px; border: 1px solid var(--border); border-radius: 9px; font: 700 11px 'Plus Jakarta Sans',system-ui,sans-serif; background: var(--surface); color: var(--text-muted); }
 .quiz-option-text { min-width: 0; overflow-wrap: anywhere; }
 .quiz-opt-btn.is-selected { border-color: var(--primary); background: var(--primary-subtle); }
-.quiz-opt-btn.is-selected .quiz-option-letter { background: var(--primary); color: var(--surface); border-color: var(--primary); }
+.quiz-opt-btn.is-selected .quiz-option-letter { background: var(--primary); color: var(--primary-text); border-color: var(--primary); }
 .quiz-opt-btn:disabled { opacity: 1; }
 .quiz-answer-status { font-size: 11px; color: var(--text-muted); line-height: 1.8; margin-top: 14px; min-height: 20px; }
 .quiz-exam-actions { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; border-top: 1px solid var(--border); padding-top: 18px; margin-top: 16px; }

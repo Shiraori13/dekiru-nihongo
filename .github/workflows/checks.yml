@@ -23,8 +23,7 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: npm run format:check
       - run: python -m playwright install --with-deps chromium firefox
-      - run: node tests/check_logic.js
-      - run: node tests/check_chapter67.js
+      - run: npm run test:logic
       - run: python tests/run_checks.py
       - uses: actions/upload-artifact@v4
         if: always()

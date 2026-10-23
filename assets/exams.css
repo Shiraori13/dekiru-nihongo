@@ -1,5 +1,3 @@
-#examMode { --ex-ok:#087e69; --ex-bad:#ba334c; --ex-warn:#946000; }
-[data-theme="dark"] #examMode { --ex-ok:#72d8bd; --ex-bad:#ff9bad; --ex-warn:#f3c27a; }
 #examMode * { min-width:0; }
 #examMode h2, #examMode h3, #examMode p, #examMode button, #examMode span, #examMode a { overflow-wrap:anywhere; }
 #examMode h1 { font-size:clamp(28px,4vw,43px); line-height:1.3; letter-spacing:-1.5px; margin:12px 0; }
@@ -10,8 +8,7 @@
 #examMode button { border:1px solid var(--border); background:var(--surface); color:var(--text); border-radius:12px; min-height:44px; padding:10px 15px; cursor:pointer; font-weight:650; line-height:1.6; }
 #examMode button:hover { border-color:var(--primary); }
 #examMode button:disabled { cursor:not-allowed; opacity:.4; }
-#examMode .ex-primary { color:var(--surface); background:var(--primary); border-color:var(--primary); }
-[data-theme="dark"] #examMode .ex-primary { color:#12182b; }
+#examMode .ex-primary { color:var(--primary-text); background:var(--primary); border-color:var(--primary); }
 #examMode .ex-danger { color:var(--ex-bad); }
 #examMode label { display:grid; gap:8px; font-size:13px; color:var(--text-muted); }
 #examMode input:not([type=checkbox]), #examMode select, #examMode textarea { width:100%; padding:12px; border:1px solid var(--border); border-radius:10px; background:var(--surface-subtle); color:var(--text); font:inherit; }
@@ -59,7 +56,7 @@
 #examMode .ex-option { display:flex; align-items:center; gap:14px; text-align:left; padding:17px; font:450 19px/1.85 var(--jp-font); }
 .ex-option b { font:650 12px system-ui; border:1px solid var(--border); width:30px; height:30px; border-radius:50%; display:grid; place-items:center; flex-shrink:0; }
 #examMode .ex-option[aria-pressed=true] { border-color:var(--primary); background:var(--primary-subtle); color:var(--primary); }
-#examMode .ex-option[aria-pressed=true] b { border-color:var(--primary); background:var(--primary); color:var(--surface); }
+#examMode .ex-option[aria-pressed=true] b { border-color:var(--primary); background:var(--primary); color:var(--primary-text); }
 .ex-question-nav { margin-top:26px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; }
 .ex-question-nav button { flex:1; }
 .ex-map { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:6px; margin:18px 0; }

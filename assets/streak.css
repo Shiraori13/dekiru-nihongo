@@ -1,0 +1,320 @@
+/* Compact real visit counter; the header owns placement and available width. */
+#streakHost {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.streak-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 48px;
+  padding: 0.5rem 0.85rem;
+  border: 1px solid var(--border, rgba(105, 142, 159, 0.25));
+  border-radius: 999px;
+  background: var(--surface-strong, #f8fcff);
+  color: var(--text, #132b3c);
+  font: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.streak-storage-flag {
+  position: absolute;
+  top: 2px;
+  right: 3px;
+  display: grid;
+  place-items: center;
+  width: 15px;
+  height: 15px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  background: rgb(var(--panel-rgb, 248, 252, 255));
+  color: var(--warning, #916018);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.streak-storage-flag[hidden] {
+  display: none;
+}
+
+.streak-button-text {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3rem;
+}
+
+.streak-count,
+#streakCount {
+  font-variant-numeric: tabular-nums;
+}
+
+.streak-flame {
+  width: 25px;
+  height: 29px;
+  flex: 0 0 auto;
+  overflow: visible;
+  transform-origin: 50% 90%;
+}
+
+.streak-flame-outer {
+  fill: #f27b32;
+}
+
+.streak-flame-inner {
+  fill: #ffe2a3;
+}
+
+.streak-button[data-lit="true"] .streak-flame {
+  filter: drop-shadow(0 1px 5px rgba(242, 123, 50, 0.28));
+}
+
+.streak-button[data-lit="false"] .streak-flame-outer {
+  fill: #8f9eab;
+}
+
+.streak-ignite .streak-flame {
+  animation: streak-ignite 1.2s ease-out 1;
+}
+
+@keyframes streak-ignite {
+  0% {
+    transform: scale(0.75) rotate(-8deg);
+  }
+  35% {
+    transform: scale(1.18) rotate(5deg);
+  }
+  65% {
+    transform: scale(0.98) rotate(-3deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+.streak-dialog {
+  box-sizing: border-box;
+  width: min(480px, calc(100vw - 28px));
+  max-height: calc(100dvh - 28px);
+  margin: auto;
+  padding: 24px;
+  border: 1px solid var(--border, #d7e6eb);
+  border-radius: 26px;
+  color: var(--text, #132b3c);
+  background: rgb(var(--panel-rgb, 248, 252, 255));
+  box-shadow: 0 24px 80px rgba(7, 31, 49, 0.24);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.streak-dialog::backdrop {
+  background: rgba(7, 25, 40, 0.45);
+}
+
+.streak-dialog-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.streak-eyebrow {
+  margin: 0 0 5px;
+  color: var(--primary, #008b87);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.streak-dialog h2 {
+  margin: 0;
+  font-size: 1.45rem;
+  line-height: 1.3;
+}
+
+.streak-close {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border: 1px solid var(--border, #d7e6eb);
+  border-radius: 14px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.streak-close svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+}
+
+#streakDescription,
+.streak-storage,
+.streak-privacy,
+.streak-legend {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--text-muted, #587079);
+}
+
+.streak-totals {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.streak-totals > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 4px;
+  background: var(--surface-subtle, #edf7f7);
+  border: 1px solid var(--border, #d7e6eb);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.streak-totals strong {
+  font-size: 1.6rem;
+  color: var(--primary, #008b87);
+  font-variant-numeric: tabular-nums;
+}
+
+.streak-totals span {
+  font-size: 0.75rem;
+}
+
+.streak-dialog h3 {
+  font-size: 0.95rem;
+  margin: 0 0 12px;
+}
+
+.streak-calendar {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.streak-calendar li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 8px 0;
+  border: 1px solid var(--border, #d7e6eb);
+  border-radius: 11px;
+  color: var(--text-muted, #587079);
+  background: var(--surface-subtle, #edf7f7);
+  font-size: 0.65rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.streak-calendar li > span {
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.streak-calendar li[data-visited="true"] {
+  color: var(--primary, #008b87);
+  background: var(--primary-subtle, #d7f4ee);
+  font-weight: 700;
+}
+
+.streak-calendar li[aria-current="date"] {
+  outline: 2px solid var(--primary, #008b87);
+  outline-offset: 1px;
+}
+
+.streak-legend {
+  margin: 12px 0;
+}
+
+.streak-storage {
+  border-top: 1px solid var(--border, #d7e6eb);
+  padding-top: 14px;
+  margin-bottom: 8px;
+}
+
+.streak-storage[data-storage="session"] {
+  color: var(--warning, #a65a15);
+}
+
+.streak-privacy {
+  font-size: 0.72rem;
+  margin-bottom: 0;
+}
+
+.streak-button:focus-visible,
+.streak-close:focus-visible {
+  outline: 3px solid var(--primary, #008b87);
+  outline-offset: 3px;
+}
+
+.streak-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  .streak-button {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 6px 9px;
+    gap: 4px;
+    font-size: 0.82rem;
+  }
+
+  .streak-flame {
+    width: 20px;
+    height: 24px;
+  }
+
+  .streak-label {
+    display: none;
+  }
+
+  .streak-dialog {
+    padding: 20px 16px;
+  }
+
+  .streak-calendar {
+    gap: 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .streak-ignite .streak-flame {
+    animation: none;
+  }
+}
+
+@supports not (
+  (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))
+) {
+  .streak-dialog {
+    background: rgb(var(--panel-rgb, 248, 252, 255));
+  }
+}

@@ -1,4 +1,14 @@
-# Japanese study font
+# Packaged study and interface fonts
+
+`PlusJakartaSans-latin.woff2` (45,800 bytes) supplies the offline Vietnamese interface, including the complete Vietnamese Latin Extended Additional range and variable weights 200–800. It is preloaded locally; the application no longer requests Google Fonts. Japanese text falls back to the packaged Noto Sans JP and component fonts below.
+
+Source: [Google Fonts — Plus Jakarta Sans](https://github.com/google/fonts/tree/main/ofl/plusjakartasans), original file `PlusJakartaSans[wght].ttf`, downloaded 2026-10-23. License: [OFL-PlusJakartaSans.txt](OFL-PlusJakartaSans.txt).
+
+- Source TTF SHA-256: `89b3fb38aa0d275d7a731d0d817a4f1622b316b4d7fbdecdf02ee9099ff68bc8`.
+- Packaged WOFF2 SHA-256: `e489f0fbd8e599a75cfe96b6e585af566dc5fbd4f464a691234156a033f40928`.
+- Regenerate: `python scripts/build_ui_font.py path/to/PlusJakartaSans.ttf` (pinned fontTools/Brotli in `requirements-dev.txt`).
+
+## Japanese study font
 
 `NotoSansJP-study.woff2` is a subset of the variable Noto Sans JP font, keeping the characters used by this application, kana, Latin basics and Japanese punctuation. The weight range remains variable.
 

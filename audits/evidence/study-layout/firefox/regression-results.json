@@ -1,0 +1,10 @@
+[
+  {
+    "test": "check_study_layout.py",
+    "code": 0,
+    "seconds": 48.5,
+    "output": "PASS: full-width header/quiz, readable functional pickers, partial quiz preserved, daily streak dates/reload/tabs/storage/focus, static deployment.\n",
+    "browser_config": "firefox",
+    "completed_utc": "2026-10-23T14:11:59.805452+00:00"
+  }
+]

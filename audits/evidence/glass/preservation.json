@@ -1,0 +1,31 @@
+{
+  "baseline": "11c7613f79d6720b94f3ba258e508b96d2338f84",
+  "all_data_files_identical": true,
+  "data_sha256": {
+    "data\\audio.js": "a8f612d7bcdd313ad01523ee91f0d2a2accf0f33df642e7ac857c5a5be451222",
+    "data\\exams.js": "371d9681f7c8a02fec3000170c49279ea70e63fb0a9d29c1be8e6fdca3bb06bf",
+    "data\\grammar-practice.js": "178f47dc6885e76d5468a07dc4f8c6e65683b54be4df07ef0e79c533e3ee7299",
+    "data\\grammar.js": "b61261978629676cc6fd6d18516adfd8dd97401b52313ed93dffb81e11e0138e",
+    "data\\kanji-meanings.tsv": "13a5537b4f6c4baace0ad5442a2811fd12636e19ab296be4b83c95338bd619f8",
+    "data\\kanji-source.json": "6d7fbcd75dc248b83f5dbaec88ac2789946a0e452e33ae69b0763621cd069cdd",
+    "data\\kanji.js": "6e2771531a2ec91ee54ebcb3d552cb7b9f13b2ddc11efd75dc4302eeb4fc56ed",
+    "data\\meaning-groups.js": "16071cf46b997430cdf46a1d15a28fef0e498cf0bc7423c74aec4033ad13488f",
+    "data\\readings-source.txt": "aae416933a19cf0d2558297a538a0ff3092a803e807e0c104edf52448b0810d9",
+    "data\\readings.js": "f7674ea43ea3252457002862f67d83acf31786e55a1ab4e5113bcf084d06218b",
+    "data\\vocabulary.js": "652ea30d50bb4ca2d5529af8e89be15313ebfa1f0d9879c103da08d5a5912594"
+  },
+  "core_files_unchanged": [
+    "assets/quiz-core.js",
+    "assets/grammar-core.js",
+    "assets/exam-core.js",
+    "assets/attempt-store.js",
+    "assets/grammar.js",
+    "assets/exams.js",
+    "assets/audio.js",
+    "assets/reading.js",
+    "assets/kanji.js",
+    "assets/loader.js",
+    "assets/dialogs.js"
+  ],
+  "backup_sha256": "16d735b9b07bc0ee9a39beda5edac3708654aa926c799b26b3693240fc2ecb4c"
+}

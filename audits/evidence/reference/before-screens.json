@@ -1,0 +1,691 @@
+{
+  "browser": "chromium",
+  "version": "153.0.8010.12",
+  "fixture": "Seed 92713 installed before real Start click for matching screenshots; second answer selected.",
+  "screens": [
+    {
+      "width": 1600,
+      "height": 1000,
+      "theme": "light",
+      "questions": [
+        {
+          "l": 9,
+          "t": "いろいろな趣味",
+          "k": "よく",
+          "h": "よく",
+          "m": "Thường, hay, rất",
+          "p": 29
+        },
+        {
+          "l": 6,
+          "t": "どちらがいいですか",
+          "k": "コメディー",
+          "h": "コメディー",
+          "m": "Hài kịch",
+          "p": 19
+        },
+        {
+          "l": 8,
+          "t": "家族・友達",
+          "k": "住みます",
+          "h": "すみます",
+          "m": "Sống, sinh sống",
+          "p": 25
+        },
+        {
+          "l": 7,
+          "t": "パーティーの準備",
+          "k": "置きます",
+          "h": "おきます",
+          "m": "Đặt, để",
+          "p": 22
+        },
+        {
+          "l": 2,
+          "t": "どこですか",
+          "k": "パソコン",
+          "h": "パソコン",
+          "m": "Máy tính cá nhân",
+          "p": 4
+        }
+      ],
+      "options": [
+        [
+          "Truyện tranh",
+          "Thường, hay, rất",
+          "Lái (xe)",
+          "～ quyển"
+        ],
+        [
+          "Rộng",
+          "Tàu điện ngầm",
+          "Hài kịch",
+          "Ừm, để tôi xem… (ngập ngừng suy nghĩ)"
+        ],
+        [
+          "Em trai (của người khác)",
+          "Sống, sinh sống",
+          "Bác sỹ",
+          "Đàn piano"
+        ],
+        [
+          "Cắt, gọt",
+          "Đặt, để",
+          "Đĩa, cái đĩa",
+          "Mang đi"
+        ],
+        [
+          "Máy tính cá nhân",
+          "Nước",
+          "Tẩy",
+          "Bánh mỳ"
+        ]
+      ],
+      "answers": [
+        "Thường, hay, rất",
+        null,
+        null,
+        null,
+        null
+      ],
+      "index": 0,
+      "prompt": "よく",
+      "optionsVisible": [
+        "ATruyện tranh",
+        "BThường, hay, rất",
+        "CLái (xe)",
+        "D～ quyển"
+      ],
+      "header": {
+        "x": 264,
+        "y": 0,
+        "width": 1336,
+        "height": 85,
+        "top": 0,
+        "right": 1600,
+        "bottom": 85,
+        "left": 264
+      },
+      "sidebar": {
+        "x": 16,
+        "y": 16,
+        "width": 232,
+        "height": 968,
+        "top": 16,
+        "right": 248,
+        "bottom": 984,
+        "left": 16
+      }
+    },
+    {
+      "width": 1600,
+      "height": 1000,
+      "theme": "dark",
+      "questions": [
+        {
+          "l": 9,
+          "t": "いろいろな趣味",
+          "k": "よく",
+          "h": "よく",
+          "m": "Thường, hay, rất",
+          "p": 29
+        },
+        {
+          "l": 6,
+          "t": "どちらがいいですか",
+          "k": "コメディー",
+          "h": "コメディー",
+          "m": "Hài kịch",
+          "p": 19
+        },
+        {
+          "l": 8,
+          "t": "家族・友達",
+          "k": "住みます",
+          "h": "すみます",
+          "m": "Sống, sinh sống",
+          "p": 25
+        },
+        {
+          "l": 7,
+          "t": "パーティーの準備",
+          "k": "置きます",
+          "h": "おきます",
+          "m": "Đặt, để",
+          "p": 22
+        },
+        {
+          "l": 2,
+          "t": "どこですか",
+          "k": "パソコン",
+          "h": "パソコン",
+          "m": "Máy tính cá nhân",
+          "p": 4
+        }
+      ],
+      "options": [
+        [
+          "Truyện tranh",
+          "Thường, hay, rất",
+          "Lái (xe)",
+          "～ quyển"
+        ],
+        [
+          "Rộng",
+          "Tàu điện ngầm",
+          "Hài kịch",
+          "Ừm, để tôi xem… (ngập ngừng suy nghĩ)"
+        ],
+        [
+          "Em trai (của người khác)",
+          "Sống, sinh sống",
+          "Bác sỹ",
+          "Đàn piano"
+        ],
+        [
+          "Cắt, gọt",
+          "Đặt, để",
+          "Đĩa, cái đĩa",
+          "Mang đi"
+        ],
+        [
+          "Máy tính cá nhân",
+          "Nước",
+          "Tẩy",
+          "Bánh mỳ"
+        ]
+      ],
+      "answers": [
+        "Thường, hay, rất",
+        null,
+        null,
+        null,
+        null
+      ],
+      "index": 0,
+      "prompt": "よく",
+      "optionsVisible": [
+        "ATruyện tranh",
+        "BThường, hay, rất",
+        "CLái (xe)",
+        "D～ quyển"
+      ],
+      "header": {
+        "x": 264,
+        "y": 0,
+        "width": 1336,
+        "height": 85,
+        "top": 0,
+        "right": 1600,
+        "bottom": 85,
+        "left": 264
+      },
+      "sidebar": {
+        "x": 16,
+        "y": 16,
+        "width": 232,
+        "height": 968,
+        "top": 16,
+        "right": 248,
+        "bottom": 984,
+        "left": 16
+      }
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "theme": "light",
+      "questions": [
+        {
+          "l": 9,
+          "t": "いろいろな趣味",
+          "k": "よく",
+          "h": "よく",
+          "m": "Thường, hay, rất",
+          "p": 29
+        },
+        {
+          "l": 6,
+          "t": "どちらがいいですか",
+          "k": "コメディー",
+          "h": "コメディー",
+          "m": "Hài kịch",
+          "p": 19
+        },
+        {
+          "l": 8,
+          "t": "家族・友達",
+          "k": "住みます",
+          "h": "すみます",
+          "m": "Sống, sinh sống",
+          "p": 25
+        },
+        {
+          "l": 7,
+          "t": "パーティーの準備",
+          "k": "置きます",
+          "h": "おきます",
+          "m": "Đặt, để",
+          "p": 22
+        },
+        {
+          "l": 2,
+          "t": "どこですか",
+          "k": "パソコン",
+          "h": "パソコン",
+          "m": "Máy tính cá nhân",
+          "p": 4
+        }
+      ],
+      "options": [
+        [
+          "Truyện tranh",
+          "Thường, hay, rất",
+          "Lái (xe)",
+          "～ quyển"
+        ],
+        [
+          "Rộng",
+          "Tàu điện ngầm",
+          "Hài kịch",
+          "Ừm, để tôi xem… (ngập ngừng suy nghĩ)"
+        ],
+        [
+          "Em trai (của người khác)",
+          "Sống, sinh sống",
+          "Bác sỹ",
+          "Đàn piano"
+        ],
+        [
+          "Cắt, gọt",
+          "Đặt, để",
+          "Đĩa, cái đĩa",
+          "Mang đi"
+        ],
+        [
+          "Máy tính cá nhân",
+          "Nước",
+          "Tẩy",
+          "Bánh mỳ"
+        ]
+      ],
+      "answers": [
+        "Thường, hay, rất",
+        null,
+        null,
+        null,
+        null
+      ],
+      "index": 0,
+      "prompt": "よく",
+      "optionsVisible": [
+        "ATruyện tranh",
+        "BThường, hay, rất",
+        "CLái (xe)",
+        "D～ quyển"
+      ],
+      "header": {
+        "x": 264,
+        "y": 0,
+        "width": 1176,
+        "height": 85,
+        "top": 0,
+        "right": 1440,
+        "bottom": 85,
+        "left": 264
+      },
+      "sidebar": {
+        "x": 16,
+        "y": 16,
+        "width": 232,
+        "height": 868,
+        "top": 16,
+        "right": 248,
+        "bottom": 884,
+        "left": 16
+      }
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "theme": "dark",
+      "questions": [
+        {
+          "l": 9,
+          "t": "いろいろな趣味",
+          "k": "よく",
+          "h": "よく",
+          "m": "Thường, hay, rất",
+          "p": 29
+        },
+        {
+          "l": 6,
+          "t": "どちらがいいですか",
+          "k": "コメディー",
+          "h": "コメディー",
+          "m": "Hài kịch",
+          "p": 19
+        },
+        {
+          "l": 8,
+          "t": "家族・友達",
+          "k": "住みます",
+          "h": "すみます",
+          "m": "Sống, sinh sống",
+          "p": 25
+        },
+        {
+          "l": 7,
+          "t": "パーティーの準備",
+          "k": "置きます",
+          "h": "おきます",
+          "m": "Đặt, để",
+          "p": 22
+        },
+        {
+          "l": 2,
+          "t": "どこですか",
+          "k": "パソコン",
+          "h": "パソコン",
+          "m": "Máy tính cá nhân",
+          "p": 4
+        }
+      ],
+      "options": [
+        [
+          "Truyện tranh",
+          "Thường, hay, rất",
+          "Lái (xe)",
+          "～ quyển"
+        ],
+        [
+          "Rộng",
+          "Tàu điện ngầm",
+          "Hài kịch",
+          "Ừm, để tôi xem… (ngập ngừng suy nghĩ)"
+        ],
+        [
+          "Em trai (của người khác)",
+          "Sống, sinh sống",
+          "Bác sỹ",
+          "Đàn piano"
+        ],
+        [
+          "Cắt, gọt",
+          "Đặt, để",
+          "Đĩa, cái đĩa",
+          "Mang đi"
+        ],
+        [
+          "Máy tính cá nhân",
+          "Nước",
+          "Tẩy",
+          "Bánh mỳ"
+        ]
+      ],
+      "answers": [
+        "Thường, hay, rất",
+        null,
+        null,
+        null,
+        null
+      ],
+      "index": 0,
+      "prompt": "よく",
+      "optionsVisible": [
+        "ATruyện tranh",
+        "BThường, hay, rất",
+        "CLái (xe)",
+        "D～ quyển"
+      ],
+      "header": {
+        "x": 264,
+        "y": 0,
+        "width": 1176,
+        "height": 85,
+        "top": 0,
+        "right": 1440,
+        "bottom": 85,
+        "left": 264
+      },
+      "sidebar": {
+        "x": 16,
+        "y": 16,
+        "width": 232,
+        "height": 868,
+        "top": 16,
+        "right": 248,
+        "bottom": 884,
+        "left": 16
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "theme": "light",
+      "questions": [
+        {
+          "l": 9,
+          "t": "いろいろな趣味",
+          "k": "よく",
+          "h": "よく",
+          "m": "Thường, hay, rất",
+          "p": 29
+        },
+        {
+          "l": 6,
+          "t": "どちらがいいですか",
+          "k": "コメディー",
+          "h": "コメディー",
+          "m": "Hài kịch",
+          "p": 19
+        },
+        {
+          "l": 8,
+          "t": "家族・友達",
+          "k": "住みます",
+          "h": "すみます",
+          "m": "Sống, sinh sống",
+          "p": 25
+        },
+        {
+          "l": 7,
+          "t": "パーティーの準備",
+          "k": "置きます",
+          "h": "おきます",
+          "m": "Đặt, để",
+          "p": 22
+        },
+        {
+          "l": 2,
+          "t": "どこですか",
+          "k": "パソコン",
+          "h": "パソコン",
+          "m": "Máy tính cá nhân",
+          "p": 4
+        }
+      ],
+      "options": [
+        [
+          "Truyện tranh",
+          "Thường, hay, rất",
+          "Lái (xe)",
+          "～ quyển"
+        ],
+        [
+          "Rộng",
+          "Tàu điện ngầm",
+          "Hài kịch",
+          "Ừm, để tôi xem… (ngập ngừng suy nghĩ)"
+        ],
+        [
+          "Em trai (của người khác)",
+          "Sống, sinh sống",
+          "Bác sỹ",
+          "Đàn piano"
+        ],
+        [
+          "Cắt, gọt",
+          "Đặt, để",
+          "Đĩa, cái đĩa",
+          "Mang đi"
+        ],
+        [
+          "Máy tính cá nhân",
+          "Nước",
+          "Tẩy",
+          "Bánh mỳ"
+        ]
+      ],
+      "answers": [
+        "Thường, hay, rất",
+        null,
+        null,
+        null,
+        null
+      ],
+      "index": 0,
+      "prompt": "よく",
+      "optionsVisible": [
+        "ATruyện tranh",
+        "BThường, hay, rất",
+        "CLái (xe)",
+        "D～ quyển"
+      ],
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 65,
+        "top": 0,
+        "right": 390,
+        "bottom": 65,
+        "left": 0
+      },
+      "sidebar": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "theme": "dark",
+      "questions": [
+        {
+          "l": 9,
+          "t": "いろいろな趣味",
+          "k": "よく",
+          "h": "よく",
+          "m": "Thường, hay, rất",
+          "p": 29
+        },
+        {
+          "l": 6,
+          "t": "どちらがいいですか",
+          "k": "コメディー",
+          "h": "コメディー",
+          "m": "Hài kịch",
+          "p": 19
+        },
+        {
+          "l": 8,
+          "t": "家族・友達",
+          "k": "住みます",
+          "h": "すみます",
+          "m": "Sống, sinh sống",
+          "p": 25
+        },
+        {
+          "l": 7,
+          "t": "パーティーの準備",
+          "k": "置きます",
+          "h": "おきます",
+          "m": "Đặt, để",
+          "p": 22
+        },
+        {
+          "l": 2,
+          "t": "どこですか",
+          "k": "パソコン",
+          "h": "パソコン",
+          "m": "Máy tính cá nhân",
+          "p": 4
+        }
+      ],
+      "options": [
+        [
+          "Truyện tranh",
+          "Thường, hay, rất",
+          "Lái (xe)",
+          "～ quyển"
+        ],
+        [
+          "Rộng",
+          "Tàu điện ngầm",
+          "Hài kịch",
+          "Ừm, để tôi xem… (ngập ngừng suy nghĩ)"
+        ],
+        [
+          "Em trai (của người khác)",
+          "Sống, sinh sống",
+          "Bác sỹ",
+          "Đàn piano"
+        ],
+        [
+          "Cắt, gọt",
+          "Đặt, để",
+          "Đĩa, cái đĩa",
+          "Mang đi"
+        ],
+        [
+          "Máy tính cá nhân",
+          "Nước",
+          "Tẩy",
+          "Bánh mỳ"
+        ]
+      ],
+      "answers": [
+        "Thường, hay, rất",
+        null,
+        null,
+        null,
+        null
+      ],
+      "index": 0,
+      "prompt": "よく",
+      "optionsVisible": [
+        "ATruyện tranh",
+        "BThường, hay, rất",
+        "CLái (xe)",
+        "D～ quyển"
+      ],
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 65,
+        "top": 0,
+        "right": 390,
+        "bottom": 65,
+        "left": 0
+      },
+      "sidebar": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    }
+  ]
+}

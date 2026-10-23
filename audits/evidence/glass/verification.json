@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-23 Asia/Saigon",
+  "collected_utc": "2026-10-23T05:40:36.321914+00:00",
+  "python_suites": {
+    "passed": 19,
+    "expected": 19
+  },
+  "firefox_focused_suites": {
+    "passed": 2
+  },
+  "other_checks": [
+    {
+      "command": "node tests/check_logic.js",
+      "result": "PASS",
+      "coverage": "921 semantic option sets, independent grading fixtures; 666 grammar and 360 paper structural invariants"
+    },
+    {
+      "command": "node tests/check_chapter67.js",
+      "result": "PASS",
+      "coverage": "4 papers, 180 questions, exact matrix, independent grading and original data unchanged"
+    },
+    {
+      "command": "npm run format:check",
+      "result": "PASS",
+      "coverage": "all configured files, including three new JavaScript files"
+    },
+    {
+      "command": "python -m py_compile scripts/build_ui_font.py tests/check_appearance.py tests/check_glass_layout.py tests/glass_support.py tests/check_kanji.py",
+      "result": "PASS"
+    }
+  ],
+  "browsers": {
+    "chromium": "153.0.8010.12",
+    "firefox": "155.0",
+    "edge": "155.0.4283.62"
+  },
+  "edge_review": {
+    "result": "PASS",
+    "coverage": "reset/remove/preset/upload races; asynchronous image IDB abort; native 200% seven modes/light-dark; no page errors"
+  },
+  "execution_note": "Full runner was interrupted between suites and resumed. Final layout and Kanji cases reran after updating responsive readiness and palette expectations; final aggregate contains all 19 successful suites.",
+  "unverified": [
+    "Safari/iOS and real phone keyboards/screen readers",
+    "Firefox native zoom",
+    "remote GitHub Pages deployment and workflow run",
+    "GPU/device performance"
+  ]
+}

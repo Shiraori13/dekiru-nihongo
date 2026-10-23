@@ -97,6 +97,8 @@ with sync_playwright() as p:
     # A different filter must leave the active attempt unchanged.
     page.locator('[data-gr-chapter="4"]').click()
     assert page.evaluate('JSON.parse(localStorage.getItem("dekiru_grammar_v1")).session.ids')==retried
+    if not page.locator('#grType').is_visible():
+        page.locator('[data-mobile-key="grammar-setup"] > summary').click()
     page.locator('#grType').select_option('fill');page.locator('#grCount').fill('0')
     page.locator('#grStart').click()
     assert page.evaluate('JSON.parse(localStorage.getItem("dekiru_grammar_v1")).session.ids')==retried

@@ -1,0 +1,249 @@
+/* Keep lesson selection readable without taking width from the study canvas. */
+#kanjiMode .kanji-item,
+#grammarMode #grUnitList > button {
+  position: relative;
+  text-align: left;
+  min-height: 96px;
+  padding: 15px 16px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface-strong);
+  overflow-wrap: anywhere;
+}
+
+#kanjiMode .kanji-item {
+  margin: 0 0 10px;
+}
+
+#kanjiMode .kanji-item strong {
+  font: 650 24px/1.6 var(--jp-font);
+  margin-bottom: 3px;
+}
+
+#kanjiMode .kanji-item span {
+  font-size: 0.82rem;
+  line-height: 1.8;
+}
+
+#kanjiMode .kanji-item .kanji-item-hv {
+  font-size: 0.88rem;
+  margin-bottom: 3px;
+}
+
+#grammarMode #grUnitList > button {
+  margin: 0 0 10px;
+}
+
+#grammarMode #grUnitList > button small {
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.65;
+}
+
+#grammarMode #grUnitList > button strong {
+  margin: 8px 0;
+  font-size: 1rem;
+  font-weight: 750;
+  line-height: 1.6;
+}
+
+#grammarMode #grUnitList > button > span {
+  font: 500 0.88rem/1.85 var(--jp-font);
+}
+
+#grammarMode #grUnitList > button em {
+  margin-top: 10px;
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+#kanjiMode .kanji-item:hover,
+#grammarMode #grUnitList > button:hover {
+  border-color: var(--primary);
+  background: var(--surface-subtle);
+}
+
+#kanjiMode .kanji-item[aria-current="true"],
+#grammarMode #grUnitList > button[aria-current="true"] {
+  color: var(--text);
+  background: var(--primary-subtle);
+  border-color: var(--primary);
+  box-shadow: inset 3px 0 0 var(--primary);
+}
+
+/* Keep the active view distinct from the separate learned/mastered check. */
+#kanjiMode .kanji-item[aria-current="true"] strong,
+#grammarMode #grUnitList > button[aria-current="true"] small {
+  padding-right: 70px;
+}
+
+#kanjiMode .kanji-item[aria-current="true"]::after,
+#grammarMode #grUnitList > button[aria-current="true"]::after {
+  content: "Đang xem";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: grid;
+  place-items: center;
+  min-height: 24px;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: var(--primary-text);
+  font: 700 11px/1.5 var(--ui-font);
+}
+
+#kanjiMode .chooser-count,
+#grammarMode #grUnitCount {
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+#kanjiMode .kanji-word-list,
+#grammarMode #grUnitList {
+  padding: 10px;
+  scrollbar-gutter: stable;
+  overscroll-behavior: contain;
+}
+
+@media (min-width: 1181px) {
+  #kanjiMode .kanji-layout,
+  #grammarMode .gr-layout {
+    grid-template-columns: clamp(290px, 22vw, 340px) minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  #grammarMode .gr-sidebar {
+    padding: 10px;
+  }
+
+  #grammarMode #grUnitCount {
+    padding: 8px 10px 12px;
+  }
+
+  #grammarMode #grUnitList {
+    max-height: min(680px, calc(100svh - var(--header-height) - 100px));
+    padding-top: 0;
+  }
+
+  #kanjiMode .chooser-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 12px;
+    padding: 18px 16px;
+  }
+
+  #kanjiMode .chooser-head h2 {
+    grid-column: 1 / -1;
+    font-size: 1rem;
+    margin: 0 0 6px;
+  }
+
+  #kanjiMode .chooser-head label {
+    font-size: 0.76rem;
+    line-height: 1.65;
+    margin: 10px 0 5px;
+  }
+
+  #kanjiMode .chooser-head select,
+  #kanjiMode .chooser-head input {
+    min-width: 0;
+    width: 100%;
+    min-height: 44px;
+    padding: 10px;
+    font-size: 0.82rem;
+  }
+
+  #kanjiMode label[for="kanjiLesson"] {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  #kanjiLesson {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  #kanjiMode label[for="kanjiTopic"] {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  #kanjiTopic {
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  #kanjiMode label[for="kanjiSearch"],
+  #kanjiSearch {
+    grid-column: 1 / -1;
+  }
+
+  #kanjiMode label[for="kanjiStatus"] {
+    grid-column: 1;
+    grid-row: 6;
+  }
+
+  #kanjiStatus {
+    grid-column: 1;
+    grid-row: 7;
+  }
+
+  #kanjiMode .kanji-clear {
+    grid-column: 2;
+    grid-row: 7;
+    align-self: end;
+    margin-top: 0;
+    min-height: 44px;
+    padding: 9px 8px;
+    font-size: 0.8rem;
+  }
+
+  #kanjiMode .chooser-count {
+    padding: 12px 16px 0;
+  }
+
+  #kanjiMode .kanji-word-list {
+    max-height: min(460px, 42svh);
+  }
+}
+
+/* A collapsed picker keeps the current word or grammar explanation first. */
+@media (max-width: 1180px) {
+  #kanjiMode [data-mobile-key="kanji-picker"] > summary,
+  #grammarMode [data-mobile-key="grammar-picker"] > summary {
+    min-height: 64px;
+  }
+
+  #kanjiMode [data-mobile-key="kanji-picker"] .mobile-fold-title,
+  #grammarMode [data-mobile-key="grammar-picker"] .mobile-fold-title {
+    font-size: 0.94rem;
+  }
+
+  #kanjiMode [data-mobile-key="kanji-picker"] .mobile-fold-caption,
+  #grammarMode [data-mobile-key="grammar-picker"] .mobile-fold-caption {
+    font-size: 0.8rem;
+    line-height: 1.7;
+  }
+
+  #kanjiMode .kanji-word-list,
+  #grammarMode #grUnitList {
+    padding: 8px 3px;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1180px) {
+  #kanjiMode .kanji-word-list,
+  #grammarMode #grUnitList {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 12px;
+  }
+
+  #kanjiMode .kanji-item,
+  #grammarMode #grUnitList > button {
+    height: 100%;
+    margin: 0;
+  }
+}

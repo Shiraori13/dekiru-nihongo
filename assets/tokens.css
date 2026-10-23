@@ -1,0 +1,96 @@
+/* Shared palette: theme values live here, including late-loaded study modes. */
+@font-face {
+  font-family:'Plus Jakarta Sans';
+  src:url('fonts/PlusJakartaSans-latin.woff2') format('woff2');
+  font-weight:200 800;
+  font-style:normal;
+  font-display:swap;
+}
+:root {
+  --ui-size:17px;
+  --ui-font:'Plus Jakarta Sans','Noto Sans JP','Dekiru Components',system-ui,sans-serif;
+  --jp-font:'Noto Sans JP','Dekiru Components','Yu Gothic','Meiryo',sans-serif;
+  --glass-alpha:.66;
+  --glass-blur:20px;
+  --appearance-image:none;
+  --radius-xl:28px;
+  --radius-lg:20px;
+  --radius-md:14px;
+  --radius-sm:10px;
+  --sidebar-width:232px;
+  --header-height:80px;
+  font-size:var(--ui-size);
+}
+:root, body[data-theme='light'] {
+  color-scheme:light;
+  --primary:#00857f;
+  --primary-hover:#006e6a;
+  --primary-text:#fff;
+  --primary-subtle:rgba(75,224,204,.17);
+  --primary-glow:rgba(0,157,146,.18);
+  --action-gradient:linear-gradient(145deg,#009d94,#007b79 70%,#006d74);
+  --bg:#d7f0f3;
+  --panel-rgb:255,255,255;
+  --panel-subtle-rgb:231,244,249;
+  --text:#102238;
+  --text-muted:#52677b;
+  --border:rgba(117,152,186,.25);
+  --border-highlight:rgba(255,255,255,.94);
+  --kanji:#6653ab;
+  --katakana:#086f69;
+  --hiragana:#87551b;
+  --success:#08795e;
+  --success-bg:rgba(60,174,133,.13);
+  --danger:#b33e55;
+  --danger-bg:rgba(202,86,111,.12);
+  --warning:#916018;
+  --ex-ok:#08795e;
+  --ex-bad:#b33e55;
+  --ex-warn:#916018;
+  --background-wash:rgba(248,253,255,.04);
+  --shadow-sm:0 4px 14px rgba(51,125,158,.045),inset 0 1px 0 rgba(255,255,255,.9);
+  --shadow-md:0 16px 40px rgba(59,131,176,.09),inset 0 1px 0 rgba(255,255,255,.95);
+  --shadow-lg:0 20px 64px rgba(57,125,165,.12),inset 0 0 0 1px rgba(255,255,255,.35);
+  --shadow-card:0 18px 50px rgba(59,131,176,.1),inset 0 1px 0 rgba(255,255,255,.95);
+}
+:root[data-theme='dark'], body[data-theme='dark'] {
+  color-scheme:dark;
+  --primary:#79e4d6;
+  --primary-hover:#a0f1e7;
+  --primary-text:#082f35;
+  --primary-subtle:rgba(85,218,197,.16);
+  --primary-glow:rgba(85,218,197,.17);
+  --action-gradient:linear-gradient(145deg,#94ebdc,#5dd5cb 70%,#7adbdc);
+  --bg:#102435;
+  --panel-rgb:20,40,59;
+  --panel-subtle-rgb:33,57,77;
+  --text:#eaf3f8;
+  --text-muted:#b7cad5;
+  --border:rgba(172,201,219,.2);
+  --border-highlight:rgba(219,242,255,.16);
+  --kanji:#cbc1ff;
+  --katakana:#8de0cd;
+  --hiragana:#efc782;
+  --success:#8de0bd;
+  --success-bg:rgba(73,168,135,.18);
+  --danger:#ffb3c2;
+  --danger-bg:rgba(218,112,137,.16);
+  --warning:#efc782;
+  --ex-ok:#8de0bd;
+  --ex-bad:#ffb3c2;
+  --ex-warn:#efc782;
+  --background-wash:rgba(5,21,38,.78);
+  --shadow-sm:0 3px 12px rgba(0,0,0,.12),inset 0 1px 0 rgba(221,241,255,.06);
+  --shadow-md:0 14px 38px rgba(0,0,0,.15),inset 0 1px 0 rgba(221,241,255,.06);
+  --shadow-lg:0 24px 70px rgba(0,0,0,.28),inset 0 1px 0 rgba(221,241,255,.1);
+  --shadow-card:0 22px 54px rgba(0,0,0,.2),inset 0 1px 0 rgba(221,241,255,.1);
+}
+body {
+  --surface:rgba(var(--panel-rgb),max(.78,var(--glass-alpha)));
+  --surface-strong:rgba(var(--panel-rgb),max(.9,var(--glass-alpha)));
+  --surface-subtle:rgba(var(--panel-subtle-rgb),max(.58,var(--glass-alpha)));
+  --surface-nav:rgba(var(--panel-rgb),var(--glass-alpha));
+  --preview-mint:linear-gradient(130deg,#ccefe4,#e2edf8 55%,#ede5fa);
+  --preview-sakura:linear-gradient(135deg,#f4d9e5,#f5e9e4 50%,#e9ddfa);
+  --preview-ocean:linear-gradient(130deg,#c5e4ed,#daedf8 50%,#e2e0f5);
+}

@@ -1,7 +1,8 @@
-/* Mobile presentation only: preserve original controls, data and desktop layout. */
+/* Responsive presentation: move the original controls and preserve study state. */
 (() => {
   "use strict";
   const mq = matchMedia("(max-width: 760px)"),
+    compactPickers = matchMedia("(max-width: 1180px)"),
     $ = (id) => document.getElementById(id);
   const names = {
     flashcard: "Thẻ ghi nhớ",
@@ -24,7 +25,10 @@
   const tabs = document.querySelector(".mode-tabs"),
     buttons = [...tabs.querySelectorAll("[data-mode]")],
     states = new Map();
+  const compactStudyFolds = new Set(["grammar-setup", "quiz-map"]);
   let queued = false,
+    navigationIsMobile = mq.matches,
+    pickersAreCompact = compactPickers.matches,
     listLimit = 50,
     listFirst = null,
     listCount = 0;
@@ -35,40 +39,34 @@
   more.setAttribute("aria-haspopup", "dialog");
   more.setAttribute("aria-controls", "mobileMenu");
   more.setAttribute("aria-label", "Các chế độ khác");
+  more.setAttribute("aria-expanded", "false");
   more.innerHTML =
-    '<span class="mobile-nav-symbol" aria-hidden="true">•••</span><span class="mobile-more-label">Khác</span>';
+    '<span class="mobile-nav-symbol" aria-hidden="true"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg></span><span class="mobile-more-label">Khác</span>';
   const menu = document.createElement("dialog");
   menu.id = "mobileMenu";
   menu.className = "mobile-menu";
   menu.setAttribute("aria-labelledby", "mobileMenuTitle");
   menu.innerHTML =
-    '<div class="mobile-menu-head"><div><p>DEKIRU MASTER</p><h2 id="mobileMenuTitle">Bạn muốn học gì?</h2></div><button type="button" class="mobile-menu-close" aria-label="Đóng menu">×</button></div><div class="mobile-menu-items"></div><p class="mobile-menu-note">Đổi chế độ không xóa bài đang làm.</p>';
+    '<div class="mobile-menu-head"><div><p>DEKIRU MASTER</p><h2 id="mobileMenuTitle">Bạn muốn học gì?</h2></div><button type="button" class="mobile-menu-close" aria-label="Đóng menu"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button></div><div class="mobile-menu-items"></div><p class="mobile-menu-note">Đổi chế độ không xóa bài đang làm.</p>';
   document.body.append(menu);
   StudyDialogs.trap(menu);
   tabs.setAttribute("aria-label", "Các chế độ học");
-  tabs.setAttribute("role", "navigation");
-  const symbols = {
-    flashcard: "▱",
-    reading: "▤",
-    grammar: "文",
-    exam: "☑",
-    quiz: "✎",
-    list: "≡",
-    kanji: "字",
-  };
   buttons.forEach((b) => {
-    const original = document.createElement("span");
-    original.className = "desktop-tab-label";
-    while (b.firstChild) original.append(b.firstChild);
-    b.append(original);
     const label = document.createElement("span");
     label.className = "mobile-tab-label";
-    label.innerHTML = `<span class="mobile-nav-symbol" aria-hidden="true">${symbols[b.dataset.mode]}</span><span>${names[b.dataset.mode]}</span>`;
+    const symbol = document.createElement("span");
+    symbol.className = "mobile-nav-symbol";
+    symbol.setAttribute("aria-hidden", "true");
+    symbol.append(b.querySelector(".nav-icon").cloneNode(true));
+    const name = document.createElement("span");
+    name.textContent = names[b.dataset.mode];
+    label.append(symbol, name);
     b.append(label);
     b.setAttribute("aria-label", names[b.dataset.mode]);
   });
   more.onclick = () => {
     menu.showModal();
+    more.setAttribute("aria-expanded", "true");
     menu.querySelector(".mobile-menu-close").focus();
   };
   menu.querySelector(".mobile-menu-close").onclick = () => menu.close();
@@ -85,11 +83,10 @@
     }
   });
   menu.addEventListener("close", () => {
+    more.setAttribute("aria-expanded", "false");
     if (mq.matches) more.focus({ preventScroll: true });
   });
-  const crumb = document.createElement("span");
-  crumb.className = "mobile-mode-name";
-  document.querySelector(".brand-title").append(crumb);
+  const crumb = $("mobileAreaName");
   function heading(parent, key) {
     const h = document.createElement("div");
     h.className = "mobile-page-heading";
@@ -142,9 +139,18 @@
     d._mobileDefault = initialOpen;
     setText(strong, typeof title === "function" ? title() : title);
     setText(hint, typeof caption === "function" ? caption() : caption);
-    d.open = !mq.matches || (states.get(key) ?? initialOpen);
+    const compact =
+      compactStudyFolds.has(key) ||
+      mq.matches ||
+      (kind === "picker" && compactPickers.matches);
+    d.open = !compact || (states.get(key) ?? initialOpen);
     d.addEventListener("toggle", () => {
-      if (mq.matches) states.set(key, d.open);
+      if (
+        compactStudyFolds.has(key) ||
+        mq.matches ||
+        (d.dataset.mobilePicker === "true" && compactPickers.matches)
+      )
+        states.set(key, d.open);
     });
     return d;
   }
@@ -295,9 +301,12 @@
     }
   };
   function responsive() {
+    navigationIsMobile = mq.matches;
+    pickersAreCompact = compactPickers.matches;
     if (menu.open) menu.close();
     if (mq.matches) {
       document.querySelector("main").before(tabs);
+      $("mobileAppearanceHost").append($("appearanceToggle"));
       ["flashcard", "reading", "grammar", "exam"].forEach((mode) =>
         tabs.append(buttons.find((b) => b.dataset.mode === mode)),
       );
@@ -308,13 +317,18 @@
           .append(buttons.find((b) => b.dataset.mode === mode)),
       );
     } else {
-      document.querySelector(".nav-controls").prepend(tabs);
+      $("sidebarNavigation").append(tabs);
+      $("sidebarFooter").prepend($("appearanceToggle"));
       buttons.forEach((b) => tabs.append(b));
       more.remove();
     }
     document.querySelectorAll(".mobile-fold").forEach((d) => {
+      const compact =
+        compactStudyFolds.has(d.dataset.mobileKey) ||
+        mq.matches ||
+        (d.dataset.mobilePicker === "true" && compactPickers.matches);
       d.open =
-        !mq.matches ||
+        !compact ||
         (states.get(d.dataset.mobileKey) ?? d._mobileDefault ?? false);
     });
     update();
@@ -514,7 +528,7 @@
           "[data-reading], [data-kanji-word], [data-gr-unit]",
         ),
         d = e.target.closest("[data-mobile-picker]");
-      if (!mq.matches || !b || !d) return;
+      if (!(mq.matches || compactPickers.matches) || !b || !d) return;
       const mode = currentMode;
       setTimeout(() => {
         d.open = false;
@@ -546,7 +560,15 @@
     },
   };
   mq.addEventListener("change", responsive);
-  window.addEventListener("resize", schedule);
+  compactPickers.addEventListener("change", responsive);
+  window.addEventListener("resize", () => {
+    if (
+      navigationIsMobile !== mq.matches ||
+      pickersAreCompact !== compactPickers.matches
+    )
+      responsive();
+    schedule();
+  });
   window.visualViewport?.addEventListener("resize", () => {
     const editing = document.activeElement?.matches(
       "input:not([type=checkbox]):not([type=radio]),textarea,select",

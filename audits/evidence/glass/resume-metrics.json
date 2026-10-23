@@ -1,0 +1,134 @@
+{
+  "dom": 2117,
+  "resources": [
+    {
+      "path": "/dekiru-nihongo/assets/appearance-init.js",
+      "bytes": 2483
+    },
+    {
+      "path": "/dekiru-nihongo/assets/fonts/PlusJakartaSans-latin.woff2",
+      "bytes": 45800
+    },
+    {
+      "path": "/dekiru-nihongo/assets/fonts/NotoSansJP-study.woff2",
+      "bytes": 418636
+    },
+    {
+      "path": "/dekiru-nihongo/assets/tokens.css",
+      "bytes": 3397
+    },
+    {
+      "path": "/dekiru-nihongo/assets/app.css",
+      "bytes": 13866
+    },
+    {
+      "path": "/dekiru-nihongo/assets/study.css",
+      "bytes": 40168
+    },
+    {
+      "path": "/dekiru-nihongo/assets/mobile.css",
+      "bytes": 20844
+    },
+    {
+      "path": "/dekiru-nihongo/assets/shell.css",
+      "bytes": 26339
+    },
+    {
+      "path": "/dekiru-nihongo/assets/pickers.css",
+      "bytes": 5181
+    },
+    {
+      "path": "/dekiru-nihongo/assets/streak.css",
+      "bytes": 5848
+    },
+    {
+      "path": "/dekiru-nihongo/assets/appearance.css",
+      "bytes": 8783
+    },
+    {
+      "path": "/dekiru-nihongo/data/vocabulary.js",
+      "bytes": 130522
+    },
+    {
+      "path": "/dekiru-nihongo/assets/logo.svg",
+      "bytes": 3641
+    },
+    {
+      "path": "/dekiru-nihongo/data/audio.js",
+      "bytes": 59802
+    },
+    {
+      "path": "/dekiru-nihongo/assets/audio.js",
+      "bytes": 7264
+    },
+    {
+      "path": "/dekiru-nihongo/data/meaning-groups.js",
+      "bytes": 4454
+    },
+    {
+      "path": "/dekiru-nihongo/assets/quiz-core.js",
+      "bytes": 2117
+    },
+    {
+      "path": "/dekiru-nihongo/assets/dialogs.js",
+      "bytes": 2271
+    },
+    {
+      "path": "/dekiru-nihongo/assets/streak-core.js",
+      "bytes": 3498
+    },
+    {
+      "path": "/dekiru-nihongo/assets/streak.js",
+      "bytes": 9819
+    },
+    {
+      "path": "/dekiru-nihongo/assets/loader.js",
+      "bytes": 3763
+    },
+    {
+      "path": "/dekiru-nihongo/assets/attempt-store.js",
+      "bytes": 11571
+    },
+    {
+      "path": "/dekiru-nihongo/assets/appearance.js",
+      "bytes": 24200
+    },
+    {
+      "path": "/dekiru-nihongo/assets/presentation.js",
+      "bytes": 1790
+    },
+    {
+      "path": "/dekiru-nihongo/assets/mobile.js",
+      "bytes": 21311
+    },
+    {
+      "path": "/dekiru-nihongo/assets/app.js",
+      "bytes": 36167
+    },
+    {
+      "path": "/dekiru-nihongo/assets/backgrounds/mint.svg",
+      "bytes": 3131
+    },
+    {
+      "path": "/dekiru-nihongo/data/grammar.js",
+      "bytes": 43129
+    },
+    {
+      "path": "/dekiru-nihongo/assets/exams.css",
+      "bytes": 14517
+    },
+    {
+      "path": "/dekiru-nihongo/data/exams.js",
+      "bytes": 518025
+    },
+    {
+      "path": "/dekiru-nihongo/assets/exam-core.js",
+      "bytes": 9134
+    },
+    {
+      "path": "/dekiru-nihongo/assets/exams.js",
+      "bytes": 61589
+    }
+  ],
+  "documentBytes": 38040
+}

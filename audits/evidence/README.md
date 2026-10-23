@@ -55,3 +55,7 @@ Không ghi nhận lỗi JavaScript chưa xử lý trong các luồng đã chạy
 | Luyện đề | [Xem](after-native-zoom-200-exam-light.png) | [Xem](after-native-zoom-200-exam-dark.png) |
 
 [Thông số zoom thật](native-zoom.json) khác [ảnh mô phỏng reflow](after-reflow-200-percent.png). Đã tự xem ảnh thẻ, bài đọc, ngữ pháp, đề/kết quả, sáng/tối ở mobile/desktop/zoom. Phát hiện và sửa nút thẻ bị che, nhãn lỗi mã hóa, phần đầu bài đọc dài và điểm kết quả bị cuộn khuất. Chữ Nhật đọc được, nguồn PDF/controls vẫn truy cập được; nội dung dài cuộn dọc bình thường. Không dùng tiêu chí không tràn ngang làm bằng chứng duy nhất.
+
+## Ảnh minh chứng giao diện
+
+Repo giữ ảnh đại diện được liên kết trong các báo cáo liquid glass, đối chiếu ảnh mẫu, sửa không gian học và streak, cùng số đo/log kiểm thử. Ma trận ảnh chạy test đầy đủ được giữ tại máy và có thể tái tạo bằng các script kiểm thử; ảnh tự sinh không được thêm tự động vào Git.

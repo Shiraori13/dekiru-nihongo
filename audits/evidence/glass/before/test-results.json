@@ -1,0 +1,26 @@
+[
+  {
+    "test": "check_mobile.py",
+    "code": 0,
+    "seconds": 21.0,
+    "output": "PASS: mobile geometry/navigation, 7 modes, pickers/filters, progressive list, reading hints and panels, writing, grammar/quiz/exam flows, review disclosures, 320/390/430/740 light/dark, desktop restoration and Firefox.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T04:49:07.367657+00:00"
+  },
+  {
+    "test": "check_flashcard_keyboard.py",
+    "code": 0,
+    "seconds": 3.0,
+    "output": "PASS: card shortcuts, focused controls, stable order, repeat protection, input isolation, light/dark rendering.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T04:49:10.380963+00:00"
+  },
+  {
+    "test": "check_regressions.py",
+    "code": 0,
+    "seconds": 5.5,
+    "output": "PASS: equivalent meanings; grammar cancel/continue/new preserve state; two tabs, takeover, stale legacy writes, new-attempt fencing, single history and owner close.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T04:49:15.881737+00:00"
+  }
+]

@@ -1,0 +1,90 @@
+[
+  {
+    "test": "check_ui_space.py",
+    "code": 0,
+    "seconds": 18.8,
+    "output": "PASS: single mobile labels/icons, original navigation, full-width stable study area, focus, partial quiz, file/Pages prefix.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T13:52:14.828016+00:00"
+  },
+  {
+    "test": "check_reference_ui.py",
+    "code": 0,
+    "seconds": 12.7,
+    "output": "PASS: reference geometry, teal selected answers/A-D, large offline typography, 5 widths light/dark, drawer focus/width, detailed image/UI20, unchanged quiz/data, saved old appearance, file:// and Pages prefix.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T13:52:27.522214+00:00"
+  },
+  {
+    "test": "check_glass_layout.py",
+    "code": 0,
+    "seconds": 46.0,
+    "output": "PASS: original 7 buttons and selection across breakpoints, 232px sidebar/compact rail/mobile nav, contextual titles, safe brand, 56 mode screenshots, 28 UI20px main-mode screenshots with text/control clipping checks, drawer and active/results light/dark screenshots, landscape and keyboard-height panel.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T13:53:13.572156+00:00"
+  },
+  {
+    "test": "check_zoom.py",
+    "code": 0,
+    "seconds": 9.2,
+    "output": "PASS: native 200% zoom on Chromium/Edge; 7 modes, light/dark, 720 CSS px / DPR 2 / viewport 1440; no overflow or JS errors.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T13:53:22.751596+00:00"
+  },
+  {
+    "test": "check_kanji.py",
+    "code": 0,
+    "seconds": 25.2,
+    "output": "PASS: 607 source mappings, 496 glyphs, all 45 topics, offline study, writing, persistence, mobile layout and custom quiz counts.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T13:53:47.961670+00:00"
+  },
+  {
+    "test": "check_delivery.py",
+    "code": 0,
+    "seconds": 38.2,
+    "output": "PASS: initial 954706 bytes / 650 DOM; lazy retry/race/dedup, 56 light/dark mode screenshots, 320/390/768/1440, 200% reflow emulation, Japanese glyph coverage, keyboard dialog and file://.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T13:54:31.184144+00:00"
+  },
+  {
+    "test": "check_study_layout.py",
+    "code": 0,
+    "seconds": 28.3,
+    "output": "PASS: full-width header/quiz, readable functional pickers, partial quiz preserved, daily streak dates/reload/tabs/storage/focus, static deployment.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T14:11:11.864499+00:00"
+  },
+  {
+    "test": "check_quiz.py",
+    "code": 0,
+    "seconds": 14.9,
+    "output": "PASS: progress, editable single answers, deferred grading, skipped questions, marked review, retries, tab resumption, immediate grading and 921-question scope.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T14:11:26.752584+00:00"
+  },
+  {
+    "test": "check_mobile.py",
+    "code": 0,
+    "seconds": 23.3,
+    "output": "PASS: mobile geometry/navigation, 7 modes, pickers/filters, progressive list, reading hints and panels, writing, grammar/quiz/exam flows, review disclosures, 320/390/430/740 light/dark, desktop restoration and Firefox.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T14:11:50.005028+00:00"
+  },
+  {
+    "test": "check_appearance.py",
+    "code": 0,
+    "seconds": 14.7,
+    "output": "PASS: mouse/keyboard drawer, focus return, legacy theme and D shortcut, presets/sliders/fonts, image validation/Blob persistence/resize/revoke, storage failures, reset isolation, live quiz/grammar/exam preservation, file:// and Pages prefix.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T14:12:04.676844+00:00"
+  },
+  {
+    "test": "check_flashcard_keyboard.py",
+    "code": 0,
+    "seconds": 4.4,
+    "output": "PASS: card shortcuts, focused controls, stable order, repeat protection, input isolation, light/dark rendering.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T14:12:09.041609+00:00"
+  }
+]

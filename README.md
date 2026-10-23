@@ -4,6 +4,14 @@ Website: https://shiraori13.github.io/dekiru-nihongo/
 
 Bản hiệu đính 22–23/10/2026: [báo cáo triển khai, kiểm thử và ảnh trước/sau](IMPLEMENTATION_REPORT.md), [audit đáp án theo ID](audits/answers.md). Hiện có 921 thẻ, 71 bài đọc, 666 bài ngữ pháp và **8 đề / 360 câu luyện đề**, gồm [4 đề mới chuyên bài 6–7](audits/CHAPTER67_EXAMS.md).
 
+Bản giao diện liquid glass: sidebar trái trên desktop, thanh điều hướng đáy trên mobile, font Việt/Nhật cục bộ và bảng **Giao diện** để đổi sáng/tối, nền có sẵn/ảnh cá nhân, độ đậm/độ mờ kính và cỡ chữ. [Thiết kế, bằng chứng kiểm thử và ảnh trước/sau](audits/GLASS_UI_REPORT.md). Mở nút Giao diện ở cuối sidebar hoặc biểu tượng bảng màu trên điện thoại; phím **D** đổi sáng/tối khi không nhập liệu. Khôi phục giao diện chỉ đặt lại phần nhìn, giữ bài đang làm và tiến độ.
+
+Đã tinh chỉnh theo ảnh mẫu: nền dải cong pastel, logo mint lớn, header nổi, nút teal, đáp án 18–22 px và bảng tùy chỉnh 350 px. [Đối chiếu thị giác, ảnh cùng trạng thái và kiểm thử](audits/REFERENCE_UI_REPORT.md).
+
+Hiệu chỉnh sau trải nghiệm: sửa menu mobile lặp nhãn/icon; bảng Giao diện luôn nổi phủ, không co giãn hay chừa cột ở vùng học. Flashcard tận dụng chiều rộng PC. [Nguyên nhân, ảnh và kiểm thử](audits/UI_SPACE_FIX.md).
+
+Header tận dụng chiều rộng cho tìm kiếm, streak và nút sáng/tối; khung làm quiz/kết quả dùng hết vùng học. Bộ chọn Hán tự/ngữ pháp rộng 290–340 px trên desktop, chữ và thẻ lựa chọn rõ hơn; màn hẹp giữ bộ chọn thu gọn. **Streak** tính một lần mỗi ngày truy cập theo lịch thiết bị, tự lưu trên trình duyệt; bấm ngọn lửa để xem chuỗi hiện tại, kỷ lục và lịch 14 ngày. Bỏ một ngày sẽ bắt đầu chuỗi mới; không đồng bộ thiết bị. [Chi tiết và bằng chứng](audits/STUDY_LAYOUT_STREAK.md).
+
 Mở `index.html` bằng trình duyệt để học và luyện đề. Giữ các thư mục `assets`, `data`, `sources`, `Material` cùng cấp với file HTML khi sao chép hoặc đưa lên hosting. `Material` chứa ảnh gốc để đối chiếu đề mẫu. `index - Back_up.html` là bản cũ được giữ nguyên tại máy, không đưa lên repo.
 
 - **Thẻ ghi nhớ / Kiểm tra / Danh sách:** 921 thẻ, 15 bài, 45 chủ đề. Bộ lọc và tìm kiếm tiếng Việt không dấu.
@@ -21,7 +29,7 @@ Mở `index.html` bằng trình duyệt để học và luyện đề. Giữ cá
 - Bài kiểm tra **từ vựng** giữ nguyên khi đổi chế độ/bộ lọc; thiết lập bài mới có xác nhận nếu chưa nộp. Quiz từ vựng chưa lưu qua tải lại trang. Ngữ pháp lưu câu, phương án, lựa chọn và gợi ý; tạo bài mới cũng cần xác nhận.
 - **Một tab sửa luyện đề:** tab khác chỉ xem; dùng “Tiếp tục ở tab này” để chuyển quyền. Trạng thái kiểm tra bằng transaction IndexedDB, ID lượt và revision; localStorage v1 chỉ là bản chiếu. Sau cập nhật nội dung, chỉ giữ đáp án còn tương thích và có thông báo nếu cần trả lời lại. Khi lưu bị chặn, hiển thị đúng giới hạn phiên hiện tại.
 - Tiến độ, gợi ý và bài đọc gần nhất được lưu trong trình duyệt. Phát âm dùng **1.178 MP3 đi kèm website**, hoạt động trên Firefox/Edge mà không cần cài giọng Nhật. Giọng thiết bị chỉ là dự phòng khi thiếu file; có thông báo khi bị chặn quyền hoặc không phát được. [Nguồn giọng tổng hợp và cách tạo file cục bộ](assets/audio/README.md).
-- Nội dung, dữ liệu và font tiếng Nhật Noto Sans JP chạy cục bộ. Font giao diện Plus Jakarta Sans tải từ Google Fonts; khi ngoại tuyến phần tiếng Việt dùng font hệ thống.
+- Nội dung, dữ liệu, font tiếng Nhật Noto Sans JP và font Việt Plus Jakarta Sans đều được đóng gói cục bộ. Không cần tải font từ Google; nguồn và giấy phép ở [assets/fonts/README.md](assets/fonts/README.md).
 
 Chi tiết đối chiếu: [VOCABULARY_AUDIT.md](VOCABULARY_AUDIT.md).
 
@@ -42,6 +50,9 @@ Các thay đổi cụ thể so với bản trước trên repo: [CHANGELOG.md](C
 - `scripts/exam_solutions.py`: lời giải biên soạn cho 180 câu, quy tắc và lý do loại từng phương án; chạy cùng `build_exams.py`, không cần dịch vụ ngoài.
 - `assets/exam-core.js`, `assets/exams.js`, `assets/exams.css`: kiểm tra định dạng file, bộ nhớ IndexedDB, chấm điểm, làm đề và trình nhập đề/ảnh. Không cần máy chủ ứng dụng.
 - `assets/mobile.css`, `assets/mobile.js`: bố cục và điều hướng ở màn hình ≤760 px; dùng lại điều khiển cũ, không có bộ dữ liệu/đáp án riêng cho mobile.
+- `assets/tokens.css`, `assets/shell.css`: biến giao diện dùng chung, sidebar/header, bố cục thích ứng và chất liệu kính; `assets/presentation.js`: chỉ điều chỉnh số cột đáp án theo độ dài chữ.
+- `assets/appearance-init.js`, `assets/appearance.js`, `assets/appearance.css`: áp dụng theme sớm, bảng tùy chỉnh và lưu ảnh Blob ở IndexedDB riêng. Cấu hình nhỏ dùng `dekiru_appearance_v1`/`dekiru_theme`; ảnh nằm trong database `dekiru_appearance_v1`, không cùng kho bài làm.
+- `assets/pickers.css`: thẻ lựa chọn Hán tự/ngữ pháp và bố cục thích ứng. `assets/streak-core.js`, `assets/streak.js`, `assets/streak.css`: lịch truy cập cục bộ; từng ngày là khóa `dekiru_visit_v1:YYYY-MM-DD`, độc lập với đáp án, tiến độ và Giao diện.
 - `assets/audio.js`, `data/audio.js`, `assets/audio/`: bộ phát dùng chung, ánh xạ và MP3 cục bộ. Khi sao chép hoặc deploy phải giữ đầy đủ các file này.
 - `data/kanji-source.json`, `data/kanji-meanings.tsv`: cách viết gốc trong PDF, âm Hán Việt được chọn và nghĩa gợi nhớ. [Nguồn, giấy phép và cách tạo dữ liệu Hán tự](sources/kanji/README.md).
 - `sources/`: hai tài liệu PDF do người dùng cung cấp.
@@ -59,8 +70,7 @@ python -m pip install -r requirements-dev.txt
 python -m playwright install chromium firefox
 npm ci --ignore-scripts
 $env:DEKIRU_BROWSER='chromium'
-node tests/check_logic.js
-node tests/check_chapter67.js
+npm run test:logic
 python tests/run_checks.py
 npm run format:check
 ```
@@ -85,6 +95,9 @@ python tests/check_attempt_store.py
 python tests/check_imported_tabs.py
 python tests/check_delivery.py
 python tests/check_zoom.py
+python tests/check_appearance.py
+python tests/check_glass_layout.py
+python tests/check_study_layout.py
 ```
 
 Kiểm thử dùng trình duyệt ẩn với hồ sơ riêng. Ảnh hồi quy ở `.work`; ma trận bàn giao và số đo ở `audits/evidence`. Bộ cũ yêu cầu tải các phần trước các kiểm tra bao phủ toàn dữ liệu; bộ `check_delivery.py` riêng kiểm tra tải theo thao tác thực tế, lỗi/thử lại, đổi chế độ nhanh, `file://` và đường dẫn như GitHub Pages.

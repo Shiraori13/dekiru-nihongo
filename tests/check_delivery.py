@@ -1,12 +1,12 @@
 """Unpatched user flows: lazy loading/retry/races, layouts, glyphs and file URLs."""
-import sys, http.server, threading, json, re
+import sys, os, http.server, threading, json, re
 from pathlib import Path
 from functools import partial
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'.tools'))
 from playwright.sync_api import sync_playwright
 from fontTools.ttLib import TTFont
 from browser_support import launch
-OUT=ROOT/'audits/evidence';OUT.mkdir(parents=True,exist_ok=True)
+OUT=ROOT/os.environ.get('DEKIRU_EVIDENCE_DIR','audits/evidence/glass');OUT.mkdir(parents=True,exist_ok=True)
 class Quiet(http.server.SimpleHTTPRequestHandler):
     def log_message(self,*args):pass
     def translate_path(self,path):

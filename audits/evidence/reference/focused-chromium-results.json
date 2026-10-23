@@ -1,0 +1,18 @@
+[
+  {
+    "test": "check_quiz.py",
+    "code": 0,
+    "seconds": 14.3,
+    "output": "PASS: progress, editable single answers, deferred grading, skipped questions, marked review, retries, tab resumption, immediate grading and 921-question scope.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T12:08:19.498762+00:00"
+  },
+  {
+    "test": "check_reference_ui.py",
+    "code": 0,
+    "seconds": 15.0,
+    "output": "PASS: reference geometry, teal selected answers/A-D, large offline typography, 5 widths light/dark, drawer focus/width, detailed image/UI20, unchanged quiz/data, saved old appearance, file:// and Pages prefix.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T12:13:59.780209+00:00"
+  }
+]

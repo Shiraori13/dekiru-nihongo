@@ -1,5 +1,11 @@
 # Bàn giao Dekiru Master — 22–23/10/2026
 
+**Cập nhật header và ôn tập:** [streak thật theo ngày truy cập, quiz toàn chiều rộng và bộ chọn bài dễ đọc hơn](audits/STUDY_LAYOUT_STREAK.md). Bằng chứng của đợt này được lưu riêng; thay đổi vẫn ở workspace, chưa commit/push/deploy.
+
+**Theo ảnh mẫu mới nhất:** [đợt hoàn thiện thị giác, teal và typography](audits/REFERENCE_UI_REPORT.md), có ảnh quiz trước/sau cùng câu hỏi và lựa chọn. Thay đổi hiện ở workspace chưa commit/push/deploy.
+
+**Giao diện mới:** xem [báo cáo liquid glass, tùy chỉnh giao diện và bằng chứng riêng](audits/GLASS_UI_REPORT.md). Các số đo và trạng thái phát hành trong phần bên dưới là hồ sơ lịch sử của đợt hiệu đính trước, không phải số đo hay trạng thái của diff giao diện hiện tại.
+
 **Cập nhật tiếp theo:** đã bổ sung [4 đề bài 6–7 / 180 câu](audits/CHAPTER67_EXAMS.md), nâng ngân hàng luyện đề lên 8 đề/360 câu. Báo cáo và số đo bên dưới ghi nhận mốc hiệu đính trước lần mở rộng này; bằng chứng của phần mới được lưu riêng.
 
 Đã sửa chấm nghĩa tương đương, bảo vệ tiến độ nhiều tab và xác nhận trước khi thay bài; hoàn thiện giao diện mobile, font Nhật và tải theo chế độ. **16 bộ kiểm thử Python, logic Node và kiểm tra định dạng đều đạt** trong môi trường đã ghi bên dưới. Bản sửa ở workspace, chưa commit/push/deploy.

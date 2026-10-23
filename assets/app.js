@@ -184,6 +184,85 @@ function onFilterChange() {
 }
 
 let modeRequest = 0;
+const AREA_CONTEXT = {
+  flashcard: {
+    title: "Thẻ ghi nhớ",
+    subtitle: "Ghi nhớ từ mới, theo nhịp của bạn.",
+    search: "searchBox",
+    scope: "từ vựng",
+  },
+  quiz: {
+    title: "Kiểm tra từ vựng",
+    subtitle: "Chọn mục tiêu, luyện tập và theo dõi kết quả.",
+    search: "searchBox",
+    scope: "từ vựng",
+  },
+  list: {
+    title: "Danh sách từ vựng",
+    subtitle: "Tra chữ, cách đọc và nghĩa trong từng bài học.",
+    search: "searchBox",
+    scope: "từ vựng",
+  },
+  reading: {
+    title: "Luyện đọc",
+    subtitle: "Đọc, nghe và hiểu thêm từng câu tiếng Nhật.",
+    search: "readingSearch",
+    scope: "bài đọc",
+  },
+  kanji: {
+    title: "Hán tự",
+    subtitle: "Hiểu chữ, nhớ từ và luyện từng nét viết.",
+    search: "kanjiSearch",
+    scope: "Hán tự",
+  },
+  grammar: {
+    title: "Ngữ pháp",
+    subtitle: "Nắm mẫu câu, luyện cách dùng trong ngữ cảnh.",
+    search: "grSearch",
+    scope: "mẫu câu",
+  },
+  exam: {
+    title: "Luyện đề",
+    subtitle: "Làm bài theo nhịp của bạn, xem lại để tiến bộ.",
+  },
+};
+
+function updateShellContext() {
+  const context = AREA_CONTEXT[currentMode];
+  document.getElementById("studyShortcuts").hidden = ![
+    "flashcard",
+    "quiz",
+  ].includes(currentMode);
+  document.getElementById("areaTitle").textContent = context.title;
+  document.getElementById("areaSubtitle").textContent = context.subtitle;
+  document.getElementById("mobileAreaName").textContent = context.title;
+  const button = document.getElementById("contextSearchToggle");
+  const target = context.search && document.getElementById(context.search);
+  button.hidden = !target || (currentMode === "quiz" && quizState !== "setup");
+  if (target) {
+    const label = `Tìm trong ${context.scope}`;
+    document.getElementById("contextSearchLabel").textContent = label;
+    button.setAttribute("aria-label", label);
+    button.setAttribute("title", label);
+    button.setAttribute("aria-controls", target.id);
+  } else button.removeAttribute("aria-controls");
+}
+
+function focusContextSearch() {
+  if (document.getElementById("contextSearchToggle").hidden) return;
+  const context = AREA_CONTEXT[currentMode];
+  const input = context.search && document.getElementById(context.search);
+  if (!input) return;
+  for (let parent = input.parentElement; parent; parent = parent.parentElement)
+    if (parent.tagName === "DETAILS") parent.open = true;
+  input.scrollIntoView({ block: "center", behavior: "instant" });
+  input.focus({ preventScroll: true });
+}
+
+function returnToFlashcards() {
+  if (currentMode !== "flashcard") switchMode("flashcard");
+}
+
 async function switchMode(mode) {
   if (
     ![
@@ -224,6 +303,7 @@ async function switchMode(mode) {
       ].includes(mode)),
   );
   updateUI();
+  updateShellContext();
   window.MobileUI?.modeChanged(mode);
   const status = document.getElementById("featureStatus");
   status.hidden = true;
@@ -234,6 +314,7 @@ async function switchMode(mode) {
       await FeatureLoader.ensure(mode);
       if (request !== modeRequest) return;
       status.hidden = true;
+      updateShellContext();
       window.MobileUI?.modeChanged(mode);
     } catch (error) {
       if (request !== modeRequest) return;
@@ -390,10 +471,12 @@ function showQuizSetup(confirmed = false) {
 }
 
 function syncQuizChrome() {
+  document.getElementById("quizMode").dataset.state = quizState;
   if (currentMode === "quiz") {
     ["vocabIntro", "vocabFilters", "vocabCoverage"].forEach(
       (id) => (document.getElementById(id).hidden = quizState !== "setup"),
     );
+    updateShellContext();
   }
 }
 
@@ -538,7 +621,9 @@ function beginQuizAttempt() {
   document.getElementById("quizResult").style.display = "none";
   syncQuizChrome();
   renderQuizQuestion();
+  window.MobileUI?.modeChanged("quiz");
   document.getElementById("quizProgress").focus({ preventScroll: true });
+  window.scrollTo({ top: 0, behavior: "instant" });
 }
 
 function retryQuiz() {
@@ -850,18 +935,8 @@ function updateUI() {
 
 /* THEME TOGGLE */
 function toggleTheme() {
-  const isDark = document.body.getAttribute("data-theme") === "dark";
-  const newTheme = isDark ? "light" : "dark";
-  document.body.setAttribute("data-theme", newTheme);
-  document.getElementById("themeToggle").textContent = isDark ? "🌙" : "☀️";
-  safeSet("dekiru_theme", newTheme);
+  window.Appearance.toggleTheme();
 }
-
-// Khởi tạo Theme
-const savedTheme = safeGet("dekiru_theme", "light");
-document.body.setAttribute("data-theme", savedTheme);
-document.getElementById("themeToggle").textContent =
-  savedTheme === "dark" ? "☀️" : "🌙";
 
 /* KEYBOARD SHORTCUTS */
 document.addEventListener("keydown", (e) => {
@@ -872,7 +947,8 @@ document.addEventListener("keydown", (e) => {
     e.ctrlKey ||
     e.altKey ||
     e.metaKey ||
-    e.shiftKey
+    e.shiftKey ||
+    document.querySelector("dialog[open]")
   )
     return;
   if (
@@ -880,6 +956,13 @@ document.addEventListener("keydown", (e) => {
     target.closest('input, select, textarea, [role="textbox"]')
   )
     return;
+
+  // D is available on ordinary controls, while typing/dialogs stay isolated.
+  if (e.key.toLowerCase() === "d") {
+    e.preventDefault();
+    if (!e.repeat) toggleTheme();
+    return;
+  }
 
   // Override native Enter activation on card controls, including Shuffle.
   // Space still activates focused buttons for keyboard accessibility.
@@ -900,9 +983,7 @@ document.addEventListener("keydown", (e) => {
   }
   if (nativeControl) return;
 
-  if (e.key.toLowerCase() === "d") {
-    toggleTheme();
-  } else if (currentMode === "flashcard") {
+  if (currentMode === "flashcard") {
     if (e.key.toLowerCase() === "a") {
       playAudioCurrent();
     } else if (e.key.toLowerCase() === "s") {
@@ -914,6 +995,7 @@ document.addEventListener("keydown", (e) => {
 // Chạy ứng dụng
 initLessons();
 onFilterChange();
+updateShellContext();
 
 AttemptStore.hasActive()
   .then((active) => {

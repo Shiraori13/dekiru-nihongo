@@ -1,0 +1,4453 @@
+{
+  "layouts": [
+    {
+      "width": 1920,
+      "theme": "light",
+      "mode": "flashcard",
+      "header": {
+        "header": {
+          "x": 264,
+          "y": 18,
+          "width": 1638,
+          "height": 82,
+          "right": 1902,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 265,
+          "y": 19,
+          "width": 1636,
+          "height": 80,
+          "right": 1901,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 289,
+          "y": 33,
+          "width": 1588,
+          "height": 52,
+          "right": 1877,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 289,
+          "y": 33,
+          "width": 1309.40625,
+          "height": 52,
+          "right": 1598.40625,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#streakButton": {
+          "x": 1608.40625,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 1727.0625,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 1737.0625,
+          "y": 34,
+          "width": 139.9375,
+          "height": 50,
+          "right": 1877,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      }
+    },
+    {
+      "width": 1920,
+      "theme": "light",
+      "mode": "quiz",
+      "header": {
+        "header": {
+          "x": 264,
+          "y": 18,
+          "width": 1638,
+          "height": 82,
+          "right": 1902,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 265,
+          "y": 19,
+          "width": 1636,
+          "height": 80,
+          "right": 1901,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 1608.40625,
+          "y": 34,
+          "width": 268.59375,
+          "height": 50,
+          "right": 1877,
+          "bottom": 84,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0,
+          "font": 17,
+          "display": "none"
+        },
+        "#streakButton": {
+          "x": 1608.40625,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 1727.0625,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 1737.0625,
+          "y": 34,
+          "width": 139.9375,
+          "height": 50,
+          "right": 1877,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      },
+      "quiz": {
+        "panel": {
+          "x": 264,
+          "y": 126,
+          "width": 1638,
+          "height": 815.453125,
+          "right": 1902,
+          "bottom": 941.453125,
+          "font": 17,
+          "display": "block"
+        },
+        "area": {
+          "x": 264,
+          "y": 126,
+          "width": 1638,
+          "height": 815.453125,
+          "right": 1902,
+          "bottom": 941.453125,
+          "font": 17,
+          "display": "block"
+        }
+      }
+    },
+    {
+      "width": 1920,
+      "theme": "light",
+      "mode": "kanji",
+      "header": {
+        "header": {
+          "x": 264,
+          "y": 18,
+          "width": 1638,
+          "height": 82,
+          "right": 1902,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 265,
+          "y": 19,
+          "width": 1636,
+          "height": 80,
+          "right": 1901,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 289,
+          "y": 33,
+          "width": 1588,
+          "height": 52,
+          "right": 1877,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 289,
+          "y": 33,
+          "width": 1309.40625,
+          "height": 52,
+          "right": 1598.40625,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#streakButton": {
+          "x": 1608.40625,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 1727.0625,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 1737.0625,
+          "y": 34,
+          "width": 139.9375,
+          "height": 50,
+          "right": 1877,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      },
+      "picker": {
+        "sidebar": {
+          "x": 264,
+          "y": 289.765625,
+          "width": 340,
+          "height": 767.96875,
+          "right": 604,
+          "bottom": 1057.734375,
+          "font": 17,
+          "display": "block"
+        },
+        "detail": {
+          "x": 628,
+          "y": 289.765625,
+          "width": 1274,
+          "height": 522.625,
+          "right": 1902,
+          "bottom": 812.390625,
+          "font": 17,
+          "display": "block"
+        },
+        "titleFont": 24,
+        "metadataFont": 14.96,
+        "selected": "来月"
+      }
+    },
+    {
+      "width": 1920,
+      "theme": "light",
+      "mode": "grammar",
+      "header": {
+        "header": {
+          "x": 264,
+          "y": 18,
+          "width": 1638,
+          "height": 82,
+          "right": 1902,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 265,
+          "y": 19,
+          "width": 1636,
+          "height": 80,
+          "right": 1901,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 289,
+          "y": 33,
+          "width": 1588,
+          "height": 52,
+          "right": 1877,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 289,
+          "y": 33,
+          "width": 1309.40625,
+          "height": 52,
+          "right": 1598.40625,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#streakButton": {
+          "x": 1608.40625,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 1727.0625,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 1737.0625,
+          "y": 34,
+          "width": 139.9375,
+          "height": 50,
+          "right": 1877,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      },
+      "picker": {
+        "sidebar": {
+          "x": 264,
+          "y": 98,
+          "width": 340,
+          "height": 744.546875,
+          "right": 604,
+          "bottom": 842.546875,
+          "font": 17,
+          "display": "block"
+        },
+        "detail": {
+          "x": 628,
+          "y": -11.546875,
+          "width": 1274,
+          "height": 910.015625,
+          "right": 1902,
+          "bottom": 898.46875,
+          "font": 17,
+          "display": "block"
+        },
+        "titleFont": 17,
+        "metadataFont": 13.26,
+        "selected": "So sánh nhất trong một phạm vi"
+      }
+    },
+    {
+      "width": 1920,
+      "theme": "dark",
+      "mode": "flashcard",
+      "header": {
+        "header": {
+          "x": 264,
+          "y": 18,
+          "width": 1638,
+          "height": 82,
+          "right": 1902,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 265,
+          "y": 19,
+          "width": 1636,
+          "height": 80,
+          "right": 1901,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 289,
+          "y": 33,
+          "width": 1588,
+          "height": 52,
+          "right": 1877,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 289,
+          "y": 33,
+          "width": 1293.875,
+          "height": 52,
+          "right": 1582.875,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#streakButton": {
+          "x": 1592.875,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 1711.53125,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 1721.53125,
+          "y": 34,
+          "width": 155.46875,
+          "height": 50,
+          "right": 1877,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      }
+    },
+    {
+      "width": 1920,
+      "theme": "dark",
+      "mode": "quiz",
+      "header": {
+        "header": {
+          "x": 264,
+          "y": 18,
+          "width": 1638,
+          "height": 82,
+          "right": 1902,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 265,
+          "y": 19,
+          "width": 1636,
+          "height": 80,
+          "right": 1901,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 1592.875,
+          "y": 34,
+          "width": 284.125,
+          "height": 50,
+          "right": 1877,
+          "bottom": 84,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0,
+          "font": 17,
+          "display": "none"
+        },
+        "#streakButton": {
+          "x": 1592.875,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 1711.53125,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 1721.53125,
+          "y": 34,
+          "width": 155.46875,
+          "height": 50,
+          "right": 1877,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      },
+      "quiz": {
+        "panel": {
+          "x": 264,
+          "y": 126,
+          "width": 1638,
+          "height": 815.453125,
+          "right": 1902,
+          "bottom": 941.453125,
+          "font": 17,
+          "display": "block"
+        },
+        "area": {
+          "x": 264,
+          "y": 126,
+          "width": 1638,
+          "height": 815.453125,
+          "right": 1902,
+          "bottom": 941.453125,
+          "font": 17,
+          "display": "block"
+        }
+      }
+    },
+    {
+      "width": 1920,
+      "theme": "dark",
+      "mode": "kanji",
+      "header": {
+        "header": {
+          "x": 264,
+          "y": 18,
+          "width": 1638,
+          "height": 82,
+          "right": 1902,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 265,
+          "y": 19,
+          "width": 1636,
+          "height": 80,
+          "right": 1901,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 289,
+          "y": 33,
+          "width": 1588,
+          "height": 52,
+          "right": 1877,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 289,
+          "y": 33,
+          "width": 1293.875,
+          "height": 52,
+          "right": 1582.875,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#streakButton": {
+          "x": 1592.875,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 1711.53125,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 1721.53125,
+          "y": 34,
+          "width": 155.46875,
+          "height": 50,
+          "right": 1877,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      },
+      "picker": {
+        "sidebar": {
+          "x": 264,
+          "y": 289.765625,
+          "width": 340,
+          "height": 767.96875,
+          "right": 604,
+          "bottom": 1057.734375,
+          "font": 17,
+          "display": "block"
+        },
+        "detail": {
+          "x": 628,
+          "y": 289.765625,
+          "width": 1274,
+          "height": 522.625,
+          "right": 1902,
+          "bottom": 812.390625,
+          "font": 17,
+          "display": "block"
+        },
+        "titleFont": 24,
+        "metadataFont": 14.96,
+        "selected": "来月"
+      }
+    },
+    {
+      "width": 1920,
+      "theme": "dark",
+      "mode": "grammar",
+      "header": {
+        "header": {
+          "x": 264,
+          "y": 18,
+          "width": 1638,
+          "height": 82,
+          "right": 1902,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 265,
+          "y": 19,
+          "width": 1636,
+          "height": 80,
+          "right": 1901,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 289,
+          "y": 33,
+          "width": 1588,
+          "height": 52,
+          "right": 1877,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 289,
+          "y": 33,
+          "width": 1293.875,
+          "height": 52,
+          "right": 1582.875,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#streakButton": {
+          "x": 1592.875,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 1711.53125,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 1721.53125,
+          "y": 34,
+          "width": 155.46875,
+          "height": 50,
+          "right": 1877,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      },
+      "picker": {
+        "sidebar": {
+          "x": 264,
+          "y": 98,
+          "width": 340,
+          "height": 744.546875,
+          "right": 604,
+          "bottom": 842.546875,
+          "font": 17,
+          "display": "block"
+        },
+        "detail": {
+          "x": 628,
+          "y": -11.546875,
+          "width": 1274,
+          "height": 910.015625,
+          "right": 1902,
+          "bottom": 898.46875,
+          "font": 17,
+          "display": "block"
+        },
+        "titleFont": 17,
+        "metadataFont": 13.26,
+        "selected": "So sánh nhất trong một phạm vi"
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "mode": "flashcard",
+      "header": {
+        "header": {
+          "x": 264,
+          "y": 18,
+          "width": 1158,
+          "height": 82,
+          "right": 1422,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 265,
+          "y": 19,
+          "width": 1156,
+          "height": 80,
+          "right": 1421,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 289,
+          "y": 33,
+          "width": 1108,
+          "height": 52,
+          "right": 1397,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 289,
+          "y": 33,
+          "width": 829.40625,
+          "height": 52,
+          "right": 1118.40625,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#streakButton": {
+          "x": 1128.40625,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 1247.0625,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 1257.0625,
+          "y": 34,
+          "width": 139.9375,
+          "height": 50,
+          "right": 1397,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "mode": "quiz",
+      "header": {
+        "header": {
+          "x": 264,
+          "y": 18,
+          "width": 1158,
+          "height": 82,
+          "right": 1422,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 265,
+          "y": 19,
+          "width": 1156,
+          "height": 80,
+          "right": 1421,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 1128.40625,
+          "y": 34,
+          "width": 268.59375,
+          "height": 50,
+          "right": 1397,
+          "bottom": 84,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0,
+          "font": 17,
+          "display": "none"
+        },
+        "#streakButton": {
+          "x": 1128.40625,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 1247.0625,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 1257.0625,
+          "y": 34,
+          "width": 139.9375,
+          "height": 50,
+          "right": 1397,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      },
+      "quiz": {
+        "panel": {
+          "x": 264,
+          "y": 126,
+          "width": 1158,
+          "height": 811.09375,
+          "right": 1422,
+          "bottom": 937.09375,
+          "font": 17,
+          "display": "block"
+        },
+        "area": {
+          "x": 264,
+          "y": 126,
+          "width": 1158,
+          "height": 811.09375,
+          "right": 1422,
+          "bottom": 937.09375,
+          "font": 17,
+          "display": "block"
+        }
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "mode": "kanji",
+      "header": {
+        "header": {
+          "x": 264,
+          "y": 18,
+          "width": 1158,
+          "height": 82,
+          "right": 1422,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 265,
+          "y": 19,
+          "width": 1156,
+          "height": 80,
+          "right": 1421,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 289,
+          "y": 33,
+          "width": 1108,
+          "height": 52,
+          "right": 1397,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 289,
+          "y": 33,
+          "width": 829.40625,
+          "height": 52,
+          "right": 1118.40625,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#streakButton": {
+          "x": 1128.40625,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 1247.0625,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 1257.0625,
+          "y": 34,
+          "width": 139.9375,
+          "height": 50,
+          "right": 1397,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      },
+      "picker": {
+        "sidebar": {
+          "x": 264,
+          "y": 288.6875,
+          "width": 316.796875,
+          "height": 767.96875,
+          "right": 580.796875,
+          "bottom": 1056.65625,
+          "font": 17,
+          "display": "block"
+        },
+        "detail": {
+          "x": 604.796875,
+          "y": 288.6875,
+          "width": 817.203125,
+          "height": 544.8125,
+          "right": 1422,
+          "bottom": 833.5,
+          "font": 17,
+          "display": "block"
+        },
+        "titleFont": 24,
+        "metadataFont": 14.96,
+        "selected": "来月"
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "mode": "grammar",
+      "header": {
+        "header": {
+          "x": 264,
+          "y": 18,
+          "width": 1158,
+          "height": 82,
+          "right": 1422,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 265,
+          "y": 19,
+          "width": 1156,
+          "height": 80,
+          "right": 1421,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 289,
+          "y": 33,
+          "width": 1108,
+          "height": 52,
+          "right": 1397,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 289,
+          "y": 33,
+          "width": 829.40625,
+          "height": 52,
+          "right": 1118.40625,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#streakButton": {
+          "x": 1128.40625,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 1247.0625,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 1257.0625,
+          "y": 34,
+          "width": 139.9375,
+          "height": 50,
+          "right": 1397,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      },
+      "picker": {
+        "sidebar": {
+          "x": 264,
+          "y": 98,
+          "width": 316.796875,
+          "height": 744.546875,
+          "right": 580.796875,
+          "bottom": 842.546875,
+          "font": 17,
+          "display": "block"
+        },
+        "detail": {
+          "x": 604.796875,
+          "y": -37.703125,
+          "width": 817.203125,
+          "height": 935.90625,
+          "right": 1422,
+          "bottom": 898.203125,
+          "font": 17,
+          "display": "block"
+        },
+        "titleFont": 17,
+        "metadataFont": 13.26,
+        "selected": "So sánh nhất trong một phạm vi"
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "mode": "flashcard",
+      "header": {
+        "header": {
+          "x": 264,
+          "y": 18,
+          "width": 1158,
+          "height": 82,
+          "right": 1422,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 265,
+          "y": 19,
+          "width": 1156,
+          "height": 80,
+          "right": 1421,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 289,
+          "y": 33,
+          "width": 1108,
+          "height": 52,
+          "right": 1397,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 289,
+          "y": 33,
+          "width": 813.875,
+          "height": 52,
+          "right": 1102.875,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#streakButton": {
+          "x": 1112.875,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 1231.53125,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 1241.53125,
+          "y": 34,
+          "width": 155.46875,
+          "height": 50,
+          "right": 1397,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "mode": "quiz",
+      "header": {
+        "header": {
+          "x": 264,
+          "y": 18,
+          "width": 1158,
+          "height": 82,
+          "right": 1422,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 265,
+          "y": 19,
+          "width": 1156,
+          "height": 80,
+          "right": 1421,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 1112.875,
+          "y": 34,
+          "width": 284.125,
+          "height": 50,
+          "right": 1397,
+          "bottom": 84,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0,
+          "font": 17,
+          "display": "none"
+        },
+        "#streakButton": {
+          "x": 1112.875,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 1231.53125,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 1241.53125,
+          "y": 34,
+          "width": 155.46875,
+          "height": 50,
+          "right": 1397,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      },
+      "quiz": {
+        "panel": {
+          "x": 264,
+          "y": 126,
+          "width": 1158,
+          "height": 811.09375,
+          "right": 1422,
+          "bottom": 937.09375,
+          "font": 17,
+          "display": "block"
+        },
+        "area": {
+          "x": 264,
+          "y": 126,
+          "width": 1158,
+          "height": 811.09375,
+          "right": 1422,
+          "bottom": 937.09375,
+          "font": 17,
+          "display": "block"
+        }
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "mode": "kanji",
+      "header": {
+        "header": {
+          "x": 264,
+          "y": 18,
+          "width": 1158,
+          "height": 82,
+          "right": 1422,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 265,
+          "y": 19,
+          "width": 1156,
+          "height": 80,
+          "right": 1421,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 289,
+          "y": 33,
+          "width": 1108,
+          "height": 52,
+          "right": 1397,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 289,
+          "y": 33,
+          "width": 813.875,
+          "height": 52,
+          "right": 1102.875,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#streakButton": {
+          "x": 1112.875,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 1231.53125,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 1241.53125,
+          "y": 34,
+          "width": 155.46875,
+          "height": 50,
+          "right": 1397,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      },
+      "picker": {
+        "sidebar": {
+          "x": 264,
+          "y": 288.6875,
+          "width": 316.796875,
+          "height": 767.96875,
+          "right": 580.796875,
+          "bottom": 1056.65625,
+          "font": 17,
+          "display": "block"
+        },
+        "detail": {
+          "x": 604.796875,
+          "y": 288.6875,
+          "width": 817.203125,
+          "height": 544.8125,
+          "right": 1422,
+          "bottom": 833.5,
+          "font": 17,
+          "display": "block"
+        },
+        "titleFont": 24,
+        "metadataFont": 14.96,
+        "selected": "来月"
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "mode": "grammar",
+      "header": {
+        "header": {
+          "x": 264,
+          "y": 18,
+          "width": 1158,
+          "height": 82,
+          "right": 1422,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 265,
+          "y": 19,
+          "width": 1156,
+          "height": 80,
+          "right": 1421,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 289,
+          "y": 33,
+          "width": 1108,
+          "height": 52,
+          "right": 1397,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 289,
+          "y": 33,
+          "width": 813.875,
+          "height": 52,
+          "right": 1102.875,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#streakButton": {
+          "x": 1112.875,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 1231.53125,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 1241.53125,
+          "y": 34,
+          "width": 155.46875,
+          "height": 50,
+          "right": 1397,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      },
+      "picker": {
+        "sidebar": {
+          "x": 264,
+          "y": 98,
+          "width": 316.796875,
+          "height": 744.546875,
+          "right": 580.796875,
+          "bottom": 842.546875,
+          "font": 17,
+          "display": "block"
+        },
+        "detail": {
+          "x": 604.796875,
+          "y": -37.703125,
+          "width": 817.203125,
+          "height": 935.90625,
+          "right": 1422,
+          "bottom": 898.203125,
+          "font": 17,
+          "display": "block"
+        },
+        "titleFont": 17,
+        "metadataFont": 13.26,
+        "selected": "So sánh nhất trong một phạm vi"
+      }
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "mode": "flashcard",
+      "header": {
+        "header": {
+          "x": 264,
+          "y": 18,
+          "width": 998,
+          "height": 82,
+          "right": 1262,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 265,
+          "y": 19,
+          "width": 996,
+          "height": 80,
+          "right": 1261,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 289,
+          "y": 33,
+          "width": 948,
+          "height": 52,
+          "right": 1237,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 289,
+          "y": 33,
+          "width": 669.40625,
+          "height": 52,
+          "right": 958.40625,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#streakButton": {
+          "x": 968.40625,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 1087.0625,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 1097.0625,
+          "y": 34,
+          "width": 139.9375,
+          "height": 50,
+          "right": 1237,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      }
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "mode": "quiz",
+      "header": {
+        "header": {
+          "x": 264,
+          "y": 18,
+          "width": 998,
+          "height": 82,
+          "right": 1262,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 265,
+          "y": 19,
+          "width": 996,
+          "height": 80,
+          "right": 1261,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 968.40625,
+          "y": 34,
+          "width": 268.59375,
+          "height": 50,
+          "right": 1237,
+          "bottom": 84,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0,
+          "font": 17,
+          "display": "none"
+        },
+        "#streakButton": {
+          "x": 968.40625,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 1087.0625,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 1097.0625,
+          "y": 34,
+          "width": 139.9375,
+          "height": 50,
+          "right": 1237,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      },
+      "quiz": {
+        "panel": {
+          "x": 264,
+          "y": 126,
+          "width": 998,
+          "height": 800.28125,
+          "right": 1262,
+          "bottom": 926.28125,
+          "font": 17,
+          "display": "block"
+        },
+        "area": {
+          "x": 264,
+          "y": 126,
+          "width": 998,
+          "height": 800.28125,
+          "right": 1262,
+          "bottom": 926.28125,
+          "font": 17,
+          "display": "block"
+        }
+      }
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "mode": "kanji",
+      "header": {
+        "header": {
+          "x": 264,
+          "y": 18,
+          "width": 998,
+          "height": 82,
+          "right": 1262,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 265,
+          "y": 19,
+          "width": 996,
+          "height": 80,
+          "right": 1261,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 289,
+          "y": 33,
+          "width": 948,
+          "height": 52,
+          "right": 1237,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 289,
+          "y": 33,
+          "width": 669.40625,
+          "height": 52,
+          "right": 958.40625,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#streakButton": {
+          "x": 968.40625,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 1087.0625,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 1097.0625,
+          "y": 34,
+          "width": 139.9375,
+          "height": 50,
+          "right": 1237,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      },
+      "picker": {
+        "sidebar": {
+          "x": 264,
+          "y": 282.21875,
+          "width": 290,
+          "height": 767.96875,
+          "right": 554,
+          "bottom": 1050.1875,
+          "font": 17,
+          "display": "block"
+        },
+        "detail": {
+          "x": 578,
+          "y": 282.21875,
+          "width": 684,
+          "height": 540.96875,
+          "right": 1262,
+          "bottom": 823.1875,
+          "font": 17,
+          "display": "block"
+        },
+        "titleFont": 24,
+        "metadataFont": 14.96,
+        "selected": "来月"
+      }
+    },
+    {
+      "width": 1280,
+      "theme": "light",
+      "mode": "grammar",
+      "header": {
+        "header": {
+          "x": 264,
+          "y": 18,
+          "width": 998,
+          "height": 82,
+          "right": 1262,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 265,
+          "y": 19,
+          "width": 996,
+          "height": 80,
+          "right": 1261,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 289,
+          "y": 33,
+          "width": 948,
+          "height": 52,
+          "right": 1237,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 289,
+          "y": 33,
+          "width": 669.40625,
+          "height": 52,
+          "right": 958.40625,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#streakButton": {
+          "x": 968.40625,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 1087.0625,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 1097.0625,
+          "y": 34,
+          "width": 139.9375,
+          "height": 50,
+          "right": 1237,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      },
+      "picker": {
+        "sidebar": {
+          "x": 264,
+          "y": 98,
+          "width": 290,
+          "height": 744.546875,
+          "right": 554,
+          "bottom": 842.546875,
+          "font": 17,
+          "display": "block"
+        },
+        "detail": {
+          "x": 578,
+          "y": -68.015625,
+          "width": 684,
+          "height": 983.984375,
+          "right": 1262,
+          "bottom": 915.96875,
+          "font": 17,
+          "display": "block"
+        },
+        "titleFont": 17,
+        "metadataFont": 13.26,
+        "selected": "So sánh nhất trong một phạm vi"
+      }
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "mode": "flashcard",
+      "header": {
+        "header": {
+          "x": 264,
+          "y": 18,
+          "width": 998,
+          "height": 82,
+          "right": 1262,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 265,
+          "y": 19,
+          "width": 996,
+          "height": 80,
+          "right": 1261,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 289,
+          "y": 33,
+          "width": 948,
+          "height": 52,
+          "right": 1237,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 289,
+          "y": 33,
+          "width": 653.875,
+          "height": 52,
+          "right": 942.875,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#streakButton": {
+          "x": 952.875,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 1071.53125,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 1081.53125,
+          "y": 34,
+          "width": 155.46875,
+          "height": 50,
+          "right": 1237,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      }
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "mode": "quiz",
+      "header": {
+        "header": {
+          "x": 264,
+          "y": 18,
+          "width": 998,
+          "height": 82,
+          "right": 1262,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 265,
+          "y": 19,
+          "width": 996,
+          "height": 80,
+          "right": 1261,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 952.875,
+          "y": 34,
+          "width": 284.125,
+          "height": 50,
+          "right": 1237,
+          "bottom": 84,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0,
+          "font": 17,
+          "display": "none"
+        },
+        "#streakButton": {
+          "x": 952.875,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 1071.53125,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 1081.53125,
+          "y": 34,
+          "width": 155.46875,
+          "height": 50,
+          "right": 1237,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      },
+      "quiz": {
+        "panel": {
+          "x": 264,
+          "y": 126,
+          "width": 998,
+          "height": 800.28125,
+          "right": 1262,
+          "bottom": 926.28125,
+          "font": 17,
+          "display": "block"
+        },
+        "area": {
+          "x": 264,
+          "y": 126,
+          "width": 998,
+          "height": 800.28125,
+          "right": 1262,
+          "bottom": 926.28125,
+          "font": 17,
+          "display": "block"
+        }
+      }
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "mode": "kanji",
+      "header": {
+        "header": {
+          "x": 264,
+          "y": 18,
+          "width": 998,
+          "height": 82,
+          "right": 1262,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 265,
+          "y": 19,
+          "width": 996,
+          "height": 80,
+          "right": 1261,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 289,
+          "y": 33,
+          "width": 948,
+          "height": 52,
+          "right": 1237,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 289,
+          "y": 33,
+          "width": 653.875,
+          "height": 52,
+          "right": 942.875,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#streakButton": {
+          "x": 952.875,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 1071.53125,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 1081.53125,
+          "y": 34,
+          "width": 155.46875,
+          "height": 50,
+          "right": 1237,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      },
+      "picker": {
+        "sidebar": {
+          "x": 264,
+          "y": 282.21875,
+          "width": 290,
+          "height": 767.96875,
+          "right": 554,
+          "bottom": 1050.1875,
+          "font": 17,
+          "display": "block"
+        },
+        "detail": {
+          "x": 578,
+          "y": 282.21875,
+          "width": 684,
+          "height": 540.96875,
+          "right": 1262,
+          "bottom": 823.1875,
+          "font": 17,
+          "display": "block"
+        },
+        "titleFont": 24,
+        "metadataFont": 14.96,
+        "selected": "来月"
+      }
+    },
+    {
+      "width": 1280,
+      "theme": "dark",
+      "mode": "grammar",
+      "header": {
+        "header": {
+          "x": 264,
+          "y": 18,
+          "width": 998,
+          "height": 82,
+          "right": 1262,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 265,
+          "y": 19,
+          "width": 996,
+          "height": 80,
+          "right": 1261,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 289,
+          "y": 33,
+          "width": 948,
+          "height": 52,
+          "right": 1237,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 289,
+          "y": 33,
+          "width": 653.875,
+          "height": 52,
+          "right": 942.875,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#streakButton": {
+          "x": 952.875,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 1071.53125,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 1081.53125,
+          "y": 34,
+          "width": 155.46875,
+          "height": 50,
+          "right": 1237,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      },
+      "picker": {
+        "sidebar": {
+          "x": 264,
+          "y": 98,
+          "width": 290,
+          "height": 744.546875,
+          "right": 554,
+          "bottom": 842.546875,
+          "font": 17,
+          "display": "block"
+        },
+        "detail": {
+          "x": 578,
+          "y": -68.015625,
+          "width": 684,
+          "height": 983.984375,
+          "right": 1262,
+          "bottom": 915.96875,
+          "font": 17,
+          "display": "block"
+        },
+        "titleFont": 17,
+        "metadataFont": 13.26,
+        "selected": "So sánh nhất trong một phạm vi"
+      }
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "mode": "flashcard",
+      "header": {
+        "header": {
+          "x": 116,
+          "y": 18,
+          "width": 634,
+          "height": 82,
+          "right": 750,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 117,
+          "y": 19,
+          "width": 632,
+          "height": 80,
+          "right": 749,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 135,
+          "y": 33,
+          "width": 596,
+          "height": 52,
+          "right": 731,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 135,
+          "y": 33,
+          "width": 317.40625,
+          "height": 52,
+          "right": 452.40625,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#streakButton": {
+          "x": 462.40625,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 581.0625,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 591.0625,
+          "y": 34,
+          "width": 139.9375,
+          "height": 50,
+          "right": 731,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      }
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "mode": "quiz",
+      "header": {
+        "header": {
+          "x": 116,
+          "y": 18,
+          "width": 634,
+          "height": 82,
+          "right": 750,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 117,
+          "y": 19,
+          "width": 632,
+          "height": 80,
+          "right": 749,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 462.40625,
+          "y": 34,
+          "width": 268.59375,
+          "height": 50,
+          "right": 731,
+          "bottom": 84,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0,
+          "font": 17,
+          "display": "none"
+        },
+        "#streakButton": {
+          "x": 462.40625,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 581.0625,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 591.0625,
+          "y": 34,
+          "width": 139.9375,
+          "height": 50,
+          "right": 731,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      },
+      "quiz": {
+        "panel": {
+          "x": 116,
+          "y": 124,
+          "width": 634,
+          "height": 815.453125,
+          "right": 750,
+          "bottom": 939.453125,
+          "font": 17,
+          "display": "block"
+        },
+        "area": {
+          "x": 116,
+          "y": 124,
+          "width": 634,
+          "height": 815.453125,
+          "right": 750,
+          "bottom": 939.453125,
+          "font": 17,
+          "display": "block"
+        }
+      }
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "mode": "kanji",
+      "header": {
+        "header": {
+          "x": 116,
+          "y": 18,
+          "width": 634,
+          "height": 82,
+          "right": 750,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 117,
+          "y": 19,
+          "width": 632,
+          "height": 80,
+          "right": 749,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 135,
+          "y": 33,
+          "width": 596,
+          "height": 52,
+          "right": 731,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 135,
+          "y": 33,
+          "width": 317.40625,
+          "height": 52,
+          "right": 452.40625,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#streakButton": {
+          "x": 462.40625,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 581.0625,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 591.0625,
+          "y": 34,
+          "width": 139.9375,
+          "height": 50,
+          "right": 731,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      },
+      "picker": {
+        "sidebar": {
+          "x": 116,
+          "y": -90.546875,
+          "width": 634,
+          "height": 99.671875,
+          "right": 750,
+          "bottom": 9.125,
+          "font": 17,
+          "display": "block"
+        },
+        "detail": {
+          "x": 116,
+          "y": 27.125,
+          "width": 634,
+          "height": 534.3125,
+          "right": 750,
+          "bottom": 561.4375,
+          "font": 17,
+          "display": "block"
+        },
+        "titleFont": 24,
+        "metadataFont": 14.96,
+        "selected": "来月"
+      }
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "mode": "grammar",
+      "header": {
+        "header": {
+          "x": 116,
+          "y": 18,
+          "width": 634,
+          "height": 82,
+          "right": 750,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 117,
+          "y": 19,
+          "width": 632,
+          "height": 80,
+          "right": 749,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 135,
+          "y": 33,
+          "width": 596,
+          "height": 52,
+          "right": 731,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 135,
+          "y": 33,
+          "width": 317.40625,
+          "height": 52,
+          "right": 452.40625,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#streakButton": {
+          "x": 462.40625,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 581.0625,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 591.0625,
+          "y": 34,
+          "width": 139.9375,
+          "height": 50,
+          "right": 731,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      },
+      "picker": {
+        "sidebar": {
+          "x": 116,
+          "y": -90.28125,
+          "width": 634,
+          "height": 99.671875,
+          "right": 750,
+          "bottom": 9.390625,
+          "font": 17,
+          "display": "block"
+        },
+        "detail": {
+          "x": 116,
+          "y": 27.390625,
+          "width": 634,
+          "height": 958.484375,
+          "right": 750,
+          "bottom": 985.875,
+          "font": 17,
+          "display": "block"
+        },
+        "titleFont": 17,
+        "metadataFont": 13.26,
+        "selected": "So sánh nhất trong một phạm vi"
+      }
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "mode": "flashcard",
+      "header": {
+        "header": {
+          "x": 116,
+          "y": 18,
+          "width": 634,
+          "height": 82,
+          "right": 750,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 117,
+          "y": 19,
+          "width": 632,
+          "height": 80,
+          "right": 749,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 135,
+          "y": 33,
+          "width": 596,
+          "height": 52,
+          "right": 731,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 135,
+          "y": 33,
+          "width": 301.875,
+          "height": 52,
+          "right": 436.875,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#streakButton": {
+          "x": 446.875,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 565.53125,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 575.53125,
+          "y": 34,
+          "width": 155.46875,
+          "height": 50,
+          "right": 731,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      }
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "mode": "quiz",
+      "header": {
+        "header": {
+          "x": 116,
+          "y": 18,
+          "width": 634,
+          "height": 82,
+          "right": 750,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 117,
+          "y": 19,
+          "width": 632,
+          "height": 80,
+          "right": 749,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 446.875,
+          "y": 34,
+          "width": 284.125,
+          "height": 50,
+          "right": 731,
+          "bottom": 84,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0,
+          "font": 17,
+          "display": "none"
+        },
+        "#streakButton": {
+          "x": 446.875,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 565.53125,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 575.53125,
+          "y": 34,
+          "width": 155.46875,
+          "height": 50,
+          "right": 731,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      },
+      "quiz": {
+        "panel": {
+          "x": 116,
+          "y": 124,
+          "width": 634,
+          "height": 815.453125,
+          "right": 750,
+          "bottom": 939.453125,
+          "font": 17,
+          "display": "block"
+        },
+        "area": {
+          "x": 116,
+          "y": 124,
+          "width": 634,
+          "height": 815.453125,
+          "right": 750,
+          "bottom": 939.453125,
+          "font": 17,
+          "display": "block"
+        }
+      }
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "mode": "kanji",
+      "header": {
+        "header": {
+          "x": 116,
+          "y": 18,
+          "width": 634,
+          "height": 82,
+          "right": 750,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 117,
+          "y": 19,
+          "width": 632,
+          "height": 80,
+          "right": 749,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 135,
+          "y": 33,
+          "width": 596,
+          "height": 52,
+          "right": 731,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 135,
+          "y": 33,
+          "width": 301.875,
+          "height": 52,
+          "right": 436.875,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#streakButton": {
+          "x": 446.875,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 565.53125,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 575.53125,
+          "y": 34,
+          "width": 155.46875,
+          "height": 50,
+          "right": 731,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      },
+      "picker": {
+        "sidebar": {
+          "x": 116,
+          "y": -90.546875,
+          "width": 634,
+          "height": 99.671875,
+          "right": 750,
+          "bottom": 9.125,
+          "font": 17,
+          "display": "block"
+        },
+        "detail": {
+          "x": 116,
+          "y": 27.125,
+          "width": 634,
+          "height": 534.3125,
+          "right": 750,
+          "bottom": 561.4375,
+          "font": 17,
+          "display": "block"
+        },
+        "titleFont": 24,
+        "metadataFont": 14.96,
+        "selected": "来月"
+      }
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "mode": "grammar",
+      "header": {
+        "header": {
+          "x": 116,
+          "y": 18,
+          "width": 634,
+          "height": 82,
+          "right": 750,
+          "bottom": 100,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 117,
+          "y": 19,
+          "width": 632,
+          "height": 80,
+          "right": 749,
+          "bottom": 99,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 135,
+          "y": 33,
+          "width": 596,
+          "height": 52,
+          "right": 731,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 135,
+          "y": 33,
+          "width": 301.875,
+          "height": 52,
+          "right": 436.875,
+          "bottom": 85,
+          "font": 17,
+          "display": "flex"
+        },
+        "#streakButton": {
+          "x": 446.875,
+          "y": 35,
+          "width": 118.65625,
+          "height": 48,
+          "right": 565.53125,
+          "bottom": 83,
+          "font": 17,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 575.53125,
+          "y": 34,
+          "width": 155.46875,
+          "height": 50,
+          "right": 731,
+          "bottom": 84,
+          "font": 16,
+          "display": "flex"
+        }
+      },
+      "picker": {
+        "sidebar": {
+          "x": 116,
+          "y": -90.28125,
+          "width": 634,
+          "height": 99.671875,
+          "right": 750,
+          "bottom": 9.390625,
+          "font": 17,
+          "display": "block"
+        },
+        "detail": {
+          "x": 116,
+          "y": 27.390625,
+          "width": 634,
+          "height": 958.484375,
+          "right": 750,
+          "bottom": 985.875,
+          "font": 17,
+          "display": "block"
+        },
+        "titleFont": 17,
+        "metadataFont": 13.26,
+        "selected": "So sánh nhất trong một phạm vi"
+      }
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "mode": "flashcard",
+      "header": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 65,
+          "right": 390,
+          "bottom": 65,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 64,
+          "right": 390,
+          "bottom": 64,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 223.625,
+          "y": 8,
+          "width": 152.375,
+          "height": 48,
+          "right": 376,
+          "bottom": 56,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0,
+          "font": 17,
+          "display": "none"
+        },
+        "#streakButton": {
+          "x": 223.625,
+          "y": 10,
+          "width": 52.375,
+          "height": 44,
+          "right": 276,
+          "bottom": 54,
+          "font": 13.94,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 332,
+          "y": 10,
+          "width": 44,
+          "height": 44,
+          "right": 376,
+          "bottom": 54,
+          "font": 16,
+          "display": "flex"
+        },
+        "brand": {
+          "x": 14,
+          "y": 10,
+          "width": 129.734375,
+          "height": 44,
+          "right": 143.734375,
+          "bottom": 54,
+          "font": 13,
+          "display": "flex"
+        },
+        "appearance": {
+          "x": 282,
+          "y": 8,
+          "width": 44,
+          "height": 48,
+          "right": 326,
+          "bottom": 56,
+          "font": 15.3,
+          "display": "flex"
+        }
+      }
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "mode": "quiz",
+      "header": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 65,
+          "right": 390,
+          "bottom": 65,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 64,
+          "right": 390,
+          "bottom": 64,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 223.625,
+          "y": 8,
+          "width": 152.375,
+          "height": 48,
+          "right": 376,
+          "bottom": 56,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0,
+          "font": 17,
+          "display": "none"
+        },
+        "#streakButton": {
+          "x": 223.625,
+          "y": 10,
+          "width": 52.375,
+          "height": 44,
+          "right": 276,
+          "bottom": 54,
+          "font": 13.94,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 332,
+          "y": 10,
+          "width": 44,
+          "height": 44,
+          "right": 376,
+          "bottom": 54,
+          "font": 16,
+          "display": "flex"
+        },
+        "brand": {
+          "x": 14,
+          "y": 10,
+          "width": 129.734375,
+          "height": 44,
+          "right": 143.734375,
+          "bottom": 54,
+          "font": 13,
+          "display": "flex"
+        },
+        "appearance": {
+          "x": 282,
+          "y": 8,
+          "width": 44,
+          "height": 48,
+          "right": 326,
+          "bottom": 56,
+          "font": 15.3,
+          "display": "flex"
+        }
+      },
+      "quiz": {
+        "panel": {
+          "x": 16,
+          "y": 83,
+          "width": 358,
+          "height": 996.125,
+          "right": 374,
+          "bottom": 1079.125,
+          "font": 17,
+          "display": "block"
+        },
+        "area": {
+          "x": 16,
+          "y": 83,
+          "width": 358,
+          "height": 996.125,
+          "right": 374,
+          "bottom": 1079.125,
+          "font": 17,
+          "display": "block"
+        }
+      }
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "mode": "kanji",
+      "header": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 65,
+          "right": 390,
+          "bottom": 65,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 64,
+          "right": 390,
+          "bottom": 64,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 223.625,
+          "y": 8,
+          "width": 152.375,
+          "height": 48,
+          "right": 376,
+          "bottom": 56,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0,
+          "font": 17,
+          "display": "none"
+        },
+        "#streakButton": {
+          "x": 223.625,
+          "y": 10,
+          "width": 52.375,
+          "height": 44,
+          "right": 276,
+          "bottom": 54,
+          "font": 13.94,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 332,
+          "y": 10,
+          "width": 44,
+          "height": 44,
+          "right": 376,
+          "bottom": 54,
+          "font": 16,
+          "display": "flex"
+        },
+        "brand": {
+          "x": 14,
+          "y": 10,
+          "width": 129.734375,
+          "height": 44,
+          "right": 143.734375,
+          "bottom": 54,
+          "font": 13,
+          "display": "flex"
+        },
+        "appearance": {
+          "x": 282,
+          "y": 8,
+          "width": 44,
+          "height": 48,
+          "right": 326,
+          "bottom": 56,
+          "font": 15.3,
+          "display": "flex"
+        }
+      },
+      "picker": {
+        "sidebar": {
+          "x": 16,
+          "y": -23.390625,
+          "width": 358,
+          "height": 100.28125,
+          "right": 374,
+          "bottom": 76.890625,
+          "font": 17,
+          "display": "block"
+        },
+        "detail": {
+          "x": 16,
+          "y": 76.890625,
+          "width": 358,
+          "height": 606.609375,
+          "right": 374,
+          "bottom": 683.5,
+          "font": 17,
+          "display": "block"
+        },
+        "titleFont": 24,
+        "metadataFont": 14.96,
+        "selected": "来月"
+      }
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "mode": "grammar",
+      "header": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 65,
+          "right": 390,
+          "bottom": 65,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 64,
+          "right": 390,
+          "bottom": 64,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 223.625,
+          "y": 8,
+          "width": 152.375,
+          "height": 48,
+          "right": 376,
+          "bottom": 56,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0,
+          "font": 17,
+          "display": "none"
+        },
+        "#streakButton": {
+          "x": 223.625,
+          "y": 10,
+          "width": 52.375,
+          "height": 44,
+          "right": 276,
+          "bottom": 54,
+          "font": 13.94,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 332,
+          "y": 10,
+          "width": 44,
+          "height": 44,
+          "right": 376,
+          "bottom": 54,
+          "font": 16,
+          "display": "flex"
+        },
+        "brand": {
+          "x": 14,
+          "y": 10,
+          "width": 129.734375,
+          "height": 44,
+          "right": 143.734375,
+          "bottom": 54,
+          "font": 13,
+          "display": "flex"
+        },
+        "appearance": {
+          "x": 282,
+          "y": 8,
+          "width": 44,
+          "height": 48,
+          "right": 326,
+          "bottom": 56,
+          "font": 15.3,
+          "display": "flex"
+        }
+      },
+      "picker": {
+        "sidebar": {
+          "x": 16,
+          "y": -2.671875,
+          "width": 358,
+          "height": 100.28125,
+          "right": 374,
+          "bottom": 97.609375,
+          "font": 17,
+          "display": "block"
+        },
+        "detail": {
+          "x": 16,
+          "y": 97.609375,
+          "width": 358,
+          "height": 1161.765625,
+          "right": 374,
+          "bottom": 1259.375,
+          "font": 17,
+          "display": "block"
+        },
+        "titleFont": 17,
+        "metadataFont": 13.26,
+        "selected": "So sánh nhất trong một phạm vi"
+      }
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "mode": "flashcard",
+      "header": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 65,
+          "right": 390,
+          "bottom": 65,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 64,
+          "right": 390,
+          "bottom": 64,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 223.625,
+          "y": 8,
+          "width": 152.375,
+          "height": 48,
+          "right": 376,
+          "bottom": 56,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0,
+          "font": 17,
+          "display": "none"
+        },
+        "#streakButton": {
+          "x": 223.625,
+          "y": 10,
+          "width": 52.375,
+          "height": 44,
+          "right": 276,
+          "bottom": 54,
+          "font": 13.94,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 332,
+          "y": 10,
+          "width": 44,
+          "height": 44,
+          "right": 376,
+          "bottom": 54,
+          "font": 16,
+          "display": "flex"
+        },
+        "brand": {
+          "x": 14,
+          "y": 10,
+          "width": 129.734375,
+          "height": 44,
+          "right": 143.734375,
+          "bottom": 54,
+          "font": 13,
+          "display": "flex"
+        },
+        "appearance": {
+          "x": 282,
+          "y": 8,
+          "width": 44,
+          "height": 48,
+          "right": 326,
+          "bottom": 56,
+          "font": 15.3,
+          "display": "flex"
+        }
+      }
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "mode": "quiz",
+      "header": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 65,
+          "right": 390,
+          "bottom": 65,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 64,
+          "right": 390,
+          "bottom": 64,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 223.625,
+          "y": 8,
+          "width": 152.375,
+          "height": 48,
+          "right": 376,
+          "bottom": 56,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0,
+          "font": 17,
+          "display": "none"
+        },
+        "#streakButton": {
+          "x": 223.625,
+          "y": 10,
+          "width": 52.375,
+          "height": 44,
+          "right": 276,
+          "bottom": 54,
+          "font": 13.94,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 332,
+          "y": 10,
+          "width": 44,
+          "height": 44,
+          "right": 376,
+          "bottom": 54,
+          "font": 16,
+          "display": "flex"
+        },
+        "brand": {
+          "x": 14,
+          "y": 10,
+          "width": 129.734375,
+          "height": 44,
+          "right": 143.734375,
+          "bottom": 54,
+          "font": 13,
+          "display": "flex"
+        },
+        "appearance": {
+          "x": 282,
+          "y": 8,
+          "width": 44,
+          "height": 48,
+          "right": 326,
+          "bottom": 56,
+          "font": 15.3,
+          "display": "flex"
+        }
+      },
+      "quiz": {
+        "panel": {
+          "x": 16,
+          "y": 83,
+          "width": 358,
+          "height": 996.125,
+          "right": 374,
+          "bottom": 1079.125,
+          "font": 17,
+          "display": "block"
+        },
+        "area": {
+          "x": 16,
+          "y": 83,
+          "width": 358,
+          "height": 996.125,
+          "right": 374,
+          "bottom": 1079.125,
+          "font": 17,
+          "display": "block"
+        }
+      }
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "mode": "kanji",
+      "header": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 65,
+          "right": 390,
+          "bottom": 65,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 64,
+          "right": 390,
+          "bottom": 64,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 223.625,
+          "y": 8,
+          "width": 152.375,
+          "height": 48,
+          "right": 376,
+          "bottom": 56,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0,
+          "font": 17,
+          "display": "none"
+        },
+        "#streakButton": {
+          "x": 223.625,
+          "y": 10,
+          "width": 52.375,
+          "height": 44,
+          "right": 276,
+          "bottom": 54,
+          "font": 13.94,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 332,
+          "y": 10,
+          "width": 44,
+          "height": 44,
+          "right": 376,
+          "bottom": 54,
+          "font": 16,
+          "display": "flex"
+        },
+        "brand": {
+          "x": 14,
+          "y": 10,
+          "width": 129.734375,
+          "height": 44,
+          "right": 143.734375,
+          "bottom": 54,
+          "font": 13,
+          "display": "flex"
+        },
+        "appearance": {
+          "x": 282,
+          "y": 8,
+          "width": 44,
+          "height": 48,
+          "right": 326,
+          "bottom": 56,
+          "font": 15.3,
+          "display": "flex"
+        }
+      },
+      "picker": {
+        "sidebar": {
+          "x": 16,
+          "y": -23.390625,
+          "width": 358,
+          "height": 100.28125,
+          "right": 374,
+          "bottom": 76.890625,
+          "font": 17,
+          "display": "block"
+        },
+        "detail": {
+          "x": 16,
+          "y": 76.890625,
+          "width": 358,
+          "height": 606.609375,
+          "right": 374,
+          "bottom": 683.5,
+          "font": 17,
+          "display": "block"
+        },
+        "titleFont": 24,
+        "metadataFont": 14.96,
+        "selected": "来月"
+      }
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "mode": "grammar",
+      "header": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 65,
+          "right": 390,
+          "bottom": 65,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 64,
+          "right": 390,
+          "bottom": 64,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 223.625,
+          "y": 8,
+          "width": 152.375,
+          "height": 48,
+          "right": 376,
+          "bottom": 56,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0,
+          "font": 17,
+          "display": "none"
+        },
+        "#streakButton": {
+          "x": 223.625,
+          "y": 10,
+          "width": 52.375,
+          "height": 44,
+          "right": 276,
+          "bottom": 54,
+          "font": 13.94,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 332,
+          "y": 10,
+          "width": 44,
+          "height": 44,
+          "right": 376,
+          "bottom": 54,
+          "font": 16,
+          "display": "flex"
+        },
+        "brand": {
+          "x": 14,
+          "y": 10,
+          "width": 129.734375,
+          "height": 44,
+          "right": 143.734375,
+          "bottom": 54,
+          "font": 13,
+          "display": "flex"
+        },
+        "appearance": {
+          "x": 282,
+          "y": 8,
+          "width": 44,
+          "height": 48,
+          "right": 326,
+          "bottom": 56,
+          "font": 15.3,
+          "display": "flex"
+        }
+      },
+      "picker": {
+        "sidebar": {
+          "x": 16,
+          "y": -2.671875,
+          "width": 358,
+          "height": 100.28125,
+          "right": 374,
+          "bottom": 97.609375,
+          "font": 17,
+          "display": "block"
+        },
+        "detail": {
+          "x": 16,
+          "y": 97.609375,
+          "width": 358,
+          "height": 1161.765625,
+          "right": 374,
+          "bottom": 1259.375,
+          "font": 17,
+          "display": "block"
+        },
+        "titleFont": 17,
+        "metadataFont": 13.26,
+        "selected": "So sánh nhất trong một phạm vi"
+      }
+    },
+    {
+      "width": 320,
+      "theme": "light",
+      "mode": "flashcard",
+      "header": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 65,
+          "right": 320,
+          "bottom": 65,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 64,
+          "right": 320,
+          "bottom": 64,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 153.625,
+          "y": 8,
+          "width": 152.375,
+          "height": 48,
+          "right": 306,
+          "bottom": 56,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0,
+          "font": 17,
+          "display": "none"
+        },
+        "#streakButton": {
+          "x": 153.625,
+          "y": 10,
+          "width": 52.375,
+          "height": 44,
+          "right": 206,
+          "bottom": 54,
+          "font": 13.94,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 262,
+          "y": 10,
+          "width": 44,
+          "height": 44,
+          "right": 306,
+          "bottom": 54,
+          "font": 16,
+          "display": "flex"
+        },
+        "brand": {
+          "x": 14,
+          "y": 10,
+          "width": 129.734375,
+          "height": 44,
+          "right": 143.734375,
+          "bottom": 54,
+          "font": 13,
+          "display": "flex"
+        },
+        "appearance": {
+          "x": 212,
+          "y": 8,
+          "width": 44,
+          "height": 48,
+          "right": 256,
+          "bottom": 56,
+          "font": 15.3,
+          "display": "flex"
+        }
+      }
+    },
+    {
+      "width": 320,
+      "theme": "light",
+      "mode": "quiz",
+      "header": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 65,
+          "right": 320,
+          "bottom": 65,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 64,
+          "right": 320,
+          "bottom": 64,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 153.625,
+          "y": 8,
+          "width": 152.375,
+          "height": 48,
+          "right": 306,
+          "bottom": 56,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0,
+          "font": 17,
+          "display": "none"
+        },
+        "#streakButton": {
+          "x": 153.625,
+          "y": 10,
+          "width": 52.375,
+          "height": 44,
+          "right": 206,
+          "bottom": 54,
+          "font": 13.94,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 262,
+          "y": 10,
+          "width": 44,
+          "height": 44,
+          "right": 306,
+          "bottom": 54,
+          "font": 16,
+          "display": "flex"
+        },
+        "brand": {
+          "x": 14,
+          "y": 10,
+          "width": 129.734375,
+          "height": 44,
+          "right": 143.734375,
+          "bottom": 54,
+          "font": 13,
+          "display": "flex"
+        },
+        "appearance": {
+          "x": 212,
+          "y": 8,
+          "width": 44,
+          "height": 48,
+          "right": 256,
+          "bottom": 56,
+          "font": 15.3,
+          "display": "flex"
+        }
+      },
+      "quiz": {
+        "panel": {
+          "x": 16,
+          "y": 83,
+          "width": 288,
+          "height": 1042.90625,
+          "right": 304,
+          "bottom": 1125.90625,
+          "font": 17,
+          "display": "block"
+        },
+        "area": {
+          "x": 16,
+          "y": 83,
+          "width": 288,
+          "height": 1042.90625,
+          "right": 304,
+          "bottom": 1125.90625,
+          "font": 17,
+          "display": "block"
+        }
+      }
+    },
+    {
+      "width": 320,
+      "theme": "light",
+      "mode": "kanji",
+      "header": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 65,
+          "right": 320,
+          "bottom": 65,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 64,
+          "right": 320,
+          "bottom": 64,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 153.625,
+          "y": 8,
+          "width": 152.375,
+          "height": 48,
+          "right": 306,
+          "bottom": 56,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0,
+          "font": 17,
+          "display": "none"
+        },
+        "#streakButton": {
+          "x": 153.625,
+          "y": 10,
+          "width": 52.375,
+          "height": 44,
+          "right": 206,
+          "bottom": 54,
+          "font": 13.94,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 262,
+          "y": 10,
+          "width": 44,
+          "height": 44,
+          "right": 306,
+          "bottom": 54,
+          "font": 16,
+          "display": "flex"
+        },
+        "brand": {
+          "x": 14,
+          "y": 10,
+          "width": 129.734375,
+          "height": 44,
+          "right": 143.734375,
+          "bottom": 54,
+          "font": 13,
+          "display": "flex"
+        },
+        "appearance": {
+          "x": 212,
+          "y": 8,
+          "width": 44,
+          "height": 48,
+          "right": 256,
+          "bottom": 56,
+          "font": 15.3,
+          "display": "flex"
+        }
+      },
+      "picker": {
+        "sidebar": {
+          "x": 16,
+          "y": -23.0625,
+          "width": 288,
+          "height": 100.28125,
+          "right": 304,
+          "bottom": 77.21875,
+          "font": 17,
+          "display": "block"
+        },
+        "detail": {
+          "x": 16,
+          "y": 77.21875,
+          "width": 288,
+          "height": 628.796875,
+          "right": 304,
+          "bottom": 706.015625,
+          "font": 17,
+          "display": "block"
+        },
+        "titleFont": 24,
+        "metadataFont": 14.96,
+        "selected": "来月"
+      }
+    },
+    {
+      "width": 320,
+      "theme": "light",
+      "mode": "grammar",
+      "header": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 65,
+          "right": 320,
+          "bottom": 65,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 64,
+          "right": 320,
+          "bottom": 64,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 153.625,
+          "y": 8,
+          "width": 152.375,
+          "height": 48,
+          "right": 306,
+          "bottom": 56,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0,
+          "font": 17,
+          "display": "none"
+        },
+        "#streakButton": {
+          "x": 153.625,
+          "y": 10,
+          "width": 52.375,
+          "height": 44,
+          "right": 206,
+          "bottom": 54,
+          "font": 13.94,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 262,
+          "y": 10,
+          "width": 44,
+          "height": 44,
+          "right": 306,
+          "bottom": 54,
+          "font": 16,
+          "display": "flex"
+        },
+        "brand": {
+          "x": 14,
+          "y": 10,
+          "width": 129.734375,
+          "height": 44,
+          "right": 143.734375,
+          "bottom": 54,
+          "font": 13,
+          "display": "flex"
+        },
+        "appearance": {
+          "x": 212,
+          "y": 8,
+          "width": 44,
+          "height": 48,
+          "right": 256,
+          "bottom": 56,
+          "font": 15.3,
+          "display": "flex"
+        }
+      },
+      "picker": {
+        "sidebar": {
+          "x": 16,
+          "y": -2.578125,
+          "width": 288,
+          "height": 100.28125,
+          "right": 304,
+          "bottom": 97.703125,
+          "font": 17,
+          "display": "block"
+        },
+        "detail": {
+          "x": 16,
+          "y": 97.703125,
+          "width": 288,
+          "height": 1300.921875,
+          "right": 304,
+          "bottom": 1398.625,
+          "font": 17,
+          "display": "block"
+        },
+        "titleFont": 17,
+        "metadataFont": 13.26,
+        "selected": "So sánh nhất trong một phạm vi"
+      }
+    },
+    {
+      "width": 320,
+      "theme": "dark",
+      "mode": "flashcard",
+      "header": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 65,
+          "right": 320,
+          "bottom": 65,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 64,
+          "right": 320,
+          "bottom": 64,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 153.625,
+          "y": 8,
+          "width": 152.375,
+          "height": 48,
+          "right": 306,
+          "bottom": 56,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0,
+          "font": 17,
+          "display": "none"
+        },
+        "#streakButton": {
+          "x": 153.625,
+          "y": 10,
+          "width": 52.375,
+          "height": 44,
+          "right": 206,
+          "bottom": 54,
+          "font": 13.94,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 262,
+          "y": 10,
+          "width": 44,
+          "height": 44,
+          "right": 306,
+          "bottom": 54,
+          "font": 16,
+          "display": "flex"
+        },
+        "brand": {
+          "x": 14,
+          "y": 10,
+          "width": 129.734375,
+          "height": 44,
+          "right": 143.734375,
+          "bottom": 54,
+          "font": 13,
+          "display": "flex"
+        },
+        "appearance": {
+          "x": 212,
+          "y": 8,
+          "width": 44,
+          "height": 48,
+          "right": 256,
+          "bottom": 56,
+          "font": 15.3,
+          "display": "flex"
+        }
+      }
+    },
+    {
+      "width": 320,
+      "theme": "dark",
+      "mode": "quiz",
+      "header": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 65,
+          "right": 320,
+          "bottom": 65,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 64,
+          "right": 320,
+          "bottom": 64,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 153.625,
+          "y": 8,
+          "width": 152.375,
+          "height": 48,
+          "right": 306,
+          "bottom": 56,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0,
+          "font": 17,
+          "display": "none"
+        },
+        "#streakButton": {
+          "x": 153.625,
+          "y": 10,
+          "width": 52.375,
+          "height": 44,
+          "right": 206,
+          "bottom": 54,
+          "font": 13.94,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 262,
+          "y": 10,
+          "width": 44,
+          "height": 44,
+          "right": 306,
+          "bottom": 54,
+          "font": 16,
+          "display": "flex"
+        },
+        "brand": {
+          "x": 14,
+          "y": 10,
+          "width": 129.734375,
+          "height": 44,
+          "right": 143.734375,
+          "bottom": 54,
+          "font": 13,
+          "display": "flex"
+        },
+        "appearance": {
+          "x": 212,
+          "y": 8,
+          "width": 44,
+          "height": 48,
+          "right": 256,
+          "bottom": 56,
+          "font": 15.3,
+          "display": "flex"
+        }
+      },
+      "quiz": {
+        "panel": {
+          "x": 16,
+          "y": 83,
+          "width": 288,
+          "height": 1042.90625,
+          "right": 304,
+          "bottom": 1125.90625,
+          "font": 17,
+          "display": "block"
+        },
+        "area": {
+          "x": 16,
+          "y": 83,
+          "width": 288,
+          "height": 1042.90625,
+          "right": 304,
+          "bottom": 1125.90625,
+          "font": 17,
+          "display": "block"
+        }
+      }
+    },
+    {
+      "width": 320,
+      "theme": "dark",
+      "mode": "kanji",
+      "header": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 65,
+          "right": 320,
+          "bottom": 65,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 64,
+          "right": 320,
+          "bottom": 64,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 153.625,
+          "y": 8,
+          "width": 152.375,
+          "height": 48,
+          "right": 306,
+          "bottom": 56,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0,
+          "font": 17,
+          "display": "none"
+        },
+        "#streakButton": {
+          "x": 153.625,
+          "y": 10,
+          "width": 52.375,
+          "height": 44,
+          "right": 206,
+          "bottom": 54,
+          "font": 13.94,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 262,
+          "y": 10,
+          "width": 44,
+          "height": 44,
+          "right": 306,
+          "bottom": 54,
+          "font": 16,
+          "display": "flex"
+        },
+        "brand": {
+          "x": 14,
+          "y": 10,
+          "width": 129.734375,
+          "height": 44,
+          "right": 143.734375,
+          "bottom": 54,
+          "font": 13,
+          "display": "flex"
+        },
+        "appearance": {
+          "x": 212,
+          "y": 8,
+          "width": 44,
+          "height": 48,
+          "right": 256,
+          "bottom": 56,
+          "font": 15.3,
+          "display": "flex"
+        }
+      },
+      "picker": {
+        "sidebar": {
+          "x": 16,
+          "y": -23.0625,
+          "width": 288,
+          "height": 100.28125,
+          "right": 304,
+          "bottom": 77.21875,
+          "font": 17,
+          "display": "block"
+        },
+        "detail": {
+          "x": 16,
+          "y": 77.21875,
+          "width": 288,
+          "height": 628.796875,
+          "right": 304,
+          "bottom": 706.015625,
+          "font": 17,
+          "display": "block"
+        },
+        "titleFont": 24,
+        "metadataFont": 14.96,
+        "selected": "来月"
+      }
+    },
+    {
+      "width": 320,
+      "theme": "dark",
+      "mode": "grammar",
+      "header": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 65,
+          "right": 320,
+          "bottom": 65,
+          "font": 17,
+          "display": "block"
+        },
+        ".nav-container": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 64,
+          "right": 320,
+          "bottom": 64,
+          "font": 17,
+          "display": "flex"
+        },
+        ".nav-controls": {
+          "x": 153.625,
+          "y": 8,
+          "width": 152.375,
+          "height": 48,
+          "right": 306,
+          "bottom": 56,
+          "font": 17,
+          "display": "flex"
+        },
+        "#contextSearchToggle": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0,
+          "bottom": 0,
+          "font": 17,
+          "display": "none"
+        },
+        "#streakButton": {
+          "x": 153.625,
+          "y": 10,
+          "width": 52.375,
+          "height": 44,
+          "right": 206,
+          "bottom": 54,
+          "font": 13.94,
+          "display": "flex"
+        },
+        "#themeToggle": {
+          "x": 262,
+          "y": 10,
+          "width": 44,
+          "height": 44,
+          "right": 306,
+          "bottom": 54,
+          "font": 16,
+          "display": "flex"
+        },
+        "brand": {
+          "x": 14,
+          "y": 10,
+          "width": 129.734375,
+          "height": 44,
+          "right": 143.734375,
+          "bottom": 54,
+          "font": 13,
+          "display": "flex"
+        },
+        "appearance": {
+          "x": 212,
+          "y": 8,
+          "width": 44,
+          "height": 48,
+          "right": 256,
+          "bottom": 56,
+          "font": 15.3,
+          "display": "flex"
+        }
+      },
+      "picker": {
+        "sidebar": {
+          "x": 16,
+          "y": -2.578125,
+          "width": 288,
+          "height": 100.28125,
+          "right": 304,
+          "bottom": 97.703125,
+          "font": 17,
+          "display": "block"
+        },
+        "detail": {
+          "x": 16,
+          "y": 97.703125,
+          "width": 288,
+          "height": 1300.921875,
+          "right": 304,
+          "bottom": 1398.625,
+          "font": 17,
+          "display": "block"
+        },
+        "titleFont": 17,
+        "metadataFont": 13.26,
+        "selected": "So sánh nhất trong một phạm vi"
+      }
+    }
+  ],
+  "streak": {
+    "consecutiveAndGap": {
+      "today": "2026-10-26",
+      "dates": [
+        "2026-10-23",
+        "2026-10-24",
+        "2026-10-26"
+      ],
+      "markedToday": true,
+      "current": 1,
+      "best": 2,
+      "totalDays": 3,
+      "lastVisit": "2026-10-26",
+      "storage": "persistent"
+    },
+    "visibleMidnight": {
+      "today": "2026-10-24",
+      "dates": [
+        "2026-10-23",
+        "2026-10-24"
+      ],
+      "markedToday": true,
+      "current": 2,
+      "best": 2,
+      "totalDays": 2,
+      "lastVisit": "2026-10-24",
+      "storage": "persistent"
+    },
+    "blockedStorage": {
+      "today": "2026-10-23",
+      "dates": [
+        "2026-10-23"
+      ],
+      "markedToday": true,
+      "current": 1,
+      "best": 1,
+      "totalDays": 1,
+      "lastVisit": "2026-10-23",
+      "storage": "session"
+    }
+  },
+  "checks": [
+    "Six widths, both themes, full header/quiz width, original selections, readable pickers and main content, modal keyboard focus.",
+    "Visit day1; same-day reload/two tabs stable; local midnight; next day2; gap resets1/best2; real14-day marks; malformed/future records ignored.",
+    "Blocked storage session fallback, file:// and GitHub Pages project prefix; no unhandled JS errors."
+  ],
+  "browser": "chromium",
+  "browserVersion": "153.0.8010.12",
+  "unhandledErrors": []
+}

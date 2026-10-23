@@ -1,0 +1,461 @@
+{
+  "browser": "153.0.8010.12",
+  "views": [
+    {
+      "mode": "flashcard",
+      "width": 1920,
+      "rectangles": {
+        "header": {
+          "x": 264,
+          "y": 18,
+          "width": 1638,
+          "height": 82,
+          "right": 1902
+        },
+        "main": {
+          "x": 264,
+          "y": 100,
+          "width": 1638,
+          "height": 1137.375,
+          "right": 1902
+        },
+        ".context-search": {
+          "x": 289,
+          "y": 33,
+          "width": 720,
+          "height": 52,
+          "right": 1009
+        },
+        ".theme-toggle": {
+          "x": 1019,
+          "y": 34,
+          "width": 139.9375,
+          "height": 50,
+          "right": 1158.9375
+        },
+        "#quizBox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0
+        },
+        ".kanji-sidebar": null,
+        ".kanji-content": null,
+        ".gr-sidebar": null,
+        ".gr-detail": null
+      }
+    },
+    {
+      "mode": "quiz",
+      "width": 1920,
+      "rectangles": {
+        "header": {
+          "x": 264,
+          "y": 18,
+          "width": 1638,
+          "height": 82,
+          "right": 1902
+        },
+        "main": {
+          "x": 264,
+          "y": 100,
+          "width": 1638,
+          "height": 1197.265625,
+          "right": 1902
+        },
+        ".context-search": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0
+        },
+        ".theme-toggle": {
+          "x": 1737.0625,
+          "y": 34,
+          "width": 139.9375,
+          "height": 50,
+          "right": 1877
+        },
+        "#quizBox": {
+          "x": 264,
+          "y": 241.671875,
+          "width": 1120,
+          "height": 815.453125,
+          "right": 1384
+        },
+        ".kanji-sidebar": null,
+        ".kanji-content": null,
+        ".gr-sidebar": null,
+        ".gr-detail": null
+      }
+    },
+    {
+      "mode": "kanji",
+      "width": 1920,
+      "rectangles": {
+        "header": {
+          "x": 264,
+          "y": 18,
+          "width": 1638,
+          "height": 82,
+          "right": 1902
+        },
+        "main": {
+          "x": 264,
+          "y": 100,
+          "width": 1638,
+          "height": 2214.765625,
+          "right": 1902
+        },
+        ".context-search": {
+          "x": 289,
+          "y": 33,
+          "width": 720,
+          "height": 52,
+          "right": 1009
+        },
+        ".theme-toggle": {
+          "x": 1019,
+          "y": 34,
+          "width": 139.9375,
+          "height": 50,
+          "right": 1158.9375
+        },
+        "#quizBox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0
+        },
+        ".kanji-sidebar": {
+          "x": 264,
+          "y": 289.765625,
+          "width": 250,
+          "height": 909.15625,
+          "right": 514
+        },
+        ".kanji-content": null,
+        ".gr-sidebar": null,
+        ".gr-detail": null
+      }
+    },
+    {
+      "mode": "grammar",
+      "width": 1920,
+      "rectangles": {
+        "header": {
+          "x": 264,
+          "y": 18,
+          "width": 1638,
+          "height": 82,
+          "right": 1902
+        },
+        "main": {
+          "x": 264,
+          "y": 100,
+          "width": 1638,
+          "height": 1647.25,
+          "right": 1902
+        },
+        ".context-search": {
+          "x": 289,
+          "y": 33,
+          "width": 720,
+          "height": 52,
+          "right": 1009
+        },
+        ".theme-toggle": {
+          "x": 1019,
+          "y": 34,
+          "width": 139.9375,
+          "height": 50,
+          "right": 1158.9375
+        },
+        "#quizBox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0
+        },
+        ".kanji-sidebar": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0
+        },
+        ".kanji-content": null,
+        ".gr-sidebar": {
+          "x": 264,
+          "y": 735.453125,
+          "width": 245,
+          "height": 718.1875,
+          "right": 509
+        },
+        ".gr-detail": {
+          "x": 533,
+          "y": 735.453125,
+          "width": 1369,
+          "height": 910.015625,
+          "right": 1902
+        }
+      }
+    },
+    {
+      "mode": "flashcard",
+      "width": 390,
+      "rectangles": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 65,
+          "right": 390
+        },
+        "main": {
+          "x": 0,
+          "y": 65,
+          "width": 390,
+          "height": 1107.046875,
+          "right": 390
+        },
+        ".context-search": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0
+        },
+        ".theme-toggle": {
+          "x": 332,
+          "y": 10,
+          "width": 44,
+          "height": 44,
+          "right": 376
+        },
+        "#quizBox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0
+        },
+        ".kanji-sidebar": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0
+        },
+        ".kanji-content": null,
+        ".gr-sidebar": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0
+        },
+        ".gr-detail": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0
+        }
+      }
+    },
+    {
+      "mode": "quiz",
+      "width": 390,
+      "rectangles": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 65,
+          "right": 390
+        },
+        "main": {
+          "x": 0,
+          "y": 65,
+          "width": 390,
+          "height": 1414.265625,
+          "right": 390
+        },
+        ".context-search": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0
+        },
+        ".theme-toggle": {
+          "x": 332,
+          "y": 10,
+          "width": 44,
+          "height": 44,
+          "right": 376
+        },
+        "#quizBox": {
+          "x": 16,
+          "y": 83,
+          "width": 358,
+          "height": 996.125,
+          "right": 374
+        },
+        ".kanji-sidebar": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0
+        },
+        ".kanji-content": null,
+        ".gr-sidebar": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0
+        },
+        ".gr-detail": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0
+        }
+      }
+    },
+    {
+      "mode": "kanji",
+      "width": 390,
+      "rectangles": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 65,
+          "right": 390
+        },
+        "main": {
+          "x": 0,
+          "y": 65,
+          "width": 390,
+          "height": 2041.5,
+          "right": 390
+        },
+        ".context-search": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0
+        },
+        ".theme-toggle": {
+          "x": 332,
+          "y": 10,
+          "width": 44,
+          "height": 44,
+          "right": 376
+        },
+        "#quizBox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0
+        },
+        ".kanji-sidebar": {
+          "x": 16,
+          "y": 192.609375,
+          "width": 358,
+          "height": 92.78125,
+          "right": 374
+        },
+        ".kanji-content": null,
+        ".gr-sidebar": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0
+        },
+        ".gr-detail": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0
+        }
+      }
+    },
+    {
+      "mode": "grammar",
+      "width": 390,
+      "rectangles": {
+        "header": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 65,
+          "right": 390
+        },
+        "main": {
+          "x": 0,
+          "y": 65,
+          "width": 390,
+          "height": 1564.015625,
+          "right": 390
+        },
+        ".context-search": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0
+        },
+        ".theme-toggle": {
+          "x": 332,
+          "y": 10,
+          "width": 44,
+          "height": 44,
+          "right": 376
+        },
+        "#quizBox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0
+        },
+        ".kanji-sidebar": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "right": 0
+        },
+        ".kanji-content": null,
+        ".gr-sidebar": {
+          "x": 16,
+          "y": 337.921875,
+          "width": 358,
+          "height": 92.78125,
+          "right": 374
+        },
+        ".gr-detail": {
+          "x": 16,
+          "y": 430.703125,
+          "width": 358,
+          "height": 1122.53125,
+          "right": 374
+        }
+      }
+    }
+  ]
+}

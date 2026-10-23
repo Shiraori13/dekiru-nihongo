@@ -1,0 +1,50 @@
+[
+  {
+    "test": "check_glass_layout.py",
+    "code": 0,
+    "seconds": 43.7,
+    "output": "PASS: original 7 buttons and selection across breakpoints, 232px sidebar/compact rail/mobile nav, contextual titles, safe brand, 56 mode screenshots, 28 UI20px main-mode screenshots with text/control clipping checks, drawer and active/results light/dark screenshots, landscape and keyboard-height panel.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T12:32:51.556405+00:00"
+  },
+  {
+    "test": "check_reference_ui.py",
+    "code": 0,
+    "seconds": 12.2,
+    "output": "PASS: reference geometry, teal selected answers/A-D, large offline typography, 5 widths light/dark, drawer focus/width, detailed image/UI20, unchanged quiz/data, saved old appearance, file:// and Pages prefix.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T12:33:03.714364+00:00"
+  },
+  {
+    "test": "check_flashcard_keyboard.py",
+    "code": 0,
+    "seconds": 3.7,
+    "output": "PASS: card shortcuts, focused controls, stable order, repeat protection, input isolation, light/dark rendering.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T12:33:07.428008+00:00"
+  },
+  {
+    "test": "check_mobile.py",
+    "code": 0,
+    "seconds": 18.6,
+    "output": "PASS: mobile geometry/navigation, 7 modes, pickers/filters, progressive list, reading hints and panels, writing, grammar/quiz/exam flows, review disclosures, 320/390/430/740 light/dark, desktop restoration and Firefox.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T12:36:51.214195+00:00"
+  },
+  {
+    "test": "check_appearance.py",
+    "code": 0,
+    "seconds": 11.6,
+    "output": "PASS: mouse/keyboard drawer, focus return, legacy theme and D shortcut, presets/sliders/fonts, image validation/Blob persistence/resize/revoke, storage failures, reset isolation, live quiz/grammar/exam preservation, file:// and Pages prefix.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T12:37:02.846210+00:00"
+  },
+  {
+    "test": "check_zoom.py",
+    "code": 0,
+    "seconds": 7.8,
+    "output": "PASS: native 200% zoom on Chromium/Edge; 7 modes, light/dark, 720 CSS px / DPR 2 / viewport 1440; no overflow or JS errors.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T12:37:10.629220+00:00"
+  }
+]

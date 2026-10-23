@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-23 Asia/Saigon",
+  "head": "11c7613f79d6720b94f3ba258e508b96d2338f84",
+  "branch": "main",
+  "published": false,
+  "python": {
+    "passed": 20,
+    "expected": 20
+  },
+  "node": [
+    "check_logic.js PASS",
+    "check_chapter67.js PASS"
+  ],
+  "format_check": "PASS",
+  "firefox_reference_ui": "PASS; extended real long-option case also passed",
+  "browser_versions": {
+    "chromium": "153.0.8010.12",
+    "firefox": "155.0"
+  },
+  "transports": [
+    "HTTP localhost",
+    "file://",
+    "HTTP /dekiru-nihongo/ prefix"
+  ],
+  "unchanged_core_files": [
+    "assets/quiz-core.js",
+    "assets/grammar-core.js",
+    "assets/exam-core.js",
+    "assets/attempt-store.js",
+    "assets/grammar.js",
+    "assets/exams.js",
+    "assets/audio.js",
+    "assets/reading.js",
+    "assets/kanji.js",
+    "assets/loader.js",
+    "assets/dialogs.js"
+  ],
+  "notes": "Full20 suites passed. Then reference/mobile/nativezoom reran after removing a duplicate mobile hero; additional long-option and small exam helper checks are included in final reference run.",
+  "limits": [
+    "No deploy or GitHub Actions run",
+    "No Safari/iOS or real phone screen-reader/keyboard run",
+    "No Firefox native zoom"
+  ]
+}

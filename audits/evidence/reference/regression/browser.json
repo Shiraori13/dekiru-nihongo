@@ -1,0 +1,11 @@
+{
+  "browser": "chromium",
+  "version": "153.0.8010.12",
+  "python": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
+  "transport": [
+    "HTTP",
+    "file://",
+    "Pages subdirectory simulation"
+  ],
+  "zoom": "200% reflow emulation, not browser-native zoom UI"
+}

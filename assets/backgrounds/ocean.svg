@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" fill="none">
+  <defs>
+    <linearGradient id="base" x1="480" y1="0" x2="1150" y2="1080" gradientUnits="userSpaceOnUse"><stop stop-color="#D5F2FF"/><stop offset=".35" stop-color="#B9DCFF"/><stop offset=".75" stop-color="#B4D6F4"/><stop offset="1" stop-color="#C2F2EF"/></linearGradient>
+    <linearGradient id="wave" x1="300" y1="950" x2="1370" y2="290" gradientUnits="userSpaceOnUse"><stop stop-color="#D0FFFF" stop-opacity=".75"/><stop offset=".44" stop-color="#B5E7F7" stop-opacity=".48"/><stop offset="1" stop-color="#EBF7FF" stop-opacity=".55"/></linearGradient>
+    <linearGradient id="deep" x1="250" y1="450" x2="1350" y2="950" gradientUnits="userSpaceOnUse"><stop stop-color="#A1C9F7" stop-opacity=".1"/><stop offset=".6" stop-color="#9FC3F0" stop-opacity=".48"/><stop offset="1" stop-color="#A0DADF" stop-opacity=".3"/></linearGradient>
+    <radialGradient id="sun"><stop stop-color="#FFFDF2" stop-opacity=".8"/><stop offset="1" stop-color="#FFFDF2" stop-opacity="0"/></radialGradient>
+    <filter id="cloud"><feGaussianBlur stdDeviation="12"/></filter>
+  </defs>
+  <path fill="url(#base)" d="M0 0h1600v1000H0z"/>
+  <ellipse cx="1310" cy="135" rx="390" ry="270" fill="url(#sun)"/>
+  <g fill="white" opacity=".32" filter="url(#cloud)"><ellipse cx="395" cy="145" rx="185" ry="34"/><ellipse cx="285" cy="157" rx="135" ry="21"/><ellipse cx="1100" cy="250" rx="180" ry="31"/></g>
+  <path d="M-100 425c267-161 384-15 585 57s308-51 524-54 360 141 691 27v332c-289 146-482-48-718-45s-341 150-567 55-351-169-515-65Z" fill="url(#deep)"/>
+  <path d="M-100 425c267-161 384-15 585 57s308-51 524-54 360 141 691 27" stroke="white" stroke-opacity=".5" stroke-width="3"/>
+  <path d="M-120 819c297-330 508-215 741-100s464-109 690-115 326 113 409 185v257H-120Z" fill="url(#wave)"/>
+  <path d="M-120 819c297-330 508-215 741-100s464-109 690-115 326 113 409 185" stroke="#F5FFFF" stroke-opacity=".74" stroke-width="4"/>
+  <path d="M-130 1040c205-330 435-324 682-153s475 57 673-10 339 9 496 153" fill="#D8FCF9" fill-opacity=".42"/>
+  <path d="M-130 1040c205-330 435-324 682-153s475 57 673-10 339 9 496 153" stroke="white" stroke-opacity=".62" stroke-width="4"/>
+  <path d="M109 574c205-90 349-15 495 20M902 555c182-52 317-1 450 17M784 938c155 30 229-42 373-47" stroke="white" stroke-opacity=".32" stroke-width="2" stroke-linecap="round"/>
+</svg>

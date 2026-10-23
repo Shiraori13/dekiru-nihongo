@@ -1,0 +1,154 @@
+[
+  {
+    "test": "check_app.py",
+    "code": 0,
+    "seconds": 29.2,
+    "output": "PASS: 921 vocabulary cards, 45 topics, 71 readings, quiz, filters, hints, glossary, progress, storage resilience, desktop/dark/mobile layouts; no JavaScript errors.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T05:06:52.275081+00:00"
+  },
+  {
+    "test": "check_attempt_store.py",
+    "code": 0,
+    "seconds": 4.5,
+    "output": "PASS: atomic CAS conflict, one editor, read-only timeout, exact deadline, once-only history, blocked stores and isolated memory copy on write failure.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T05:07:06.280252+00:00"
+  },
+  {
+    "test": "check_audio.py",
+    "code": 0,
+    "seconds": 18.1,
+    "output": "PASS firefox: real MP3 progress, no OS voices, vocabulary/grammar/reading, stop, blocked permission, missing files, file:// and 1178-file coverage.\nPASS chromium: real MP3 progress, no OS voices, vocabulary/grammar/reading, stop, blocked permission, missing files, file:// and 1178-file coverage.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T05:07:24.347527+00:00"
+  },
+  {
+    "test": "check_chapter67.py",
+    "code": 0,
+    "seconds": 5.6,
+    "output": "PASS: new67 papers lazy loaded; 125-word scope; all new glyphs; independent correct/wrong/blank/edit score1/1/43; reload/order/flags/clock; filter keeps active paper; 11 mobile/desktop screenshots; detailed result export and file://; no JS errors.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T05:07:29.972161+00:00"
+  },
+  {
+    "test": "check_delivery.py",
+    "code": 0,
+    "seconds": 35.7,
+    "output": "PASS: initial 914316 bytes / 537 DOM; lazy retry/race/dedup, 56 light/dark mode screenshots, 320/390/768/1440, 200% reflow emulation, Japanese glyph coverage, keyboard dialog and file://.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T05:08:05.690905+00:00"
+  },
+  {
+    "test": "check_exam_shuffle.py",
+    "code": 0,
+    "seconds": 29.2,
+    "output": "PASS: 360 detailed solutions, option/source alignment, 200 randomized plans, stable answers/flags/order across reload/history/export, legacy progress and grades, invalid-order protection, import validation, responsive light/dark, Firefox lesson 6–7 file://.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T05:08:34.927275+00:00"
+  },
+  {
+    "test": "check_exams.py",
+    "code": 0,
+    "seconds": 99.7,
+    "output": "PASS: 8x45 exam audit, all 360 answers graded, lesson scopes, 252 vocabulary entries, accessible filters and resume, marks, restore, wrong/skipped review, timer, history, JSON validation/XSS, preview/import/export/delete, 45-row image editor, draft persistence, blocked storage, 320/390/1280 light/dark, Firefox file://.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T05:10:14.618539+00:00"
+  },
+  {
+    "test": "check_flashcard_keyboard.py",
+    "code": 0,
+    "seconds": 3.3,
+    "output": "PASS: card shortcuts, focused controls, stable order, repeat protection, input isolation, light/dark rendering.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T05:10:17.939822+00:00"
+  },
+  {
+    "test": "check_appearance.py",
+    "code": 0,
+    "seconds": 12.2,
+    "output": "PASS: mouse/keyboard drawer, focus return, legacy theme and D shortcut, presets/sliders/fonts, image validation/Blob persistence/resize/revoke, storage failures, reset isolation, live quiz/grammar/exam preservation, file:// and Pages prefix.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T05:32:07.629373+00:00"
+  },
+  {
+    "test": "check_grammar.py",
+    "code": 0,
+    "seconds": 213.0,
+    "output": "Chapter counts: {4: 162, 5: 180, 6: 126, 7: 198}\nPASS: 37 grammar units, 12 topics, 666 exercises; grading, retry, resume, filtering, mobile and dark mode.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T05:36:13.465787+00:00"
+  },
+  {
+    "test": "check_grammar_independence.py",
+    "code": 0,
+    "seconds": 3.6,
+    "output": "PASS: 261 distinct replacement contexts, independent plans, complete Kanji hints, correct readings, persistence, no answer leakage and 320/390px layouts.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T05:36:17.057123+00:00"
+  },
+  {
+    "test": "check_imported_tabs.py",
+    "code": 0,
+    "seconds": 7.8,
+    "output": "PASS: stale imported-library initialization, live-tab import refresh, retained attempt/history on document read failure, and explicit retry recovery.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T05:36:24.874307+00:00"
+  },
+  {
+    "test": "check_interactions.py",
+    "code": 0,
+    "seconds": 2.7,
+    "output": "Clipped flashcards: []\nPASS: all flashcards at 320px offline, empty state, keyboard flip, voice loading, sentence playback, completion, stop, tab/exercise change, error recovery and stale audio callbacks.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T05:36:27.554948+00:00"
+  },
+  {
+    "test": "check_mobile.py",
+    "code": 0,
+    "seconds": 19.8,
+    "output": "PASS: mobile geometry/navigation, 7 modes, pickers/filters, progressive list, reading hints and panels, writing, grammar/quiz/exam flows, review disclosures, 320/390/430/740 light/dark, desktop restoration and Firefox.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T05:37:34.746427+00:00"
+  },
+  {
+    "test": "check_quiz.py",
+    "code": 0,
+    "seconds": 11.3,
+    "output": "PASS: progress, editable single answers, deferred grading, skipped questions, marked review, retries, tab resumption, immediate grading and 921-question scope.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T05:37:46.051455+00:00"
+  },
+  {
+    "test": "check_regressions.py",
+    "code": 0,
+    "seconds": 4.0,
+    "output": "PASS: equivalent meanings; grammar cancel/continue/new preserve state; two tabs, takeover, stale legacy writes, new-attempt fencing, single history and owner close.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T05:37:50.041333+00:00"
+  },
+  {
+    "test": "check_zoom.py",
+    "code": 0,
+    "seconds": 7.5,
+    "output": "PASS: native 200% zoom on Chromium/Edge; 7 modes, light/dark, 720 CSS px / DPR 2 / viewport 1440; no overflow or JS errors.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T05:37:57.578986+00:00"
+  },
+  {
+    "test": "check_glass_layout.py",
+    "code": 0,
+    "seconds": 41.8,
+    "output": "PASS: original 7 buttons and selection across breakpoints, 232px sidebar/compact rail/mobile nav, contextual titles, safe brand, 56 mode screenshots, 28 UI20px main-mode screenshots with text/control clipping checks, drawer and active/results light/dark screenshots, landscape and keyboard-height panel.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T05:39:05.175376+00:00"
+  },
+  {
+    "test": "check_kanji.py",
+    "code": 0,
+    "seconds": 23.4,
+    "output": "PASS: 607 source mappings, 496 glyphs, all 45 topics, offline study, writing, persistence, mobile layout and custom quiz counts.\n",
+    "browser_config": "chromium",
+    "completed_utc": "2026-10-23T05:39:28.609334+00:00"
+  }
+]

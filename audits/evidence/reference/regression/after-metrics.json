@@ -1,0 +1,100 @@
+{
+  "dom": 568,
+  "documentBytes": 37808,
+  "resources": [
+    {
+      "path": "/assets/appearance-init.js",
+      "bytes": 2483
+    },
+    {
+      "path": "/assets/fonts/PlusJakartaSans-latin.woff2",
+      "bytes": 45800
+    },
+    {
+      "path": "/assets/tokens.css",
+      "bytes": 3397
+    },
+    {
+      "path": "/assets/fonts/NotoSansJP-study.woff2",
+      "bytes": 418636
+    },
+    {
+      "path": "/assets/app.css",
+      "bytes": 13866
+    },
+    {
+      "path": "/assets/study.css",
+      "bytes": 40168
+    },
+    {
+      "path": "/assets/mobile.css",
+      "bytes": 20844
+    },
+    {
+      "path": "/assets/appearance.css",
+      "bytes": 8894
+    },
+    {
+      "path": "/assets/shell.css",
+      "bytes": 25009
+    },
+    {
+      "path": "/assets/logo.svg",
+      "bytes": 3641
+    },
+    {
+      "path": "/data/audio.js",
+      "bytes": 59802
+    },
+    {
+      "path": "/data/vocabulary.js",
+      "bytes": 130522
+    },
+    {
+      "path": "/assets/audio.js",
+      "bytes": 7264
+    },
+    {
+      "path": "/data/meaning-groups.js",
+      "bytes": 4454
+    },
+    {
+      "path": "/assets/quiz-core.js",
+      "bytes": 2117
+    },
+    {
+      "path": "/assets/dialogs.js",
+      "bytes": 2271
+    },
+    {
+      "path": "/assets/attempt-store.js",
+      "bytes": 11571
+    },
+    {
+      "path": "/assets/appearance.js",
+      "bytes": 24200
+    },
+    {
+      "path": "/assets/loader.js",
+      "bytes": 3763
+    },
+    {
+      "path": "/assets/app.js",
+      "bytes": 35998
+    },
+    {
+      "path": "/assets/presentation.js",
+      "bytes": 1790
+    },
+    {
+      "path": "/assets/mobile.js",
+      "bytes": 21234
+    },
+    {
+      "path": "/assets/backgrounds/mint.svg",
+      "bytes": 3131
+    }
+  ],
+  "bytes": 928663,
+  "requests": 24
+}

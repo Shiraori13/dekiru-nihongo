@@ -1,0 +1,10 @@
+[
+  {
+    "test": "check_reference_ui.py",
+    "code": 0,
+    "seconds": 25.8,
+    "output": "PASS: reference geometry, teal selected answers/A-D, large offline typography, 5 widths light/dark, drawer focus/width, detailed image/UI20, unchanged quiz/data, saved old appearance, file:// and Pages prefix.\n",
+    "browser_config": "firefox",
+    "completed_utc": "2026-10-23T12:14:13.041713+00:00"
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "test": "check_appearance.py",
+    "code": 0,
+    "seconds": 30.7,
+    "output": "PASS: mouse/keyboard drawer, focus return, legacy theme and D shortcut, presets/sliders/fonts, image validation/Blob persistence/resize/revoke, storage failures, reset isolation, live quiz/grammar/exam preservation, file:// and Pages prefix.\n",
+    "browser_config": "firefox",
+    "completed_utc": "2026-10-23T05:34:42.164641+00:00"
+  },
+  {
+    "test": "check_glass_layout.py",
+    "code": 0,
+    "seconds": 55.7,
+    "output": "PASS: original 7 buttons and selection across breakpoints, 232px sidebar/compact rail/mobile nav, contextual titles, safe brand, 56 mode screenshots, 28 UI20px main-mode screenshots with text/control clipping checks, drawer and active/results light/dark screenshots, landscape and keyboard-height panel.\n",
+    "browser_config": "firefox",
+    "completed_utc": "2026-10-23T05:35:37.900276+00:00"
+  }
+]

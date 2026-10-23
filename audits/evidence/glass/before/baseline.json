@@ -1,0 +1,7 @@
+{
+  "commit": "11c7613",
+  "browser": "153.0.8010.12",
+  "errors": [],
+  "screenshots": 12,
+  "knownIssue": "Google Fonts blocked/offline: interface falls back to system font."
+}

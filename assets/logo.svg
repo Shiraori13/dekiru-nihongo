@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" fill="none">
+  <title>Dekiru Master — 学 và sách mở</title>
+  <defs>
+    <linearGradient id="tile" x1="23" y1="10" x2="106" y2="121" gradientUnits="userSpaceOnUse"><stop stop-color="#F1FFF7"/><stop offset=".44" stop-color="#B4F5E4"/><stop offset="1" stop-color="#63DED0"/></linearGradient>
+    <linearGradient id="gloss" x1="55" y1="16" x2="81" y2="116" gradientUnits="userSpaceOnUse"><stop stop-color="white" stop-opacity=".9"/><stop offset=".5" stop-color="white" stop-opacity=".12"/><stop offset="1" stop-color="white" stop-opacity=".6"/></linearGradient>
+    <linearGradient id="pages" x1="39" y1="81" x2="88" y2="110" gradientUnits="userSpaceOnUse"><stop stop-color="#FFFFFF"/><stop offset="1" stop-color="#DBFFF4"/></linearGradient>
+    <linearGradient id="book" x1="30" y1="91" x2="99" y2="114" gradientUnits="userSpaceOnUse"><stop stop-color="#09B9A5"/><stop offset="1" stop-color="#007D7B"/></linearGradient>
+    <filter id="shadow" x="0" y="0" width="128" height="128" filterUnits="userSpaceOnUse"><feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#29B7A6" flood-opacity=".24"/></filter>
+  </defs>
+  <g filter="url(#shadow)">
+    <rect x="7" y="5" width="114" height="114" rx="35" fill="url(#tile)"/>
+    <rect x="7" y="5" width="114" height="114" rx="35" stroke="white" stroke-opacity=".96" stroke-width="2"/>
+    <rect x="13" y="11" width="102" height="102" rx="29" stroke="url(#gloss)" stroke-width="1.2"/>
+    <path d="M16 48c0-20 12-33 34-33h33c-34 4-49 13-67 33Z" fill="white" fill-opacity=".35"/>
+    <!-- U+5B66 outline from packaged Noto Sans JP (SIL OFL; assets/fonts/OFL.txt). -->
+    <g fill="#075C59" transform="translate(35 78) scale(.058 -.058)"><title>学</title><path d="M233.14 507.92H694.5V404.04H233.14ZM54.3 283.16H949.36V172.82H54.3ZM439.2 347.78H562.02V38.72Q562.02 -7.46 548.95 -33.06Q535.88 -58.66 499.5 -72.02Q464.12 -84.6 416.1 -87.55Q368.08 -90.5 303.66 -90.5Q297.76 -65 283.51 -31.26Q269.26 2.48 254.9 25.86Q286.64 24.86 319.69 23.97Q352.74 23.08 378.19 23.19Q403.64 23.3 413.64 23.52Q428.64 23.96 433.92 28.07Q439.2 32.18 439.2 42.4ZM655.52 507.92H685.14L710.86 513.82L786.46 455.92Q752.68 419.24 709.02 382.22Q665.36 345.2 617.42 312.79Q569.48 280.38 520.36 256.14Q509.34 272.06 489.8 292.66Q470.26 313.26 456.68 325.84Q495.66 345.96 534.3 373.86Q572.94 401.76 604.91 431.21Q636.88 460.66 655.52 485.32ZM66.7 690.54H938.06V445.64H819.92V584.88H179.38V445.64H66.7ZM759.24 842.94 889.2 804.54Q854.74 754.52 817.91 706.96Q781.08 659.4 750.64 626.4L652.42 662.46Q671.86 687.58 691.68 718.75Q711.5 749.92 729.43 782.37Q747.36 814.82 759.24 842.94ZM133.58 793.86 235.58 839.62Q262.68 810.3 288.84 773.7Q315 737.1 327.22 707.88L218.98 657Q208.1 685.44 183.39 723.82Q158.68 762.2 133.58 793.86ZM385.44 815.64 491.34 855.06Q515.22 822.52 537.77 781.59Q560.32 740.66 570.1 710L456.96 666.24Q449.3 696.34 428.53 738.55Q407.76 780.76 385.44 815.64Z"/></g>
+    <path d="M25 95c13-5 26-3 39 4 13-7 26-9 39-4l4 13c-17-1-30 1-43 7-13-6-26-8-43-7l4-13Z" fill="url(#book)"/>
+    <path d="M27 87c12-5 25-2 37 6 12-8 25-11 37-6l-3 15c-13-2-24 0-34 7-10-7-21-9-34-7l-3-15Z" fill="url(#pages)" stroke="white" stroke-width="1.8" stroke-linejoin="round"/>
+    <path d="M64 93v16M35 92c9-1 16 1 23 5M70 97c7-4 14-6 23-5" stroke="#68C6B7" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="m103 18 2.5 7.5L113 28l-7.5 2.5L103 38l-2.5-7.5L93 28l7.5-2.5L103 18Z" fill="#10BBAA"/>
+    <path d="m23 77 1.3 4 4 1.3-4 1.3-1.3 4-1.3-4-4-1.3 4-1.3 1.3-4Z" fill="white" fill-opacity=".9"/>
+  </g>
+</svg>

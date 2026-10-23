@@ -1,0 +1,18 @@
+{
+  "matching_screenshot_states": 6,
+  "questions_options_answers_unchanged": true,
+  "data_files_checked": 11,
+  "changed_data_files": [],
+  "runtime_files_changed_since_refinement_baseline": [
+    "index.html",
+    "assets/app.js",
+    "assets/appearance-init.js",
+    "assets/appearance.css",
+    "assets/appearance.js",
+    "assets/favicon.svg",
+    "assets/logo.svg",
+    "assets/mobile.js",
+    "assets/shell.css",
+    "assets/tokens.css"
+  ]
+}
