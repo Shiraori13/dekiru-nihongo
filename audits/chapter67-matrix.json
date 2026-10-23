@@ -1,0 +1,430 @@
+{
+  "date": "2026-10-23",
+  "basis": "material-adapted-01; source screenshots in Material, same six question categories",
+  "sampleCategories": {
+    "dialogue": 7,
+    "translation": 2,
+    "spelling": 8,
+    "grammar": 21,
+    "vocabulary": 1,
+    "reading": 6
+  },
+  "targetCategories": {
+    "reading": 6,
+    "spelling": 8,
+    "vocabulary": 1,
+    "grammar": 21,
+    "dialogue": 7,
+    "translation": 2
+  },
+  "vocabularySource": "sources/new-words.pdf#page=18",
+  "vocabularyCount": 125,
+  "papers": [
+    {
+      "id": "chapter67-1",
+      "title": "Bài 6–7 · Đề 01",
+      "description": "Rủ bạn chơi thể thao, so sánh địa điểm và hẹn giờ; tìm nhà bạn, cùng chuẩn bị và giúp việc trong buổi gặp mặt. 45 câu mới theo ma trận đề mẫu, đủ 18 mục ngữ pháp và 6 chủ đề bài 6–7.",
+      "lessons": [
+        6,
+        7
+      ],
+      "minutes": 45,
+      "count": 45,
+      "categories": {
+        "reading": 6,
+        "spelling": 8,
+        "vocabulary": 1,
+        "grammar": 21,
+        "dialogue": 7,
+        "translation": 2
+      },
+      "units": [
+        "g6-already",
+        "g6-best",
+        "g6-compare",
+        "g6-event",
+        "g6-invite",
+        "g6-particles",
+        "g6-suggest",
+        "g7-how",
+        "g7-location",
+        "g7-offer",
+        "g7-progressive",
+        "g7-remaining",
+        "g7-request",
+        "g7-te",
+        "g7-there",
+        "g7-tool",
+        "g7-which",
+        "g7-who"
+      ],
+      "topics": [
+        "6:0",
+        "6:1",
+        "6:2",
+        "7:0",
+        "7:1",
+        "7:2"
+      ]
+    },
+    {
+      "id": "chapter67-2",
+      "title": "Bài 6–7 · Đề 02",
+      "description": "Hẹn gặp ở thư viện, chọn sự kiện âm nhạc trong cộng đồng rồi chuẩn bị bữa tiệc tại nhà: vị trí, cách làm, nhờ giúp và kể hoạt động đang diễn ra. 45 câu mới theo ma trận đề mẫu, đủ 18 mục ngữ pháp và 6 chủ đề bài 6–7.",
+      "lessons": [
+        6,
+        7
+      ],
+      "minutes": 45,
+      "count": 45,
+      "categories": {
+        "reading": 6,
+        "spelling": 8,
+        "vocabulary": 1,
+        "grammar": 21,
+        "dialogue": 7,
+        "translation": 2
+      },
+      "units": [
+        "g6-already",
+        "g6-best",
+        "g6-compare",
+        "g6-event",
+        "g6-invite",
+        "g6-particles",
+        "g6-suggest",
+        "g7-how",
+        "g7-location",
+        "g7-offer",
+        "g7-progressive",
+        "g7-remaining",
+        "g7-request",
+        "g7-te",
+        "g7-there",
+        "g7-tool",
+        "g7-which",
+        "g7-who"
+      ],
+      "topics": [
+        "6:0",
+        "6:1",
+        "6:2",
+        "7:0",
+        "7:1",
+        "7:2"
+      ]
+    },
+    {
+      "id": "chapter67-3",
+      "title": "Bài 6–7 · Đề 03",
+      "description": "Đi xem thể thao và lễ hội trong thành phố: chọn điểm đến, hẹn gặp, hỏi vị trí và chuẩn bị đồ ăn nước uống. Đủ 18 mục ngữ pháp, 6 topic; ma trận 45 câu theo đề mẫu ảnh.",
+      "lessons": [
+        6,
+        7
+      ],
+      "minutes": 45,
+      "count": 45,
+      "categories": {
+        "reading": 6,
+        "spelling": 8,
+        "vocabulary": 1,
+        "grammar": 21,
+        "dialogue": 7,
+        "translation": 2
+      },
+      "units": [
+        "g6-already",
+        "g6-best",
+        "g6-compare",
+        "g6-event",
+        "g6-invite",
+        "g6-particles",
+        "g6-suggest",
+        "g7-how",
+        "g7-location",
+        "g7-offer",
+        "g7-progressive",
+        "g7-remaining",
+        "g7-request",
+        "g7-te",
+        "g7-there",
+        "g7-tool",
+        "g7-which",
+        "g7-who"
+      ],
+      "topics": [
+        "6:0",
+        "6:1",
+        "6:2",
+        "7:0",
+        "7:1",
+        "7:2"
+      ]
+    },
+    {
+      "id": "chapter67-4",
+      "title": "Bài 6–7 · Đề 04",
+      "description": "Ngày nghỉ với hòa nhạc và cuộc hẹn, rồi đến nhà bạn nấu ăn, xem ảnh và cùng vui. Đủ 18 mục ngữ pháp, 6 topic; ma trận 45 câu theo đề mẫu ảnh.",
+      "lessons": [
+        6,
+        7
+      ],
+      "minutes": 45,
+      "count": 45,
+      "categories": {
+        "reading": 6,
+        "spelling": 8,
+        "vocabulary": 1,
+        "grammar": 21,
+        "dialogue": 7,
+        "translation": 2
+      },
+      "units": [
+        "g6-already",
+        "g6-best",
+        "g6-compare",
+        "g6-event",
+        "g6-invite",
+        "g6-particles",
+        "g6-suggest",
+        "g7-how",
+        "g7-location",
+        "g7-offer",
+        "g7-progressive",
+        "g7-remaining",
+        "g7-request",
+        "g7-te",
+        "g7-there",
+        "g7-tool",
+        "g7-which",
+        "g7-who"
+      ],
+      "topics": [
+        "6:0",
+        "6:1",
+        "6:2",
+        "7:0",
+        "7:1",
+        "7:2"
+      ]
+    }
+  ],
+  "units": [
+    {
+      "id": "g6-invite",
+      "lesson": 6,
+      "topic": 0,
+      "title": "Rủ, nhận lời và từ chối nhẹ",
+      "formula": "Vませんか ／ Vましょう ／ … はちょっと…",
+      "speakingPages": [
+        43,
+        45,
+        52
+      ]
+    },
+    {
+      "id": "g6-event",
+      "lesson": 6,
+      "topic": 0,
+      "title": "Có việc hẹn, sự kiện và số lượng vé",
+      "formula": "用事・約束 が あります ／ Địa điểm で sự kiện が あります ／ N が số lượng 枚 あります",
+      "speakingPages": [
+        43,
+        44,
+        45,
+        53
+      ]
+    },
+    {
+      "id": "g6-compare",
+      "lesson": 6,
+      "topic": 1,
+      "title": "So sánh hai lựa chọn",
+      "formula": "A と B と どちらが … か ／ A のほうが … ／ A は B より …",
+      "speakingPages": [
+        47,
+        48,
+        54
+      ]
+    },
+    {
+      "id": "g6-best",
+      "lesson": 6,
+      "topic": 1,
+      "title": "So sánh nhất trong một phạm vi",
+      "formula": "Phạm vi で N が いちばん Aです",
+      "speakingPages": [
+        7,
+        46,
+        54
+      ]
+    },
+    {
+      "id": "g6-already",
+      "lesson": 6,
+      "topic": 2,
+      "title": "Đã … chưa? Chưa",
+      "formula": "もう Vましたか ／ はい、Vました ／ いいえ、まだです",
+      "speakingPages": [
+        55
+      ]
+    },
+    {
+      "id": "g6-suggest",
+      "lesson": 6,
+      "topic": 2,
+      "title": "Đề xuất giờ, nơi hoặc món",
+      "formula": "N は どうですか ／ そうしましょう",
+      "speakingPages": [
+        50,
+        51,
+        56
+      ]
+    },
+    {
+      "id": "g6-particles",
+      "lesson": 6,
+      "topic": 2,
+      "title": "よ: báo tin; ね: xác nhận",
+      "formula": "Câu + よ ／ Thông tin cần xác nhận + ね",
+      "speakingPages": [
+        49,
+        51,
+        57,
+        58
+      ]
+    },
+    {
+      "id": "g7-location",
+      "lesson": 7,
+      "topic": 0,
+      "title": "Nói vị trí của người và vật",
+      "formula": "N は địa điểm に あります／います ／ N の 前・後ろ・隣…",
+      "speakingPages": [
+        60,
+        61,
+        62,
+        71
+      ]
+    },
+    {
+      "id": "g7-there",
+      "lesson": 7,
+      "topic": 0,
+      "title": "Giới thiệu người/vật tại một nơi",
+      "formula": "Địa điểm に N が あります／います",
+      "speakingPages": [
+        62,
+        71
+      ]
+    },
+    {
+      "id": "g7-te",
+      "lesson": 7,
+      "topic": 1,
+      "title": "Cách chia thể て",
+      "formula": "Nhóm 1: đổi âm cuối ／ Nhóm 2: bỏ る + て ／ する→して・来る→来て",
+      "speakingPages": [
+        63,
+        72,
+        75
+      ]
+    },
+    {
+      "id": "g7-request",
+      "lesson": 7,
+      "topic": 1,
+      "title": "Nhờ làm một việc",
+      "formula": "Vて + ください",
+      "speakingPages": [
+        63,
+        64,
+        65,
+        72,
+        75
+      ]
+    },
+    {
+      "id": "g7-tool",
+      "lesson": 7,
+      "topic": 1,
+      "title": "Làm bằng dụng cụ gì",
+      "formula": "Dụng cụ で N を V",
+      "speakingPages": [
+        63,
+        76
+      ]
+    },
+    {
+      "id": "g7-how",
+      "lesson": 7,
+      "topic": 1,
+      "title": "Cách làm một việc",
+      "formula": "V bỏ ます + 方（かた） ／ N の V方",
+      "speakingPages": [
+        8,
+        73
+      ]
+    },
+    {
+      "id": "g7-which",
+      "lesson": 7,
+      "topic": 1,
+      "title": "どの + danh từ và どれ",
+      "formula": "どの N ですか ／ N は どれですか",
+      "speakingPages": [
+        64,
+        65,
+        75,
+        76
+      ]
+    },
+    {
+      "id": "g7-progressive",
+      "lesson": 7,
+      "topic": 2,
+      "title": "Hành động đang diễn ra",
+      "formula": "Vて + います",
+      "speakingPages": [
+        66,
+        72
+      ]
+    },
+    {
+      "id": "g7-offer",
+      "lesson": 7,
+      "topic": 2,
+      "title": "Chủ động đề nghị giúp",
+      "formula": "V bỏ ます + ましょうか",
+      "speakingPages": [
+        67,
+        72
+      ]
+    },
+    {
+      "id": "g7-who",
+      "lesson": 7,
+      "topic": 2,
+      "title": "Ai là người thực hiện?",
+      "formula": "誰 が Vましたか ／ Người が Vました",
+      "speakingPages": [
+        68,
+        73
+      ]
+    },
+    {
+      "id": "g7-remaining",
+      "lesson": 7,
+      "topic": 2,
+      "title": "Vẫn còn và đã hết",
+      "formula": "まだ あります ／ もう ありません",
+      "speakingPages": [
+        69,
+        70,
+        74
+      ]
+    }
+  ],
+  "officialAnswerKeyAvailable": false,
+  "independentTeacherReview": "pending"
+}

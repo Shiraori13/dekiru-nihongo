@@ -1,10 +1,12 @@
 """Real MP3 playback on Firefox/Edge without Japanese system voices, plus failures."""
-import hashlib, http.server, json, sys, threading
+import hashlib, http.server, json, sys, threading, os
 from functools import partial
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'.tools'))
 from playwright.sync_api import sync_playwright
+from browser_support import launch, install_legacy_readiness, reset_attempt_store
+install_legacy_readiness()
 
 class QuietHandler(http.server.SimpleHTTPRequestHandler):
     def log_message(self,*args):pass
@@ -14,8 +16,8 @@ threading.Thread(target=server.serve_forever,daemon=True).start()
 url=f'http://127.0.0.1:{server.server_port}/index.html'
 try:
     with sync_playwright() as p:
-        for engine in ['firefox','edge']:
-            browser=p.firefox.launch(headless=True) if engine=='firefox' else p.chromium.launch(channel='msedge',headless=True)
+        for engine in dict.fromkeys(['firefox',os.environ.get('DEKIRU_BROWSER','edge' if os.name=='nt' else 'chromium')]):
+            browser=p.firefox.launch(headless=True) if engine=='firefox' else launch(p)
             context=browser.new_context(viewport={'width':390,'height':900},reduced_motion='reduce')
             context.route('https://**/*',lambda route:route.abort())
             context.add_init_script('''

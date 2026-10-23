@@ -1,0 +1,68 @@
+[
+  {
+    "test": "check_app.py",
+    "code": 0,
+    "seconds": 21.6,
+    "output": "PASS: 921 vocabulary cards, 45 topics, 71 readings, quiz, filters, hints, glossary, progress, storage resilience, desktop/dark/mobile layouts; no JavaScript errors.\n"
+  },
+  {
+    "test": "check_audio.py",
+    "code": 0,
+    "seconds": 17.4,
+    "output": "PASS firefox: real MP3 progress, no OS voices, vocabulary/grammar/reading, stop, blocked permission, missing files, file:// and 1178-file coverage.\nPASS edge: real MP3 progress, no OS voices, vocabulary/grammar/reading, stop, blocked permission, missing files, file:// and 1178-file coverage.\n"
+  },
+  {
+    "test": "check_exam_shuffle.py",
+    "code": 0,
+    "seconds": 18.9,
+    "output": "PASS: 180 detailed solutions, option/source alignment, 200 randomized plans, stable answers/flags/order across reload/history/export, legacy progress and grades, invalid-order protection, import validation, responsive light/dark, Firefox file://.\n"
+  },
+  {
+    "test": "check_exams.py",
+    "code": 0,
+    "seconds": 35.2,
+    "output": "PASS: 4x45 exam audit, all 180 answers graded, marks, restore, wrong/skipped review, timer, history, JSON validation/XSS, preview/import/export/delete, 45-row image editor, draft persistence, blocked storage, 320/390/1280 light/dark, Firefox file://.\n"
+  },
+  {
+    "test": "check_flashcard_keyboard.py",
+    "code": 0,
+    "seconds": 4.8,
+    "output": "PASS: card shortcuts, focused controls, stable order, repeat protection, input isolation, light/dark rendering.\n"
+  },
+  {
+    "test": "check_grammar.py",
+    "code": 0,
+    "seconds": 130.5,
+    "output": "Chapter counts: {4: 162, 5: 180, 6: 126, 7: 198}\nPASS: 37 grammar units, 12 topics, 666 exercises; grading, retry, resume, filtering, mobile and dark mode.\n"
+  },
+  {
+    "test": "check_grammar_independence.py",
+    "code": 0,
+    "seconds": 3.6,
+    "output": "PASS: 261 distinct replacement contexts, independent plans, complete Kanji hints, correct readings, persistence, no answer leakage and 320/390px layouts.\n"
+  },
+  {
+    "test": "check_interactions.py",
+    "code": 1,
+    "seconds": 32.1,
+    "output": "Clipped flashcards: []\nTraceback (most recent call last):\n  File \"D:\\Fall2026\\JPN123\\Web page dekiru\\tests\\check_interactions.py\", line 51, in <module>\n    page.fill('#searchBox','no-such-word')\n  File \"D:\\Fall2026\\JPN123\\Web page dekiru\\.tools\\playwright\\sync_api\\_generated.py\", line 11332, in fill\n    self._sync(\n  File \"D:\\Fall2026\\JPN123\\Web page dekiru\\.tools\\playwright\\_impl\\_sync_base.py\", line 115, in _sync\n    return task.result()\n           ^^^^^^^^^^^^^\n  File \"D:\\Fall2026\\JPN123\\Web page dekiru\\.tools\\playwright\\_impl\\_page.py\", line 930, in fill\n    return await self._main_frame.fill(**locals_to_params(locals()))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Fall2026\\JPN123\\Web page dekiru\\.tools\\playwright\\_impl\\_frame.py\", line 637, in fill\n    await self._fill(**locals_to_params(locals()))\n  File \"D:\\Fall2026\\JPN123\\Web page dekiru\\.tools\\playwright\\_impl\\_frame.py\", line 649, in _fill\n    await self._channel.send(\"fill\", self._timeout, locals_to_params(locals()))\n  File \"D:\\Fall2026\\JPN123\\Web page dekiru\\.tools\\playwright\\_impl\\_connection.py\", line 76, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Fall2026\\JPN123\\Web page dekiru\\.tools\\playwright\\_impl\\_connection.py\", line 632, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TimeoutError: Page.fill: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"#searchBox\")\n    - locator resolved to <input type=\"text\" id=\"searchBox\" aria-label=\"T�m t\\u1eeb v\\u1ef1ng\" oninput=\"onFilterChange()\" placeholder=\"Tra c\\u1ee9u Kanji, Kana ho\\u1eb7c ti\\u1ebfng Vi\\u1ec7t...\"/>\n    - fill(\"no-such-word\")\n  - attempting fill action\n    2 � waiting for element to be visible, enabled and editable\n      - element is not visible\n    - retrying fill action\n    - waiting 20ms\n    2 � waiting for element to be visible, enabled and editable\n      - element is not visible\n    - retrying fill action\n      - waiting 100ms\n    58 � waiting for element to be visible, enabled and editable\n       - element is not visible\n     - retrying fill action\n       - waiting 500ms\n\n"
+  },
+  {
+    "test": "check_kanji.py",
+    "code": 1,
+    "seconds": 45.3,
+    "output": "Traceback (most recent call last):\n  File \"D:\\Fall2026\\JPN123\\Web page dekiru\\tests\\check_kanji.py\", line 130, in <module>\n    page.locator('#kanjiCanvas').scroll_into_view_if_needed()\n  File \"D:\\Fall2026\\JPN123\\Web page dekiru\\.tools\\playwright\\sync_api\\_generated.py\", line 20142, in scroll_into_view_if_needed\n    self._sync(\n  File \"D:\\Fall2026\\JPN123\\Web page dekiru\\.tools\\playwright\\_impl\\_sync_base.py\", line 115, in _sync\n    return task.result()\n           ^^^^^^^^^^^^^\n  File \"D:\\Fall2026\\JPN123\\Web page dekiru\\.tools\\playwright\\_impl\\_locator.py\", line 621, in scroll_into_view_if_needed\n    return await self._with_element(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Fall2026\\JPN123\\Web page dekiru\\.tools\\playwright\\_impl\\_locator.py\", line 118, in _with_element\n    return await task(\n           ^^^^^^^^^^^\n  File \"D:\\Fall2026\\JPN123\\Web page dekiru\\.tools\\playwright\\_impl\\_element_handle.py\", line 112, in scroll_into_view_if_needed\n    await self._channel.send(\n  File \"D:\\Fall2026\\JPN123\\Web page dekiru\\.tools\\playwright\\_impl\\_connection.py\", line 76, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Fall2026\\JPN123\\Web page dekiru\\.tools\\playwright\\_impl\\_connection.py\", line 632, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.TimeoutError: Locator.scroll_into_view_if_needed: Timeout 29984ms exceeded.\nCall log:\n  - attempting scroll into view action\n    2 � waiting for element to be stable\n      - element is not visible\n    - retrying scroll into view action\n    - waiting 20ms\n    2 � waiting for element to be stable\n      - element is not visible\n    - retrying scroll into view action\n      - waiting 100ms\n    58 � waiting for element to be stable\n       - element is not visible\n     - retrying scroll into view action\n       - waiting 500ms\n\n"
+  },
+  {
+    "test": "check_mobile.py",
+    "code": 0,
+    "seconds": 16.7,
+    "output": "PASS: mobile geometry/navigation, 7 modes, pickers/filters, progressive list, reading hints and panels, writing, grammar/quiz/exam flows, review disclosures, 320/390/430/740 light/dark, desktop restoration and Firefox.\n"
+  },
+  {
+    "test": "check_quiz.py",
+    "code": 1,
+    "seconds": 3.8,
+    "output": "Traceback (most recent call last):\n  File \"D:\\Fall2026\\JPN123\\Web page dekiru\\tests\\check_quiz.py\", line 105, in <module>\n    assert 'B\\u1ea1n ch\\u01b0a ch\\u1ecdn' in page.locator('[data-review-index=\"2\"]').inner_text()\nAssertionError\n"
+  }
+]

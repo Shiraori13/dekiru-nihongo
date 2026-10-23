@@ -1,0 +1,127 @@
+{
+  "base": "8409b6c + pre-existing uncommitted mobile changes",
+  "browser": "Microsoft Edge on Windows",
+  "method": "Deterministic vocabulary fixture forces both reversed glosses; grammar and two-tab cases use actual UI/storage.",
+  "cases": [
+    {
+      "id": "vocabulary-equivalent-gloss",
+      "steps": [
+        "Select 料理 with Nấu ăn / Món ăn as stored key.",
+        "Choose Món ăn / Nấu ăn and submit."
+      ],
+      "expected": "Equivalent meanings accepted; no equivalent distractor.",
+      "observed": {
+        "words": [
+          {
+            "l": 1,
+            "t": "私の趣味",
+            "k": "料理",
+            "h": "りょうり",
+            "m": "Nấu ăn / Món ăn",
+            "p": 3
+          },
+          {
+            "l": 2,
+            "t": "レストラン",
+            "k": "料理",
+            "h": "りょうり",
+            "m": "Món ăn / Nấu ăn",
+            "p": 6
+          }
+        ],
+        "options": [
+          "Nấu ăn / Món ăn",
+          "Món ăn / Nấu ăn",
+          "Món ăn ～ (ví dụ: món Ý)",
+          "Tôi"
+        ],
+        "chosen": "Món ăn / Nấu ăn",
+        "score": "0%"
+      }
+    },
+    {
+      "id": "grammar-replacement",
+      "steps": [
+        "Start grammar practice, answer one question and open hint.",
+        "Switch to learning and click Luyện mẫu này."
+      ],
+      "expected": "Prompt before replacing; cancel preserves state.",
+      "observed": {
+        "before": {
+          "ids": [
+            "practice-g4-location-3-choice",
+            "practice-g4-location-7-choice",
+            "practice-g4-location-2-order-v2",
+            "practice-g4-location-1-order-v2",
+            "practice-g4-location-7-order-v2",
+            "practice-g4-location-4-choice",
+            "g4-location-choice",
+            "practice-g4-location-6-choice",
+            "g4-location-order",
+            "practice-g4-location-3-order-v2",
+            "practice-g4-location-1-choice",
+            "practice-g4-location-2-choice",
+            "practice-g4-location-0-order-v2",
+            "practice-g4-location-0-choice",
+            "practice-g4-location-5-order-v2",
+            "practice-g4-location-6-order-v2",
+            "practice-g4-location-4-order-v2",
+            "practice-g4-location-5-choice"
+          ],
+          "answers": {
+            "practice-g4-location-3-choice": "と"
+          },
+          "hints": {
+            "practice-g4-location-3-choice": true
+          },
+          "kanjiHints": {},
+          "index": 0,
+          "submitted": false
+        },
+        "after": {
+          "ids": [
+            "practice-g4-location-3-order-v2",
+            "practice-g4-location-1-order-v2",
+            "practice-g4-location-5-order-v2",
+            "g4-location-order",
+            "practice-g4-location-4-choice",
+            "practice-g4-location-7-order-v2",
+            "practice-g4-location-3-choice",
+            "practice-g4-location-6-choice",
+            "practice-g4-location-4-order-v2",
+            "practice-g4-location-5-choice",
+            "practice-g4-location-2-choice",
+            "practice-g4-location-0-order-v2",
+            "practice-g4-location-1-choice",
+            "practice-g4-location-6-order-v2",
+            "practice-g4-location-7-choice",
+            "g4-location-choice",
+            "practice-g4-location-0-choice",
+            "practice-g4-location-2-order-v2"
+          ],
+          "answers": {},
+          "hints": {},
+          "kanjiHints": {},
+          "index": 0,
+          "submitted": false
+        },
+        "dialog": 0
+      }
+    },
+    {
+      "id": "stale-exam-tab",
+      "steps": [
+        "A starts paper and answers one question.",
+        "B opens same attempt.",
+        "A answers a second question.",
+        "B marks/navigates using its stale state."
+      ],
+      "expected": "Both answers retained.",
+      "observed": {
+        "beforeStaleWrite": 2,
+        "afterStaleWrite": 1
+      }
+    }
+  ],
+  "excludedMeasurement": "The first file:// ResourceTiming sample omitted local file sizes and is deliberately not used. before-metrics.json is the corrected HTTP measurement."
+}

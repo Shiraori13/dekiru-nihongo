@@ -1,0 +1,10 @@
+{
+  "name": "dekiru-master",
+  "private": true,
+  "scripts": {
+    "test:logic": "node tests/check_logic.js && node tests/check_chapter67.js",
+    "format": "prettier --write assets/app.js assets/quiz-core.js assets/grammar-core.js assets/grammar.js assets/exam-core.js assets/attempt-store.js assets/exams.js assets/loader.js assets/dialogs.js assets/mobile.js",
+    "format:check": "prettier --check assets/app.js assets/quiz-core.js assets/grammar-core.js assets/grammar.js assets/exam-core.js assets/attempt-store.js assets/exams.js assets/loader.js assets/dialogs.js assets/mobile.js"
+  },
+  "devDependencies": {"prettier": "3.6.2"}
+}

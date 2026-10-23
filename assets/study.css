@@ -5,7 +5,14 @@
   font-weight: 100 900;
   font-display: swap;
 }
-:root { --jp-font: 'Noto Sans JP', 'Yu Gothic', 'Meiryo', sans-serif; --kanji: #4f46b5; --katakana: #087e80; --hiragana: #975a16; }
+@font-face {
+  font-family: 'Dekiru Components';
+  src: url('fonts/DekiruComponents.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+  unicode-range: U+3452, U+4E06, U+4E1A, U+620B, U+9FB0, U+9FB6-9FB7;
+}
+:root { --jp-font: 'Noto Sans JP', 'Dekiru Components', 'Yu Gothic', 'Meiryo', sans-serif; --kanji: #4f46b5; --katakana: #087e80; --hiragana: #975a16; }
 [data-theme="dark"] { --primary: #a5a7ff; --primary-hover: #c4b5fd; --kanji: #b6adff; --katakana: #72d8ce; --hiragana: #f3c27a; }
 [data-theme="dark"] .small-btn.primary { color: #101627; }
 [hidden] { display: none !important; }
@@ -18,7 +25,28 @@
 .audio-feedback summary { cursor:pointer; color:var(--primary); }
 .audio-credit { display:block; font-size:10px; color:var(--text-muted); margin-top:5px; }
 .audio-credit a { color:var(--primary); text-underline-offset:2px; }
-body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+body { font-family: 'Plus Jakarta Sans', 'Noto Sans JP', 'Dekiru Components', system-ui, sans-serif; }
+/* Mixed Vietnamese/Japanese headings and explanations also need local glyphs. */
+button, input, select, textarea, h1, h2, h3, h4, p, summary, option {
+  font-family: inherit;
+}
+.feature-status, .quiz-context { color: var(--text-muted); font-size: 14px; line-height: 1.7; }
+.feature-status { padding: 18px; border: 1px solid var(--border); border-radius: 16px; margin-bottom: 16px; }
+.feature-status button { min-height: 44px; padding: 8px 18px; }
+.quiz-context { margin: 8px 0 20px; }
+.study-confirm { width: min(480px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); overflow: auto; padding: 24px; border: 1px solid var(--border); border-radius: 22px; background: var(--surface); color: var(--text); }
+.study-confirm::backdrop { background: #080e2499; backdrop-filter: blur(4px); }
+.study-confirm h2 { font-size: 21px; line-height: 1.5; margin-bottom: 12px; }
+.study-confirm p { line-height: 1.8; }
+.study-confirm-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+.study-confirm button { flex: 1 1 180px; min-height: 48px; padding: 12px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface-subtle); color: var(--text); cursor: pointer; }
+.study-confirm [data-continue] { color: var(--primary); border-color: var(--primary); font-weight: 700; }
+#exOwnership button { min-height: 44px; padding: 8px 16px; }
+#exRun { scroll-margin-top:calc(var(--mobile-header-height,80px) + 16px); }
+#exResultHeading:focus { outline:none; }
+.ex-map .is-correct::after { content: ' ✓'; }
+.ex-map .is-wrong::after { content: ' ×'; }
+.ex-map .is-skipped::after { content: ' —'; }
 button, input, select { font: inherit; }
 button { -webkit-tap-highlight-color: transparent; }
 button:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px solid var(--primary); outline-offset: 4px; }

@@ -4,9 +4,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / '.tools'))
 from playwright.sync_api import sync_playwright
+from browser_support import launch, install_legacy_readiness, reset_attempt_store
+install_legacy_readiness()
 
 with sync_playwright() as p:
-    browser=p.chromium.launch(channel='msedge',headless=True)
+    browser=launch(p)
     context=browser.new_context(viewport={'width':1280,'height':1000},reduced_motion='reduce')
     context.route('https://**/*',lambda route:route.abort())
     page=context.new_page();errors=[]
@@ -108,7 +110,7 @@ with sync_playwright() as p:
             page.evaluate('(theme)=>document.body.dataset.theme=theme',theme)
             assert page.evaluate('document.documentElement.scrollWidth<=innerWidth'),width
             page.screenshot(path=str(ROOT/f'.work/grammar-{width}-{theme}.png'),full_page=True)
-    page.locator('[data-gr-drill]').click()
+    page.locator('[data-gr-drill]').click(); page.locator('.study-confirm [data-replace]').click() if page.locator('.study-confirm').is_visible() else None
     drill_count=page.evaluate('GrammarSupport.capacity(GRAMMAR_DATA.questions.filter(q=>q.unit==="g7-te"))')
     assert 15<=drill_count<=18
     assert page.locator('#grMap button').count()==drill_count
@@ -134,7 +136,7 @@ with sync_playwright() as p:
     blocked.add_init_script('Object.defineProperty(window,"localStorage",{get(){throw new Error("blocked")}})')
     other=blocked.new_page();other.on('pageerror',lambda e:errors.append(str(e)))
     other.goto((ROOT/'index.html').as_uri());other.locator('[data-mode=grammar]').click()
-    other.locator('[data-gr-drill]').click();other.locator('[data-gr-submit]').click()
+    other.locator('[data-gr-drill]').click(); other.locator('.study-confirm [data-replace]').click() if other.locator('.study-confirm').is_visible() else None;other.locator('[data-gr-submit]').click()
     assert other.locator('.gr-review.is-skipped').count()==18
     assert 'không lưu được' in other.locator('#grSaveStatus').inner_text()
     assert not errors,errors

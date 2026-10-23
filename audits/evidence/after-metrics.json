@@ -1,0 +1,64 @@
+{
+  "dom": 384,
+  "documentBytes": 30652,
+  "resources": [
+    {
+      "path": "/assets/app.css",
+      "bytes": 15321
+    },
+    {
+      "path": "/assets/fonts/NotoSansJP-study.woff2",
+      "bytes": 417516
+    },
+    {
+      "path": "/assets/study.css",
+      "bytes": 40243
+    },
+    {
+      "path": "/assets/mobile.css",
+      "bytes": 20605
+    },
+    {
+      "path": "/data/vocabulary.js",
+      "bytes": 130522
+    },
+    {
+      "path": "/data/audio.js",
+      "bytes": 59802
+    },
+    {
+      "path": "/assets/audio.js",
+      "bytes": 7264
+    },
+    {
+      "path": "/data/meaning-groups.js",
+      "bytes": 4454
+    },
+    {
+      "path": "/assets/quiz-core.js",
+      "bytes": 2117
+    },
+    {
+      "path": "/assets/dialogs.js",
+      "bytes": 2271
+    },
+    {
+      "path": "/assets/attempt-store.js",
+      "bytes": 11571
+    },
+    {
+      "path": "/assets/loader.js",
+      "bytes": 3763
+    },
+    {
+      "path": "/assets/app.js",
+      "bytes": 33482
+    },
+    {
+      "path": "/assets/mobile.js",
+      "bytes": 19981
+    }
+  ],
+  "bytes": 799564,
+  "requests": 15
+}

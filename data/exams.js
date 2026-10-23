@@ -279,7 +279,7 @@ window.DEKIRU_EXAMS = [
         "lesson": 6,
         "topic": 0,
         "unit": "g6-event",
-        "prompt": "あした、（　）約束があります。",
+        "prompt": "あした、（　）約束があります。Chọn cách nói ‘có hẹn với bạn’.",
         "options": [
           "友達の",
           "野球の",
@@ -501,7 +501,7 @@ window.DEKIRU_EXAMS = [
             "へ chỉ đích đến, で nơi chụp, を đánh dấu 写真. Đã sửa lỗi いたしました trong ảnh.",
             "で không đánh dấu đích đến của 行く; へ cũng không chỉ nơi chụp ảnh.",
             "Vị trí đầu cần へ để đánh dấu nơi đến.",
-            "Hai trợ từ đầu đúng; 写真 là đối tượng của 撮る nên dùng を, không dùng が."
+            "で ở vị trí đích đến và へ ở vị trí nơi chụp đều không khớp. 写真 là tân ngữ của 撮る nên cũng cần を, không dùng が."
           ]
         }
       },
@@ -511,7 +511,7 @@ window.DEKIRU_EXAMS = [
         "lesson": 4,
         "topic": 0,
         "unit": "g4-duration",
-        "prompt": "家から駅まで、電車（　）十分です。",
+        "prompt": "家から駅まで、電車（　）10分です。",
         "options": [
           "を",
           "が",
@@ -522,7 +522,7 @@ window.DEKIRU_EXAMS = [
         "explanation": "Phương tiện đi lại dùng で. Câu 18 không có trong ảnh, được biên soạn bổ sung và đánh dấu riêng.",
         "origin": "added",
         "solution": {
-          "completed": "家から駅まで、電車で十分です。",
+          "completed": "家から駅まで、電車で10分です。",
           "meaning": "Từ nhà đến ga, đi tàu điện mất mười phút.",
           "rule": "AからBまで xác định hai đầu hành trình; phương tiện dùng で. 歩いて đã có nghĩa “đi bộ”, không thêm で. Khoảng thời gian dùng 時間・分; 時 chỉ giờ trên đồng hồ. くらい sau thời lượng nghĩa là khoảng; どのくらい hỏi mất bao lâu.",
           "options": [
@@ -541,7 +541,7 @@ window.DEKIRU_EXAMS = [
         "unit": "g6-compare",
         "prompt": "新宿駅（　）ほう（　）近いです。",
         "options": [
-          "の・は",
+          "の・を",
           "は・より",
           "の・が",
           "は・が"
@@ -555,7 +555,7 @@ window.DEKIRU_EXAMS = [
           "meaning": "Phía ga Shinjuku gần hơn.",
           "rule": "Hỏi giữa hai lựa chọn: AとBとどちらが…ですか. Nêu bên nổi bật: Aのほうが…です. So sánh với mốc B: AはBより…です. Giữ đúng vai trò từng trợ từ; どちらも nghĩa là cả hai, không phải từ hỏi.",
           "options": [
-            "のほう đúng, nhưng mẫu nêu bên nổi bật dùng が trước tính từ.",
+            "のほう đúng cách nối danh từ, nhưng を không đánh dấu bên được so sánh trước 近いです; mẫu cần が.",
             "は・より không tạo được mẫu Aのほうが.",
             "Aのほうが近いです = A gần hơn.",
             "Trước ほう cần の để tạo 新宿駅のほう."
@@ -684,7 +684,7 @@ window.DEKIRU_EXAMS = [
         "lesson": 6,
         "topic": 0,
         "unit": "g6-invite",
-        "prompt": "A：今度、ビールを飲みませんか。\nB：ああ、（　）。すみません。今度はちょっと…。",
+        "prompt": "B lặp lại thời điểm ‘lần tới à?’ trước khi từ chối. A：今度、ビールを飲みませんか。\nB：ああ、（　）。すみません。今度はちょっと…。",
         "options": [
           "飲みましょう",
           "今度ですか",
@@ -703,7 +703,7 @@ window.DEKIRU_EXAMS = [
             "飲みましょう nhận lời cùng uống, trái với 今度はちょっと….",
             "今度ですか lặp lại thời điểm trước khi từ chối nhẹ. Đã làm rõ lựa chọn để tránh nhiều cách đáp đều tự nhiên.",
             "そうですかね gợi sự không chắc chắn, không phải phản hồi lặp lại thời điểm đang được kiểm tra.",
-            "いいですね thường nhận lời/hưởng ứng, không khớp ngay sau đó là lời từ chối ở đây."
+            "いいですね có thể hưởng ứng ý tưởng trước khi từ chối, nhưng không lặp lại thời điểm ‘lần tới à?’ như yêu cầu cụ thể của câu này."
           ]
         }
       },
@@ -1003,7 +1003,7 @@ window.DEKIRU_EXAMS = [
         "lesson": 6,
         "topic": 0,
         "unit": "g6-event",
-        "prompt": "サッカーのチケットが（　）あります。",
+        "prompt": "Chọn lượng từ chuyên dùng cho vé (vật mỏng, phẳng): サッカーのチケットが（　）あります。",
         "options": [
           "三つ",
           "さんさつ",
@@ -1316,7 +1316,17 @@ window.DEKIRU_EXAMS = [
           ]
         }
       }
-    ]
+    ],
+    "migrations": {
+      "e6411499": [
+        9,
+        17,
+        18,
+        23,
+        34
+      ]
+    },
+    "contentVersion": "2026-10-22"
   },
   {
     "id": "chapter45-1",
@@ -1497,7 +1507,7 @@ window.DEKIRU_EXAMS = [
         "lesson": 5,
         "topic": 2,
         "unit": "",
-        "prompt": "Cách đọc của「景色」là gì?",
+        "prompt": "Theo mục từ bài 5 trong PDF, chọn cách đọc của「景色」.",
         "options": [
           "げしき",
           "けしき",
@@ -1513,7 +1523,7 @@ window.DEKIRU_EXAMS = [
           "options": [
             "Âm đầu là け, không phải げ.",
             "景色（けしき）= phong cảnh.",
-            "Không ghép riêng các âm けい・しょく; cả từ đọc けしき.",
+            "けいしょく cũng có trong từ điển, dùng trong văn viết. Câu này yêu cầu cách đọc mục từ bài 5 của PDF là けしき; không coi mọi cách đọc khác là không tồn tại.",
             "色 ở đây được đọc trong cụm しき, không phải しょく."
           ]
         }
@@ -1997,9 +2007,9 @@ window.DEKIRU_EXAMS = [
           "meaning": "Tuần trước tôi đã ăn cùng gia đình.",
           "rule": "Người cùng làm dùng と; làm một mình dùng 一人で. Nơi diễn ra hành động dùng で. Khi kể chuỗi việc đã làm, それから có nghĩa “sau đó”; động từ của từng việc vẫn cần chia quá khứ.",
           "options": [
-            "に không chỉ người cùng ăn trong mẫu này.",
-            "を đánh dấu tân ngữ, không chỉ người cùng làm.",
-            "の chỉ quan hệ danh từ, không diễn đạt cùng ăn với gia đình.",
+            "を đánh dấu tân ngữ, không chỉ người cùng thực hiện việc ăn trong 家族と食事しました.",
+            "の nối danh từ; 家族の食事 nói bữa ăn của gia đình, không phải cùng gia đình ăn.",
+            "へ chỉ hướng đến, không đánh dấu người cùng thực hiện hành động. Cần 家族と.",
             "Người cùng thực hiện hành động dùng と."
           ]
         }
@@ -2544,7 +2554,13 @@ window.DEKIRU_EXAMS = [
           ]
         }
       }
-    ]
+    ],
+    "migrations": {
+      "ae7f8d73": [
+        6
+      ]
+    },
+    "contentVersion": "2026-10-22"
   },
   {
     "id": "chapter45-2",
@@ -2698,7 +2714,7 @@ window.DEKIRU_EXAMS = [
         "lesson": 5,
         "topic": 1,
         "unit": "",
-        "prompt": "Đọc từ「風邪」.",
+        "prompt": "Theo mục từ bệnh cảm ở bài 5 trong PDF, đọc「風邪」.",
         "options": [
           "ふじゃ",
           "かぜ",
@@ -2714,7 +2730,7 @@ window.DEKIRU_EXAMS = [
           "options": [
             "ふじゃ không phải cách đọc chuẩn của 風邪.",
             "風邪（かぜ）= cảm/cảm cúm.",
-            "風邪 là cách đọc cả từ かぜ, không ghép âm riêng thành ふうじゃ.",
+            "ふうじゃ là cách đọc trong thuật ngữ y học cổ. Mục từ chỉ bệnh cảm trong bài 5 đang hỏi đọc かぜ; không phủ nhận cách đọc chuyên ngành.",
             "Âm cuối là ぜ, không phải ざ."
           ]
         }
@@ -2998,7 +3014,7 @@ window.DEKIRU_EXAMS = [
         "prompt": "あのビルは（　）です。Chọn dạng đúng của 高い.",
         "options": [
           "高く",
-          "高いの",
+          "高くな",
           "高い",
           "高いな"
         ],
@@ -3010,7 +3026,7 @@ window.DEKIRU_EXAMS = [
           "rule": "Tính từ い giữ nguyên đuôi trước です. Tính từ な bỏ な khi kết thúc câu với です; chỉ thêm な khi bổ nghĩa danh từ. 静か・有名・きれい thuộc nhóm な, kể cả khi きれい có âm cuối い.",
           "options": [
             "高く là dạng nối/trạng từ, không thay 高い trước です ở câu khẳng định này.",
-            "の không cần chen giữa 高い và です.",
+            "高くな không phải dạng tính từ hoàn chỉnh đứng trước です. Câu khẳng định theo mẫu bài 4 là 高いです.",
             "Tính từ い giữ nguyên đuôi trước です.",
             "高い là tính từ い nên không thêm な."
           ]
@@ -3772,7 +3788,14 @@ window.DEKIRU_EXAMS = [
           ]
         }
       }
-    ]
+    ],
+    "migrations": {
+      "43b98026": [
+        5,
+        16
+      ]
+    },
+    "contentVersion": "2026-10-22"
   },
   {
     "id": "chapter45-3",
@@ -5003,6 +5026,5283 @@ window.DEKIRU_EXAMS = [
     ],
     "legacyFingerprints": [
       "ce1662f2"
-    ]
+    ],
+    "contentVersion": "2026-10-22"
+  },
+  {
+    "id": "chapter67-1",
+    "title": "Bài 6–7 · Đề 01",
+    "description": "Rủ bạn chơi thể thao, so sánh địa điểm và hẹn giờ; tìm nhà bạn, cùng chuẩn bị và giúp việc trong buổi gặp mặt. 45 câu mới theo ma trận đề mẫu, đủ 18 mục ngữ pháp và 6 chủ đề bài 6–7.",
+    "lessons": [
+      6,
+      7
+    ],
+    "minutes": 45,
+    "kind": "authored",
+    "questions": [
+      {
+        "category": "reading",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "",
+        "prompt": "Trong lịch thể thao, chọn cách đọc của「試合」.",
+        "options": [
+          "しやい",
+          "じあい",
+          "しあう",
+          "しあい"
+        ],
+        "answer": 3,
+        "explanation": "試合 đọc しあい: 試 là し, 合 là あい trong từ này.",
+        "source": "sources/new-words.pdf#page=18",
+        "origin": "authored",
+        "solution": {
+          "completed": "試合（しあい）",
+          "meaning": "Trận đấu.",
+          "rule": "Đọc đúng cả mục từ; chú ý trường âm, âm ghép và âm đục. Không ghép tùy ý âm của từng chữ Hán.",
+          "options": [
+            "Không có âm や giữa し và あい; phải đọc しあい.",
+            "Âm đầu là し, không đổi thành âm đục じ.",
+            "Đuôi của danh từ 試合 là あい, không phải あう.",
+            "試合 đọc しあい: 試 là し, 合 là あい trong từ này."
+          ]
+        },
+        "id": "c67-1-01"
+      },
+      {
+        "category": "reading",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "",
+        "prompt": "Trong danh sách đồ đi bơi,「水着」đọc thế nào?",
+        "options": [
+          "すいぎ",
+          "みつぎ",
+          "みずぎ",
+          "みずき"
+        ],
+        "answer": 2,
+        "explanation": "Mục từ 水着 đọc みずぎ; âm cuối ぎ có dấu đục.",
+        "source": "sources/new-words.pdf#page=18",
+        "origin": "authored",
+        "solution": {
+          "completed": "水着（みずぎ）",
+          "meaning": "Đồ bơi.",
+          "rule": "Đọc đúng cả mục từ; chú ý trường âm, âm ghép và âm đục. Không ghép tùy ý âm của từng chữ Hán.",
+          "options": [
+            "Không dùng âm すい của 水 để ghép thành すいぎ.",
+            "水 đọc みず trong từ này; つ không thay cho ず.",
+            "Mục từ 水着 đọc みずぎ; âm cuối ぎ có dấu đục.",
+            "着 trong từ này đọc ぎ, không phải き."
+          ]
+        },
+        "id": "c67-1-02"
+      },
+      {
+        "category": "reading",
+        "lesson": 6,
+        "topic": 1,
+        "unit": "",
+        "prompt": "Phương tiện đến điểm hẹn là「地下鉄」. Chọn cách đọc.",
+        "options": [
+          "ちかでつ",
+          "ちかてつ",
+          "ちがてつ",
+          "じかてつ"
+        ],
+        "answer": 1,
+        "explanation": "地下鉄 gồm ちか và てつ; không có âm đục ở hai phần này.",
+        "source": "sources/new-words.pdf#page=19",
+        "origin": "authored",
+        "solution": {
+          "completed": "地下鉄（ちかてつ）",
+          "meaning": "Tàu điện ngầm.",
+          "rule": "Đọc đúng cả mục từ; chú ý trường âm, âm ghép và âm đục. Không ghép tùy ý âm của từng chữ Hán.",
+          "options": [
+            "鉄 đọc てつ, không đổi thành でつ.",
+            "地下鉄 gồm ちか và てつ; không có âm đục ở hai phần này.",
+            "下 ở đây đọc か, không phải が.",
+            "地 trong từ này đọc ち, không phải じ."
+          ]
+        },
+        "id": "c67-1-03"
+      },
+      {
+        "category": "reading",
+        "lesson": 7,
+        "topic": 0,
+        "unit": "",
+        "prompt": "Trên sơ đồ nhà bạn, chữ「隣」có cách đọc nào?",
+        "options": [
+          "となり",
+          "どなり",
+          "となる",
+          "とおり"
+        ],
+        "answer": 0,
+        "explanation": "Danh từ vị trí 隣 đọc となり, gồm ba âm と・な・り.",
+        "source": "sources/new-words.pdf#page=21",
+        "origin": "authored",
+        "solution": {
+          "completed": "隣（となり）",
+          "meaning": "Bên cạnh, sát bên.",
+          "rule": "Đọc đúng cả mục từ; chú ý trường âm, âm ghép và âm đục. Không ghép tùy ý âm của từng chữ Hán.",
+          "options": [
+            "Danh từ vị trí 隣 đọc となり, gồm ba âm と・な・り.",
+            "Âm đầu と không có dấu đục, nên không đọc どなり.",
+            "Âm cuối là り; となる không phải cách đọc của 隣.",
+            "とおり là cách đọc của từ khác như 通り, không phải 隣."
+          ]
+        },
+        "id": "c67-1-04"
+      },
+      {
+        "category": "reading",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "",
+        "prompt": "Đồ uống được cất trong「冷蔵庫」. Chọn âm đọc.",
+        "options": [
+          "れいそうこ",
+          "れぞうこ",
+          "れいぞうご",
+          "れいぞうこ"
+        ],
+        "answer": 3,
+        "explanation": "冷蔵庫 đọc れいぞうこ; giữ đủ れい và ぞう.",
+        "source": "sources/new-words.pdf#page=22",
+        "origin": "authored",
+        "solution": {
+          "completed": "冷蔵庫（れいぞうこ）",
+          "meaning": "Tủ lạnh.",
+          "rule": "Đọc đúng cả mục từ; chú ý trường âm, âm ghép và âm đục. Không ghép tùy ý âm của từng chữ Hán.",
+          "options": [
+            "蔵 trong từ này đọc ぞう có dấu đục, không phải そう.",
+            "Thiếu い của phần れい; cách đọc đầy đủ là れいぞうこ.",
+            "庫 đọc こ, không đổi thành ご trong từ này.",
+            "冷蔵庫 đọc れいぞうこ; giữ đủ れい và ぞう."
+          ]
+        },
+        "id": "c67-1-05"
+      },
+      {
+        "category": "reading",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "",
+        "prompt": "Khi tìm bạn đang nấu ăn, chọn cách đọc của「台所」.",
+        "options": [
+          "だいところ",
+          "だいどこる",
+          "だいどころ",
+          "たいどころ"
+        ],
+        "answer": 2,
+        "explanation": "台所 đọc だいどころ; cả だ và ど đều có dấu đục.",
+        "source": "sources/new-words.pdf#page=23",
+        "origin": "authored",
+        "solution": {
+          "completed": "台所（だいどころ）",
+          "meaning": "Nhà bếp.",
+          "rule": "Đọc đúng cả mục từ; chú ý trường âm, âm ghép và âm đục. Không ghép tùy ý âm của từng chữ Hán.",
+          "options": [
+            "Phần 所 trong từ ghép là どころ, không phải ところ.",
+            "Âm cuối là ろ; không đổi thành る.",
+            "台所 đọc だいどころ; cả だ và ど đều có dấu đục.",
+            "台 trong từ này đọc だい, không phải たい."
+          ]
+        },
+        "id": "c67-1-06"
+      },
+      {
+        "category": "spelling",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "",
+        "prompt": "Viết bằng Hán tự từ「やくそく」với nghĩa “cuộc hẹn, lời hứa”.",
+        "options": [
+          "約東",
+          "約束",
+          "用事",
+          "予約"
+        ],
+        "answer": 1,
+        "explanation": "約束 là mục từ やくそく; 束 là chữ thứ hai của từ này.",
+        "source": "sources/new-words.pdf#page=18",
+        "origin": "authored",
+        "solution": {
+          "completed": "約束（やくそく）",
+          "meaning": "Cuộc hẹn, lời hứa.",
+          "rule": "Đối chiếu đồng thời cách đọc và nghĩa được yêu cầu. Chữ có hình hoặc âm gần nhau không tự thay thế nhau.",
+          "options": [
+            "Chữ thứ hai phải là 束; 東 không tạo từ 約束.",
+            "約束 là mục từ やくそく; 束 là chữ thứ hai của từ này.",
+            "用事 đọc ようじ, nghĩa là việc bận.",
+            "予約 đọc よやく, nghĩa là đặt trước; khác từ được hỏi."
+          ]
+        },
+        "id": "c67-1-07"
+      },
+      {
+        "category": "spelling",
+        "lesson": 7,
+        "topic": 0,
+        "unit": "",
+        "prompt": "Trên bản đồ đến nhà bạn,「こうばん」(đồn cảnh sát nhỏ) viết thế nào?",
+        "options": [
+          "交番",
+          "交反",
+          "校番",
+          "交通"
+        ],
+        "answer": 0,
+        "explanation": "交番 viết bằng 交 và 番, đọc こうばん.",
+        "source": "sources/new-words.pdf#page=21",
+        "origin": "authored",
+        "solution": {
+          "completed": "交番（こうばん）",
+          "meaning": "Đồn cảnh sát, chốt cảnh sát.",
+          "rule": "Đối chiếu đồng thời cách đọc và nghĩa được yêu cầu. Chữ có hình hoặc âm gần nhau không tự thay thế nhau.",
+          "options": [
+            "交番 viết bằng 交 và 番, đọc こうばん.",
+            "反 không thay cho 番 trong từ chỉ đồn cảnh sát.",
+            "Chữ đầu là 交; 校 dùng trong những từ như 学校.",
+            "交通 đọc こうつう và nói về giao thông, không phải đồn cảnh sát."
+          ]
+        },
+        "id": "c67-1-08"
+      },
+      {
+        "category": "spelling",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "",
+        "prompt": "Chọn cách viết「さとう」, loại gia vị ngọt dùng trong bếp.",
+        "options": [
+          "砂唐",
+          "佐糖",
+          "塩",
+          "砂糖"
+        ],
+        "answer": 3,
+        "explanation": "Đường ăn là 砂糖, đọc さとう; cần đúng cả hai chữ.",
+        "source": "sources/new-words.pdf#page=22",
+        "origin": "authored",
+        "solution": {
+          "completed": "砂糖（さとう）",
+          "meaning": "Đường ăn.",
+          "rule": "Đối chiếu đồng thời cách đọc và nghĩa được yêu cầu. Chữ có hình hoặc âm gần nhau không tự thay thế nhau.",
+          "options": [
+            "Chữ thứ hai phải là 糖, không phải 唐.",
+            "佐 không thay cho 砂 trong từ 砂糖.",
+            "塩 đọc しお và nghĩa là muối, khác gia vị ngọt.",
+            "Đường ăn là 砂糖, đọc さとう; cần đúng cả hai chữ."
+          ]
+        },
+        "id": "c67-1-09"
+      },
+      {
+        "category": "spelling",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "",
+        "prompt": "Để nói “cửa sổ”,「まど」viết bằng chữ Hán nào?",
+        "options": [
+          "門",
+          "戸",
+          "窓",
+          "空"
+        ],
+        "answer": 2,
+        "explanation": "窓 là chữ của まど, chỉ cửa sổ của căn phòng.",
+        "source": "sources/new-words.pdf#page=23",
+        "origin": "authored",
+        "solution": {
+          "completed": "窓（まど）",
+          "meaning": "Cửa sổ.",
+          "rule": "Đối chiếu đồng thời cách đọc và nghĩa được yêu cầu. Chữ có hình hoặc âm gần nhau không tự thay thế nhau.",
+          "options": [
+            "門 đọc もん trong nghĩa cổng, khác 窓.",
+            "戸 đọc と trong nghĩa cửa, không phải mục từ まど.",
+            "窓 là chữ của まど, chỉ cửa sổ của căn phòng.",
+            "空 có thể chỉ bầu trời hoặc sự trống, không phải cửa sổ."
+          ]
+        },
+        "id": "c67-1-10"
+      },
+      {
+        "category": "spelling",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "",
+        "prompt": "Chọn chữ của「ちず」, vật dùng xem đường đến sân thi đấu.",
+        "options": [
+          "図地",
+          "地図",
+          "池図",
+          "地国"
+        ],
+        "answer": 1,
+        "explanation": "地図 đọc ちず, gồm 地 trước và 図 sau.",
+        "source": "sources/new-words.pdf#page=18",
+        "origin": "authored",
+        "solution": {
+          "completed": "地図（ちず）",
+          "meaning": "Bản đồ.",
+          "rule": "Đối chiếu đồng thời cách đọc và nghĩa được yêu cầu. Chữ có hình hoặc âm gần nhau không tự thay thế nhau.",
+          "options": [
+            "Thứ tự chữ bị đảo; bản đồ viết 地図.",
+            "地図 đọc ちず, gồm 地 trước và 図 sau.",
+            "池 không thay cho 地 trong từ bản đồ.",
+            "Chữ thứ hai là 図; 国 không tạo từ 地図."
+          ]
+        },
+        "id": "c67-1-11"
+      },
+      {
+        "category": "spelling",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "",
+        "prompt": "Trong danh sách môn thể thao,「やきゅう」(bóng chày) viết thế nào?",
+        "options": [
+          "野球",
+          "野求",
+          "夜球",
+          "野玉"
+        ],
+        "answer": 0,
+        "explanation": "野球 là cách viết chuẩn của やきゅう.",
+        "source": "sources/new-words.pdf#page=18",
+        "origin": "authored",
+        "solution": {
+          "completed": "野球（やきゅう）",
+          "meaning": "Bóng chày.",
+          "rule": "Đối chiếu đồng thời cách đọc và nghĩa được yêu cầu. Chữ có hình hoặc âm gần nhau không tự thay thế nhau.",
+          "options": [
+            "野球 là cách viết chuẩn của やきゅう.",
+            "求 không thay cho 球 trong tên môn bóng chày.",
+            "Chữ đầu là 野; 夜 có nghĩa đêm và không tạo từ này.",
+            "Cần chữ 球 trong 野球; 玉 không thay thế ở mục từ này."
+          ]
+        },
+        "id": "c67-1-12"
+      },
+      {
+        "category": "spelling",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "",
+        "prompt": "Bạn hỏi cách đọc chữ Nhật:「かんじ」(chữ Hán) viết thế nào?",
+        "options": [
+          "漢宇",
+          "感じ",
+          "幹字",
+          "漢字"
+        ],
+        "answer": 3,
+        "explanation": "漢字 là cách viết từ かんじ khi nghĩa là chữ Hán.",
+        "source": "sources/new-words.pdf#page=22",
+        "origin": "authored",
+        "solution": {
+          "completed": "漢字（かんじ）",
+          "meaning": "Chữ Hán.",
+          "rule": "Đối chiếu đồng thời cách đọc và nghĩa được yêu cầu. Chữ có hình hoặc âm gần nhau không tự thay thế nhau.",
+          "options": [
+            "字 là chữ viết; 宇 không thay được chữ này.",
+            "感じ cũng đọc かんじ nhưng nghĩa là cảm giác, khác nghĩa được yêu cầu.",
+            "幹 không thay cho 漢 trong tên gọi chữ Hán.",
+            "漢字 là cách viết từ かんじ khi nghĩa là chữ Hán."
+          ]
+        },
+        "id": "c67-1-13"
+      },
+      {
+        "category": "spelling",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "",
+        "prompt": "Muốn ghi từ「でんわ」với nghĩa “điện thoại”, chọn cách viết.",
+        "options": [
+          "電活",
+          "電車",
+          "電話",
+          "電語"
+        ],
+        "answer": 2,
+        "explanation": "電話 đọc でんわ, gồm 電 và 話.",
+        "source": "sources/new-words.pdf#page=23",
+        "origin": "authored",
+        "solution": {
+          "completed": "電話（でんわ）",
+          "meaning": "Điện thoại.",
+          "rule": "Đối chiếu đồng thời cách đọc và nghĩa được yêu cầu. Chữ có hình hoặc âm gần nhau không tự thay thế nhau.",
+          "options": [
+            "活 khác chữ 話; cách viết chuẩn là 電話.",
+            "電車 đọc でんしゃ và là tàu điện, khác điện thoại.",
+            "電話 đọc でんわ, gồm 電 và 話.",
+            "語 không thay cho 話 trong từ điện thoại."
+          ]
+        },
+        "id": "c67-1-14"
+      },
+      {
+        "category": "vocabulary",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "",
+        "prompt": "Bạn đưa tạm quyển sách của mình cho người khác dùng.「貸します」ở đây nghĩa là gì?",
+        "options": [
+          "Mua",
+          "Cho mượn",
+          "Mượn từ người khác",
+          "Trả lại"
+        ],
+        "answer": 1,
+        "explanation": "貸します diễn tả chủ thể cho người khác mượn đồ của mình.",
+        "source": "sources/new-words.pdf#page=22",
+        "origin": "authored",
+        "solution": {
+          "completed": "本を貸します。",
+          "meaning": "Tôi cho mượn sách.",
+          "rule": "Chọn nghĩa của mục từ trong tình huống cụ thể; phân biệt người thực hiện và hướng của hành động.",
+          "options": [
+            "Mua dùng 買います; 貸します không nói về mua bán.",
+            "貸します diễn tả chủ thể cho người khác mượn đồ của mình.",
+            "Mượn của người khác là 借ります, hướng hành động ngược với 貸します.",
+            "Trả lại dùng 返します, không phải 貸します."
+          ]
+        },
+        "id": "c67-1-15"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "g6-invite",
+        "prompt": "Rủ bạn cùng chơi tennis vào thứ sáu tới bằng ませんか: 来週の金曜日、いっしょにテニスを（　）。",
+        "options": [
+          "しませんか",
+          "しました",
+          "しませんでした",
+          "するましょうか"
+        ],
+        "answer": 0,
+        "explanation": "します bỏ ます, thêm ませんか thành lời rủ しませんか.",
+        "source": "sources/speaking.pdf#page=43",
+        "origin": "authored",
+        "solution": {
+          "completed": "来週の金曜日、いっしょにテニスをしませんか。",
+          "meaning": "Thứ sáu tuần sau cùng chơi tennis nhé?",
+          "rule": "Rủ cùng làm dùng gốc trước ます + ませんか; nhận lời hoặc đề nghị cùng làm dùng ましょう. Từ chối nhẹ bằng …はちょっと… và lý do. Chọn lời đáp đúng ý định đã nêu, không chỉ dựa vào câu có đúng ngữ pháp hay không.",
+          "options": [
+            "します bỏ ます, thêm ませんか thành lời rủ しませんか.",
+            "しました kể việc đã làm, không thực hiện lời rủ cho tuần tới.",
+            "しませんでした nói đã không làm, khác lời mời cùng chơi.",
+            "するましょうか ghép sai; thân của します là し."
+          ]
+        },
+        "id": "c67-1-16"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "g6-event",
+        "prompt": "Điền trợ từ cho NƠI TỔ CHỨC: 日曜日、学校（　）スポーツのイベントがあります。",
+        "options": [
+          "に",
+          "を",
+          "から",
+          "で"
+        ],
+        "answer": 3,
+        "explanation": "Sự kiện được tổ chức tại 学校 nên địa điểm dùng で.",
+        "source": "sources/speaking.pdf#page=43",
+        "origin": "authored",
+        "solution": {
+          "completed": "日曜日、学校でスポーツのイベントがあります。",
+          "meaning": "Chủ nhật có sự kiện thể thao diễn ra tại trường.",
+          "rule": "Sự kiện được tổ chức ở địa điểm dùng で + sự kiện が あります, khác に chỉ nơi tồn tại. 用事／約束があります nói có việc bận hoặc hẹn. Người có hẹn đi với と; lượng từ chuyên dùng cho vé mỏng phẳng là 枚.",
+          "options": [
+            "に chỉ nơi tồn tại trong mẫu có đồ vật; ở đây đang nói nơi tổ chức sự kiện.",
+            "を không đánh dấu địa điểm tổ chức với あります.",
+            "から nêu điểm bắt đầu hoặc lý do, không nêu nơi tổ chức ở đây.",
+            "Sự kiện được tổ chức tại 学校 nên địa điểm dùng で."
+          ]
+        },
+        "id": "c67-1-17"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "g6-event",
+        "prompt": "Đếm đúng BỐN tấm vé: チケットが（　）あります。",
+        "options": [
+          "四冊",
+          "四人",
+          "四枚",
+          "四本"
+        ],
+        "answer": 2,
+        "explanation": "Vé mỏng, phẳng nên dùng 枚; 四枚 đọc よんまい.",
+        "source": "sources/speaking.pdf#page=43",
+        "origin": "authored",
+        "solution": {
+          "completed": "チケットが四枚あります。",
+          "meaning": "Có bốn tấm vé.",
+          "rule": "Sự kiện được tổ chức ở địa điểm dùng で + sự kiện が あります, khác に chỉ nơi tồn tại. 用事／約束があります nói có việc bận hoặc hẹn. Người có hẹn đi với と; lượng từ chuyên dùng cho vé mỏng phẳng là 枚.",
+          "options": [
+            "冊 đếm sách, vở đóng thành quyển, không đếm vé.",
+            "人 đếm người, không đếm những tấm vé.",
+            "Vé mỏng, phẳng nên dùng 枚; 四枚 đọc よんまい.",
+            "本 đếm vật dài như bút, không phù hợp với vé."
+          ]
+        },
+        "id": "c67-1-18"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 1,
+        "unit": "g6-compare",
+        "prompt": "Hỏi “Công viên và trường học, nơi nào rộng hơn?”: 公園（　）学校（　）（　）広いですか。",
+        "options": [
+          "より・より・どちらも",
+          "と・と・どちらが",
+          "と・と・どちらも",
+          "の・の・どちらが"
+        ],
+        "answer": 1,
+        "explanation": "Mẫu hỏi hai lựa chọn là AとBとどちらが + tính từ + ですか.",
+        "source": "sources/speaking.pdf#page=47",
+        "origin": "authored",
+        "solution": {
+          "completed": "公園と学校とどちらが広いですか。",
+          "meaning": "Giữa công viên và trường học, nơi nào rộng hơn?",
+          "rule": "So sánh hai lựa chọn: AとBとどちらが…ですか; Aのほうが…です nêu bên nổi bật, AはBより…です nêu mốc so sánh B. Chú ý hướng so sánh và nghĩa tính từ; どちらも là cả hai, không phải một bên.",
+          "options": [
+            "より nêu mốc so sánh; không dùng cặp より với どちらも để hỏi bên nào.",
+            "Mẫu hỏi hai lựa chọn là AとBとどちらが + tính từ + ですか.",
+            "どちらも nghĩa là cả hai, không hỏi nơi nào hơn.",
+            "の không liệt kê hai đối tượng theo mẫu AとBとどちらが."
+          ]
+        },
+        "id": "c67-1-19"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 1,
+        "unit": "g6-compare",
+        "prompt": "Dữ kiện: quán A cách sân 100m, quán B cách sân 500m. Nói “A gần hơn B”: Aの店はBの店（　）近いです。",
+        "options": [
+          "より",
+          "まで",
+          "と",
+          "の"
+        ],
+        "answer": 0,
+        "explanation": "より đặt sau mốc B; A ở gần hơn theo hai khoảng cách đã cho.",
+        "source": "sources/speaking.pdf#page=47",
+        "origin": "authored",
+        "solution": {
+          "completed": "Aの店はBの店より近いです。",
+          "meaning": "Quán A gần hơn quán B.",
+          "rule": "So sánh hai lựa chọn: AとBとどちらが…ですか; Aのほうが…です nêu bên nổi bật, AはBより…です nêu mốc so sánh B. Chú ý hướng so sánh và nghĩa tính từ; どちらも là cả hai, không phải một bên.",
+          "options": [
+            "より đặt sau mốc B; A ở gần hơn theo hai khoảng cách đã cho.",
+            "まで chỉ giới hạn đến đâu, không tạo so sánh hơn ở câu này.",
+            "と thường nối hai lựa chọn hoặc chỉ người cùng làm; không thay より ở đây.",
+            "の nối danh từ với danh từ, không nối B với tính từ 近い theo nghĩa hơn."
+          ]
+        },
+        "id": "c67-1-20"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 1,
+        "unit": "g6-best",
+        "prompt": "Hỏi môn thích NHẤT trong các môn thể thao: スポーツ（　）何がいちばん好きですか。",
+        "options": [
+          "を",
+          "に",
+          "へ",
+          "で"
+        ],
+        "answer": 3,
+        "explanation": "で giới hạn phạm vi so sánh là các môn thể thao.",
+        "source": "sources/speaking.pdf#page=46",
+        "origin": "authored",
+        "solution": {
+          "completed": "スポーツで何がいちばん好きですか。",
+          "meaning": "Trong các môn thể thao, bạn thích môn nào nhất?",
+          "rule": "So sánh nhất trong nhóm dùng phạm vi で + đối tượng が + いちばん + tính từ. 何／どこ／いつ được chọn theo loại đối tượng đang hỏi; xác định rõ phạm vi và đặc điểm để không nhầm với câu so sánh chỉ hai bên.",
+          "options": [
+            "を không nêu phạm vi so sánh nhất trong mẫu này.",
+            "に không giới hạn nhóm so sánh trước 何がいちばん好きですか.",
+            "へ chỉ hướng đến, không giới hạn nhóm môn thể thao.",
+            "で giới hạn phạm vi so sánh là các môn thể thao."
+          ]
+        },
+        "id": "c67-1-21"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 2,
+        "unit": "g6-already",
+        "prompt": "Hỏi “Bạn ĐÃ đi hồ bơi đó CHƯA?”: （　）あのプールへ行きましたか。",
+        "options": [
+          "いちばん",
+          "どう",
+          "もう",
+          "どちら"
+        ],
+        "answer": 2,
+        "explanation": "もう kết hợp Vましたか để hỏi việc đã làm tính đến hiện tại.",
+        "source": "sources/speaking.pdf#page=55",
+        "origin": "authored",
+        "solution": {
+          "completed": "もうあのプールへ行きましたか。",
+          "meaning": "Bạn đã đến hồ bơi đó chưa?",
+          "rule": "もう + Vましたか hỏi việc đã hoàn tất chưa. Trả lời đã làm bằng はい、Vました; chưa làm bằng いいえ、まだです. まだ ở đây là chưa hoàn tất hành động, khác まだあります diễn tả đồ vật vẫn còn.",
+          "options": [
+            "いちばん nghĩa là nhất, không hỏi việc đã hoàn thành.",
+            "どう hỏi thế nào, không thay cho もう trong nghĩa được yêu cầu.",
+            "もう kết hợp Vましたか để hỏi việc đã làm tính đến hiện tại.",
+            "どちら hỏi bên nào hoặc phía nào, không biểu thị “đã…chưa”."
+          ]
+        },
+        "id": "c67-1-22"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 2,
+        "unit": "g6-suggest",
+        "prompt": "Đề xuất giờ xuất phát “Bốn giờ rưỡi thì sao?”: 四時半（　）。",
+        "options": [
+          "にどのですか",
+          "はどうですか",
+          "がどれですか",
+          "をどうですか"
+        ],
+        "answer": 1,
+        "explanation": "Nはどうですか đưa giờ bốn rưỡi ra làm phương án để bàn.",
+        "source": "sources/speaking.pdf#page=50",
+        "origin": "authored",
+        "solution": {
+          "completed": "四時半はどうですか。",
+          "meaning": "Bốn giờ rưỡi thì sao?",
+          "rule": "Đề xuất một phương án dùng Nはどうですか, chẳng hạn giờ hẹn hoặc nơi gặp. Nếu đồng ý chọn phương án đó, đáp そうしましょう. Phải khớp thông tin và ý định trong hội thoại, không phủ nhận một lời đáp chỉ vì nó ít thông dụng.",
+          "options": [
+            "どの phải đi trước danh từ; にどのですか không tạo câu đề xuất đúng.",
+            "Nはどうですか đưa giờ bốn rưỡi ra làm phương án để bàn.",
+            "どれ hỏi chọn một vật; không dùng がどれですか để đề xuất giờ này.",
+            "を không nối danh từ chỉ giờ với どうですか trong mẫu đề xuất."
+          ]
+        },
+        "id": "c67-1-23"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 2,
+        "unit": "g6-particles",
+        "prompt": "Bạn biết tuyến xe, người nghe chưa biết. Chọn đuôi câu để báo thông tin mới: このバスは駅へ行きます（　）。",
+        "options": [
+          "よ",
+          "ね",
+          "を",
+          "に"
+        ],
+        "answer": 0,
+        "explanation": "よ báo cho người nghe thông tin mà người nói biết về tuyến xe.",
+        "source": "sources/speaking.pdf#page=49",
+        "origin": "authored",
+        "solution": {
+          "completed": "このバスは駅へ行きますよ。",
+          "meaning": "Xe buýt này đi đến ga đấy.",
+          "rule": "よ báo thông tin mới người nói cung cấp; ね dùng xác nhận thông tin vừa thống nhất hoặc tìm đồng tình. Trong bài tập này ý định được nêu rõ bằng tiếng Việt để phân biệt hai đuôi câu vốn đều có thể đúng ở những ngữ cảnh khác.",
+          "options": [
+            "よ báo cho người nghe thông tin mà người nói biết về tuyến xe.",
+            "ね tìm đồng tình hoặc xác nhận thông tin chung, khác chức năng báo tin được yêu cầu.",
+            "を đánh dấu đối tượng của động từ, không đứng cuối câu như đuôi báo tin.",
+            "に có nhiều chức năng trợ từ nhưng không làm đuôi báo thông tin sau 行きます."
+          ]
+        },
+        "id": "c67-1-24"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 0,
+        "unit": "g7-location",
+        "prompt": "Nói vị trí hiện tại của một người: ミンさんは庭に（　）。",
+        "options": [
+          "あります",
+          "しました",
+          "行きませんでした",
+          "います"
+        ],
+        "answer": 3,
+        "explanation": "Người dùng います; 庭に đánh dấu nơi Minh đang có mặt.",
+        "source": "sources/speaking.pdf#page=60",
+        "origin": "authored",
+        "solution": {
+          "completed": "ミンさんは庭にいます。",
+          "meaning": "Bạn Minh đang ở trong vườn.",
+          "rule": "Khi hỏi hoặc nêu vị trí của đối tượng đã biết: Nは địa điểm に あります／います. Người và động vật dùng います; đồ vật, cây dùng あります. Vị trí tương đối cần danh từ の + 前／後ろ／隣／上／下／間….",
+          "options": [
+            "あります dùng cho đồ vật, cây cối trong mẫu tồn tại, không dùng cho Minh.",
+            "しました diễn tả đã làm, không chỉ sự có mặt của người tại 庭に.",
+            "行きませんでした nói đã không đi; không diễn đạt Minh đang ở trong vườn.",
+            "Người dùng います; 庭に đánh dấu nơi Minh đang có mặt."
+          ]
+        },
+        "id": "c67-1-25"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 0,
+        "unit": "g7-there",
+        "prompt": "Giới thiệu có một con chó trước trường: 学校の前に犬（　）います。",
+        "options": [
+          "で",
+          "から",
+          "が",
+          "を"
+        ],
+        "answer": 2,
+        "explanation": "が đánh dấu con chó được giới thiệu trong mẫu địa điểm に N が います.",
+        "source": "sources/speaking.pdf#page=62",
+        "origin": "authored",
+        "solution": {
+          "completed": "学校の前に犬がいます。",
+          "meaning": "Trước trường có một con chó.",
+          "rule": "Giới thiệu có gì hoặc có ai tại một nơi dùng địa điểm に + Nが + あります／います. に đánh dấu nơi tồn tại, が nêu đối tượng mới; います dùng cho người và động vật, あります cho đồ vật/cây.",
+          "options": [
+            "で chỉ nơi hành động hoặc công cụ ở mẫu khác, không đứng sau 犬 ở đây.",
+            "から nêu điểm xuất phát, không đánh dấu con vật được giới thiệu.",
+            "が đánh dấu con chó được giới thiệu trong mẫu địa điểm に N が います.",
+            "を không đánh dấu chủ thể tồn tại với います."
+          ]
+        },
+        "id": "c67-1-26"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "g7-te",
+        "prompt": "Trong hoạt động thể thao, thể て của「遊びます（遊ぶ）」là gì?",
+        "options": [
+          "遊んて",
+          "遊んで",
+          "遊って",
+          "遊びて"
+        ],
+        "answer": 1,
+        "explanation": "遊ぶ thuộc nhóm 1; động từ tận cùng ぶ đổi thành んで.",
+        "source": "sources/speaking.pdf#page=63",
+        "origin": "authored",
+        "solution": {
+          "completed": "遊ぶ → 遊んで",
+          "meaning": "Chơi → dạng て là 遊んで.",
+          "rule": "Thể て phụ thuộc nhóm động từ: う・つ・る nhóm 1 → って; む・ぶ・ぬ → んで; く → いて; ぐ → いで; す → して. Nhóm 2 bỏ る + て; する → して, 来る → 来て; 行く là ngoại lệ 行って.",
+          "options": [
+            "Sau ん ở nhóm ぶ, đuôi đúng là で có dấu đục, không phải て.",
+            "遊ぶ thuộc nhóm 1; động từ tận cùng ぶ đổi thành んで.",
+            "って dành cho các đuôi う・つ・る của nhóm 1, không phải ぶ.",
+            "Không giữ gốc ます 遊び rồi thêm て; ぶ phải đổi thành んで."
+          ]
+        },
+        "id": "c67-1-27"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "g7-te",
+        "prompt": "Để tiếp tục học mẫu て, chọn thể て của「来ます（来る）」.",
+        "options": [
+          "来て（きて）",
+          "来って（きって）",
+          "来いて（きいて）",
+          "来んで（きんで）"
+        ],
+        "answer": 0,
+        "explanation": "来る là động từ bất quy tắc, thể て đọc きて và viết 来て.",
+        "source": "sources/speaking.pdf#page=63",
+        "origin": "authored",
+        "solution": {
+          "completed": "来る → 来て（きて）",
+          "meaning": "Đến → dạng て là 来て.",
+          "rule": "Thể て phụ thuộc nhóm động từ: う・つ・る nhóm 1 → って; む・ぶ・ぬ → んで; く → いて; ぐ → いで; す → して. Nhóm 2 bỏ る + て; する → して, 来る → 来て; 行く là ngoại lệ 行って.",
+          "options": [
+            "来る là động từ bất quy tắc, thể て đọc きて và viết 来て.",
+            "来る không áp dụng quy tắc る→って của nhóm 1.",
+            "Không đổi 来る theo quy tắc く→いて; dạng đúng là 来て.",
+            "来る không thuộc nhóm đuôi む・ぶ・ぬ để đổi thành んで."
+          ]
+        },
+        "id": "c67-1-28"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "g7-request",
+        "prompt": "Nhờ bạn pha/rót trà: すみませんが、お茶を（　）ください。",
+        "options": [
+          "入れます",
+          "入れる",
+          "入れました",
+          "入れて"
+        ],
+        "answer": 3,
+        "explanation": "入れる thuộc nhóm 2: bỏ る thêm て, rồi nối ください.",
+        "source": "sources/speaking.pdf#page=63",
+        "origin": "authored",
+        "solution": {
+          "completed": "すみませんが、お茶を入れてください。",
+          "meaning": "Xin lỗi, bạn pha trà giúp tôi nhé.",
+          "rule": "Nhờ người nghe làm việc dùng động từ thể て + ください. Chia thể て trước rồi gắn ください; không thêm cả ます. Phân biệt người nghe được nhờ làm với lời người nói chủ động đề nghị giúp bằng ましょうか.",
+          "options": [
+            "入れます là dạng lịch sự; không nối trực tiếp với ください.",
+            "入れる là thể từ điển; mẫu yêu cầu ở đây cần thể て.",
+            "入れました là quá khứ lịch sự, không nối với ください để nhờ làm.",
+            "入れる thuộc nhóm 2: bỏ る thêm て, rồi nối ください."
+          ]
+        },
+        "id": "c67-1-29"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "g7-tool",
+        "prompt": "Nói “cắt pizza BẰNG dao”: ピザをナイフ（　）切ります。",
+        "options": [
+          "が",
+          "と",
+          "で",
+          "に"
+        ],
+        "answer": 2,
+        "explanation": "ナイフ là dụng cụ; dùng で sau tên dụng cụ.",
+        "source": "sources/speaking.pdf#page=63",
+        "origin": "authored",
+        "solution": {
+          "completed": "ピザをナイフで切ります。",
+          "meaning": "Tôi cắt pizza bằng dao.",
+          "rule": "Dụng cụ hoặc phương tiện thực hiện hành động dùng で; tân ngữ dùng を. Ví dụ ナイフで…を切ります. Không nhầm で chỉ dụng cụ với に chỉ nơi tồn tại hoặc と chỉ người cùng thực hiện.",
+          "options": [
+            "が đánh dấu chủ thể trong mẫu khác, không biểu thị “bằng dao”.",
+            "と có thể chỉ làm cùng ai, không thay で cho dụng cụ cắt.",
+            "ナイフ là dụng cụ; dùng で sau tên dụng cụ.",
+            "に không đánh dấu con dao dùng làm dụng cụ ở đây."
+          ]
+        },
+        "id": "c67-1-30"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "g7-how",
+        "prompt": "Hỏi CÁCH CHƠI trò này: このゲームの（　）を教えてください。",
+        "options": [
+          "遊びます方",
+          "遊び方",
+          "遊ぶ方",
+          "遊んで方"
+        ],
+        "answer": 1,
+        "explanation": "Lấy 遊び từ 遊びます rồi thêm 方: 遊び方.",
+        "source": "sources/speaking.pdf#page=73",
+        "origin": "authored",
+        "solution": {
+          "completed": "このゲームの遊び方を教えてください。",
+          "meaning": "Hãy chỉ cho tôi cách chơi trò này.",
+          "rule": "Cách làm một việc dùng gốc trước ます + 方（かた）: 使います → 使い方. Với đối tượng danh từ, dùng NのV方: この漢字の書き方. Không gắn 方 sau toàn bộ ます hoặc sau thể て.",
+          "options": [
+            "Phải bỏ ます trước 方; 遊びます方 không phải dạng cần điền.",
+            "Lấy 遊び từ 遊びます rồi thêm 方: 遊び方.",
+            "遊ぶ方 có thể gợi nghĩa khác tùy ngữ cảnh; không phải danh từ “cách chơi” theo mẫu gốc ます + 方.",
+            "Không nối thể て 遊んで với 方 để gọi cách chơi."
+          ]
+        },
+        "id": "c67-1-31"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "g7-which",
+        "prompt": "Có ba chiếc cốc; hỏi chiếc màu đỏ là cái nào: 赤いコップは（　）ですか。",
+        "options": [
+          "どれ",
+          "どの",
+          "だれ",
+          "いつ"
+        ],
+        "answer": 0,
+        "explanation": "どれ tự đứng làm đại từ hỏi vật; sau chỗ trống không có danh từ.",
+        "source": "sources/speaking.pdf#page=64",
+        "origin": "authored",
+        "solution": {
+          "completed": "赤いコップはどれですか。",
+          "meaning": "Chiếc cốc màu đỏ là cái nào?",
+          "rule": "どの phải đứng trước một danh từ (どの皿); どれ tự thay cho vật và không đứng trực tiếp trước danh từ (皿はどれですか). Chọn đúng hình thức theo chỗ trống và đối tượng, không chỉ dịch cả hai thành cái nào.",
+          "options": [
+            "どれ tự đứng làm đại từ hỏi vật; sau chỗ trống không có danh từ.",
+            "どの cần một danh từ ngay sau, như どのコップ; không đứng một mình trước です.",
+            "だれ hỏi người, không hỏi chiếc cốc.",
+            "いつ hỏi thời gian, không hỏi chọn một chiếc cốc."
+          ]
+        },
+        "id": "c67-1-32"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "g7-progressive",
+        "prompt": "Bạn nhìn thấy họ nói chuyện ngay lúc này. 友達は今、庭で（　）。",
+        "options": [
+          "話しました",
+          "話しませんでした",
+          "話すいます",
+          "話しています"
+        ],
+        "answer": 3,
+        "explanation": "話す→話して + います diễn tả hành động đang diễn ra trước mắt.",
+        "source": "sources/speaking.pdf#page=66",
+        "origin": "authored",
+        "solution": {
+          "completed": "友達は今、庭で話しています。",
+          "meaning": "Các bạn đang nói chuyện trong vườn.",
+          "rule": "Hành động đang diễn ra tại thời điểm nói dùng Vて + います. Bối cảnh 今／見てください xác định nghĩa tiếp diễn trong các câu này; không khẳng định đây là nghĩa duy nhất của ています trong tiếng Nhật.",
+          "options": [
+            "話しました kể hành động đã làm, khác việc đang diễn ra.",
+            "話しませんでした là đã không nói chuyện, trái tình huống.",
+            "Không nối thể từ điển 話す với います; cần 話しています.",
+            "話す→話して + います diễn tả hành động đang diễn ra trước mắt."
+          ]
+        },
+        "id": "c67-1-33"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "g7-offer",
+        "prompt": "Bạn muốn tự mình giúp mang hành lý. 荷物を（　）。 Chọn lời ĐỀ NGHỊ GIÚP.",
+        "options": [
+          "持ちました",
+          "持ちませんでした",
+          "持ちましょうか",
+          "持ってください"
+        ],
+        "answer": 2,
+        "explanation": "持ちます bỏ ます rồi thêm ましょうか để chủ động đề nghị giúp.",
+        "source": "sources/speaking.pdf#page=67",
+        "origin": "authored",
+        "solution": {
+          "completed": "荷物を持ちましょうか。",
+          "meaning": "Để tôi mang hành lý giúp nhé?",
+          "rule": "Người nói chủ động đề nghị giúp dùng gốc trước ます + ましょうか, chẳng hạn 持ちましょうか. Người thực hiện và ý định phải đúng lời dẫn; Vてください là nhờ người nghe làm, không phải đề nghị mình làm giúp.",
+          "options": [
+            "持ちました kể đã mang rồi, không đề nghị giúp.",
+            "持ちませんでした nói đã không mang, không phải lời đề nghị.",
+            "持ちます bỏ ます rồi thêm ましょうか để chủ động đề nghị giúp.",
+            "持ってください nhờ người nghe mang, đổi người thực hiện so với yêu cầu."
+          ]
+        },
+        "id": "c67-1-34"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "g7-who",
+        "prompt": "Hỏi AI đã mang đàn tới: 誰（　）ギターを持って来ましたか。",
+        "options": [
+          "で",
+          "が",
+          "を",
+          "に"
+        ],
+        "answer": 1,
+        "explanation": "が sau 誰 đánh dấu người thực hiện chưa biết của 持って来ました.",
+        "source": "sources/speaking.pdf#page=68",
+        "origin": "authored",
+        "solution": {
+          "completed": "誰がギターを持って来ましたか。",
+          "meaning": "Ai đã mang đàn ghi-ta đến?",
+          "rule": "Hỏi ai thực hiện một hành động dùng 誰が + động từ; trả lời người đó が + động từ. Nếu hành động đã hoàn tất, giữ dạng quá khứ ました. Trợ từ を đánh dấu tân ngữ, không đánh dấu người làm trong mẫu này.",
+          "options": [
+            "で không đánh dấu chủ thể “ai” của hành động mang đàn đến.",
+            "が sau 誰 đánh dấu người thực hiện chưa biết của 持って来ました.",
+            "を dành cho đối tượng; ở câu này ギターを đã là đồ được mang.",
+            "に không đánh dấu người thực hiện trong mẫu 誰が Vましたか."
+          ]
+        },
+        "id": "c67-1-35"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "g7-remaining",
+        "prompt": "Trên bàn còn bánh mì. Nói “VẪN CÒN”: パンは（　）。",
+        "options": [
+          "まだあります",
+          "もうありません",
+          "まだです",
+          "もうありました"
+        ],
+        "answer": 0,
+        "explanation": "まだあります diễn tả đồ vật, thức ăn vẫn còn tại thời điểm nói.",
+        "source": "sources/speaking.pdf#page=69",
+        "origin": "authored",
+        "solution": {
+          "completed": "パンはまだあります。",
+          "meaning": "Bánh mì vẫn còn.",
+          "rule": "Khi nói lượng đồ còn lại, まだあります là vẫn còn, もうありません là đã hết. Chú ý dữ kiện đồ vẫn còn hay không còn; khác với まだです trả lời việc chưa làm xong ở bài 6.",
+          "options": [
+            "まだあります diễn tả đồ vật, thức ăn vẫn còn tại thời điểm nói.",
+            "もうありません nghĩa là đã hết, trái dữ kiện còn bánh.",
+            "まだです thường trả lời “chưa làm” ở mẫu bài 6, không nói đủ ý “vẫn còn bánh”.",
+            "もうありました là đã có ở một thời điểm quá khứ, không biểu thị trạng thái vẫn còn hiện tại."
+          ]
+        },
+        "id": "c67-1-36"
+      },
+      {
+        "category": "dialogue",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "g6-invite",
+        "prompt": "A rủ đi xem thể thao sáng mai. B CÓ VIỆC BẬN và muốn từ chối nhẹ. Chọn lời B.",
+        "options": [
+          "いいですね。ぜひ行きましょう。",
+          "ありがとうございます。お願いします。",
+          "はい、もう見ました。",
+          "すみません。明日の午前はちょっと…。用事がありますから。"
+        ],
+        "answer": 3,
+        "explanation": "…はちょっと… từ chối nhẹ; 用事がありますから nêu lý do phù hợp dữ kiện.",
+        "source": "sources/speaking.pdf#page=43",
+        "origin": "authored",
+        "solution": {
+          "completed": "A：明日の午前、いっしょにスポーツを見に行きませんか。 B：すみません。明日の午前はちょっと…。用事がありますから。",
+          "meaning": "A: Sáng mai cùng đi xem thể thao nhé? B: Xin lỗi, sáng mai thì hơi khó… vì tôi có việc bận.",
+          "rule": "Rủ cùng làm dùng gốc trước ます + ませんか; nhận lời hoặc đề nghị cùng làm dùng ましょう. Từ chối nhẹ bằng …はちょっと… và lý do. Chọn lời đáp đúng ý định đã nêu, không chỉ dựa vào câu có đúng ngữ pháp hay không.",
+          "options": [
+            "行きましょう nhận lời cùng đi, trái yêu cầu từ chối vì bận.",
+            "お願いします nhận một đề nghị giúp; không từ chối lời rủ và không nêu việc bận.",
+            "もう見ました nói đã xem, không diễn đạt lý do có việc bận sáng mai.",
+            "…はちょっと… từ chối nhẹ; 用事がありますから nêu lý do phù hợp dữ kiện."
+          ]
+        },
+        "id": "c67-1-37"
+      },
+      {
+        "category": "dialogue",
+        "lesson": 6,
+        "topic": 1,
+        "unit": "g6-compare",
+        "prompt": "A：テニスとサッカーとどちらが好きですか。 B thích CẢ HAI. Chọn câu trả lời.",
+        "options": [
+          "サッカーのほうが好きです。",
+          "どちらも好きじゃありません。",
+          "どちらも好きです。",
+          "テニスのほうが好きです。"
+        ],
+        "answer": 2,
+        "explanation": "どちらも chỉ cả hai lựa chọn; 好きです khẳng định đều thích.",
+        "source": "sources/speaking.pdf#page=47",
+        "origin": "authored",
+        "solution": {
+          "completed": "A：テニスとサッカーとどちらが好きですか。 B：どちらも好きです。",
+          "meaning": "A: Bạn thích tennis hay bóng đá? B: Tôi thích cả hai.",
+          "rule": "So sánh hai lựa chọn: AとBとどちらが…ですか; Aのほうが…です nêu bên nổi bật, AはBより…です nêu mốc so sánh B. Chú ý hướng so sánh và nghĩa tính từ; どちらも là cả hai, không phải một bên.",
+          "options": [
+            "サッカーのほうが好きです chọn bóng đá là bên thích hơn.",
+            "好きじゃありません phủ định sự yêu thích, trái dữ kiện thích cả hai.",
+            "どちらも chỉ cả hai lựa chọn; 好きです khẳng định đều thích.",
+            "テニスのほうが好きです nói thích tennis hơn, không nói thích cả hai theo yêu cầu."
+          ]
+        },
+        "id": "c67-1-38"
+      },
+      {
+        "category": "dialogue",
+        "lesson": 6,
+        "topic": 2,
+        "unit": "g6-already",
+        "prompt": "A：もう友達に電話しましたか。 B đến giờ CHƯA GỌI. Chọn lời đáp ngắn bài 6.",
+        "options": [
+          "はい、まだです。",
+          "いいえ、まだです。",
+          "はい、電話しました。",
+          "いいえ、もう電話しました。"
+        ],
+        "answer": 1,
+        "explanation": "いいえ、まだです phủ định việc đã làm tính đến bây giờ, đúng dữ kiện chưa gọi.",
+        "source": "sources/speaking.pdf#page=55",
+        "origin": "authored",
+        "solution": {
+          "completed": "A：もう友達に電話しましたか。 B：いいえ、まだです。",
+          "meaning": "A: Bạn đã gọi điện cho bạn mình chưa? B: Chưa.",
+          "rule": "もう + Vましたか hỏi việc đã hoàn tất chưa. Trả lời đã làm bằng はい、Vました; chưa làm bằng いいえ、まだです. まだ ở đây là chưa hoàn tất hành động, khác まだあります diễn tả đồ vật vẫn còn.",
+          "options": [
+            "はい xác nhận đã làm nhưng まだです nói chưa; hai phần không nhất quán ở lời đáp này.",
+            "いいえ、まだです phủ định việc đã làm tính đến bây giờ, đúng dữ kiện chưa gọi.",
+            "はい、電話しました xác nhận đã gọi, trái dữ kiện.",
+            "もう電話しました nghĩa là đã gọi rồi; không nói chưa gọi dù đầu câu có いいえ."
+          ]
+        },
+        "id": "c67-1-39"
+      },
+      {
+        "category": "dialogue",
+        "lesson": 6,
+        "topic": 2,
+        "unit": "g6-suggest",
+        "prompt": "A：駅の前はどうですか。 B đồng ý tập trung ở địa điểm vừa đề xuất. Chọn lời B.",
+        "options": [
+          "そうしましょう。",
+          "駅はどこですか。",
+          "誰がいますか。",
+          "もうありません。"
+        ],
+        "answer": 0,
+        "explanation": "そうしましょう nhận phương án vừa đưa ra để cùng thực hiện.",
+        "source": "sources/speaking.pdf#page=50",
+        "origin": "authored",
+        "solution": {
+          "completed": "A：駅の前はどうですか。 B：そうしましょう。",
+          "meaning": "A: Trước ga thì sao? B: Cứ làm như vậy nhé.",
+          "rule": "Đề xuất một phương án dùng Nはどうですか, chẳng hạn giờ hẹn hoặc nơi gặp. Nếu đồng ý chọn phương án đó, đáp そうしましょう. Phải khớp thông tin và ý định trong hội thoại, không phủ nhận một lời đáp chỉ vì nó ít thông dụng.",
+          "options": [
+            "そうしましょう nhận phương án vừa đưa ra để cùng thực hiện.",
+            "駅はどこですか hỏi vị trí nhà ga, không phải nhận phương án.",
+            "誰がいますか hỏi có ai ở đó, không xác nhận đồng ý điểm hẹn.",
+            "もうありません nói đã hết đồ vật, không dùng để nhận đề xuất địa điểm."
+          ]
+        },
+        "id": "c67-1-40"
+      },
+      {
+        "category": "dialogue",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "g7-request",
+        "prompt": "A：すみませんが、スプーンを取ってください。 B đồng ý sẽ lấy giúp. Chọn lời đáp.",
+        "options": [
+          "いいえ、取りません。",
+          "どちらが近いですか。",
+          "まだありません。",
+          "はい、いいですよ。"
+        ],
+        "answer": 3,
+        "explanation": "はい、いいですよ nhận lời làm việc người kia vừa nhờ.",
+        "source": "sources/speaking.pdf#page=63",
+        "origin": "authored",
+        "solution": {
+          "completed": "A：すみませんが、スプーンを取ってください。 B：はい、いいですよ。",
+          "meaning": "A: Xin lỗi, lấy giúp tôi cái thìa nhé. B: Vâng, được chứ.",
+          "rule": "Nhờ người nghe làm việc dùng động từ thể て + ください. Chia thể て trước rồi gắn ください; không thêm cả ます. Phân biệt người nghe được nhờ làm với lời người nói chủ động đề nghị giúp bằng ましょうか.",
+          "options": [
+            "いいえ、取りません từ chối lấy, trái yêu cầu đồng ý.",
+            "どちらが近いですか hỏi so sánh khoảng cách, không nhận lời nhờ lấy thìa.",
+            "まだありません nói chưa có, không diễn đạt sẽ lấy giúp người nhờ.",
+            "はい、いいですよ nhận lời làm việc người kia vừa nhờ."
+          ]
+        },
+        "id": "c67-1-41"
+      },
+      {
+        "category": "dialogue",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "g7-offer",
+        "prompt": "A：いすを持って行きましょうか。 B muốn NHẬN sự giúp đỡ ấy. Chọn lời B.",
+        "options": [
+          "いすを持って行きました。",
+          "何時に行きますか。",
+          "ありがとうございます。お願いします。",
+          "いいえ、大丈夫です。"
+        ],
+        "answer": 2,
+        "explanation": "ありがとうございます。お願いします cảm ơn và nhận đề nghị giúp mang ghế.",
+        "source": "sources/speaking.pdf#page=67",
+        "origin": "authored",
+        "solution": {
+          "completed": "A：いすを持って行きましょうか。 B：ありがとうございます。お願いします。",
+          "meaning": "A: Để tôi mang ghế đi giúp nhé? B: Cảm ơn, nhờ bạn nhé.",
+          "rule": "Người nói chủ động đề nghị giúp dùng gốc trước ます + ましょうか, chẳng hạn 持ちましょうか. Người thực hiện và ý định phải đúng lời dẫn; Vてください là nhờ người nghe làm, không phải đề nghị mình làm giúp.",
+          "options": [
+            "持って行きました kể việc đã mang ghế đi, không nhận lời đề nghị hiện tại.",
+            "何時に行きますか hỏi giờ đi, không diễn đạt nhận sự giúp đỡ ấy.",
+            "ありがとうございます。お願いします cảm ơn và nhận đề nghị giúp mang ghế.",
+            "いいえ、大丈夫です thường từ chối giúp một cách nhẹ nhàng, khác ý muốn nhận."
+          ]
+        },
+        "id": "c67-1-42"
+      },
+      {
+        "category": "dialogue",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "g7-remaining",
+        "prompt": "A：ケーキはまだありますか。 B nhìn đĩa trống: bánh ĐÃ HẾT. Chọn lời B.",
+        "options": [
+          "はい、たくさんあります。",
+          "いいえ、もうありません。",
+          "はい、まだあります。",
+          "いいえ、まだです。"
+        ],
+        "answer": 1,
+        "explanation": "もうありません nói không còn nữa; いいえ trả lời phủ định câu hỏi còn bánh không.",
+        "source": "sources/speaking.pdf#page=69",
+        "origin": "authored",
+        "solution": {
+          "completed": "A：ケーキはまだありますか。 B：いいえ、もうありません。",
+          "meaning": "A: Còn bánh ngọt không? B: Không, hết rồi.",
+          "rule": "Khi nói lượng đồ còn lại, まだあります là vẫn còn, もうありません là đã hết. Chú ý dữ kiện đồ vẫn còn hay không còn; khác với まだです trả lời việc chưa làm xong ở bài 6.",
+          "options": [
+            "たくさんあります nói có nhiều, trái dữ kiện bánh không còn.",
+            "もうありません nói không còn nữa; いいえ trả lời phủ định câu hỏi còn bánh không.",
+            "まだあります nói vẫn còn, trái dữ kiện đĩa trống và bánh hết.",
+            "まだです trả lời “chưa” cho việc làm, không phải trạng thái đồ ăn đã hết."
+          ]
+        },
+        "id": "c67-1-43"
+      },
+      {
+        "category": "translation",
+        "lesson": 7,
+        "topic": 0,
+        "unit": "g7-location",
+        "prompt": "Chọn bản dịch đúng: “Con mèo ở dưới chiếc ghế.”",
+        "options": [
+          "猫はいすの下にいます。",
+          "猫はいすの上にいます。",
+          "猫はいすの下にあります。",
+          "猫はいすを下にいます。"
+        ],
+        "answer": 0,
+        "explanation": "いすの下 là dưới ghế; に đánh dấu vị trí, mèo dùng います.",
+        "source": "sources/speaking.pdf#page=60",
+        "origin": "authored",
+        "solution": {
+          "completed": "猫はいすの下にいます。",
+          "meaning": "Con mèo ở dưới chiếc ghế.",
+          "rule": "Khi hỏi hoặc nêu vị trí của đối tượng đã biết: Nは địa điểm に あります／います. Người và động vật dùng います; đồ vật, cây dùng あります. Vị trí tương đối cần danh từ の + 前／後ろ／隣／上／下／間….",
+          "options": [
+            "いすの下 là dưới ghế; に đánh dấu vị trí, mèo dùng います.",
+            "上 là bên trên, đổi vị trí so với “dưới”.",
+            "あります dùng cho đồ vật, cây cối; mèo là động vật nên dùng います.",
+            "Cần の nối vật mốc いす với 下; を không tạo cụm vị trí này."
+          ]
+        },
+        "id": "c67-1-44"
+      },
+      {
+        "category": "translation",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "g7-progressive",
+        "prompt": "Chọn bản dịch: “Bây giờ anh Nam đang rửa đĩa trong bếp.”",
+        "options": [
+          "今、ナムさんは台所でお皿を洗いました。",
+          "今、ナムさんは台所でお皿を洗いましょうか。",
+          "今、ナムさんは台所でお皿を洗ってください。",
+          "今、ナムさんは台所でお皿を洗っています。"
+        ],
+        "answer": 3,
+        "explanation": "洗う→洗って + います diễn tả đang rửa; 台所で nêu nơi hành động.",
+        "source": "sources/speaking.pdf#page=66",
+        "origin": "authored",
+        "solution": {
+          "completed": "今、ナムさんは台所でお皿を洗っています。",
+          "meaning": "Bây giờ anh Nam đang rửa đĩa trong bếp.",
+          "rule": "Hành động đang diễn ra tại thời điểm nói dùng Vて + います. Bối cảnh 今／見てください xác định nghĩa tiếp diễn trong các câu này; không khẳng định đây là nghĩa duy nhất của ています trong tiếng Nhật.",
+          "options": [
+            "洗いました là đã rửa, không chuyển được nghĩa đang diễn ra của câu đích.",
+            "洗いましょうか là đề nghị giúp rửa, không phải tường thuật hành động đang diễn ra.",
+            "洗ってください là lời nhờ rửa, đổi chức năng câu so với bản dịch cần chọn.",
+            "洗う→洗って + います diễn tả đang rửa; 台所で nêu nơi hành động."
+          ]
+        },
+        "id": "c67-1-45"
+      }
+    ],
+    "contentVersion": "2026-10-23"
+  },
+  {
+    "id": "chapter67-2",
+    "title": "Bài 6–7 · Đề 02",
+    "description": "Hẹn gặp ở thư viện, chọn sự kiện âm nhạc trong cộng đồng rồi chuẩn bị bữa tiệc tại nhà: vị trí, cách làm, nhờ giúp và kể hoạt động đang diễn ra. 45 câu mới theo ma trận đề mẫu, đủ 18 mục ngữ pháp và 6 chủ đề bài 6–7.",
+    "lessons": [
+      6,
+      7
+    ],
+    "minutes": 45,
+    "kind": "authored",
+    "questions": [
+      {
+        "category": "reading",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "",
+        "prompt": "Lịch sự kiện ghi「来月」. Đọc mục từ chỉ tháng sau này thế nào?",
+        "options": [
+          "きげつ",
+          "らげつ",
+          "らいげつ",
+          "らいがつ"
+        ],
+        "answer": 2,
+        "explanation": "来月 đọc らいげつ; 月 trong từ này đọc げつ.",
+        "source": "sources/new-words.pdf#page=18",
+        "origin": "authored",
+        "solution": {
+          "completed": "来月（らいげつ）",
+          "meaning": "Tháng sau.",
+          "rule": "Đọc đúng cả mục từ; chú ý trường âm, âm ghép và âm đục. Không ghép tùy ý âm của từng chữ Hán.",
+          "options": [
+            "来 ở từ này đọc らい, không ghép thành きげつ.",
+            "Thiếu âm い của phần らい; cần đọc đủ らいげつ.",
+            "来月 đọc らいげつ; 月 trong từ này đọc げつ.",
+            "月 ở 来月 đọc げつ, không dùng がつ của tên tháng."
+          ]
+        },
+        "id": "c67-2-01"
+      },
+      {
+        "category": "reading",
+        "lesson": 6,
+        "topic": 1,
+        "unit": "",
+        "prompt": "Trên áp phích âm nhạc, chọn âm đọc「歌手」.",
+        "options": [
+          "うたて",
+          "かしゅ",
+          "がしゅ",
+          "かしゅう"
+        ],
+        "answer": 1,
+        "explanation": "歌手 đọc かしゅ; 手 ở từ này là しゅ, không có trường âm.",
+        "source": "sources/new-words.pdf#page=19",
+        "origin": "authored",
+        "solution": {
+          "completed": "歌手（かしゅ）",
+          "meaning": "Ca sĩ.",
+          "rule": "Đọc đúng cả mục từ; chú ý trường âm, âm ghép và âm đục. Không ghép tùy ý âm của từng chữ Hán.",
+          "options": [
+            "Không ghép các âm うた và て để đọc tên nghề 歌手.",
+            "歌手 đọc かしゅ; 手 ở từ này là しゅ, không có trường âm.",
+            "歌 đọc か không có dấu đục ở từ ghép này.",
+            "Thêm う làm dài âm cuối không đúng cách đọc 歌手."
+          ]
+        },
+        "id": "c67-2-02"
+      },
+      {
+        "category": "reading",
+        "lesson": 6,
+        "topic": 1,
+        "unit": "",
+        "prompt": "Địa điểm ăn sau buổi nhạc là「居酒屋」. Chọn cách đọc.",
+        "options": [
+          "いざかや",
+          "いさかや",
+          "いざけや",
+          "いざかおく"
+        ],
+        "answer": 0,
+        "explanation": "居酒屋 đọc いざかや; 酒 trong từ này có phần ざか.",
+        "source": "sources/new-words.pdf#page=19",
+        "origin": "authored",
+        "solution": {
+          "completed": "居酒屋（いざかや）",
+          "meaning": "Quán rượu kiểu Nhật.",
+          "rule": "Đọc đúng cả mục từ; chú ý trường âm, âm ghép và âm đục. Không ghép tùy ý âm của từng chữ Hán.",
+          "options": [
+            "居酒屋 đọc いざかや; 酒 trong từ này có phần ざか.",
+            "Âm ざ có dấu đục, không đọc さ trong từ này.",
+            "酒 ở từ này không đọc phần ざけ; đúng là ざか.",
+            "屋 đọc や trong tên quán này, không đọc おく."
+          ]
+        },
+        "id": "c67-2-03"
+      },
+      {
+        "category": "reading",
+        "lesson": 7,
+        "topic": 0,
+        "unit": "",
+        "prompt": "Bạn chờ ở cửa soát vé. Chọn cách đọc「改札」.",
+        "options": [
+          "がいさつ",
+          "かいざつ",
+          "かいさち",
+          "かいさつ"
+        ],
+        "answer": 3,
+        "explanation": "改札 đọc かいさつ; cả か và さ đều không có dấu đục.",
+        "source": "sources/new-words.pdf#page=21",
+        "origin": "authored",
+        "solution": {
+          "completed": "改札（かいさつ）",
+          "meaning": "Cổng soát vé.",
+          "rule": "Đọc đúng cả mục từ; chú ý trường âm, âm ghép và âm đục. Không ghép tùy ý âm của từng chữ Hán.",
+          "options": [
+            "改 đọc かい, không phải がい trong từ này.",
+            "札 đọc さつ, không đổi thành ざつ.",
+            "Âm cuối là つ, không đổi thành ち.",
+            "改札 đọc かいさつ; cả か và さ đều không có dấu đục."
+          ]
+        },
+        "id": "c67-2-04"
+      },
+      {
+        "category": "reading",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "",
+        "prompt": "Thiết bị hâm món ăn mang tên「電子レンジ」. Chọn âm đọc.",
+        "options": [
+          "てんしれんじ",
+          "でんしれじ",
+          "でんしれんじ",
+          "でんじれんじ"
+        ],
+        "answer": 2,
+        "explanation": "電子 đọc でんし; phần レンジ được ghi cách đọc bằng hiragana là れんじ.",
+        "source": "sources/new-words.pdf#page=22",
+        "origin": "authored",
+        "solution": {
+          "completed": "電子レンジ（でんしれんじ）",
+          "meaning": "Lò vi sóng.",
+          "rule": "Đọc đúng cả mục từ; chú ý trường âm, âm ghép và âm đục. Không ghép tùy ý âm của từng chữ Hán.",
+          "options": [
+            "電 đọc でん có dấu đục, không phải てん.",
+            "Phần れんじ cần âm ん; れじ là cách đọc của một từ mượn khác.",
+            "電子 đọc でんし; phần レンジ được ghi cách đọc bằng hiragana là れんじ.",
+            "子 ở 電子 đọc し, không phải じ."
+          ]
+        },
+        "id": "c67-2-05"
+      },
+      {
+        "category": "reading",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "",
+        "prompt": "Trong công thức món mặn, chữ「塩」đọc là gì?",
+        "options": [
+          "さとう",
+          "しお",
+          "しよう",
+          "しょう"
+        ],
+        "answer": 1,
+        "explanation": "塩 đọc しお, gồm し và お tách nhau.",
+        "source": "sources/new-words.pdf#page=22",
+        "origin": "authored",
+        "solution": {
+          "completed": "塩（しお）",
+          "meaning": "Muối.",
+          "rule": "Đọc đúng cả mục từ; chú ý trường âm, âm ghép và âm đục. Không ghép tùy ý âm của từng chữ Hán.",
+          "options": [
+            "さとう là 砂糖, nghĩa là đường ăn; không phải cách đọc 塩.",
+            "塩 đọc しお, gồm し và お tách nhau.",
+            "しよう thêm âm よ không có trong cách đọc 塩.",
+            "しょう có âm ghép nhỏ ょ và trường âm, khác しお."
+          ]
+        },
+        "id": "c67-2-06"
+      },
+      {
+        "category": "spelling",
+        "lesson": 6,
+        "topic": 1,
+        "unit": "",
+        "prompt": "Chọn cách viết「きせつ」, từ dùng gọi xuân, hạ, thu, đông.",
+        "options": [
+          "季節",
+          "季説",
+          "期節",
+          "季接"
+        ],
+        "answer": 0,
+        "explanation": "季節 là cách viết của きせつ khi chỉ các mùa trong năm.",
+        "source": "sources/new-words.pdf#page=19",
+        "origin": "authored",
+        "solution": {
+          "completed": "季節（きせつ）",
+          "meaning": "Mùa.",
+          "rule": "Đối chiếu đồng thời cách đọc và nghĩa được yêu cầu. Chữ có hình hoặc âm gần nhau không tự thay thế nhau.",
+          "options": [
+            "季節 là cách viết của きせつ khi chỉ các mùa trong năm.",
+            "説 không thay cho 節 trong từ gọi mùa.",
+            "Chữ đầu của 季節 là 季; 期 không tạo mục từ này.",
+            "接 khác 節; cách viết chuẩn của mùa là 季節."
+          ]
+        },
+        "id": "c67-2-07"
+      },
+      {
+        "category": "spelling",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "",
+        "prompt": "Tin nhắn nói lịch “tuần này”:「こんしゅう」viết thế nào?",
+        "options": [
+          "来週",
+          "先週",
+          "今周",
+          "今週"
+        ],
+        "answer": 3,
+        "explanation": "今週 là tuần này; 今 nêu hiện tại và 週 là tuần.",
+        "source": "sources/new-words.pdf#page=18",
+        "origin": "authored",
+        "solution": {
+          "completed": "今週（こんしゅう）",
+          "meaning": "Tuần này.",
+          "rule": "Đối chiếu đồng thời cách đọc và nghĩa được yêu cầu. Chữ có hình hoặc âm gần nhau không tự thay thế nhau.",
+          "options": [
+            "来週 đọc らいしゅう và nghĩa là tuần sau.",
+            "先週 đọc せんしゅう và nghĩa là tuần trước.",
+            "周 không thay cho 週 trong mục từ 今週.",
+            "今週 là tuần này; 今 nêu hiện tại và 週 là tuần."
+          ]
+        },
+        "id": "c67-2-08"
+      },
+      {
+        "category": "spelling",
+        "lesson": 6,
+        "topic": 1,
+        "unit": "",
+        "prompt": "Chọn chữ cho「たべもの」, nghĩa là đồ ăn mang đến tiệc.",
+        "options": [
+          "買い物",
+          "食べ者",
+          "食べ物",
+          "飲み物"
+        ],
+        "answer": 2,
+        "explanation": "食べ物 là những thứ để ăn; 物 là chữ chỉ vật trong mục từ.",
+        "source": "sources/new-words.pdf#page=19",
+        "origin": "authored",
+        "solution": {
+          "completed": "食べ物（たべもの）",
+          "meaning": "Đồ ăn.",
+          "rule": "Đối chiếu đồng thời cách đọc và nghĩa được yêu cầu. Chữ có hình hoặc âm gần nhau không tự thay thế nhau.",
+          "options": [
+            "買い物 đọc かいもの và nghĩa là việc mua sắm hoặc đồ mua.",
+            "者 chỉ người trong nhiều từ; không thay 物 trong 食べ物.",
+            "食べ物 là những thứ để ăn; 物 là chữ chỉ vật trong mục từ.",
+            "飲み物 đọc のみもの và nghĩa là đồ uống."
+          ]
+        },
+        "id": "c67-2-09"
+      },
+      {
+        "category": "spelling",
+        "lesson": 7,
+        "topic": 0,
+        "unit": "",
+        "prompt": "Trên sơ đồ điểm hẹn, “máy bán hàng tự động”「じどうはんばいき」viết thế nào?",
+        "options": [
+          "自働販売機",
+          "自動販売機",
+          "自動販買機",
+          "自動反売機"
+        ],
+        "answer": 1,
+        "explanation": "Từ chuẩn là 自動販売機: tự động + bán hàng + máy.",
+        "source": "sources/new-words.pdf#page=21",
+        "origin": "authored",
+        "solution": {
+          "completed": "自動販売機（じどうはんばいき）",
+          "meaning": "Máy bán hàng tự động.",
+          "rule": "Đối chiếu đồng thời cách đọc và nghĩa được yêu cầu. Chữ có hình hoặc âm gần nhau không tự thay thế nhau.",
+          "options": [
+            "Phần tự động viết 自動; 働 không thay 動 trong mục từ này.",
+            "Từ chuẩn là 自動販売機: tự động + bán hàng + máy.",
+            "Trong 販売, chữ thứ hai là 売 nghĩa là bán, không phải 買 nghĩa là mua.",
+            "販 có bộ 貝; 反 không thay cho 販 trong 販売."
+          ]
+        },
+        "id": "c67-2-10"
+      },
+      {
+        "category": "spelling",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "",
+        "prompt": "Ghi nhãn “đĩa”: chọn Hán tự của「さら」.",
+        "options": [
+          "皿",
+          "血",
+          "冊",
+          "目"
+        ],
+        "answer": 0,
+        "explanation": "皿 là chữ viết của さら, vật dùng đựng món ăn.",
+        "source": "sources/new-words.pdf#page=22",
+        "origin": "authored",
+        "solution": {
+          "completed": "皿（さら）",
+          "meaning": "Đĩa.",
+          "rule": "Đối chiếu đồng thời cách đọc và nghĩa được yêu cầu. Chữ có hình hoặc âm gần nhau không tự thay thế nhau.",
+          "options": [
+            "皿 là chữ viết của さら, vật dùng đựng món ăn.",
+            "血 có nét khác và nghĩa là máu, không phải đĩa.",
+            "冊 là lượng từ đếm sách, không phải chữ của さら.",
+            "目 nghĩa là mắt trong cách dùng cơ bản, không phải đĩa."
+          ]
+        },
+        "id": "c67-2-11"
+      },
+      {
+        "category": "spelling",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "",
+        "prompt": "Trong chương trình văn nghệ, từ「うた」(bài hát) viết thế nào?",
+        "options": [
+          "話",
+          "詩",
+          "音",
+          "歌"
+        ],
+        "answer": 3,
+        "explanation": "歌 là cách viết mục từ うた chỉ bài hát.",
+        "source": "sources/new-words.pdf#page=23",
+        "origin": "authored",
+        "solution": {
+          "completed": "歌（うた）",
+          "meaning": "Bài hát.",
+          "rule": "Đối chiếu đồng thời cách đọc và nghĩa được yêu cầu. Chữ có hình hoặc âm gần nhau không tự thay thế nhau.",
+          "options": [
+            "話 đọc はなし khi chỉ chuyện hoặc câu chuyện, không phải うた nghĩa là bài hát.",
+            "詩 đọc し và chỉ thơ, khác mục từ bài hát.",
+            "音 đọc おと trong nghĩa âm thanh, không phải うた.",
+            "歌 là cách viết mục từ うた chỉ bài hát."
+          ]
+        },
+        "id": "c67-2-12"
+      },
+      {
+        "category": "spelling",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "",
+        "prompt": "Chọn cách viết động từ「もちます」với nghĩa “cầm, mang”.",
+        "options": [
+          "特ちます",
+          "待します",
+          "持ちます",
+          "待ちます"
+        ],
+        "answer": 2,
+        "explanation": "持ちます dùng chữ 持 và phần ちます để diễn tả cầm, mang.",
+        "source": "sources/new-words.pdf#page=23",
+        "origin": "authored",
+        "solution": {
+          "completed": "持ちます（もちます）",
+          "meaning": "Cầm, mang.",
+          "rule": "Đối chiếu đồng thời cách đọc và nghĩa được yêu cầu. Chữ có hình hoặc âm gần nhau không tự thay thế nhau.",
+          "options": [
+            "特 không thay cho 持; 特ちます không viết đúng động từ này.",
+            "待します không phải cách viết của もちます; chữ và phần đuôi đều không phù hợp.",
+            "持ちます dùng chữ 持 và phần ちます để diễn tả cầm, mang.",
+            "待ちます đọc まちます, nghĩa là đợi."
+          ]
+        },
+        "id": "c67-2-13"
+      },
+      {
+        "category": "spelling",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "",
+        "prompt": "Chọn cách viết「あけます」, nghĩa là MỞ cửa sổ.",
+        "options": [
+          "明けます",
+          "開けます",
+          "閉めます",
+          "空けます"
+        ],
+        "answer": 1,
+        "explanation": "Mở cửa sổ dùng 窓を開けます; cần chữ 開.",
+        "source": "sources/new-words.pdf#page=23",
+        "origin": "authored",
+        "solution": {
+          "completed": "開けます（あけます）",
+          "meaning": "Mở cửa sổ, cửa ra vào.",
+          "rule": "Đối chiếu đồng thời cách đọc và nghĩa được yêu cầu. Chữ có hình hoặc âm gần nhau không tự thay thế nhau.",
+          "options": [
+            "明けます cũng đọc あけます trong những nghĩa như trời sáng, không dùng cho mở cửa sổ.",
+            "Mở cửa sổ dùng 窓を開けます; cần chữ 開.",
+            "閉めます đọc しめます và nghĩa là đóng, ngược yêu cầu.",
+            "空けます cũng đọc あけます nhưng thường nói làm trống chỗ, không phải mở cửa sổ."
+          ]
+        },
+        "id": "c67-2-14"
+      },
+      {
+        "category": "vocabulary",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "",
+        "prompt": "Bếp có「たくさん」đĩa cho bữa tiệc. Từ này chỉ số lượng thế nào?",
+        "options": [
+          "Nhiều",
+          "Một chút",
+          "Không có cái nào",
+          "Chỉ một cái"
+        ],
+        "answer": 0,
+        "explanation": "たくさん nói số lượng nhiều; không nêu một con số đếm cố định.",
+        "source": "sources/new-words.pdf#page=23",
+        "origin": "authored",
+        "solution": {
+          "completed": "お皿がたくさんあります。",
+          "meaning": "Có nhiều đĩa.",
+          "rule": "Chọn nghĩa của mục từ trong tình huống cụ thể; phân biệt người thực hiện và hướng của hành động.",
+          "options": [
+            "たくさん nói số lượng nhiều; không nêu một con số đếm cố định.",
+            "Một chút là 少し; không diễn đạt mức nhiều của たくさん.",
+            "Không có dùng phủ định như ありません; khác nghĩa nhiều.",
+            "たくさん không giới hạn số lượng ở một cái."
+          ]
+        },
+        "id": "c67-2-15"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "g6-event",
+        "prompt": "Thư viện tổ chức buổi hòa nhạc. Điền nơi tổ chức: 図書館（　）小さいコンサートがあります。",
+        "options": [
+          "に",
+          "へ",
+          "を",
+          "で"
+        ],
+        "answer": 3,
+        "explanation": "で đánh dấu địa điểm tổ chức sự kiện コンサート.",
+        "source": "sources/speaking.pdf#page=43",
+        "origin": "authored",
+        "solution": {
+          "completed": "図書館で小さいコンサートがあります。",
+          "meaning": "Có một buổi hòa nhạc nhỏ diễn ra tại thư viện.",
+          "rule": "Sự kiện được tổ chức ở địa điểm dùng で + sự kiện が あります, khác に chỉ nơi tồn tại. 用事／約束があります nói có việc bận hoặc hẹn. Người có hẹn đi với と; lượng từ chuyên dùng cho vé mỏng phẳng là 枚.",
+          "options": [
+            "に dùng cho nơi tồn tại của sự vật trong mẫu khác; câu này nói nơi tổ chức hòa nhạc.",
+            "へ chỉ hướng đi đến; không đánh dấu địa điểm tổ chức với あります.",
+            "を không đánh dấu nơi tổ chức sự kiện trong cấu trúc này.",
+            "で đánh dấu địa điểm tổ chức sự kiện コンサート."
+          ]
+        },
+        "id": "c67-2-16"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "g6-event",
+        "prompt": "Chọn từ để nói “Chiều mai tôi có VIỆC BẬN”: 明日の午後は（　）があります。",
+        "options": [
+          "まだ",
+          "どちら",
+          "用事",
+          "いっしょに"
+        ],
+        "answer": 2,
+        "explanation": "用事があります là mẫu nói có việc cần làm, phù hợp nghĩa đã cho.",
+        "source": "sources/speaking.pdf#page=43",
+        "origin": "authored",
+        "solution": {
+          "completed": "明日の午後は用事があります。",
+          "meaning": "Chiều mai tôi có việc bận.",
+          "rule": "Sự kiện được tổ chức ở địa điểm dùng で + sự kiện が あります, khác に chỉ nơi tồn tại. 用事／約束があります nói có việc bận hoặc hẹn. Người có hẹn đi với と; lượng từ chuyên dùng cho vé mỏng phẳng là 枚.",
+          "options": [
+            "まだ là trạng từ “vẫn/chưa”, không mang nghĩa việc bận trước があります.",
+            "どちら hỏi bên nào hoặc phía nào; không nêu việc bận.",
+            "用事があります là mẫu nói có việc cần làm, phù hợp nghĩa đã cho.",
+            "いっしょに là trạng từ “cùng nhau”, không phải danh từ cho chỗ trống này."
+          ]
+        },
+        "id": "c67-2-17"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 1,
+        "unit": "g6-compare",
+        "prompt": "Hỏi thư viện nào gần hơn trong HAI thư viện A, B: Aの図書館とBの図書館と（　）近いですか。",
+        "options": [
+          "だれを",
+          "どちらが",
+          "どちらも",
+          "どの"
+        ],
+        "answer": 1,
+        "explanation": "AとBとどちらが + tính từ hỏi so sánh giữa hai lựa chọn.",
+        "source": "sources/speaking.pdf#page=47",
+        "origin": "authored",
+        "solution": {
+          "completed": "Aの図書館とBの図書館とどちらが近いですか。",
+          "meaning": "Giữa thư viện A và thư viện B, thư viện nào gần hơn?",
+          "rule": "So sánh hai lựa chọn: AとBとどちらが…ですか; Aのほうが…です nêu bên nổi bật, AはBより…です nêu mốc so sánh B. Chú ý hướng so sánh và nghĩa tính từ; どちらも là cả hai, không phải một bên.",
+          "options": [
+            "だれを hỏi người là đối tượng, không hỏi chọn giữa hai thư viện.",
+            "AとBとどちらが + tính từ hỏi so sánh giữa hai lựa chọn.",
+            "どちらも nghĩa là cả hai, không hỏi lựa chọn nào gần hơn.",
+            "どの phải đứng trước một danh từ; không nối trực tiếp với 近い."
+          ]
+        },
+        "id": "c67-2-18"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 1,
+        "unit": "g6-compare",
+        "prompt": "Hai phòng nhạc: phòng xanh 60m², phòng đỏ 30m². Nói “phòng xanh rộng hơn”: 青い部屋（　）広いです。",
+        "options": [
+          "のほうが",
+          "より",
+          "をほうが",
+          "のほうを"
+        ],
+        "answer": 0,
+        "explanation": "Aのほうが nêu bên có đặc điểm nổi bật hơn; phòng xanh rộng hơn theo dữ kiện.",
+        "source": "sources/speaking.pdf#page=47",
+        "origin": "authored",
+        "solution": {
+          "completed": "青い部屋のほうが広いです。",
+          "meaning": "Phòng màu xanh rộng hơn.",
+          "rule": "So sánh hai lựa chọn: AとBとどちらが…ですか; Aのほうが…です nêu bên nổi bật, AはBより…です nêu mốc so sánh B. Chú ý hướng so sánh và nghĩa tính từ; どちらも là cả hai, không phải một bên.",
+          "options": [
+            "Aのほうが nêu bên có đặc điểm nổi bật hơn; phòng xanh rộng hơn theo dữ kiện.",
+            "より sẽ đặt phòng xanh làm mốc; câu chưa nêu bên rộng hơn và không đúng nghĩa đích.",
+            "Cần の nối 部屋 với ほう; をほうが ghép sai cấu trúc.",
+            "Trong mẫu này dùng が sau ほう để nêu bên được so sánh, không dùng を."
+          ]
+        },
+        "id": "c67-2-19"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 1,
+        "unit": "g6-best",
+        "prompt": "Điền “nhất” vào sở thích âm nhạc: 音楽でジャズが（　）好きです。",
+        "options": [
+          "どちら",
+          "より",
+          "もう",
+          "いちばん"
+        ],
+        "answer": 3,
+        "explanation": "いちばん diễn tả mức cao nhất trong phạm vi 音楽.",
+        "source": "sources/speaking.pdf#page=46",
+        "origin": "authored",
+        "solution": {
+          "completed": "音楽でジャズがいちばん好きです。",
+          "meaning": "Trong các thể loại âm nhạc, tôi thích jazz nhất.",
+          "rule": "So sánh nhất trong nhóm dùng phạm vi で + đối tượng が + いちばん + tính từ. 何／どこ／いつ được chọn theo loại đối tượng đang hỏi; xác định rõ phạm vi và đặc điểm để không nhầm với câu so sánh chỉ hai bên.",
+          "options": [
+            "どちら hỏi giữa hai lựa chọn, không có nghĩa nhất.",
+            "より dùng sau mốc so sánh, không đứng ở đây để thay nghĩa nhất.",
+            "もう nghĩa là đã/rồi trong nhiều ngữ cảnh, không diễn tả mức thích nhất.",
+            "いちばん diễn tả mức cao nhất trong phạm vi 音楽."
+          ]
+        },
+        "id": "c67-2-20"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 2,
+        "unit": "g6-already",
+        "prompt": "Bạn muốn hỏi việc đã làm: 「もうポスターを見ましたか。」. Để trả lời CHƯA theo mẫu ngắn bài 6: いいえ、（　）。",
+        "options": [
+          "まだでした",
+          "見ました",
+          "まだです",
+          "もうです"
+        ],
+        "answer": 2,
+        "explanation": "まだです trả lời việc chưa làm tính đến thời điểm hiện tại.",
+        "source": "sources/speaking.pdf#page=55",
+        "origin": "authored",
+        "solution": {
+          "completed": "いいえ、まだです。",
+          "meaning": "Không, tôi chưa xem.",
+          "rule": "もう + Vましたか hỏi việc đã hoàn tất chưa. Trả lời đã làm bằng はい、Vました; chưa làm bằng いいえ、まだです. まだ ở đây là chưa hoàn tất hành động, khác まだあります diễn tả đồ vật vẫn còn.",
+          "options": [
+            "まだでした đặt trạng thái chưa vào quá khứ; khác câu hỏi về tính đến hiện tại.",
+            "見ました là đã xem, trái dữ kiện chưa xem và lời mở đầu いいえ.",
+            "まだです trả lời việc chưa làm tính đến thời điểm hiện tại.",
+            "もうです không phải lời đáp chuẩn của mẫu “chưa làm” này."
+          ]
+        },
+        "id": "c67-2-21"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 2,
+        "unit": "g6-suggest",
+        "prompt": "Đề xuất món ăn cho buổi liên hoan: ピザ（　）どうですか。",
+        "options": [
+          "で",
+          "は",
+          "を",
+          "に"
+        ],
+        "answer": 1,
+        "explanation": "Nはどうですか đưa pizza ra làm một phương án món ăn.",
+        "source": "sources/speaking.pdf#page=50",
+        "origin": "authored",
+        "solution": {
+          "completed": "ピザはどうですか。",
+          "meaning": "Pizza thì sao?",
+          "rule": "Đề xuất một phương án dùng Nはどうですか, chẳng hạn giờ hẹn hoặc nơi gặp. Nếu đồng ý chọn phương án đó, đáp そうしましょう. Phải khớp thông tin và ý định trong hội thoại, không phủ nhận một lời đáp chỉ vì nó ít thông dụng.",
+          "options": [
+            "で không tạo nghĩa “pizza thì sao?” theo mẫu đang học.",
+            "Nはどうですか đưa pizza ra làm một phương án món ăn.",
+            "を không nối danh từ với どうですか theo mẫu đề xuất cần dùng.",
+            "に không thay は trong mẫu đề xuất Nはどうですか này."
+          ]
+        },
+        "id": "c67-2-22"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 2,
+        "unit": "g6-particles",
+        "prompt": "Bạn vừa nghe giờ bắt đầu là 11h và muốn XÁC NHẬN lại: 十一時です（　）。",
+        "options": [
+          "ね",
+          "よ",
+          "を",
+          "に"
+        ],
+        "answer": 0,
+        "explanation": "ね lặp lại thông tin vừa nghe để kiểm tra hai bên đã hiểu thống nhất.",
+        "source": "sources/speaking.pdf#page=49",
+        "origin": "authored",
+        "solution": {
+          "completed": "十一時ですね。",
+          "meaning": "Mười một giờ, đúng nhỉ.",
+          "rule": "よ báo thông tin mới người nói cung cấp; ね dùng xác nhận thông tin vừa thống nhất hoặc tìm đồng tình. Trong bài tập này ý định được nêu rõ bằng tiếng Việt để phân biệt hai đuôi câu vốn đều có thể đúng ở những ngữ cảnh khác.",
+          "options": [
+            "ね lặp lại thông tin vừa nghe để kiểm tra hai bên đã hiểu thống nhất.",
+            "よ thường báo tin từ phía người nói; khác mục đích xác nhận lại giờ vừa nghe trong đề.",
+            "を không làm đuôi xác nhận sau です.",
+            "に là trợ từ chỉ thời điểm/vị trí ở cấu trúc khác, không đứng đây để xác nhận."
+          ]
+        },
+        "id": "c67-2-23"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 0,
+        "unit": "g7-location",
+        "prompt": "Nói túi xách ở TRÊN bàn: かばんはテーブル（　）上にあります。",
+        "options": [
+          "を",
+          "で",
+          "へ",
+          "の"
+        ],
+        "answer": 3,
+        "explanation": "の nối vật mốc テーブル với từ vị trí 上 thành テーブルの上.",
+        "source": "sources/speaking.pdf#page=60",
+        "origin": "authored",
+        "solution": {
+          "completed": "かばんはテーブルの上にあります。",
+          "meaning": "Túi xách ở trên bàn.",
+          "rule": "Khi hỏi hoặc nêu vị trí của đối tượng đã biết: Nは địa điểm に あります／います. Người và động vật dùng います; đồ vật, cây dùng あります. Vị trí tương đối cần danh từ の + 前／後ろ／隣／上／下／間….",
+          "options": [
+            "を đánh dấu đối tượng của hành động, không nối bàn với vị trí trên.",
+            "で không nối hai danh từ テーブル và 上 thành cụm chỉ vị trí này.",
+            "へ chỉ hướng đến, không nối vật mốc với 上.",
+            "の nối vật mốc テーブル với từ vị trí 上 thành テーブルの上."
+          ]
+        },
+        "id": "c67-2-24"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 0,
+        "unit": "g7-there",
+        "prompt": "Nhìn vào phòng nhạc, hỏi “Trong phòng có AI?”: 部屋に（　）いますか。",
+        "options": [
+          "どこで",
+          "いつを",
+          "誰が",
+          "何を"
+        ],
+        "answer": 2,
+        "explanation": "誰が hỏi người đang tồn tại ở địa điểm đã nêu; người dùng います.",
+        "source": "sources/speaking.pdf#page=62",
+        "origin": "authored",
+        "solution": {
+          "completed": "部屋に誰がいますか。",
+          "meaning": "Trong phòng có ai?",
+          "rule": "Giới thiệu có gì hoặc có ai tại một nơi dùng địa điểm に + Nが + あります／います. に đánh dấu nơi tồn tại, が nêu đối tượng mới; います dùng cho người và động vật, あります cho đồ vật/cây.",
+          "options": [
+            "どこで hỏi nơi hành động; câu đã nêu 部屋に và đang hỏi người.",
+            "いつを không tạo cụm hỏi người đang có mặt trong phòng.",
+            "誰が hỏi người đang tồn tại ở địa điểm đã nêu; người dùng います.",
+            "何を hỏi đối tượng của hành động, không hỏi ai có mặt với います."
+          ]
+        },
+        "id": "c67-2-25"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "g7-te",
+        "prompt": "Trước khi học “đang hát”, chọn thể て đúng của「歌います（歌う）」.",
+        "options": [
+          "歌んで",
+          "歌って",
+          "歌いて",
+          "歌うて"
+        ],
+        "answer": 1,
+        "explanation": "歌う là nhóm 1 đuôi う; đổi う thành って.",
+        "source": "sources/speaking.pdf#page=63",
+        "origin": "authored",
+        "solution": {
+          "completed": "歌う → 歌って",
+          "meaning": "Hát → dạng て là 歌って.",
+          "rule": "Thể て phụ thuộc nhóm động từ: う・つ・る nhóm 1 → って; む・ぶ・ぬ → んで; く → いて; ぐ → いで; す → して. Nhóm 2 bỏ る + て; する → して, 来る → 来て; 行く là ngoại lệ 行って.",
+          "options": [
+            "んで dùng cho đuôi む・ぶ・ぬ, không dùng cho 歌う.",
+            "歌う là nhóm 1 đuôi う; đổi う thành って.",
+            "いて là đuôi đổi từ く ở phần lớn động từ nhóm 1, không phải từ 歌う.",
+            "歌う ở dạng chuẩn bài học đổi thành 歌って, không giữ う rồi thêm て."
+          ]
+        },
+        "id": "c67-2-26"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "g7-te",
+        "prompt": "Luyện thể て với sách ở thư viện:「読みます（読む）」chuyển thành gì?",
+        "options": [
+          "読んで",
+          "読って",
+          "読みて",
+          "読んて"
+        ],
+        "answer": 0,
+        "explanation": "読む thuộc nhóm 1; む đổi thành んで.",
+        "source": "sources/speaking.pdf#page=63",
+        "origin": "authored",
+        "solution": {
+          "completed": "読む → 読んで",
+          "meaning": "Đọc → dạng て là 読んで.",
+          "rule": "Thể て phụ thuộc nhóm động từ: う・つ・る nhóm 1 → って; む・ぶ・ぬ → んで; く → いて; ぐ → いで; す → して. Nhóm 2 bỏ る + て; する → して, 来る → 来て; 行く là ngoại lệ 行って.",
+          "options": [
+            "読む thuộc nhóm 1; む đổi thành んで.",
+            "って là đuôi đổi cho う・つ・る, không phù hợp với 読む.",
+            "Không giữ 読み từ gốc ます rồi thêm て; cần đổi む thành んで.",
+            "Sau ん phải dùng で có dấu đục trong dạng 読んで."
+          ]
+        },
+        "id": "c67-2-27"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "g7-request",
+        "prompt": "Muốn NHỜ bạn đóng cửa sổ cho đỡ ồn: 窓を（　）ください。",
+        "options": [
+          "閉めます",
+          "閉める",
+          "閉めました",
+          "閉めて"
+        ],
+        "answer": 3,
+        "explanation": "閉める thuộc nhóm 2: 閉めて + ください tạo lời nhờ làm.",
+        "source": "sources/speaking.pdf#page=63",
+        "origin": "authored",
+        "solution": {
+          "completed": "窓を閉めてください。",
+          "meaning": "Bạn đóng cửa sổ giúp tôi nhé.",
+          "rule": "Nhờ người nghe làm việc dùng động từ thể て + ください. Chia thể て trước rồi gắn ください; không thêm cả ます. Phân biệt người nghe được nhờ làm với lời người nói chủ động đề nghị giúp bằng ましょうか.",
+          "options": [
+            "閉めます là dạng lịch sự, không nối trực tiếp với ください.",
+            "閉める là thể từ điển; cần thể て trước ください.",
+            "閉めました kể việc đã đóng; không dùng trước ください để nhờ hiện tại.",
+            "閉める thuộc nhóm 2: 閉めて + ください tạo lời nhờ làm."
+          ]
+        },
+        "id": "c67-2-28"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "g7-tool",
+        "prompt": "Nói viết lời nhắn BẰNG bút: ペン（　）メッセージを書きます。",
+        "options": [
+          "が",
+          "へ",
+          "で",
+          "に"
+        ],
+        "answer": 2,
+        "explanation": "で đặt sau ペン để đánh dấu dụng cụ dùng viết.",
+        "source": "sources/speaking.pdf#page=63",
+        "origin": "authored",
+        "solution": {
+          "completed": "ペンでメッセージを書きます。",
+          "meaning": "Tôi viết lời nhắn bằng bút.",
+          "rule": "Dụng cụ hoặc phương tiện thực hiện hành động dùng で; tân ngữ dùng を. Ví dụ ナイフで…を切ります. Không nhầm で chỉ dụng cụ với に chỉ nơi tồn tại hoặc と chỉ người cùng thực hiện.",
+          "options": [
+            "が nêu chủ thể ở mẫu khác, không mang nghĩa bằng bút.",
+            "へ chỉ hướng đến, không chỉ công cụ viết.",
+            "で đặt sau ペン để đánh dấu dụng cụ dùng viết.",
+            "に không đánh dấu cây bút làm dụng cụ thực hiện hành động này."
+          ]
+        },
+        "id": "c67-2-29"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "g7-how",
+        "prompt": "Muốn hỏi CÁCH DÙNG máy ảnh: このカメラの（　）を教えてください。",
+        "options": [
+          "使います方",
+          "使い方",
+          "使う方",
+          "使って方"
+        ],
+        "answer": 1,
+        "explanation": "使います bỏ ます rồi thêm 方 thành 使い方, nghĩa là cách dùng.",
+        "source": "sources/speaking.pdf#page=73",
+        "origin": "authored",
+        "solution": {
+          "completed": "このカメラの使い方を教えてください。",
+          "meaning": "Hãy chỉ cho tôi cách dùng chiếc máy ảnh này.",
+          "rule": "Cách làm một việc dùng gốc trước ます + 方（かた）: 使います → 使い方. Với đối tượng danh từ, dùng NのV方: この漢字の書き方. Không gắn 方 sau toàn bộ ます hoặc sau thể て.",
+          "options": [
+            "Cần bỏ ます; 使います方 không đúng cấu trúc gốc ます + 方.",
+            "使います bỏ ます rồi thêm 方 thành 使い方, nghĩa là cách dùng.",
+            "使う方 có thể có nghĩa khác theo ngữ cảnh; không phải dạng danh từ “cách dùng” của mẫu này.",
+            "Không nối thể て với 方 để tạo từ cách dùng."
+          ]
+        },
+        "id": "c67-2-30"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "g7-which",
+        "prompt": "Trên bàn có ba con dao. Hỏi dùng con nào: （　）ナイフを使いますか。",
+        "options": [
+          "どの",
+          "どれ",
+          "だれ",
+          "いつ"
+        ],
+        "answer": 0,
+        "explanation": "どの đứng ngay trước danh từ ナイフ để hỏi con dao nào.",
+        "source": "sources/speaking.pdf#page=64",
+        "origin": "authored",
+        "solution": {
+          "completed": "どのナイフを使いますか。",
+          "meaning": "Bạn sẽ dùng con dao nào?",
+          "rule": "どの phải đứng trước một danh từ (どの皿); どれ tự thay cho vật và không đứng trực tiếp trước danh từ (皿はどれですか). Chọn đúng hình thức theo chỗ trống và đối tượng, không chỉ dịch cả hai thành cái nào.",
+          "options": [
+            "どの đứng ngay trước danh từ ナイフ để hỏi con dao nào.",
+            "どれ tự đứng thay danh từ, không nối trực tiếp thành どれナイフ.",
+            "だれ hỏi người; không bổ nghĩa ナイフ để chọn dao.",
+            "いつ hỏi thời gian, không bổ nghĩa danh từ chỉ con dao."
+          ]
+        },
+        "id": "c67-2-31"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "g7-progressive",
+        "prompt": "Đàn ghi-ta đang phát tiếng; bạn thấy Lan chơi ngay lúc này: ランさんは今、ギターを（　）。",
+        "options": [
+          "弾きました",
+          "弾きませんでした",
+          "弾くいます",
+          "弾いています"
+        ],
+        "answer": 3,
+        "explanation": "弾く→弾いて + います diễn tả hành động đang diễn ra trước mắt.",
+        "source": "sources/speaking.pdf#page=66",
+        "origin": "authored",
+        "solution": {
+          "completed": "ランさんは今、ギターを弾いています。",
+          "meaning": "Bây giờ bạn Lan đang chơi ghi-ta.",
+          "rule": "Hành động đang diễn ra tại thời điểm nói dùng Vて + います. Bối cảnh 今／見てください xác định nghĩa tiếp diễn trong các câu này; không khẳng định đây là nghĩa duy nhất của ています trong tiếng Nhật.",
+          "options": [
+            "弾きました là đã chơi, không nêu hành động đang diễn ra.",
+            "弾きませんでした nói đã không chơi, trái việc đang nhìn thấy.",
+            "Không nối 弾く với います; phải dùng thể て 弾いて.",
+            "弾く→弾いて + います diễn tả hành động đang diễn ra trước mắt."
+          ]
+        },
+        "id": "c67-2-32"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "g7-offer",
+        "prompt": "Đề nghị TỰ MÌNH giúp lấy cốc ra: コップを（　）。",
+        "options": [
+          "出しました",
+          "出しませんでした",
+          "出しましょうか",
+          "出してください"
+        ],
+        "answer": 2,
+        "explanation": "出します bỏ ます, thêm ましょうか để đề nghị mình giúp lấy ra.",
+        "source": "sources/speaking.pdf#page=67",
+        "origin": "authored",
+        "solution": {
+          "completed": "コップを出しましょうか。",
+          "meaning": "Để tôi lấy cốc ra giúp nhé?",
+          "rule": "Người nói chủ động đề nghị giúp dùng gốc trước ます + ましょうか, chẳng hạn 持ちましょうか. Người thực hiện và ý định phải đúng lời dẫn; Vてください là nhờ người nghe làm, không phải đề nghị mình làm giúp.",
+          "options": [
+            "出しました kể đã lấy ra, không đề nghị giúp.",
+            "出しませんでした nói đã không lấy ra, không thực hiện lời đề nghị.",
+            "出します bỏ ます, thêm ましょうか để đề nghị mình giúp lấy ra.",
+            "出してください nhờ người nghe lấy cốc ra, đổi người thực hiện so với yêu cầu."
+          ]
+        },
+        "id": "c67-2-33"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "g7-who",
+        "prompt": "A hỏi ai đã làm món salad. B xác định chính Hana làm: ハナさん（　）作りました。",
+        "options": [
+          "の",
+          "が",
+          "を",
+          "で"
+        ],
+        "answer": 1,
+        "explanation": "が nêu người được xác định trong câu trả lời cho 誰が作りましたか.",
+        "source": "sources/speaking.pdf#page=68",
+        "origin": "authored",
+        "solution": {
+          "completed": "ハナさんが作りました。",
+          "meaning": "Bạn Hana là người đã làm.",
+          "rule": "Hỏi ai thực hiện một hành động dùng 誰が + động từ; trả lời người đó が + động từ. Nếu hành động đã hoàn tất, giữ dạng quá khứ ました. Trợ từ を đánh dấu tân ngữ, không đánh dấu người làm trong mẫu này.",
+          "options": [
+            "の nối danh từ, không nối ハナさん với 作りました để xác định người làm.",
+            "が nêu người được xác định trong câu trả lời cho 誰が作りましたか.",
+            "を đánh dấu đối tượng, không đánh dấu Hana là người làm trong câu này.",
+            "で không đánh dấu người thực hiện hành động 作りました."
+          ]
+        },
+        "id": "c67-2-34"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "g7-remaining",
+        "prompt": "Trong bình vẫn còn nước trái cây. Nói “Nước trái cây VẪN CÒN”: ジュースは（　）。",
+        "options": [
+          "まだあります",
+          "もうありません",
+          "まだです",
+          "ありませんでした"
+        ],
+        "answer": 0,
+        "explanation": "まだあります cho biết đồ uống vẫn còn ở thời điểm hiện tại.",
+        "source": "sources/speaking.pdf#page=69",
+        "origin": "authored",
+        "solution": {
+          "completed": "ジュースはまだあります。",
+          "meaning": "Nước trái cây vẫn còn.",
+          "rule": "Khi nói lượng đồ còn lại, まだあります là vẫn còn, もうありません là đã hết. Chú ý dữ kiện đồ vẫn còn hay không còn; khác với まだです trả lời việc chưa làm xong ở bài 6.",
+          "options": [
+            "まだあります cho biết đồ uống vẫn còn ở thời điểm hiện tại.",
+            "もうありません nghĩa là đã hết, trái dữ kiện còn trong bình.",
+            "まだです là lời đáp “chưa làm” theo mẫu bài 6, không nói đủ ý vẫn còn đồ uống.",
+            "ありませんでした nói đã không có trong quá khứ, không nêu trạng thái vẫn còn hiện tại."
+          ]
+        },
+        "id": "c67-2-35"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "g6-invite",
+        "prompt": "Rủ bạn cùng nghe nhạc ở thư viện bằng ませんか: 図書館でいっしょに音楽を（　）。",
+        "options": [
+          "聞きました",
+          "聞きませんでした",
+          "聞くましょう",
+          "聞きませんか"
+        ],
+        "answer": 3,
+        "explanation": "聞きます bỏ ます rồi thêm ませんか tạo lời rủ cùng nghe.",
+        "source": "sources/speaking.pdf#page=43",
+        "origin": "authored",
+        "solution": {
+          "completed": "図書館でいっしょに音楽を聞きませんか。",
+          "meaning": "Cùng nghe nhạc ở thư viện nhé?",
+          "rule": "Rủ cùng làm dùng gốc trước ます + ませんか; nhận lời hoặc đề nghị cùng làm dùng ましょう. Từ chối nhẹ bằng …はちょっと… và lý do. Chọn lời đáp đúng ý định đã nêu, không chỉ dựa vào câu có đúng ngữ pháp hay không.",
+          "options": [
+            "聞きました kể đã nghe, không mời cùng nghe trong kế hoạch.",
+            "聞きませんでした nói đã không nghe, khác ý rủ cùng làm.",
+            "聞くましょう ghép sai; mẫu rủ phải dùng gốc 聞き.",
+            "聞きます bỏ ます rồi thêm ませんか tạo lời rủ cùng nghe."
+          ]
+        },
+        "id": "c67-2-36"
+      },
+      {
+        "category": "dialogue",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "g6-invite",
+        "prompt": "A：土曜日、コンサートへ行きませんか。 B RẤT MUỐN ĐI và nhận lời. Chọn lời B.",
+        "options": [
+          "もうありません。",
+          "どこへも行きませんでした。",
+          "いいですね。ぜひ行きましょう。",
+          "すみません。土曜日はちょっと…。"
+        ],
+        "answer": 2,
+        "explanation": "いいですね bày tỏ hưởng ứng; ぜひ行きましょう nhận lời đi cùng một cách tích cực.",
+        "source": "sources/speaking.pdf#page=43",
+        "origin": "authored",
+        "solution": {
+          "completed": "A：土曜日、コンサートへ行きませんか。 B：いいですね。ぜひ行きましょう。",
+          "meaning": "A: Thứ bảy đi nghe hòa nhạc nhé? B: Hay đấy, nhất định cùng đi nhé.",
+          "rule": "Rủ cùng làm dùng gốc trước ます + ませんか; nhận lời hoặc đề nghị cùng làm dùng ましょう. Từ chối nhẹ bằng …はちょっと… và lý do. Chọn lời đáp đúng ý định đã nêu, không chỉ dựa vào câu có đúng ngữ pháp hay không.",
+          "options": [
+            "もうありません nói đã hết, không nhận lời rủ đi nghe nhạc.",
+            "行きませんでした kể đã không đi trong quá khứ, không nhận lời cho thứ bảy.",
+            "いいですね bày tỏ hưởng ứng; ぜひ行きましょう nhận lời đi cùng một cách tích cực.",
+            "…はちょっと… từ chối nhẹ, trái dữ kiện rất muốn đi và nhận lời."
+          ]
+        },
+        "id": "c67-2-37"
+      },
+      {
+        "category": "dialogue",
+        "lesson": 6,
+        "topic": 1,
+        "unit": "g6-compare",
+        "prompt": "A：昼と夜とどちらがいいですか。 B chọn buổi TỐI thuận tiện hơn. Chọn lời đáp.",
+        "options": [
+          "朝がいちばん早いです。",
+          "夜のほうがいいです。",
+          "昼のほうがいいです。",
+          "どちらもだめです。"
+        ],
+        "answer": 1,
+        "explanation": "夜のほうがいいです chọn 夜 là phương án tốt hơn trong hai thời điểm.",
+        "source": "sources/speaking.pdf#page=47",
+        "origin": "authored",
+        "solution": {
+          "completed": "A：昼と夜とどちらがいいですか。 B：夜のほうがいいです。",
+          "meaning": "A: Ban ngày và buổi tối, lúc nào tiện hơn? B: Buổi tối tiện hơn.",
+          "rule": "So sánh hai lựa chọn: AとBとどちらが…ですか; Aのほうが…です nêu bên nổi bật, AはBより…です nêu mốc so sánh B. Chú ý hướng so sánh và nghĩa tính từ; どちらも là cả hai, không phải một bên.",
+          "options": [
+            "朝がいちばん早いです nói buổi sáng sớm nhất, không trả lời lựa chọn tối thuận tiện hơn.",
+            "夜のほうがいいです chọn 夜 là phương án tốt hơn trong hai thời điểm.",
+            "昼のほうがいいです chọn ban ngày, trái yêu cầu chọn buổi tối.",
+            "どちらもだめです nói cả hai đều không được, không chọn tối."
+          ]
+        },
+        "id": "c67-2-38"
+      },
+      {
+        "category": "dialogue",
+        "lesson": 6,
+        "topic": 2,
+        "unit": "g6-suggest",
+        "prompt": "A：何時に図書館で会いますか。 B muốn ĐỀ XUẤT hai giờ. Chọn lời B.",
+        "options": [
+          "二時はどうですか。",
+          "二時に会いました。",
+          "何時がいちばん高いですか。",
+          "二時はまだありません。"
+        ],
+        "answer": 0,
+        "explanation": "二時はどうですか dùng Nはどうですか để đưa giờ hai giờ ra bàn.",
+        "source": "sources/speaking.pdf#page=50",
+        "origin": "authored",
+        "solution": {
+          "completed": "A：何時に図書館で会いますか。 B：二時はどうですか。",
+          "meaning": "A: Mấy giờ gặp ở thư viện? B: Hai giờ thì sao?",
+          "rule": "Đề xuất một phương án dùng Nはどうですか, chẳng hạn giờ hẹn hoặc nơi gặp. Nếu đồng ý chọn phương án đó, đáp そうしましょう. Phải khớp thông tin và ý định trong hội thoại, không phủ nhận một lời đáp chỉ vì nó ít thông dụng.",
+          "options": [
+            "二時はどうですか dùng Nはどうですか để đưa giờ hai giờ ra bàn.",
+            "会いました kể cuộc gặp đã xảy ra, không đề xuất giờ cho cuộc hẹn.",
+            "いちばん高い hỏi mức cao/giá cao nhất, không đề xuất giờ gặp.",
+            "まだありません không đề xuất giờ hai giờ theo mẫu đang học."
+          ]
+        },
+        "id": "c67-2-39"
+      },
+      {
+        "category": "dialogue",
+        "lesson": 6,
+        "topic": 2,
+        "unit": "g6-particles",
+        "prompt": "A：会場は公園の中ですよ。 B muốn XÁC NHẬN vị trí vừa nghe: 公園の中です（　）。",
+        "options": [
+          "よ",
+          "を",
+          "から",
+          "ね"
+        ],
+        "answer": 3,
+        "explanation": "ね trong lời B lặp lại để kiểm tra vị trí vừa nghe từ A.",
+        "source": "sources/speaking.pdf#page=49",
+        "origin": "authored",
+        "solution": {
+          "completed": "A：会場は公園の中ですよ。 B：公園の中ですね。",
+          "meaning": "A: Địa điểm tổ chức ở trong công viên đấy. B: Ở trong công viên, đúng nhỉ.",
+          "rule": "よ báo thông tin mới người nói cung cấp; ね dùng xác nhận thông tin vừa thống nhất hoặc tìm đồng tình. Trong bài tập này ý định được nêu rõ bằng tiếng Việt để phân biệt hai đuôi câu vốn đều có thể đúng ở những ngữ cảnh khác.",
+          "options": [
+            "よ trong lời B thường báo thông tin về phía người nghe; khác ý xác nhận lại dữ kiện mới nghe.",
+            "を không làm đuôi xác nhận sau です.",
+            "から sẽ mở một lý do khi nối sau câu, không diễn tả xác nhận vị trí ở đây.",
+            "ね trong lời B lặp lại để kiểm tra vị trí vừa nghe từ A."
+          ]
+        },
+        "id": "c67-2-40"
+      },
+      {
+        "category": "dialogue",
+        "lesson": 7,
+        "topic": 0,
+        "unit": "g7-location",
+        "prompt": "A hỏi vị trí của bạn bè: 友達はどこにいますか。 B biết họ ở NGOÀI thư viện. Chọn lời B.",
+        "options": [
+          "図書館の外にあります。",
+          "図書館の外で食べます。",
+          "図書館の外にいます。",
+          "図書館の中にいます。"
+        ],
+        "answer": 2,
+        "explanation": "外 là bên ngoài; người dùng います để nói nơi có mặt.",
+        "source": "sources/speaking.pdf#page=60",
+        "origin": "authored",
+        "solution": {
+          "completed": "A：友達はどこにいますか。 B：図書館の外にいます。",
+          "meaning": "A: Các bạn đang ở đâu? B: Ở ngoài thư viện.",
+          "rule": "Khi hỏi hoặc nêu vị trí của đối tượng đã biết: Nは địa điểm に あります／います. Người và động vật dùng います; đồ vật, cây dùng あります. Vị trí tương đối cần danh từ の + 前／後ろ／隣／上／下／間….",
+          "options": [
+            "あります dùng cho đồ vật/cây cối trong mẫu này; các bạn là người nên dùng います.",
+            "食べます nói hoạt động ăn, không diễn đạt trực tiếp sự có mặt theo câu trả lời vị trí được yêu cầu.",
+            "外 là bên ngoài; người dùng います để nói nơi có mặt.",
+            "中 là bên trong, đổi vị trí so với dữ kiện ở ngoài."
+          ]
+        },
+        "id": "c67-2-41"
+      },
+      {
+        "category": "dialogue",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "g7-request",
+        "prompt": "A：すみませんが、そのフォークを貸してください。 B sẵn lòng CHO MƯỢN. Chọn lời B.",
+        "options": [
+          "どちらが広いですか。",
+          "はい、どうぞ。",
+          "いいえ、貸しません。",
+          "もう行きました。"
+        ],
+        "answer": 1,
+        "explanation": "はい、どうぞ nhận lời và đưa vật được hỏi cho người mượn dùng.",
+        "source": "sources/speaking.pdf#page=63",
+        "origin": "authored",
+        "solution": {
+          "completed": "A：すみませんが、そのフォークを貸してください。 B：はい、どうぞ。",
+          "meaning": "A: Xin lỗi, cho tôi mượn chiếc nĩa đó nhé. B: Vâng, bạn dùng đi.",
+          "rule": "Nhờ người nghe làm việc dùng động từ thể て + ください. Chia thể て trước rồi gắn ください; không thêm cả ます. Phân biệt người nghe được nhờ làm với lời người nói chủ động đề nghị giúp bằng ましょうか.",
+          "options": [
+            "どちらが広いですか hỏi bên nào rộng hơn, không đáp lời nhờ cho mượn.",
+            "はい、どうぞ nhận lời và đưa vật được hỏi cho người mượn dùng.",
+            "貸しません từ chối cho mượn, trái dữ kiện sẵn lòng.",
+            "もう行きました nói đã đi rồi, không nhận lời nhờ cho mượn nĩa."
+          ]
+        },
+        "id": "c67-2-42"
+      },
+      {
+        "category": "dialogue",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "g7-offer",
+        "prompt": "A thấy chủ nhà bận và muốn đề nghị MÌNH SẼ MỞ cửa. Chọn lời A.",
+        "options": [
+          "ドアを開けましょうか。",
+          "ドアを開けてください。",
+          "ドアを開けましたか。",
+          "ドアを開けませんでした。"
+        ],
+        "answer": 0,
+        "explanation": "開けましょうか chủ động đề nghị người nói mở cửa giúp chủ nhà.",
+        "source": "sources/speaking.pdf#page=67",
+        "origin": "authored",
+        "solution": {
+          "completed": "A：ドアを開けましょうか。 B：お願いします。",
+          "meaning": "A: Để tôi mở cửa giúp nhé? B: Nhờ bạn nhé.",
+          "rule": "Người nói chủ động đề nghị giúp dùng gốc trước ます + ましょうか, chẳng hạn 持ちましょうか. Người thực hiện và ý định phải đúng lời dẫn; Vてください là nhờ người nghe làm, không phải đề nghị mình làm giúp.",
+          "options": [
+            "開けましょうか chủ động đề nghị người nói mở cửa giúp chủ nhà.",
+            "開けてください nhờ người nghe mở cửa; đổi vai người thực hiện.",
+            "開けましたか hỏi đã mở chưa, không đề nghị giúp mở.",
+            "開けませんでした kể đã không mở, không thực hiện lời đề nghị."
+          ]
+        },
+        "id": "c67-2-43"
+      },
+      {
+        "category": "translation",
+        "lesson": 6,
+        "topic": 1,
+        "unit": "g6-compare",
+        "prompt": "Chọn bản dịch: “Thư viện này yên tĩnh hơn quán cà phê đó.”",
+        "options": [
+          "あの喫茶店はこの図書館より静かです。",
+          "この図書館はあの喫茶店よりにぎやかです。",
+          "この図書館はあの喫茶店を静かです。",
+          "この図書館はあの喫茶店より静かです。"
+        ],
+        "answer": 3,
+        "explanation": "AはBより静かです nói A yên tĩnh hơn B; B là quán cà phê làm mốc.",
+        "source": "sources/speaking.pdf#page=47",
+        "origin": "authored",
+        "solution": {
+          "completed": "この図書館はあの喫茶店より静かです。",
+          "meaning": "Thư viện này yên tĩnh hơn quán cà phê đó.",
+          "rule": "So sánh hai lựa chọn: AとBとどちらが…ですか; Aのほうが…です nêu bên nổi bật, AはBより…です nêu mốc so sánh B. Chú ý hướng so sánh và nghĩa tính từ; どちらも là cả hai, không phải một bên.",
+          "options": [
+            "Đảo A và B nên thành quán cà phê yên tĩnh hơn thư viện, ngược câu đích.",
+            "にぎやか là nhộn nhịp, không phải yên tĩnh.",
+            "を không nêu mốc so sánh; cần より sau あの喫茶店.",
+            "AはBより静かです nói A yên tĩnh hơn B; B là quán cà phê làm mốc."
+          ]
+        },
+        "id": "c67-2-44"
+      },
+      {
+        "category": "translation",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "g7-progressive",
+        "prompt": "Dịch đúng: “Bây giờ Mai đang gọi điện ở ngoài.”",
+        "options": [
+          "今、マイさんは中で電話をかけています。",
+          "今、マイさんは外で電話をかけてください。",
+          "今、マイさんは外で電話をかけています。",
+          "今、マイさんは外で電話をかけました。"
+        ],
+        "answer": 2,
+        "explanation": "かける→かけて + います diễn tả đang gọi; 外で là nơi hành động ở ngoài.",
+        "source": "sources/speaking.pdf#page=66",
+        "origin": "authored",
+        "solution": {
+          "completed": "今、マイさんは外で電話をかけています。",
+          "meaning": "Bây giờ Mai đang gọi điện ở ngoài.",
+          "rule": "Hành động đang diễn ra tại thời điểm nói dùng Vて + います. Bối cảnh 今／見てください xác định nghĩa tiếp diễn trong các câu này; không khẳng định đây là nghĩa duy nhất của ています trong tiếng Nhật.",
+          "options": [
+            "中で đổi nơi hành động thành bên trong, trái câu đích ở ngoài.",
+            "かけてください là lời nhờ gọi điện, không tường thuật Mai đang gọi.",
+            "かける→かけて + います diễn tả đang gọi; 外で là nơi hành động ở ngoài.",
+            "かけました nói đã gọi, không giữ nghĩa đang diễn ra."
+          ]
+        },
+        "id": "c67-2-45"
+      }
+    ],
+    "contentVersion": "2026-10-23"
+  },
+  {
+    "id": "chapter67-3",
+    "title": "Bài 6–7 · Đề 03",
+    "description": "Đi xem thể thao và lễ hội trong thành phố: chọn điểm đến, hẹn gặp, hỏi vị trí và chuẩn bị đồ ăn nước uống. Đủ 18 mục ngữ pháp, 6 topic; ma trận 45 câu theo đề mẫu ảnh.",
+    "lessons": [
+      6,
+      7
+    ],
+    "minutes": 45,
+    "kind": "authored",
+    "questions": [
+      {
+        "category": "reading",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "",
+        "prompt": "Trên lịch thể thao có chữ「試合」. Chọn cách đọc của từ này.",
+        "options": [
+          "じあい",
+          "しあい",
+          "しごと",
+          "しえい"
+        ],
+        "answer": 1,
+        "explanation": "試合 đọc là しあい, nghĩa là trận đấu.",
+        "source": "sources/new-words.pdf#page=18",
+        "origin": "authored",
+        "solution": {
+          "completed": "試合（しあい）",
+          "meaning": "Trận đấu.",
+          "rule": "Đối chiếu đủ chữ viết, âm đọc và nghĩa của mục từ; các từ cùng chủ đề hoặc các âm gần giống không thay thế nhau.",
+          "options": [
+            "じあい đổi sai âm đầu し thành じ; đây không phải cách đọc của 試合.",
+            "試合 đọc là しあい, nghĩa là trận đấu.",
+            "しごと là cách đọc của 仕事, nghĩa là công việc; không đọc 試合 như vậy.",
+            "しえい đổi sai âm あ trong あい thành え; 試合 đọc là しあい."
+          ]
+        },
+        "id": "c67-3-01"
+      },
+      {
+        "category": "reading",
+        "lesson": 6,
+        "topic": 1,
+        "unit": "",
+        "prompt": "Trong phần phương tiện đi chơi,「地下鉄」được đọc thế nào?",
+        "options": [
+          "ちかてつ",
+          "ちかでん",
+          "ちがてつ",
+          "じかてつ"
+        ],
+        "answer": 0,
+        "explanation": "地下鉄 đọc là ちかてつ, nghĩa là tàu điện ngầm.",
+        "source": "sources/new-words.pdf#page=19",
+        "origin": "authored",
+        "solution": {
+          "completed": "地下鉄（ちかてつ）",
+          "meaning": "Tàu điện ngầm.",
+          "rule": "Đối chiếu đủ chữ viết, âm đọc và nghĩa của mục từ; các từ cùng chủ đề hoặc các âm gần giống không thay thế nhau.",
+          "options": [
+            "地下鉄 đọc là ちかてつ, nghĩa là tàu điện ngầm.",
+            "ちかでん thay sai phần 鉄（てつ）bằng でん; không phải cách đọc của 地下鉄.",
+            "ちがてつ làm đục âm か thành が; 地下 đọc là ちか trong từ này.",
+            "じかてつ đổi sai âm đầu ち thành じ; toàn từ đọc là ちかてつ."
+          ]
+        },
+        "id": "c67-3-02"
+      },
+      {
+        "category": "reading",
+        "lesson": 6,
+        "topic": 1,
+        "unit": "",
+        "prompt": "Tính từ「近い」trong phần chọn địa điểm đi chơi có cách đọc nào?",
+        "options": [
+          "とおい",
+          "はやい",
+          "ひろい",
+          "ちかい"
+        ],
+        "answer": 3,
+        "explanation": "近い đọc là ちかい, nghĩa là gần.",
+        "source": "sources/new-words.pdf#page=19",
+        "origin": "authored",
+        "solution": {
+          "completed": "近い（ちかい）",
+          "meaning": "Gần.",
+          "rule": "Đối chiếu đủ chữ viết, âm đọc và nghĩa của mục từ; các từ cùng chủ đề hoặc các âm gần giống không thay thế nhau.",
+          "options": [
+            "とおい là 遠い, nghĩa là xa, trái nghĩa với 近い.",
+            "はやい là 早い, nghĩa là sớm; không phải cách đọc của 近い.",
+            "ひろい là 広い, nghĩa là rộng; không đọc 近い như vậy.",
+            "近い đọc là ちかい, nghĩa là gần."
+          ]
+        },
+        "id": "c67-3-03"
+      },
+      {
+        "category": "reading",
+        "lesson": 7,
+        "topic": 0,
+        "unit": "",
+        "prompt": "Một biển chỉ đường ghi「交番」. Chọn cách đọc đúng.",
+        "options": [
+          "こばん",
+          "こうはん",
+          "こうばん",
+          "こうえん"
+        ],
+        "answer": 2,
+        "explanation": "交番 đọc là こうばん, nghĩa là đồn cảnh sát nhỏ.",
+        "source": "sources/new-words.pdf#page=21",
+        "origin": "authored",
+        "solution": {
+          "completed": "交番（こうばん）",
+          "meaning": "Đồn cảnh sát nhỏ.",
+          "rule": "Đối chiếu đủ chữ viết, âm đọc và nghĩa của mục từ; các từ cùng chủ đề hoặc các âm gần giống không thay thế nhau.",
+          "options": [
+            "こばん bỏ mất âm dài う của こう; 交番 đọc là こうばん.",
+            "こうはん làm mất dấu đục của ばん; cách đọc đúng là こうばん.",
+            "交番 đọc là こうばん, nghĩa là đồn cảnh sát nhỏ.",
+            "こうえん là cách đọc của 公園, công viên; 番 không đọc là えん."
+          ]
+        },
+        "id": "c67-3-04"
+      },
+      {
+        "category": "reading",
+        "lesson": 7,
+        "topic": 0,
+        "unit": "",
+        "prompt": "Từ chỉ vị trí「後ろ」trên sơ đồ khu lễ hội đọc là gì?",
+        "options": [
+          "そと",
+          "うしろ",
+          "まえ",
+          "となり"
+        ],
+        "answer": 1,
+        "explanation": "後ろ đọc là うしろ, nghĩa là phía sau.",
+        "source": "sources/new-words.pdf#page=21",
+        "origin": "authored",
+        "solution": {
+          "completed": "後ろ（うしろ）",
+          "meaning": "Phía sau.",
+          "rule": "Đối chiếu đủ chữ viết, âm đọc và nghĩa của mục từ; các từ cùng chủ đề hoặc các âm gần giống không thay thế nhau.",
+          "options": [
+            "そと là 外, bên ngoài; không phải cách đọc của 後ろ.",
+            "後ろ đọc là うしろ, nghĩa là phía sau.",
+            "まえ là 前, phía trước; khác hướng với 後ろ.",
+            "となり là 隣, bên cạnh; không phải phía sau."
+          ]
+        },
+        "id": "c67-3-05"
+      },
+      {
+        "category": "reading",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "",
+        "prompt": "Ở bàn chuẩn bị đồ ăn có lọ ghi「塩」. Chữ này đọc thế nào?",
+        "options": [
+          "しお",
+          "さとう",
+          "しょうゆ",
+          "しろ"
+        ],
+        "answer": 0,
+        "explanation": "塩 đọc là しお, nghĩa là muối.",
+        "source": "sources/new-words.pdf#page=22",
+        "origin": "authored",
+        "solution": {
+          "completed": "塩（しお）",
+          "meaning": "Muối.",
+          "rule": "Đối chiếu đủ chữ viết, âm đọc và nghĩa của mục từ; các từ cùng chủ đề hoặc các âm gần giống không thay thế nhau.",
+          "options": [
+            "塩 đọc là しお, nghĩa là muối.",
+            "さとう là 砂糖, đường; không phải cách đọc của 塩.",
+            "しょうゆ là nước tương; đây là một gia vị khác với 塩.",
+            "しろ thay âm お bằng ろ; 塩 đọc là しお, không có âm ろ."
+          ]
+        },
+        "id": "c67-3-06"
+      },
+      {
+        "category": "spelling",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "",
+        "prompt": "Đồ cần mang đến bể bơi là「みずぎ」. Chọn cách viết đúng.",
+        "options": [
+          "水木",
+          "木着",
+          "水気",
+          "水着"
+        ],
+        "answer": 3,
+        "explanation": "水着 đọc là みずぎ, nghĩa là đồ bơi.",
+        "source": "sources/new-words.pdf#page=18",
+        "origin": "authored",
+        "solution": {
+          "completed": "水着（みずぎ）",
+          "meaning": "Đồ bơi.",
+          "rule": "Đối chiếu đủ chữ viết, âm đọc và nghĩa của mục từ; các từ cùng chủ đề hoặc các âm gần giống không thay thế nhau.",
+          "options": [
+            "水木 ghép 水 với 木, không viết được từ みずぎ chỉ đồ bơi.",
+            "木着 dùng 木 thay cho 水; từ đồ bơi cần chữ 水 và 着.",
+            "水気 là từ khác, đọc みずけ và chỉ độ ẩm/hơi nước; không phải đồ bơi.",
+            "水着 đọc là みずぎ, nghĩa là đồ bơi."
+          ]
+        },
+        "id": "c67-3-07"
+      },
+      {
+        "category": "spelling",
+        "lesson": 6,
+        "topic": 1,
+        "unit": "",
+        "prompt": "Trên thực đơn, mục「のみもの」có nghĩa là đồ uống. Chọn cách viết.",
+        "options": [
+          "買い物",
+          "読み物",
+          "飲み物",
+          "食べ物"
+        ],
+        "answer": 2,
+        "explanation": "飲み物 đọc là のみもの, nghĩa là đồ uống.",
+        "source": "sources/new-words.pdf#page=19",
+        "origin": "authored",
+        "solution": {
+          "completed": "飲み物（のみもの）",
+          "meaning": "Đồ uống.",
+          "rule": "Đối chiếu đủ chữ viết, âm đọc và nghĩa của mục từ; các từ cùng chủ đề hoặc các âm gần giống không thay thế nhau.",
+          "options": [
+            "買い物 đọc かいもの, nghĩa là việc mua sắm; không khớp のみもの.",
+            "読み物 đọc よみもの, nghĩa là sách báo/tài liệu để đọc; khác đồ uống.",
+            "飲み物 đọc là のみもの, nghĩa là đồ uống.",
+            "食べ物 đọc たべもの, nghĩa là đồ ăn; không phải đồ uống."
+          ]
+        },
+        "id": "c67-3-08"
+      },
+      {
+        "category": "spelling",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "",
+        "prompt": "Chọn cách viết「とります」với nghĩa “lấy” một đồ vật giúp bạn.",
+        "options": [
+          "乗ります",
+          "取ります",
+          "撮ります",
+          "持ちます"
+        ],
+        "answer": 1,
+        "explanation": "取ります đọc là とります, nghĩa là lấy.",
+        "source": "sources/new-words.pdf#page=22",
+        "origin": "authored",
+        "solution": {
+          "completed": "取ります（とります）",
+          "meaning": "Lấy.",
+          "rule": "Đối chiếu đủ chữ viết, âm đọc và nghĩa của mục từ; các từ cùng chủ đề hoặc các âm gần giống không thay thế nhau.",
+          "options": [
+            "乗ります đọc のります, nghĩa là lên phương tiện; khác cả âm và nghĩa.",
+            "取ります đọc là とります, nghĩa là lấy.",
+            "撮ります cũng đọc とります nhưng nghĩa là chụp ảnh; đề yêu cầu lấy đồ vật.",
+            "持ちます đọc もちます, nghĩa là cầm/mang; không viết từ とります."
+          ]
+        },
+        "id": "c67-3-09"
+      },
+      {
+        "category": "spelling",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "",
+        "prompt": "Người biểu diễn chọn một「うた」, nghĩa là bài hát. Chọn chữ đúng.",
+        "options": [
+          "歌",
+          "花",
+          "音",
+          "話"
+        ],
+        "answer": 0,
+        "explanation": "歌 đọc là うた, nghĩa là bài hát.",
+        "source": "sources/new-words.pdf#page=23",
+        "origin": "authored",
+        "solution": {
+          "completed": "歌（うた）",
+          "meaning": "Bài hát.",
+          "rule": "Đối chiếu đủ chữ viết, âm đọc và nghĩa của mục từ; các từ cùng chủ đề hoặc các âm gần giống không thay thế nhau.",
+          "options": [
+            "歌 đọc là うた, nghĩa là bài hát.",
+            "花 đọc はな, nghĩa là hoa; khác với bài hát.",
+            "音 đọc おと trong nghĩa âm thanh; không viết từ うた.",
+            "話 có cách đọc はなし khi chỉ câu chuyện; không phải chữ của うた."
+          ]
+        },
+        "id": "c67-3-10"
+      },
+      {
+        "category": "spelling",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "",
+        "prompt": "Chuyến đi diễn ra vào「らいしゅう」, tức tuần sau. Chọn cách viết.",
+        "options": [
+          "今週",
+          "来月",
+          "先週",
+          "来週"
+        ],
+        "answer": 3,
+        "explanation": "来週 đọc là らいしゅう, nghĩa là tuần sau.",
+        "source": "sources/new-words.pdf#page=18",
+        "origin": "authored",
+        "solution": {
+          "completed": "来週（らいしゅう）",
+          "meaning": "Tuần sau.",
+          "rule": "Đối chiếu đủ chữ viết, âm đọc và nghĩa của mục từ; các từ cùng chủ đề hoặc các âm gần giống không thay thế nhau.",
+          "options": [
+            "今週 đọc こんしゅう, tuần này; khác mốc thời gian tuần sau.",
+            "来月 đọc らいげつ, tháng sau; sai đơn vị thời gian.",
+            "先週 đọc せんしゅう, tuần trước; ngược hướng thời gian với 来週.",
+            "来週 đọc là らいしゅう, nghĩa là tuần sau."
+          ]
+        },
+        "id": "c67-3-11"
+      },
+      {
+        "category": "spelling",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "",
+        "prompt": "Bạn đã có cuộc hẹn:「やくそく」. Chọn cách viết đúng của từ này.",
+        "options": [
+          "用事",
+          "予束",
+          "約束",
+          "約東"
+        ],
+        "answer": 2,
+        "explanation": "約束 đọc là やくそく, nghĩa là lời hứa; cuộc hẹn.",
+        "source": "sources/new-words.pdf#page=18",
+        "origin": "authored",
+        "solution": {
+          "completed": "約束（やくそく）",
+          "meaning": "Lời hứa; cuộc hẹn.",
+          "rule": "Đối chiếu đủ chữ viết, âm đọc và nghĩa của mục từ; các từ cùng chủ đề hoặc các âm gần giống không thay thế nhau.",
+          "options": [
+            "用事 đọc ようじ, việc cần làm/việc bận; không viết từ やくそく.",
+            "予束 dùng sai chữ đầu 予; やくそく được viết bằng 約 và 束.",
+            "約束 đọc là やくそく, nghĩa là lời hứa; cuộc hẹn.",
+            "約東 dùng 東 thay cho 束; hai chữ có nét gần nhau nhưng đây không phải やくそく."
+          ]
+        },
+        "id": "c67-3-12"
+      },
+      {
+        "category": "spelling",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "",
+        "prompt": "Để giữ mát nước uống, ta dùng「れいぞうこ」. Chọn cách viết.",
+        "options": [
+          "電子レンジ",
+          "冷蔵庫",
+          "冷蔵車",
+          "冷像庫"
+        ],
+        "answer": 1,
+        "explanation": "冷蔵庫 đọc là れいぞうこ, nghĩa là tủ lạnh.",
+        "source": "sources/new-words.pdf#page=22",
+        "origin": "authored",
+        "solution": {
+          "completed": "冷蔵庫（れいぞうこ）",
+          "meaning": "Tủ lạnh.",
+          "rule": "Đối chiếu đủ chữ viết, âm đọc và nghĩa của mục từ; các từ cùng chủ đề hoặc các âm gần giống không thay thế nhau.",
+          "options": [
+            "電子レンジ đọc でんしれんじ, lò vi sóng; đó là thiết bị khác.",
+            "冷蔵庫 đọc là れいぞうこ, nghĩa là tủ lạnh.",
+            "冷蔵車 có chữ 車, chỉ xe lạnh và không đọc là れいぞうこ.",
+            "冷像庫 thay sai 蔵 bằng 像; đây không phải cách viết chuẩn của tủ lạnh."
+          ]
+        },
+        "id": "c67-3-13"
+      },
+      {
+        "category": "spelling",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "",
+        "prompt": "Chọn cách viết「あけます」với nghĩa “mở” cửa sổ.",
+        "options": [
+          "開けます",
+          "閉めます",
+          "明けます",
+          "置きます"
+        ],
+        "answer": 0,
+        "explanation": "開けます đọc là あけます, nghĩa là mở.",
+        "source": "sources/new-words.pdf#page=23",
+        "origin": "authored",
+        "solution": {
+          "completed": "開けます（あけます）",
+          "meaning": "Mở.",
+          "rule": "Đối chiếu đủ chữ viết, âm đọc và nghĩa của mục từ; các từ cùng chủ đề hoặc các âm gần giống không thay thế nhau.",
+          "options": [
+            "開けます đọc là あけます, nghĩa là mở.",
+            "閉めます đọc しめます, nghĩa là đóng; trái với hành động mở cửa sổ.",
+            "明けます cũng đọc あけます nhưng dùng với việc trời sáng/kỳ hạn kết thúc; mở cửa sổ viết 開けます.",
+            "置きます đọc おきます, nghĩa là đặt/để; không phải mở."
+          ]
+        },
+        "id": "c67-3-14"
+      },
+      {
+        "category": "vocabulary",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "",
+        "prompt": "Huy muốn nói “Cùng lái xe đi chơi nhé?” Chọn từ chỉ việc lái xe đi chơi:（　）をしませんか。",
+        "options": [
+          "セール",
+          "コンサート",
+          "カラオケ",
+          "ドライブ"
+        ],
+        "answer": 3,
+        "explanation": "ドライブ là hoạt động lái xe đi chơi; ドライブをします diễn đạt thực hiện hoạt động đó.",
+        "source": "sources/new-words.pdf#page=18",
+        "origin": "authored",
+        "solution": {
+          "completed": "ドライブをしませんか。",
+          "meaning": "Cùng lái xe đi chơi nhé?",
+          "rule": "Đối chiếu mục từ và cách đọc chuẩn trong PDF New words list, bài 6, topic 1. Phân biệt âm dài, âm đục, âm ngắt và nghĩa của từng mục từ; không coi các cách đọc khác tồn tại trong từ điển là sai nếu chưa xác định ngữ cảnh.",
+          "options": [
+            "セール là đợt giảm giá; không có nghĩa là lái xe đi chơi.",
+            "コンサート là buổi hòa nhạc; không chỉ chuyến đi bằng ô tô.",
+            "カラオケ là karaoke; đó là hoạt động hát, khác mục tiêu của câu.",
+            "ドライブ là hoạt động lái xe đi chơi; ドライブをします diễn đạt thực hiện hoạt động đó."
+          ]
+        },
+        "id": "c67-3-15"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "g6-invite",
+        "prompt": "Điền lời rủ cùng xem bóng đá chiều mai: あしたの午後、一緒にサッカーを（　）。",
+        "options": [
+          "見ました",
+          "見てください",
+          "見ませんか",
+          "見ませんでした"
+        ],
+        "answer": 2,
+        "explanation": "Vませんか tạo lời rủ cùng thực hiện; 見ます chuyển thành 見ませんか.",
+        "source": "sources/speaking.pdf#page=43",
+        "origin": "authored",
+        "solution": {
+          "completed": "あしたの午後、一緒にサッカーを見ませんか。",
+          "meaning": "Chiều mai cùng xem bóng đá nhé?",
+          "rule": "Rủ cùng làm dùng gốc trước ます + ませんか; nhận lời hoặc đề nghị cùng làm dùng ましょう. Từ chối nhẹ bằng …はちょっと… và lý do. Chọn lời đáp đúng ý định đã nêu, không chỉ dựa vào câu có đúng ngữ pháp hay không.",
+          "options": [
+            "見ました kể đã xem; không thể hiện lời mời và không khớp あした.",
+            "見てください yêu cầu người nghe xem, không phải lời rủ hai người cùng xem.",
+            "Vませんか tạo lời rủ cùng thực hiện; 見ます chuyển thành 見ませんか.",
+            "見ませんでした kể đã không xem trong quá khứ; không rủ xem chiều mai."
+          ]
+        },
+        "id": "c67-3-16"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "g6-event",
+        "prompt": "Thông báo sự kiện: 土曜日、公園（　）お祭り（　）あります。Chọn cặp trợ từ.",
+        "options": [
+          "を・に",
+          "で・が",
+          "に・が",
+          "で・を"
+        ],
+        "answer": 1,
+        "explanation": "Sự kiện diễn ra tại 公園 dùng で; お祭り là sự kiện được giới thiệu nên dùng が.",
+        "source": "sources/speaking.pdf#page=43",
+        "origin": "authored",
+        "solution": {
+          "completed": "土曜日、公園でお祭りがあります。",
+          "meaning": "Thứ bảy có lễ hội diễn ra ở công viên.",
+          "rule": "Sự kiện được tổ chức ở địa điểm dùng で + sự kiện が あります, khác に chỉ nơi tồn tại. 用事／約束があります nói có việc bận hoặc hẹn. Người có hẹn đi với と; lượng từ chuyên dùng cho vé mỏng phẳng là 枚.",
+          "options": [
+            "を không chỉ nơi tổ chức và に không đánh dấu sự kiện; cả hai vị trí đều sai.",
+            "Sự kiện diễn ra tại 公園 dùng で; お祭り là sự kiện được giới thiệu nên dùng が.",
+            "に・が phù hợp với sự tồn tại của đồ vật ở một nơi; ở đây 公園 là nơi tổ chức lễ hội nên cần で.",
+            "で chỉ đúng nơi diễn ra, nhưng を không đánh dấu sự kiện với あります; cần が."
+          ]
+        },
+        "id": "c67-3-17"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "g6-event",
+        "prompt": "Bạn có sáu tấm vé vào xem thể thao: チケットが六（　）あります。",
+        "options": [
+          "枚",
+          "本",
+          "冊",
+          "人"
+        ],
+        "answer": 0,
+        "explanation": "Vé là vật mỏng, phẳng nên đếm bằng 枚; 六枚 đọc ろくまい.",
+        "source": "sources/speaking.pdf#page=43",
+        "origin": "authored",
+        "solution": {
+          "completed": "チケットが六枚あります。",
+          "meaning": "Tôi có sáu tấm vé.",
+          "rule": "Sự kiện được tổ chức ở địa điểm dùng で + sự kiện が あります, khác に chỉ nơi tồn tại. 用事／約束があります nói có việc bận hoặc hẹn. Người có hẹn đi với と; lượng từ chuyên dùng cho vé mỏng phẳng là 枚.",
+          "options": [
+            "Vé là vật mỏng, phẳng nên đếm bằng 枚; 六枚 đọc ろくまい.",
+            "本 đếm vật dài như chai/bút; không phải lượng từ của vé.",
+            "冊 đếm sách/vở; tấm vé không phải một cuốn sách.",
+            "人 đếm người; câu đang đếm tấm vé."
+          ]
+        },
+        "id": "c67-3-18"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 1,
+        "unit": "g6-compare",
+        "prompt": "Hỏi bên nào rộng hơn giữa hai công viên: 青山公園と緑公園と（　）広いですか。",
+        "options": [
+          "どちらも",
+          "どのが",
+          "何を",
+          "どちらが"
+        ],
+        "answer": 3,
+        "explanation": "AとBとどちらが…ですか hỏi chọn một trong hai đối tượng để so sánh đặc điểm.",
+        "source": "sources/speaking.pdf#page=47",
+        "origin": "authored",
+        "solution": {
+          "completed": "青山公園と緑公園とどちらが広いですか。",
+          "meaning": "Công viên Aoyama và công viên Midori, bên nào rộng hơn?",
+          "rule": "So sánh hai lựa chọn: AとBとどちらが…ですか; Aのほうが…です nêu bên nổi bật, AはBより…です nêu mốc so sánh B. Chú ý hướng so sánh và nghĩa tính từ; どちらも là cả hai, không phải một bên.",
+          "options": [
+            "どちらも là cả hai; không tạo câu hỏi bên nào có đặc điểm nổi bật hơn.",
+            "どの phải bổ nghĩa một danh từ; どのが đứng riêng như vậy không hoàn chỉnh.",
+            "何を hỏi đối tượng của hành động; 広い là tính từ và không nhận を ở đây.",
+            "AとBとどちらが…ですか hỏi chọn một trong hai đối tượng để so sánh đặc điểm."
+          ]
+        },
+        "id": "c67-3-19"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 1,
+        "unit": "g6-compare",
+        "prompt": "Cần nói “Cửa hàng A rẻ hơn cửa hàng B”: A店はB店（　）安いです。",
+        "options": [
+          "で",
+          "と",
+          "より",
+          "のほうが"
+        ],
+        "answer": 2,
+        "explanation": "より đặt sau mốc so sánh B店; đối tượng được nhận xét là A店.",
+        "source": "sources/speaking.pdf#page=47",
+        "origin": "authored",
+        "solution": {
+          "completed": "A店はB店より安いです。",
+          "meaning": "Cửa hàng A rẻ hơn cửa hàng B.",
+          "rule": "So sánh hai lựa chọn: AとBとどちらが…ですか; Aのほうが…です nêu bên nổi bật, AはBより…です nêu mốc so sánh B. Chú ý hướng so sánh và nghĩa tính từ; どちらも là cả hai, không phải một bên.",
+          "options": [
+            "で không đánh dấu mốc so sánh B; mẫu so sánh hơn cần より.",
+            "と có thể nối hai đối tượng nhưng riêng B店と không tạo nghĩa hơn B trong cấu trúc này.",
+            "より đặt sau mốc so sánh B店; đối tượng được nhận xét là A店.",
+            "のほうが sau B店 sẽ đưa B thành phía rẻ hơn, không diễn đạt đúng A rẻ hơn B trong câu này."
+          ]
+        },
+        "id": "c67-3-20"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 1,
+        "unit": "g6-best",
+        "prompt": "Điền nghĩa “nhất” khi chọn môn thích nhất: スポーツでテニスが（　）好きです。",
+        "options": [
+          "より",
+          "いちばん",
+          "どちら",
+          "まだ"
+        ],
+        "answer": 1,
+        "explanation": "で giới hạn nhóm là thể thao; いちばん nêu mức độ cao nhất trong nhóm đó.",
+        "source": "sources/speaking.pdf#page=46",
+        "origin": "authored",
+        "solution": {
+          "completed": "スポーツでテニスがいちばん好きです。",
+          "meaning": "Trong các môn thể thao, tôi thích quần vợt nhất.",
+          "rule": "So sánh nhất trong nhóm dùng phạm vi で + đối tượng が + いちばん + tính từ. 何／どこ／いつ được chọn theo loại đối tượng đang hỏi; xác định rõ phạm vi và đặc điểm để không nhầm với câu so sánh chỉ hai bên.",
+          "options": [
+            "より đánh dấu mốc so sánh sau một danh từ; không đứng một mình ở đây để nói nhất.",
+            "で giới hạn nhóm là thể thao; いちばん nêu mức độ cao nhất trong nhóm đó.",
+            "どちら hỏi một trong hai lựa chọn; không có nghĩa là nhất.",
+            "まだ là vẫn/chưa tùy cấu trúc; không tạo ý so sánh nhất."
+          ]
+        },
+        "id": "c67-3-21"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 2,
+        "unit": "g6-already",
+        "prompt": "A：もうこの公園へ行きましたか。 B：（　）。Điền lời đáp “Chưa”.",
+        "options": [
+          "いいえ、まだです",
+          "はい、行きました",
+          "いいえ、もうです",
+          "はい、まだです"
+        ],
+        "answer": 0,
+        "explanation": "もうVましたか hỏi đã làm tính đến hiện tại chưa; いいえ、まだです đáp chưa.",
+        "source": "sources/speaking.pdf#page=55",
+        "origin": "authored",
+        "solution": {
+          "completed": "A：もうこの公園へ行きましたか。 B：いいえ、まだです。",
+          "meaning": "Bạn đã đến công viên này chưa? — Chưa.",
+          "rule": "もう + Vましたか hỏi việc đã hoàn tất chưa. Trả lời đã làm bằng はい、Vました; chưa làm bằng いいえ、まだです. まだ ở đây là chưa hoàn tất hành động, khác まだあります diễn tả đồ vật vẫn còn.",
+          "options": [
+            "もうVましたか hỏi đã làm tính đến hiện tại chưa; いいえ、まだです đáp chưa.",
+            "はい、行きました trả lời có, đã đến rồi; trái với nghĩa cần chọn.",
+            "もうです không phải lời đáp chưa; もう không thay thế まだ trong mẫu này.",
+            "はい xác nhận có nhưng まだです lại nói chưa, nên hai phần mâu thuẫn với câu hỏi."
+          ]
+        },
+        "id": "c67-3-22"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 2,
+        "unit": "g6-suggest",
+        "prompt": "Đề xuất giờ tập trung, nghĩa là “Chín giờ rưỡi thì sao?”: 九時半は（　）。",
+        "options": [
+          "どこですか",
+          "だれですか",
+          "何枚ですか",
+          "どうですか"
+        ],
+        "answer": 3,
+        "explanation": "Nはどうですか đề xuất một phương án; ở đây phương án là giờ hẹn 九時半.",
+        "source": "sources/speaking.pdf#page=50",
+        "origin": "authored",
+        "solution": {
+          "completed": "九時半はどうですか。",
+          "meaning": "Chín giờ rưỡi thì sao?",
+          "rule": "Đề xuất một phương án dùng Nはどうですか, chẳng hạn giờ hẹn hoặc nơi gặp. Nếu đồng ý chọn phương án đó, đáp そうしましょう. Phải khớp thông tin và ý định trong hội thoại, không phủ nhận một lời đáp chỉ vì nó ít thông dụng.",
+          "options": [
+            "どこですか hỏi ở đâu; không đề xuất một giờ.",
+            "だれですか hỏi là ai; không hợp với danh từ chỉ thời gian 九時半.",
+            "何枚ですか hỏi số tấm; không dùng để đề xuất giờ tập trung.",
+            "Nはどうですか đề xuất một phương án; ở đây phương án là giờ hẹn 九時半."
+          ]
+        },
+        "id": "c67-3-23"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 2,
+        "unit": "g6-particles",
+        "prompt": "Bạn vừa được hẹn “十時です”. Điền đuôi xác nhận lại thông tin: 十時です（　）。わかりました。",
+        "options": [
+          "に",
+          "が",
+          "ね",
+          "を"
+        ],
+        "answer": 2,
+        "explanation": "ね xác nhận thông tin giờ hẹn người nghe vừa cung cấp, phù hợp việc nhắc lại 十時.",
+        "source": "sources/speaking.pdf#page=49",
+        "origin": "authored",
+        "solution": {
+          "completed": "十時ですね。わかりました。",
+          "meaning": "Mười giờ nhỉ. Tôi hiểu rồi.",
+          "rule": "よ báo thông tin mới người nói cung cấp; ね dùng xác nhận thông tin vừa thống nhất hoặc tìm đồng tình. Trong bài tập này ý định được nêu rõ bằng tiếng Việt để phân biệt hai đuôi câu vốn đều có thể đúng ở những ngữ cảnh khác.",
+          "options": [
+            "に có thể đánh dấu thời điểm trước động từ, nhưng không làm đuôi xác nhận sau です.",
+            "が đánh dấu chủ ngữ hoặc nối mệnh đề; không thể hiện xác nhận lại giờ trong câu này.",
+            "ね xác nhận thông tin giờ hẹn người nghe vừa cung cấp, phù hợp việc nhắc lại 十時.",
+            "を đánh dấu tân ngữ trước động từ, không đứng sau です để xác nhận."
+          ]
+        },
+        "id": "c67-3-24"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 0,
+        "unit": "g7-location",
+        "prompt": "Một con chó đang ở dưới ghế: 犬はいすの下に（　）。Chọn động từ tồn tại.",
+        "options": [
+          "使います",
+          "います",
+          "あります",
+          "食べます"
+        ],
+        "answer": 1,
+        "explanation": "犬 là động vật nên dùng います; いすの下に nêu vị trí ở dưới ghế.",
+        "source": "sources/speaking.pdf#page=60",
+        "origin": "authored",
+        "solution": {
+          "completed": "犬はいすの下にいます。",
+          "meaning": "Con chó ở dưới ghế.",
+          "rule": "Khi hỏi hoặc nêu vị trí của đối tượng đã biết: Nは địa điểm に あります／います. Người và động vật dùng います; đồ vật, cây dùng あります. Vị trí tương đối cần danh từ の + 前／後ろ／隣／上／下／間….",
+          "options": [
+            "使います là dùng; không thay cho động từ tồn tại của con chó.",
+            "犬 là động vật nên dùng います; いすの下に nêu vị trí ở dưới ghế.",
+            "あります dùng cho đồ vật/cây/công trình; không dùng cho con chó trong nghĩa tồn tại này.",
+            "食べます là ăn, không diễn đạt con chó có mặt tại một vị trí."
+          ]
+        },
+        "id": "c67-3-25"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 0,
+        "unit": "g7-there",
+        "prompt": "Giới thiệu có hoa ở trước cửa hàng: 店の前（　）花（　）あります。",
+        "options": [
+          "に・が",
+          "で・が",
+          "に・を",
+          "を・で"
+        ],
+        "answer": 0,
+        "explanation": "Nơi tồn tại dùng に; 花 là sự vật mới được giới thiệu nên đi với が và あります.",
+        "source": "sources/speaking.pdf#page=62",
+        "origin": "authored",
+        "solution": {
+          "completed": "店の前に花があります。",
+          "meaning": "Trước cửa hàng có hoa.",
+          "rule": "Giới thiệu có gì hoặc có ai tại một nơi dùng địa điểm に + Nが + あります／います. に đánh dấu nơi tồn tại, が nêu đối tượng mới; います dùng cho người và động vật, あります cho đồ vật/cây.",
+          "options": [
+            "Nơi tồn tại dùng に; 花 là sự vật mới được giới thiệu nên đi với が và あります.",
+            "で・が nhầm nơi tồn tại thành nơi diễn ra hành động/sự kiện; ở đây cần に.",
+            "に chỉ đúng nơi tồn tại nhưng 花を không kết hợp với あります để giới thiệu có hoa.",
+            "を không đánh dấu vị trí và で không đánh dấu vật được giới thiệu; cần に・が."
+          ]
+        },
+        "id": "c67-3-26"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "g7-te",
+        "prompt": "Chuẩn bị mang nước đi chơi. Chuyển 持ちます（持つ）sang thể て.",
+        "options": [
+          "持ちて",
+          "持いて",
+          "持んで",
+          "持って"
+        ],
+        "answer": 3,
+        "explanation": "持つ thuộc nhóm 1, đuôi つ đổi thành って: 持って.",
+        "source": "sources/speaking.pdf#page=63",
+        "origin": "authored",
+        "solution": {
+          "completed": "持つ → 持って",
+          "meaning": "Cầm/mang: thể て là 持って.",
+          "rule": "Thể て phụ thuộc nhóm động từ: う・つ・る nhóm 1 → って; む・ぶ・ぬ → んで; く → いて; ぐ → いで; す → して. Nhóm 2 bỏ る + て; する → して, 来る → 来て; 行く là ngoại lệ 行って.",
+          "options": [
+            "持ちて giữ gốc ます rồi thêm て; đó không phải quy tắc chia 持つ.",
+            "持いて áp dụng nhầm dạng く→いて; 持つ có đuôi つ.",
+            "持んで áp dụng nhầm dạng む・ぶ・ぬ→んで; 持つ cần って.",
+            "持つ thuộc nhóm 1, đuôi つ đổi thành って: 持って."
+          ]
+        },
+        "id": "c67-3-27"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "g7-te",
+        "prompt": "Trong kế hoạch tới bể bơi, động từ 泳ぎます（泳ぐ）có thể て nào?",
+        "options": [
+          "泳って",
+          "泳ぎて",
+          "泳いで",
+          "泳いて"
+        ],
+        "answer": 2,
+        "explanation": "Động từ nhóm 1 kết thúc bằng ぐ đổi thành いで; 泳ぐ→泳いで.",
+        "source": "sources/speaking.pdf#page=63",
+        "origin": "authored",
+        "solution": {
+          "completed": "泳ぐ → 泳いで",
+          "meaning": "Bơi: thể て là 泳いで.",
+          "rule": "Thể て phụ thuộc nhóm động từ: う・つ・る nhóm 1 → って; む・ぶ・ぬ → んで; く → いて; ぐ → いで; す → して. Nhóm 2 bỏ る + て; する → して, 来る → 来て; 行く là ngoại lệ 行って.",
+          "options": [
+            "泳って áp dụng nhầm đuôi う・つ・る→って; từ này kết thúc bằng ぐ.",
+            "泳ぎて chỉ ghép gốc ます với て; 泳ぐ phải đổi ぐ thành いで.",
+            "Động từ nhóm 1 kết thúc bằng ぐ đổi thành いで; 泳ぐ→泳いで.",
+            "泳いて dùng て không đục, thuộc quy tắc く; 泳ぐ phải dùng いで."
+          ]
+        },
+        "id": "c67-3-28"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "g7-request",
+        "prompt": "Bạn muốn mượn bản đồ và nhờ bạn cho mượn: すみませんが、地図を（　）。",
+        "options": [
+          "貸しますください",
+          "貸してください",
+          "貸しましょうか",
+          "貸しました"
+        ],
+        "answer": 1,
+        "explanation": "貸す→貸して; Vてください là nhờ người nghe làm. Người nghe cho mượn nên dùng 貸してください.",
+        "source": "sources/speaking.pdf#page=63",
+        "origin": "authored",
+        "solution": {
+          "completed": "すみませんが、地図を貸してください。",
+          "meaning": "Xin lỗi, hãy cho tôi mượn bản đồ.",
+          "rule": "Nhờ người nghe làm việc dùng động từ thể て + ください. Chia thể て trước rồi gắn ください; không thêm cả ます. Phân biệt người nghe được nhờ làm với lời người nói chủ động đề nghị giúp bằng ましょうか.",
+          "options": [
+            "貸しますください ghép ます với ください sai; cần thể て là 貸して.",
+            "貸す→貸して; Vてください là nhờ người nghe làm. Người nghe cho mượn nên dùng 貸してください.",
+            "貸しましょうか là người nói đề nghị cho người khác mượn; đảo vai so với việc đi mượn bản đồ.",
+            "貸しました kể đã cho mượn trong quá khứ; không nhờ cho mượn bây giờ."
+          ]
+        },
+        "id": "c67-3-29"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "g7-tool",
+        "prompt": "Muốn nói dùng nĩa ăn bánh: フォーク（　）ケーキを食べます。",
+        "options": [
+          "で",
+          "に",
+          "が",
+          "を"
+        ],
+        "answer": 0,
+        "explanation": "で đánh dấu dụng cụ thực hiện hành động; ケーキを là thứ được ăn.",
+        "source": "sources/speaking.pdf#page=63",
+        "origin": "authored",
+        "solution": {
+          "completed": "フォークでケーキを食べます。",
+          "meaning": "Tôi ăn bánh bằng nĩa.",
+          "rule": "Dụng cụ hoặc phương tiện thực hiện hành động dùng で; tân ngữ dùng を. Ví dụ ナイフで…を切ります. Không nhầm で chỉ dụng cụ với に chỉ nơi tồn tại hoặc と chỉ người cùng thực hiện.",
+          "options": [
+            "で đánh dấu dụng cụ thực hiện hành động; ケーキを là thứ được ăn.",
+            "に không đánh dấu dụng cụ ăn trong mẫu này; cần フォークで.",
+            "が sẽ đặt nĩa làm chủ thể, không chỉ công cụ dùng để ăn.",
+            "を đánh dấu đối tượng; câu đã có ケーキを và cần で cho dụng cụ."
+          ]
+        },
+        "id": "c67-3-30"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "g7-how",
+        "prompt": "Không biết dùng máy bán hàng tự động. Điền “cách dùng”: この自動販売機の（　）を教えてください。",
+        "options": [
+          "使う方",
+          "使って方",
+          "使います方",
+          "使い方"
+        ],
+        "answer": 3,
+        "explanation": "使います bỏ ます được 使い, thêm 方 thành 使い方; の nối thiết bị với cách dùng.",
+        "source": "sources/speaking.pdf#page=73",
+        "origin": "authored",
+        "solution": {
+          "completed": "この自動販売機の使い方を教えてください。",
+          "meaning": "Hãy chỉ tôi cách dùng máy bán hàng tự động này.",
+          "rule": "Cách làm một việc dùng gốc trước ます + 方（かた）: 使います → 使い方. Với đối tượng danh từ, dùng NのV方: この漢字の書き方. Không gắn 方 sau toàn bộ ます hoặc sau thể て.",
+          "options": [
+            "使う方 không tạo danh từ cách dùng trong mẫu V gốc ます＋方; phải dùng 使い方.",
+            "使って方 lấy thể て ghép với 方; đây không phải cách tạo từ chỉ phương pháp.",
+            "使います方 giữ ます trước 方 nên sai cấu tạo; cần bỏ ます.",
+            "使います bỏ ます được 使い, thêm 方 thành 使い方; の nối thiết bị với cách dùng."
+          ]
+        },
+        "id": "c67-3-31"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "g7-which",
+        "prompt": "Có ba chiếc cốc khác màu. Hỏi “Dùng chiếc cốc nào?”:（　）コップを使いますか。",
+        "options": [
+          "だれ",
+          "どう",
+          "どの",
+          "どれ"
+        ],
+        "answer": 2,
+        "explanation": "どの bổ nghĩa trực tiếp danh từ コップ; dùng khi hỏi chọn một vật trong số nhiều vật.",
+        "source": "sources/speaking.pdf#page=64",
+        "origin": "authored",
+        "solution": {
+          "completed": "どのコップを使いますか。",
+          "meaning": "Dùng chiếc cốc nào?",
+          "rule": "どの phải đứng trước một danh từ (どの皿); どれ tự thay cho vật và không đứng trực tiếp trước danh từ (皿はどれですか). Chọn đúng hình thức theo chỗ trống và đối tượng, không chỉ dịch cả hai thành cái nào.",
+          "options": [
+            "だれ hỏi người; ở đây đang hỏi lựa chọn cốc.",
+            "どう hỏi cách thức/nhận xét; không bổ nghĩa danh từ コップ như どの.",
+            "どの bổ nghĩa trực tiếp danh từ コップ; dùng khi hỏi chọn một vật trong số nhiều vật.",
+            "どれ tự thay cho một đồ vật; không đứng trực tiếp trước danh từ コップ."
+          ]
+        },
+        "id": "c67-3-32"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "g7-progressive",
+        "prompt": "Ngay lúc này Mai đang gọi điện: 今、マイさんは電話を（　）。",
+        "options": [
+          "かけますでした",
+          "かけています",
+          "かけました",
+          "かけましょう"
+        ],
+        "answer": 1,
+        "explanation": "Hành động đang diễn ra dùng Vて＋います; かける→かけて→かけています.",
+        "source": "sources/speaking.pdf#page=66",
+        "origin": "authored",
+        "solution": {
+          "completed": "今、マイさんは電話をかけています。",
+          "meaning": "Bây giờ Mai đang gọi điện.",
+          "rule": "Hành động đang diễn ra tại thời điểm nói dùng Vて + います. Bối cảnh 今／見てください xác định nghĩa tiếp diễn trong các câu này; không khẳng định đây là nghĩa duy nhất của ています trong tiếng Nhật.",
+          "options": [
+            "かけますでした là cách ghép sai ます và でした, không phải dạng đang làm.",
+            "Hành động đang diễn ra dùng Vて＋います; かける→かけて→かけています.",
+            "かけました kể đã gọi điện; không diễn tả việc đang diễn ra ngay lúc này.",
+            "かけましょう đề nghị cùng gọi; không thông báo Mai đang gọi."
+          ]
+        },
+        "id": "c67-3-33"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "g7-offer",
+        "prompt": "Bạn thấy Lan có chiếc túi nặng và chủ động đề nghị mình cầm giúp: そのかばんを（　）。",
+        "options": [
+          "持ちましょうか",
+          "持ってください",
+          "持ちましたか",
+          "持ちませんでした"
+        ],
+        "answer": 0,
+        "explanation": "Gốc 持ち＋ましょうか là người nói đề nghị làm giúp người nghe.",
+        "source": "sources/speaking.pdf#page=67",
+        "origin": "authored",
+        "solution": {
+          "completed": "そのかばんを持ちましょうか。",
+          "meaning": "Để tôi cầm chiếc túi đó giúp nhé?",
+          "rule": "Người nói chủ động đề nghị giúp dùng gốc trước ます + ましょうか, chẳng hạn 持ちましょうか. Người thực hiện và ý định phải đúng lời dẫn; Vてください là nhờ người nghe làm, không phải đề nghị mình làm giúp.",
+          "options": [
+            "Gốc 持ち＋ましょうか là người nói đề nghị làm giúp người nghe.",
+            "持ってください nhờ người nghe cầm túi; không phải mình đề nghị cầm giúp.",
+            "持ちましたか hỏi đã cầm chưa; không đưa ra sự giúp đỡ.",
+            "持ちませんでした kể đã không cầm trong quá khứ; không đề nghị giúp."
+          ]
+        },
+        "id": "c67-3-34"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "g7-who",
+        "prompt": "Muốn biết người đã mua bánh mì: 誰（　）パンを買いましたか。",
+        "options": [
+          "を",
+          "で",
+          "の",
+          "が"
+        ],
+        "answer": 3,
+        "explanation": "誰が hỏi chủ thể thực hiện hành động; パンを đã là đối tượng được mua.",
+        "source": "sources/speaking.pdf#page=68",
+        "origin": "authored",
+        "solution": {
+          "completed": "誰がパンを買いましたか。",
+          "meaning": "Ai đã mua bánh mì?",
+          "rule": "Hỏi ai thực hiện một hành động dùng 誰が + động từ; trả lời người đó が + động từ. Nếu hành động đã hoàn tất, giữ dạng quá khứ ました. Trợ từ を đánh dấu tân ngữ, không đánh dấu người làm trong mẫu này.",
+          "options": [
+            "を sẽ biến 誰 thành đối tượng, trong khi câu cần hỏi người mua và đã có パンを.",
+            "で không đánh dấu chủ thể chưa biết của hành động 買いました.",
+            "の nối danh từ hoặc chỉ sở hữu, không đánh dấu người thực hiện trước động từ ở đây.",
+            "誰が hỏi chủ thể thực hiện hành động; パンを đã là đối tượng được mua."
+          ]
+        },
+        "id": "c67-3-35"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "g7-remaining",
+        "prompt": "Bánh kẹp vẫn còn trên bàn. Điền lời đáp đúng nghĩa: サンドイッチはまだありますか。— はい、（　）。",
+        "options": [
+          "まだです",
+          "ありませんでした",
+          "まだあります",
+          "もうありません"
+        ],
+        "answer": 2,
+        "explanation": "まだあります nói đồ ăn vẫn còn; phù hợp lời xác nhận はい và bối cảnh trên bàn còn bánh.",
+        "source": "sources/speaking.pdf#page=69",
+        "origin": "authored",
+        "solution": {
+          "completed": "サンドイッチはまだありますか。— はい、まだあります。",
+          "meaning": "Còn bánh kẹp không? — Có, vẫn còn.",
+          "rule": "Khi nói lượng đồ còn lại, まだあります là vẫn còn, もうありません là đã hết. Chú ý dữ kiện đồ vẫn còn hay không còn; khác với まだです trả lời việc chưa làm xong ở bài 6.",
+          "options": [
+            "まだです là chưa làm trong mẫu hỏi đã làm chưa; không diễn đạt còn bánh.",
+            "ありませんでした nói đã không có ở quá khứ; câu hỏi đang nói lượng bánh hiện tại.",
+            "まだあります nói đồ ăn vẫn còn; phù hợp lời xác nhận はい và bối cảnh trên bàn còn bánh.",
+            "もうありません nghĩa là đã hết, trái với vẫn còn và lời xác nhận はい."
+          ]
+        },
+        "id": "c67-3-36"
+      },
+      {
+        "category": "dialogue",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "g6-invite",
+        "prompt": "A：今晩、一緒にお祭りへ行きませんか。 B：（　）。用事がありますから。Chọn lời từ chối nhẹ.",
+        "options": [
+          "わあ、ぜひ一緒に行きたいです",
+          "すみません。今晩はちょっと",
+          "いいですね。ぜひ行きましょう",
+          "ありがとうございます。行きます"
+        ],
+        "answer": 1,
+        "explanation": "…はちょっと… là cách từ chối nhẹ, hợp lý do có việc bận phía sau.",
+        "source": "sources/speaking.pdf#page=43",
+        "origin": "authored",
+        "solution": {
+          "completed": "A：今晩、一緒にお祭りへ行きませんか。 B：すみません。今晩はちょっと…。用事がありますから。",
+          "meaning": "Tối nay cùng đi lễ hội nhé? — Xin lỗi, tối nay thì hơi khó… Vì tôi có việc bận.",
+          "rule": "Rủ cùng làm dùng gốc trước ます + ませんか; nhận lời hoặc đề nghị cùng làm dùng ましょう. Từ chối nhẹ bằng …はちょっと… và lý do. Chọn lời đáp đúng ý định đã nêu, không chỉ dựa vào câu có đúng ngữ pháp hay không.",
+          "options": [
+            "ぜひ一緒に行きたいです bày tỏ rất muốn đi cùng; không phải lời từ chối nhẹ cần điền.",
+            "…はちょっと… là cách từ chối nhẹ, hợp lý do có việc bận phía sau.",
+            "いいですね。ぜひ行きましょう nhận lời và rủ cùng đi, không khớp yêu cầu từ chối.",
+            "ありがとうございます。行きます cảm ơn và xác nhận sẽ đi; trái mục đích từ chối."
+          ]
+        },
+        "id": "c67-3-37"
+      },
+      {
+        "category": "dialogue",
+        "lesson": 6,
+        "topic": 2,
+        "unit": "g6-suggest",
+        "prompt": "Đang bàn món ăn trưa: A：ラーメンはどうですか。 B：（　）。Chọn câu đồng ý “Cùng làm như vậy nhé”.",
+        "options": [
+          "そうしましょう",
+          "まだです",
+          "ラーメンはどこですか",
+          "何時でしたか"
+        ],
+        "answer": 0,
+        "explanation": "そうしましょう đồng ý thực hiện phương án vừa được đề xuất.",
+        "source": "sources/speaking.pdf#page=50",
+        "origin": "authored",
+        "solution": {
+          "completed": "A：ラーメンはどうですか。 B：そうしましょう。",
+          "meaning": "Mì ramen thì sao? — Cùng làm như vậy nhé.",
+          "rule": "Đề xuất một phương án dùng Nはどうですか, chẳng hạn giờ hẹn hoặc nơi gặp. Nếu đồng ý chọn phương án đó, đáp そうしましょう. Phải khớp thông tin và ý định trong hội thoại, không phủ nhận một lời đáp chỉ vì nó ít thông dụng.",
+          "options": [
+            "そうしましょう đồng ý thực hiện phương án vừa được đề xuất.",
+            "まだです là chưa; không bày tỏ đồng ý với phương án ăn trưa.",
+            "ラーメンはどこですか hỏi ramen ở đâu; không có nghĩa cùng làm như vậy.",
+            "何時でしたか hỏi lại mấy giờ trong quá khứ; không chấp nhận đề xuất món ăn."
+          ]
+        },
+        "id": "c67-3-38"
+      },
+      {
+        "category": "dialogue",
+        "lesson": 6,
+        "topic": 2,
+        "unit": "g6-already",
+        "prompt": "A：（　）。 B：はい、食べました。Điền câu hỏi “Bạn đã ăn món okonomiyaki chưa?”.",
+        "options": [
+          "お好み焼きを食べませんか",
+          "どこでお好み焼きを食べましたか",
+          "誰がお好み焼きを食べましたか",
+          "もうお好み焼きを食べましたか"
+        ],
+        "answer": 3,
+        "explanation": "もう＋Vましたか hỏi đã làm tính đến hiện tại chưa; はい、食べました là lời đáp tương ứng.",
+        "source": "sources/speaking.pdf#page=55",
+        "origin": "authored",
+        "solution": {
+          "completed": "A：もうお好み焼きを食べましたか。 B：はい、食べました。",
+          "meaning": "Bạn đã ăn món okonomiyaki chưa? — Rồi, tôi ăn rồi.",
+          "rule": "もう + Vましたか hỏi việc đã hoàn tất chưa. Trả lời đã làm bằng はい、Vました; chưa làm bằng いいえ、まだです. まだ ở đây là chưa hoàn tất hành động, khác まだあります diễn tả đồ vật vẫn còn.",
+          "options": [
+            "食べませんか rủ cùng ăn, không hỏi đã ăn chưa; lời đáp của B kể việc đã làm.",
+            "どこで hỏi nơi đã ăn, cần đáp một địa điểm thay vì chỉ はい.",
+            "誰が hỏi ai đã ăn, cần xác định người thay vì lời xác nhận đã ăn.",
+            "もう＋Vましたか hỏi đã làm tính đến hiện tại chưa; はい、食べました là lời đáp tương ứng."
+          ]
+        },
+        "id": "c67-3-39"
+      },
+      {
+        "category": "dialogue",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "g7-request",
+        "prompt": "A：すみませんが、スプーンを取ってください。 B：（　）。Chọn lời nhận làm giúp.",
+        "options": [
+          "いいえ、まだ食べません",
+          "あしたは何時ですか",
+          "はい、いいですよ",
+          "スプーンはありませんでしたか"
+        ],
+        "answer": 2,
+        "explanation": "はい、いいですよ là lời nhận làm việc người khác vừa nhờ.",
+        "source": "sources/speaking.pdf#page=63",
+        "origin": "authored",
+        "solution": {
+          "completed": "A：すみませんが、スプーンを取ってください。 B：はい、いいですよ。",
+          "meaning": "Xin lỗi, hãy lấy thìa giúp tôi. — Vâng, được thôi.",
+          "rule": "Nhờ người nghe làm việc dùng động từ thể て + ください. Chia thể て trước rồi gắn ください; không thêm cả ます. Phân biệt người nghe được nhờ làm với lời người nói chủ động đề nghị giúp bằng ましょうか.",
+          "options": [
+            "いいえ、まだ食べません nói chưa ăn/sẽ chưa ăn, không đáp lời nhờ lấy thìa.",
+            "あしたは何時ですか hỏi giờ ngày mai; không liên quan lời nhờ hiện tại.",
+            "はい、いいですよ là lời nhận làm việc người khác vừa nhờ.",
+            "スプーンはありませんでしたか hỏi lại việc có thìa ở quá khứ, không nhận lấy giúp."
+          ]
+        },
+        "id": "c67-3-40"
+      },
+      {
+        "category": "dialogue",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "g7-who",
+        "prompt": "A：誰がこのお茶を入れましたか。 B：（　）。Chọn lời đáp xác định Nam là người đã pha.",
+        "options": [
+          "台所で飲みました",
+          "ナムさんが入れました",
+          "ナムさんを入れました",
+          "ナムさんと飲みました"
+        ],
+        "answer": 1,
+        "explanation": "Câu hỏi 誰が tìm người thực hiện; đáp ナムさんが nêu rõ chủ thể pha trà.",
+        "source": "sources/speaking.pdf#page=68",
+        "origin": "authored",
+        "solution": {
+          "completed": "A：誰がこのお茶を入れましたか。 B：ナムさんが入れました。",
+          "meaning": "Ai đã pha trà này? — Nam đã pha.",
+          "rule": "Hỏi ai thực hiện một hành động dùng 誰が + động từ; trả lời người đó が + động từ. Nếu hành động đã hoàn tất, giữ dạng quá khứ ました. Trợ từ を đánh dấu tân ngữ, không đánh dấu người làm trong mẫu này.",
+          "options": [
+            "台所で飲みました nói nơi đã uống là bếp, không trả lời ai pha trà.",
+            "Câu hỏi 誰が tìm người thực hiện; đáp ナムさんが nêu rõ chủ thể pha trà.",
+            "ナムさんを đặt Nam làm đối tượng được cho vào, không phải người pha trà.",
+            "ナムさんと飲みました nói đã uống cùng Nam, không xác định ai pha."
+          ]
+        },
+        "id": "c67-3-41"
+      },
+      {
+        "category": "dialogue",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "g7-remaining",
+        "prompt": "A：ジュースはまだありますか。 B：（　）。Chọn lời đáp “Không, đã hết rồi”.",
+        "options": [
+          "いいえ、もうありません",
+          "はい、まだあります",
+          "いいえ、まだ飲みません",
+          "はい、これから飲みます"
+        ],
+        "answer": 0,
+        "explanation": "もうありません nói không còn nữa; いいえ phủ định câu hỏi còn không.",
+        "source": "sources/speaking.pdf#page=69",
+        "origin": "authored",
+        "solution": {
+          "completed": "A：ジュースはまだありますか。 B：いいえ、もうありません。",
+          "meaning": "Còn nước trái cây không? — Không, đã hết rồi.",
+          "rule": "Khi nói lượng đồ còn lại, まだあります là vẫn còn, もうありません là đã hết. Chú ý dữ kiện đồ vẫn còn hay không còn; khác với まだです trả lời việc chưa làm xong ở bài 6.",
+          "options": [
+            "もうありません nói không còn nữa; いいえ phủ định câu hỏi còn không.",
+            "はい、まだあります xác nhận vẫn còn; trái với yêu cầu đã hết.",
+            "まだ飲みません nói chưa uống/sẽ chưa uống; không nói nước đã hết.",
+            "これから飲みます nói từ bây giờ sẽ uống; không trả lời lượng nước còn hay hết."
+          ]
+        },
+        "id": "c67-3-42"
+      },
+      {
+        "category": "dialogue",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "g7-offer",
+        "prompt": "A：テーブルを外へ出しましょうか。 B：（　）。Chọn lời nhận sự giúp đỡ.",
+        "options": [
+          "誰が出しましたか",
+          "テーブルはどれですか",
+          "外は寒かったです",
+          "ありがとうございます。お願いします"
+        ],
+        "answer": 3,
+        "explanation": "ありがとうございます。お願いします cảm ơn và nhận đề nghị giúp của A.",
+        "source": "sources/speaking.pdf#page=67",
+        "origin": "authored",
+        "solution": {
+          "completed": "A：テーブルを外へ出しましょうか。 B：ありがとうございます。お願いします。",
+          "meaning": "Để tôi mang bàn ra ngoài giúp nhé? — Cảm ơn. Nhờ bạn nhé.",
+          "rule": "Người nói chủ động đề nghị giúp dùng gốc trước ます + ましょうか, chẳng hạn 持ちましょうか. Người thực hiện và ý định phải đúng lời dẫn; Vてください là nhờ người nghe làm, không phải đề nghị mình làm giúp.",
+          "options": [
+            "誰が出しましたか hỏi ai đã mang ra, không nhận lời đề nghị đang được đưa ra.",
+            "テーブルはどれですか hỏi bàn nào, không có nghĩa nhận sự giúp đỡ.",
+            "外は寒かったです kể ngoài trời đã lạnh, không trả lời nhận giúp.",
+            "ありがとうございます。お願いします cảm ơn và nhận đề nghị giúp của A."
+          ]
+        },
+        "id": "c67-3-43"
+      },
+      {
+        "category": "translation",
+        "lesson": 7,
+        "topic": 0,
+        "unit": "g7-location",
+        "prompt": "Chọn bản dịch: Quán cà phê ở giữa ngân hàng và bưu điện.",
+        "options": [
+          "銀行は喫茶店と郵便局の間にあります。",
+          "喫茶店は銀行と郵便局の前にあります。",
+          "喫茶店は銀行と郵便局の間にあります。",
+          "喫茶店は銀行と郵便局の間にいます。"
+        ],
+        "answer": 2,
+        "explanation": "喫茶店は là vật cần tìm; 銀行と郵便局の間に là giữa hai mốc; công trình dùng あります.",
+        "source": "sources/speaking.pdf#page=60",
+        "origin": "authored",
+        "solution": {
+          "completed": "喫茶店は銀行と郵便局の間にあります。",
+          "meaning": "Quán cà phê ở giữa ngân hàng và bưu điện.",
+          "rule": "Khi hỏi hoặc nêu vị trí của đối tượng đã biết: Nは địa điểm に あります／います. Người và động vật dùng います; đồ vật, cây dùng あります. Vị trí tương đối cần danh từ の + 前／後ろ／隣／上／下／間….",
+          "options": [
+            "Câu này đặt 銀行 làm đối tượng ở giữa quán cà phê và bưu điện, đổi sai quan hệ vị trí.",
+            "前 là phía trước; đề yêu cầu 間, ở giữa ngân hàng và bưu điện.",
+            "喫茶店は là vật cần tìm; 銀行と郵便局の間に là giữa hai mốc; công trình dùng あります.",
+            "います dùng cho người/động vật; quán cà phê là công trình nên dùng あります."
+          ]
+        },
+        "id": "c67-3-44"
+      },
+      {
+        "category": "translation",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "g7-progressive",
+        "prompt": "Chọn bản dịch: Bây giờ, chị gái tôi đang rót nước vào cốc.",
+        "options": [
+          "今、姉はコップに水を入れましょうか。",
+          "今、姉はコップに水を入れています。",
+          "今、姉はコップに水を入れました。",
+          "今、姉はコップから水を出しています。"
+        ],
+        "answer": 1,
+        "explanation": "入れています là đang cho vào; コップに là nơi nhận và 水を là vật được cho vào.",
+        "source": "sources/speaking.pdf#page=66",
+        "origin": "authored",
+        "solution": {
+          "completed": "今、姉はコップに水を入れています。",
+          "meaning": "Bây giờ, chị gái tôi đang rót nước vào cốc.",
+          "rule": "Hành động đang diễn ra tại thời điểm nói dùng Vて + います. Bối cảnh 今／見てください xác định nghĩa tiếp diễn trong các câu này; không khẳng định đây là nghĩa duy nhất của ています trong tiếng Nhật.",
+          "options": [
+            "入れましょうか là đề nghị cho vào giúp; không kể chị đang rót nước.",
+            "入れています là đang cho vào; コップに là nơi nhận và 水を là vật được cho vào.",
+            "入れました là đã cho vào trong quá khứ; không thể hiện hành động đang diễn ra.",
+            "コップから水を出しています là đang lấy nước ra khỏi cốc, đảo hướng của hành động."
+          ]
+        },
+        "id": "c67-3-45"
+      }
+    ],
+    "contentVersion": "2026-10-23"
+  },
+  {
+    "id": "chapter67-4",
+    "title": "Bài 6–7 · Đề 04",
+    "description": "Ngày nghỉ với hòa nhạc và cuộc hẹn, rồi đến nhà bạn nấu ăn, xem ảnh và cùng vui. Đủ 18 mục ngữ pháp, 6 topic; ma trận 45 câu theo đề mẫu ảnh.",
+    "lessons": [
+      6,
+      7
+    ],
+    "minutes": 45,
+    "kind": "authored",
+    "questions": [
+      {
+        "category": "reading",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "",
+        "prompt": "Thông báo hòa nhạc có chữ「来月」. Chọn cách đọc đúng.",
+        "options": [
+          "らいげつ",
+          "こんげつ",
+          "らいしゅう",
+          "らいがつ"
+        ],
+        "answer": 0,
+        "explanation": "来月 đọc là らいげつ, nghĩa là tháng sau.",
+        "source": "sources/new-words.pdf#page=18",
+        "origin": "authored",
+        "solution": {
+          "completed": "来月（らいげつ）",
+          "meaning": "Tháng sau.",
+          "rule": "Đối chiếu đủ chữ viết, âm đọc và nghĩa của mục từ; các từ cùng chủ đề hoặc các âm gần giống không thay thế nhau.",
+          "options": [
+            "来月 đọc là らいげつ, nghĩa là tháng sau.",
+            "こんげつ là 今月, tháng này; không phải 来月.",
+            "らいしゅう là 来週, tuần sau; 月 trong từ này đọc げつ.",
+            "らいがつ dùng sai âm がつ; 来月 là từ ghép có cách đọc らいげつ."
+          ]
+        },
+        "id": "c67-4-01"
+      },
+      {
+        "category": "reading",
+        "lesson": 6,
+        "topic": 1,
+        "unit": "",
+        "prompt": "Trên danh sách nơi ăn tối có「居酒屋」. Từ này đọc thế nào?",
+        "options": [
+          "いさかや",
+          "いざけや",
+          "きょしゅや",
+          "いざかや"
+        ],
+        "answer": 3,
+        "explanation": "居酒屋 đọc là いざかや, nghĩa là quán rượu kiểu nhật.",
+        "source": "sources/new-words.pdf#page=19",
+        "origin": "authored",
+        "solution": {
+          "completed": "居酒屋（いざかや）",
+          "meaning": "Quán rượu kiểu Nhật.",
+          "rule": "Đối chiếu đủ chữ viết, âm đọc và nghĩa của mục từ; các từ cùng chủ đề hoặc các âm gần giống không thay thế nhau.",
+          "options": [
+            "いさかや thiếu dấu đục ở ざ; cách đọc chuẩn là いざかや.",
+            "いざけや đổi sai âm か thành け; toàn từ đọc là いざかや.",
+            "きょしゅや ghép âm Hán máy móc, không phải cách đọc của mục từ 居酒屋.",
+            "居酒屋 đọc là いざかや, nghĩa là quán rượu kiểu nhật."
+          ]
+        },
+        "id": "c67-4-02"
+      },
+      {
+        "category": "reading",
+        "lesson": 7,
+        "topic": 0,
+        "unit": "",
+        "prompt": "Hai bạn hẹn gặp gần「改札」. Chọn cách đọc của từ này.",
+        "options": [
+          "かいせつ",
+          "かいざつ",
+          "かいさつ",
+          "かいしゃ"
+        ],
+        "answer": 2,
+        "explanation": "改札 đọc là かいさつ, nghĩa là cổng soát vé.",
+        "source": "sources/new-words.pdf#page=21",
+        "origin": "authored",
+        "solution": {
+          "completed": "改札（かいさつ）",
+          "meaning": "Cổng soát vé.",
+          "rule": "Đối chiếu đủ chữ viết, âm đọc và nghĩa của mục từ; các từ cùng chủ đề hoặc các âm gần giống không thay thế nhau.",
+          "options": [
+            "かいせつ đổi sai さつ thành せつ; 改札 đọc là かいさつ.",
+            "かいざつ làm đục sai âm さ; từ này dùng さつ, không phải ざつ.",
+            "改札 đọc là かいさつ, nghĩa là cổng soát vé.",
+            "かいしゃ là 会社, công ty; không phải cổng soát vé."
+          ]
+        },
+        "id": "c67-4-03"
+      },
+      {
+        "category": "reading",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "",
+        "prompt": "Bạn muốn hỏi cách viết「漢字」. Chọn cách đọc của từ trong ngoặc.",
+        "options": [
+          "かにじ",
+          "かんじ",
+          "かんし",
+          "かんざ"
+        ],
+        "answer": 1,
+        "explanation": "漢字 đọc là かんじ, nghĩa là chữ hán.",
+        "source": "sources/new-words.pdf#page=22",
+        "origin": "authored",
+        "solution": {
+          "completed": "漢字（かんじ）",
+          "meaning": "Chữ Hán.",
+          "rule": "Đối chiếu đủ chữ viết, âm đọc và nghĩa của mục từ; các từ cùng chủ đề hoặc các âm gần giống không thay thế nhau.",
+          "options": [
+            "かにじ đổi âm mũi ん thành に; mục từ là かんじ.",
+            "漢字 đọc là かんじ, nghĩa là chữ hán.",
+            "かんし làm mất dấu đục của じ; 漢字 đọc là かんじ.",
+            "かんざ thay sai âm じ bằng ざ; không phải cách đọc của 漢字."
+          ]
+        },
+        "id": "c67-4-04"
+      },
+      {
+        "category": "reading",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "",
+        "prompt": "Nói về chơi đàn, động từ「弾きます」đọc thế nào?",
+        "options": [
+          "ひきます",
+          "かきます",
+          "ききます",
+          "はきます"
+        ],
+        "answer": 0,
+        "explanation": "弾きます đọc là ひきます, nghĩa là chơi đàn; gảy hoặc đánh nhạc cụ.",
+        "source": "sources/new-words.pdf#page=23",
+        "origin": "authored",
+        "solution": {
+          "completed": "弾きます（ひきます）",
+          "meaning": "Chơi đàn; gảy hoặc đánh nhạc cụ.",
+          "rule": "Đối chiếu đủ chữ viết, âm đọc và nghĩa của mục từ; các từ cùng chủ đề hoặc các âm gần giống không thay thế nhau.",
+          "options": [
+            "弾きます đọc là ひきます, nghĩa là chơi đàn; gảy hoặc đánh nhạc cụ.",
+            "かきます là cách đọc của 書きます khi nói viết; không đọc 弾きます như vậy.",
+            "ききます là 聞きます, nghe/hỏi; khác hành động chơi đàn.",
+            "はきます đổi sai âm đầu ひ thành は; không phải cách đọc của 弾きます."
+          ]
+        },
+        "id": "c67-4-05"
+      },
+      {
+        "category": "reading",
+        "lesson": 7,
+        "topic": 0,
+        "unit": "",
+        "prompt": "Trong món quà mang tới nhà bạn có「花」. Chọn cách đọc đúng.",
+        "options": [
+          "き",
+          "いぬ",
+          "うた",
+          "はな"
+        ],
+        "answer": 3,
+        "explanation": "花 đọc là はな, nghĩa là hoa.",
+        "source": "sources/new-words.pdf#page=21",
+        "origin": "authored",
+        "solution": {
+          "completed": "花（はな）",
+          "meaning": "Hoa.",
+          "rule": "Đối chiếu đủ chữ viết, âm đọc và nghĩa của mục từ; các từ cùng chủ đề hoặc các âm gần giống không thay thế nhau.",
+          "options": [
+            "き là 木, cây/gỗ; không phải cách đọc của 花.",
+            "いぬ là 犬, con chó; không liên quan nghĩa hoa.",
+            "うた là 歌, bài hát; không đọc chữ 花 như vậy.",
+            "花 đọc là はな, nghĩa là hoa."
+          ]
+        },
+        "id": "c67-4-06"
+      },
+      {
+        "category": "spelling",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "",
+        "prompt": "Chọn cách viết「やきゅう」, tên môn bóng chày.",
+        "options": [
+          "野玉",
+          "夜球",
+          "野球",
+          "野菜"
+        ],
+        "answer": 2,
+        "explanation": "野球 đọc là やきゅう, nghĩa là bóng chày.",
+        "source": "sources/new-words.pdf#page=18",
+        "origin": "authored",
+        "solution": {
+          "completed": "野球（やきゅう）",
+          "meaning": "Bóng chày.",
+          "rule": "Đối chiếu đủ chữ viết, âm đọc và nghĩa của mục từ; các từ cùng chủ đề hoặc các âm gần giống không thay thế nhau.",
+          "options": [
+            "野玉 dùng 玉 thay cho 球; đây không phải cách viết chuẩn của やきゅう.",
+            "夜球 dùng 夜 thay cho 野; từ bóng chày viết là 野球.",
+            "野球 đọc là やきゅう, nghĩa là bóng chày.",
+            "野菜 đọc やさい, rau; không phải tên môn bóng chày."
+          ]
+        },
+        "id": "c67-4-07"
+      },
+      {
+        "category": "spelling",
+        "lesson": 6,
+        "topic": 1,
+        "unit": "",
+        "prompt": "Bạn muốn nói「ぜんぶ」, nghĩa là toàn bộ. Chọn cách viết đúng.",
+        "options": [
+          "全都",
+          "全部",
+          "全分",
+          "前部"
+        ],
+        "answer": 1,
+        "explanation": "全部 đọc là ぜんぶ, nghĩa là toàn bộ.",
+        "source": "sources/new-words.pdf#page=20",
+        "origin": "authored",
+        "solution": {
+          "completed": "全部（ぜんぶ）",
+          "meaning": "Toàn bộ.",
+          "rule": "Đối chiếu đủ chữ viết, âm đọc và nghĩa của mục từ; các từ cùng chủ đề hoặc các âm gần giống không thay thế nhau.",
+          "options": [
+            "全都 dùng 都 thay cho 部; đây không phải cách viết chuẩn của ぜんぶ.",
+            "全部 đọc là ぜんぶ, nghĩa là toàn bộ.",
+            "全分 dùng 分 thay cho 部, không viết đúng mục từ ぜんぶ.",
+            "前部 dùng 前 thay cho 全 và là từ khác; không có nghĩa toàn bộ trong mục từ này."
+          ]
+        },
+        "id": "c67-4-08"
+      },
+      {
+        "category": "spelling",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "",
+        "prompt": "Khi pha trà, bạn lấy「さとう」, nghĩa là đường ăn. Chọn chữ đúng.",
+        "options": [
+          "砂糖",
+          "砂湯",
+          "塩",
+          "砂唐"
+        ],
+        "answer": 0,
+        "explanation": "砂糖 đọc là さとう, nghĩa là đường ăn.",
+        "source": "sources/new-words.pdf#page=22",
+        "origin": "authored",
+        "solution": {
+          "completed": "砂糖（さとう）",
+          "meaning": "Đường ăn.",
+          "rule": "Đối chiếu đủ chữ viết, âm đọc và nghĩa của mục từ; các từ cùng chủ đề hoặc các âm gần giống không thay thế nhau.",
+          "options": [
+            "砂糖 đọc là さとう, nghĩa là đường ăn.",
+            "砂湯 dùng 湯 thay cho 糖; không viết đúng từ chỉ đường ăn.",
+            "塩 đọc しお, nghĩa là muối; đó là một gia vị khác.",
+            "砂唐 thiếu bộ 米 của 糖 và dùng sai chữ; さとう viết là 砂糖."
+          ]
+        },
+        "id": "c67-4-09"
+      },
+      {
+        "category": "spelling",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "",
+        "prompt": "Chọn cách viết「だいどころ」, nơi nấu ăn trong nhà.",
+        "options": [
+          "台前",
+          "代所",
+          "食堂",
+          "台所"
+        ],
+        "answer": 3,
+        "explanation": "台所 đọc là だいどころ, nghĩa là nhà bếp.",
+        "source": "sources/new-words.pdf#page=23",
+        "origin": "authored",
+        "solution": {
+          "completed": "台所（だいどころ）",
+          "meaning": "Nhà bếp.",
+          "rule": "Đối chiếu đủ chữ viết, âm đọc và nghĩa của mục từ; các từ cùng chủ đề hoặc các âm gần giống không thay thế nhau.",
+          "options": [
+            "台前 ghép sai chữ 前 vào sau 台; không viết từ だいどころ.",
+            "代所 thay 台 bằng 代; không phải cách viết chuẩn của nhà bếp.",
+            "食堂 đọc しょくどう, phòng ăn/nhà ăn; khác từ nhà bếp được hỏi.",
+            "台所 đọc là だいどころ, nghĩa là nhà bếp."
+          ]
+        },
+        "id": "c67-4-10"
+      },
+      {
+        "category": "spelling",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "",
+        "prompt": "Cuộc gặp ở trong「こんしゅう」, tức tuần này. Chọn cách viết.",
+        "options": [
+          "来週",
+          "先週",
+          "今週",
+          "今月"
+        ],
+        "answer": 2,
+        "explanation": "今週 đọc là こんしゅう, nghĩa là tuần này.",
+        "source": "sources/new-words.pdf#page=18",
+        "origin": "authored",
+        "solution": {
+          "completed": "今週（こんしゅう）",
+          "meaning": "Tuần này.",
+          "rule": "Đối chiếu đủ chữ viết, âm đọc và nghĩa của mục từ; các từ cùng chủ đề hoặc các âm gần giống không thay thế nhau.",
+          "options": [
+            "来週 đọc らいしゅう, tuần sau; không phải tuần này.",
+            "先週 đọc せんしゅう, tuần trước; không khớp thời điểm hiện tại.",
+            "今週 đọc là こんしゅう, nghĩa là tuần này.",
+            "今月 đọc こんげつ, tháng này; sai đơn vị tuần."
+          ]
+        },
+        "id": "c67-4-11"
+      },
+      {
+        "category": "spelling",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "",
+        "prompt": "Lý do không đi được là có「ようじ」, tức việc bận. Chọn cách viết.",
+        "options": [
+          "約束",
+          "用事",
+          "用寺",
+          "幼事"
+        ],
+        "answer": 1,
+        "explanation": "用事 đọc là ようじ, nghĩa là việc cần làm; việc bận.",
+        "source": "sources/new-words.pdf#page=18",
+        "origin": "authored",
+        "solution": {
+          "completed": "用事（ようじ）",
+          "meaning": "Việc cần làm; việc bận.",
+          "rule": "Đối chiếu đủ chữ viết, âm đọc và nghĩa của mục từ; các từ cùng chủ đề hoặc các âm gần giống không thay thế nhau.",
+          "options": [
+            "約束 đọc やくそく, lời hứa/cuộc hẹn; không viết từ ようじ.",
+            "用事 đọc là ようじ, nghĩa là việc cần làm; việc bận.",
+            "用寺 dùng 寺 thay cho 事; không viết đúng từ ようじ trong nghĩa việc bận.",
+            "幼事 thay sai chữ đầu 用 bằng 幼; mục từ việc bận là 用事."
+          ]
+        },
+        "id": "c67-4-12"
+      },
+      {
+        "category": "spelling",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "",
+        "prompt": "Bạn cần hâm thức ăn bằng「でんしれんじ」. Chọn tên thiết bị đúng.",
+        "options": [
+          "電子レンジ",
+          "電車レンジ",
+          "電子レジ",
+          "冷蔵庫"
+        ],
+        "answer": 0,
+        "explanation": "電子レンジ đọc là でんしれんじ, nghĩa là lò vi sóng.",
+        "source": "sources/new-words.pdf#page=22",
+        "origin": "authored",
+        "solution": {
+          "completed": "電子レンジ（でんしれんじ）",
+          "meaning": "Lò vi sóng.",
+          "rule": "Đối chiếu đủ chữ viết, âm đọc và nghĩa của mục từ; các từ cùng chủ đề hoặc các âm gần giống không thay thế nhau.",
+          "options": [
+            "電子レンジ đọc là でんしれんじ, nghĩa là lò vi sóng.",
+            "電車レンジ dùng 電車 (tàu điện) thay 電子, không viết tên lò vi sóng.",
+            "電子レジ thiếu âm ン trong レンジ; レジ là máy/quầy tính tiền.",
+            "冷蔵庫 đọc れいぞうこ, tủ lạnh; không phải thiết bị hâm thức ăn."
+          ]
+        },
+        "id": "c67-4-13"
+      },
+      {
+        "category": "spelling",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "",
+        "prompt": "Chọn cách viết「あらいます」với nghĩa rửa bát đĩa.",
+        "options": [
+          "笑います",
+          "払います",
+          "使います",
+          "洗います"
+        ],
+        "answer": 3,
+        "explanation": "洗います đọc là あらいます, nghĩa là rửa; giặt.",
+        "source": "sources/new-words.pdf#page=22",
+        "origin": "authored",
+        "solution": {
+          "completed": "洗います（あらいます）",
+          "meaning": "Rửa; giặt.",
+          "rule": "Đối chiếu đủ chữ viết, âm đọc và nghĩa của mục từ; các từ cùng chủ đề hoặc các âm gần giống không thay thế nhau.",
+          "options": [
+            "笑います đọc わらいます, nghĩa là cười; không phải rửa.",
+            "払います đọc はらいます, nghĩa là trả/thanh toán; khác âm đầu và nghĩa.",
+            "使います đọc つかいます, nghĩa là dùng; không viết từ あらいます.",
+            "洗います đọc là あらいます, nghĩa là rửa; giặt."
+          ]
+        },
+        "id": "c67-4-14"
+      },
+      {
+        "category": "vocabulary",
+        "lesson": 6,
+        "topic": 2,
+        "unit": "",
+        "prompt": "Bạn rất muốn nhận lời mời hòa nhạc. Chọn từ có nghĩa “nhất định”:（　）行きたいです。",
+        "options": [
+          "どちらも",
+          "少し",
+          "ぜひ",
+          "まだ"
+        ],
+        "answer": 2,
+        "explanation": "ぜひ nhấn mạnh mong muốn hoặc lời mời, có nghĩa nhất định/rất muốn trong câu này.",
+        "source": "sources/new-words.pdf#page=20",
+        "origin": "authored",
+        "solution": {
+          "completed": "ぜひ行きたいです。",
+          "meaning": "Tôi nhất định muốn đi.",
+          "rule": "Đối chiếu mục từ và cách đọc chuẩn trong PDF New words list, bài 6, topic 3. Phân biệt âm dài, âm đục, âm ngắt và nghĩa của từng mục từ; không coi các cách đọc khác tồn tại trong từ điển là sai nếu chưa xác định ngữ cảnh.",
+          "options": [
+            "どちらも là cả hai lựa chọn; không làm trạng từ nhất định trong câu này.",
+            "少し là một chút; không có nghĩa nhất định.",
+            "ぜひ nhấn mạnh mong muốn hoặc lời mời, có nghĩa nhất định/rất muốn trong câu này.",
+            "まだ là vẫn/chưa; không diễn đạt sự thiết tha nhất định muốn đi."
+          ]
+        },
+        "id": "c67-4-15"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "g6-invite",
+        "prompt": "Chọn lời rủ cùng nghe nhạc jazz ngày nghỉ: 休みの日、一緒にジャズを（　）。",
+        "options": [
+          "聞いてください",
+          "聞きませんか",
+          "聞きました",
+          "聞きませんでした"
+        ],
+        "answer": 1,
+        "explanation": "聞きませんか là lời mời người nghe cùng thực hiện việc nghe nhạc.",
+        "source": "sources/speaking.pdf#page=43",
+        "origin": "authored",
+        "solution": {
+          "completed": "休みの日、一緒にジャズを聞きませんか。",
+          "meaning": "Ngày nghỉ cùng nghe nhạc jazz nhé?",
+          "rule": "Rủ cùng làm dùng gốc trước ます + ませんか; nhận lời hoặc đề nghị cùng làm dùng ましょう. Từ chối nhẹ bằng …はちょっと… và lý do. Chọn lời đáp đúng ý định đã nêu, không chỉ dựa vào câu có đúng ngữ pháp hay không.",
+          "options": [
+            "聞いてください yêu cầu người nghe nghe; không thể hiện lời rủ cùng làm.",
+            "聞きませんか là lời mời người nghe cùng thực hiện việc nghe nhạc.",
+            "聞きました kể đã nghe; không đặt lời mời cho ngày nghỉ.",
+            "聞きませんでした kể đã không nghe trong quá khứ; không rủ cùng nghe."
+          ]
+        },
+        "id": "c67-4-16"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "g6-event",
+        "prompt": "Tối chủ nhật có hẹn với giáo viên: 日曜日の夜、先生と約束（　）あります。",
+        "options": [
+          "が",
+          "を",
+          "で",
+          "へ"
+        ],
+        "answer": 0,
+        "explanation": "約束があります diễn đạt có cuộc hẹn; が đánh dấu điều đang có.",
+        "source": "sources/speaking.pdf#page=43",
+        "origin": "authored",
+        "solution": {
+          "completed": "日曜日の夜、先生と約束があります。",
+          "meaning": "Tối chủ nhật tôi có hẹn với giáo viên.",
+          "rule": "Sự kiện được tổ chức ở địa điểm dùng で + sự kiện が あります, khác に chỉ nơi tồn tại. 用事／約束があります nói có việc bận hoặc hẹn. Người có hẹn đi với と; lượng từ chuyên dùng cho vé mỏng phẳng là 枚.",
+          "options": [
+            "約束があります diễn đạt có cuộc hẹn; が đánh dấu điều đang có.",
+            "を đánh dấu tân ngữ của động từ hành động; あります không nhận 約束を trong mẫu này.",
+            "で không đánh dấu cuộc hẹn tồn tại trong 約束があります.",
+            "へ chỉ hướng đến, không nối 約束 với あります."
+          ]
+        },
+        "id": "c67-4-17"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "g6-event",
+        "prompt": "Nói nơi diễn ra hòa nhạc: あした、学校のホール（　）コンサートがあります。",
+        "options": [
+          "に",
+          "を",
+          "と",
+          "で"
+        ],
+        "answer": 3,
+        "explanation": "コンサート là sự kiện được tổ chức nên địa điểm diễn ra đi với で.",
+        "source": "sources/speaking.pdf#page=43",
+        "origin": "authored",
+        "solution": {
+          "completed": "あした、学校のホールでコンサートがあります。",
+          "meaning": "Ngày mai có buổi hòa nhạc diễn ra tại hội trường của trường.",
+          "rule": "Sự kiện được tổ chức ở địa điểm dùng で + sự kiện が あります, khác に chỉ nơi tồn tại. 用事／約束があります nói có việc bận hoặc hẹn. Người có hẹn đi với と; lượng từ chuyên dùng cho vé mỏng phẳng là 枚.",
+          "options": [
+            "に dùng nêu vị trí tồn tại của sự vật; câu này nêu nơi tổ chức sự kiện nên dùng で.",
+            "を không chỉ địa điểm tổ chức trong mẫu コンサートがあります.",
+            "と chỉ cùng/và trong các mẫu khác; không chỉ nơi diễn ra hòa nhạc.",
+            "コンサート là sự kiện được tổ chức nên địa điểm diễn ra đi với で."
+          ]
+        },
+        "id": "c67-4-18"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 1,
+        "unit": "g6-compare",
+        "prompt": "Cả hai bộ phim đều thú vị. Điền nghĩa “cả hai”: 二つの映画は（　）おもしろいです。",
+        "options": [
+          "どのも",
+          "より",
+          "どちらも",
+          "どちらが"
+        ],
+        "answer": 2,
+        "explanation": "どちらも nói cùng một nhận xét đúng với cả hai lựa chọn.",
+        "source": "sources/speaking.pdf#page=47",
+        "origin": "authored",
+        "solution": {
+          "completed": "二つの映画はどちらもおもしろいです。",
+          "meaning": "Cả hai bộ phim đều thú vị.",
+          "rule": "So sánh hai lựa chọn: AとBとどちらが…ですか; Aのほうが…です nêu bên nổi bật, AはBより…です nêu mốc so sánh B. Chú ý hướng so sánh và nghĩa tính từ; どちらも là cả hai, không phải một bên.",
+          "options": [
+            "どの cần danh từ theo sau; どのも không phải đại từ cả hai trong mẫu này.",
+            "より cần đứng sau mốc so sánh, không có nghĩa cả hai đều.",
+            "どちらも nói cùng một nhận xét đúng với cả hai lựa chọn.",
+            "どちらが dùng hỏi bên nào là chủ thể của đặc điểm; không có nghĩa cả hai đều."
+          ]
+        },
+        "id": "c67-4-19"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 1,
+        "unit": "g6-compare",
+        "prompt": "A：A駅とB駅とどちらが遠いですか。 B：B駅（　）遠いです。Điền “B xa hơn”.",
+        "options": [
+          "に",
+          "のほうが",
+          "より",
+          "を"
+        ],
+        "answer": 1,
+        "explanation": "B駅のほうが chọn B là phía có đặc điểm xa hơn khi trả lời so sánh hai nơi.",
+        "source": "sources/speaking.pdf#page=47",
+        "origin": "authored",
+        "solution": {
+          "completed": "A：A駅とB駅とどちらが遠いですか。 B：B駅のほうが遠いです。",
+          "meaning": "Ga A và ga B, ga nào xa hơn? — Ga B xa hơn.",
+          "rule": "So sánh hai lựa chọn: AとBとどちらが…ですか; Aのほうが…です nêu bên nổi bật, AはBより…です nêu mốc so sánh B. Chú ý hướng so sánh và nghĩa tính từ; どちらも là cả hai, không phải một bên.",
+          "options": [
+            "に không tạo câu trả lời nêu bên xa hơn; cần のほうが sau B駅.",
+            "B駅のほうが chọn B là phía có đặc điểm xa hơn khi trả lời so sánh hai nơi.",
+            "B駅より đặt B làm mốc, tức một đối tượng khác xa hơn B; không khẳng định B xa hơn.",
+            "を không đánh dấu chủ thể của tính từ 遠い."
+          ]
+        },
+        "id": "c67-4-20"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 1,
+        "unit": "g6-best",
+        "prompt": "Hỏi ca sĩ thích nhất trong một nhóm: 日本の歌手（　）誰（　）いちばん好きですか。",
+        "options": [
+          "で・が",
+          "を・が",
+          "で・に",
+          "に・で"
+        ],
+        "answer": 0,
+        "explanation": "で đánh dấu phạm vi 日本の歌手; 誰が hỏi người được thích nhất trong nhóm đó.",
+        "source": "sources/speaking.pdf#page=46",
+        "origin": "authored",
+        "solution": {
+          "completed": "日本の歌手で誰がいちばん好きですか。",
+          "meaning": "Trong các ca sĩ Nhật Bản, bạn thích ai nhất?",
+          "rule": "So sánh nhất trong nhóm dùng phạm vi で + đối tượng が + いちばん + tính từ. 何／どこ／いつ được chọn theo loại đối tượng đang hỏi; xác định rõ phạm vi và đặc điểm để không nhầm với câu so sánh chỉ hai bên.",
+          "options": [
+            "で đánh dấu phạm vi 日本の歌手; 誰が hỏi người được thích nhất trong nhóm đó.",
+            "を không giới hạn phạm vi so sánh; nhóm ca sĩ cần で.",
+            "で nêu đúng phạm vi, nhưng 誰に không đánh dấu người được thích trong mẫu này; cần 誰が.",
+            "に không giới hạn nhóm và で không đánh dấu người được thích; cả hai cần đổi thành で・が."
+          ]
+        },
+        "id": "c67-4-21"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 2,
+        "unit": "g6-already",
+        "prompt": "Điền “đã” vào câu hỏi xem ảnh tính đến lúc này:（　）旅行の写真を見ましたか。",
+        "options": [
+          "どの",
+          "どちらも",
+          "あまり",
+          "もう"
+        ],
+        "answer": 3,
+        "explanation": "もう đi với Vましたか để hỏi đã thực hiện tính đến hiện tại chưa.",
+        "source": "sources/speaking.pdf#page=55",
+        "origin": "authored",
+        "solution": {
+          "completed": "もう旅行の写真を見ましたか。",
+          "meaning": "Bạn đã xem ảnh chuyến du lịch chưa?",
+          "rule": "もう + Vましたか hỏi việc đã hoàn tất chưa. Trả lời đã làm bằng はい、Vました; chưa làm bằng いいえ、まだです. まだ ở đây là chưa hoàn tất hành động, khác まだあります diễn tả đồ vật vẫn còn.",
+          "options": [
+            "どの旅行の写真 có thể mang nghĩa ảnh của chuyến đi nào, nhưng không hỏi đã xem chưa theo nghĩa đề yêu cầu.",
+            "どちらも là cả hai; không diễn đạt đã xem chưa.",
+            "あまり thường đi với phủ định trong nghĩa không…lắm; không thay cho もう hỏi đã làm chưa.",
+            "もう đi với Vましたか để hỏi đã thực hiện tính đến hiện tại chưa."
+          ]
+        },
+        "id": "c67-4-22"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 2,
+        "unit": "g6-suggest",
+        "prompt": "Đề xuất ngày đến nhà bạn: 来週の土曜日は（　）。Nghĩa cần chọn là “thì sao?”.",
+        "options": [
+          "どこでしたか",
+          "誰ですか",
+          "どうですか",
+          "何人ですか"
+        ],
+        "answer": 2,
+        "explanation": "Nはどうですか đưa một ngày cụ thể ra làm phương án để người nghe cân nhắc.",
+        "source": "sources/speaking.pdf#page=50",
+        "origin": "authored",
+        "solution": {
+          "completed": "来週の土曜日はどうですか。",
+          "meaning": "Thứ bảy tuần sau thì sao?",
+          "rule": "Đề xuất một phương án dùng Nはどうですか, chẳng hạn giờ hẹn hoặc nơi gặp. Nếu đồng ý chọn phương án đó, đáp そうしましょう. Phải khớp thông tin và ý định trong hội thoại, không phủ nhận một lời đáp chỉ vì nó ít thông dụng.",
+          "options": [
+            "どこでしたか hỏi địa điểm trong quá khứ; không phải đề xuất thứ bảy tuần sau.",
+            "誰ですか hỏi là ai; không phù hợp danh từ chỉ ngày.",
+            "Nはどうですか đưa một ngày cụ thể ra làm phương án để người nghe cân nhắc.",
+            "何人ですか hỏi số người, không đề xuất ngày gặp."
+          ]
+        },
+        "id": "c67-4-23"
+      },
+      {
+        "category": "grammar",
+        "lesson": 6,
+        "topic": 2,
+        "unit": "g6-particles",
+        "prompt": "Nghe chủ nhà nói bắt đầu ăn lúc sáu giờ, bạn xác nhận lại: 六時です（　）。お願いします。",
+        "options": [
+          "へ",
+          "ね",
+          "に",
+          "を"
+        ],
+        "answer": 1,
+        "explanation": "ね lặp lại và xác nhận giờ vừa được người khác cho biết.",
+        "source": "sources/speaking.pdf#page=49",
+        "origin": "authored",
+        "solution": {
+          "completed": "六時ですね。お願いします。",
+          "meaning": "Sáu giờ nhỉ. Nhờ bạn nhé.",
+          "rule": "よ báo thông tin mới người nói cung cấp; ね dùng xác nhận thông tin vừa thống nhất hoặc tìm đồng tình. Trong bài tập này ý định được nêu rõ bằng tiếng Việt để phân biệt hai đuôi câu vốn đều có thể đúng ở những ngữ cảnh khác.",
+          "options": [
+            "へ chỉ hướng đến trước động từ di chuyển; không có chức năng xác nhận giờ.",
+            "ね lặp lại và xác nhận giờ vừa được người khác cho biết.",
+            "に có thể đi sau giờ trước động từ, nhưng không đứng sau です làm đuôi xác nhận.",
+            "を đánh dấu tân ngữ, không xác nhận thông tin ở cuối câu lịch sự."
+          ]
+        },
+        "id": "c67-4-24"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 0,
+        "unit": "g7-location",
+        "prompt": "Muốn nói chiếc đàn ở bên cạnh bàn: ギターはテーブル（　）隣（　）あります。",
+        "options": [
+          "の・に",
+          "で・に",
+          "の・で",
+          "に・の"
+        ],
+        "answer": 0,
+        "explanation": "の nối vật mốc テーブル với vị trí 隣; に đánh dấu vị trí chiếc đàn tồn tại.",
+        "source": "sources/speaking.pdf#page=60",
+        "origin": "authored",
+        "solution": {
+          "completed": "ギターはテーブルの隣にあります。",
+          "meaning": "Chiếc đàn ghi-ta ở bên cạnh bàn.",
+          "rule": "Khi hỏi hoặc nêu vị trí của đối tượng đã biết: Nは địa điểm に あります／います. Người và động vật dùng います; đồ vật, cây dùng あります. Vị trí tương đối cần danh từ の + 前／後ろ／隣／上／下／間….",
+          "options": [
+            "の nối vật mốc テーブル với vị trí 隣; に đánh dấu vị trí chiếc đàn tồn tại.",
+            "で không nối danh từ vật mốc với 隣; cần テーブルの隣.",
+            "の đúng ở vật mốc nhưng nơi tồn tại cần に, không phải で.",
+            "に・の đặt sai cả hai quan hệ; mẫu đúng là vật mốc の vị trí に あります."
+          ]
+        },
+        "id": "c67-4-25"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 0,
+        "unit": "g7-there",
+        "prompt": "Giới thiệu có em gái ở trong phòng: 部屋に妹が（　）。",
+        "options": [
+          "あります",
+          "使います",
+          "入れます",
+          "います"
+        ],
+        "answer": 3,
+        "explanation": "妹 là người nên dùng います; 部屋に là nơi tồn tại và 妹が giới thiệu người có mặt.",
+        "source": "sources/speaking.pdf#page=62",
+        "origin": "authored",
+        "solution": {
+          "completed": "部屋に妹がいます。",
+          "meaning": "Trong phòng có em gái tôi.",
+          "rule": "Giới thiệu có gì hoặc có ai tại một nơi dùng địa điểm に + Nが + あります／います. に đánh dấu nơi tồn tại, が nêu đối tượng mới; います dùng cho người và động vật, あります cho đồ vật/cây.",
+          "options": [
+            "あります dùng cho đồ vật/cây/công trình, không dùng cho 妹 là người.",
+            "使います là dùng; không diễn đạt sự có mặt của em gái.",
+            "入れます là cho vào, cần một đối tượng; không thay động từ tồn tại ở đây.",
+            "妹 là người nên dùng います; 部屋に là nơi tồn tại và 妹が giới thiệu người có mặt."
+          ]
+        },
+        "id": "c67-4-26"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "g7-te",
+        "prompt": "Bạn muốn mượn máy ảnh. Thể て của 借ります（借りる, nhóm 2）là gì?",
+        "options": [
+          "借りんで",
+          "借るて",
+          "借りて",
+          "借って"
+        ],
+        "answer": 2,
+        "explanation": "借りる thuộc nhóm 2: bỏ る, thêm て; từ gốc ます là 借り rồi thêm て.",
+        "source": "sources/speaking.pdf#page=63",
+        "origin": "authored",
+        "solution": {
+          "completed": "借りる → 借りて",
+          "meaning": "Mượn: thể て là 借りて.",
+          "rule": "Thể て phụ thuộc nhóm động từ: う・つ・る nhóm 1 → って; む・ぶ・ぬ → んで; く → いて; ぐ → いで; す → して. Nhóm 2 bỏ る + て; する → して, 来る → 来て; 行く là ngoại lệ 行って.",
+          "options": [
+            "借りんで áp dụng nhầm đuôi む・ぶ・ぬ; 借りる chỉ bỏ る thêm て.",
+            "借るて vừa bỏ sai り vừa giữ る trước て; dạng đúng là 借りて.",
+            "借りる thuộc nhóm 2: bỏ る, thêm て; từ gốc ます là 借り rồi thêm て.",
+            "借って chia như động từ nhóm 1 đuôi る, nhưng 借りる thuộc nhóm 2."
+          ]
+        },
+        "id": "c67-4-27"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "g7-te",
+        "prompt": "Chuẩn bị đến buổi họp mặt: chia 来ます（来る）sang thể て và chọn cả cách đọc đúng.",
+        "options": [
+          "来りて（きりて）",
+          "来て（きて）",
+          "来て（くて）",
+          "来って（くって）"
+        ],
+        "answer": 1,
+        "explanation": "来る là động từ bất quy tắc nhóm 3; thể て là 来て và đọc きて.",
+        "source": "sources/speaking.pdf#page=63",
+        "origin": "authored",
+        "solution": {
+          "completed": "来る → 来て（きて）",
+          "meaning": "Đến: thể て là 来て（きて）.",
+          "rule": "Thể て phụ thuộc nhóm động từ: う・つ・る nhóm 1 → って; む・ぶ・ぬ → んで; く → いて; ぐ → いで; す → して. Nhóm 2 bỏ る + て; する → して, 来る → 来て; 行く là ngoại lệ 行って.",
+          "options": [
+            "来りて thêm り không có trong cách chia 来る; phải dùng 来て（きて）.",
+            "来る là động từ bất quy tắc nhóm 3; thể て là 来て và đọc きて.",
+            "Cách viết 来て đúng nhưng đọc くて sai; dạng này đọc きて.",
+            "来って áp dụng sai quy tắc る→って của nhóm 1; 来る là bất quy tắc."
+          ]
+        },
+        "id": "c67-4-28"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "g7-request",
+        "prompt": "Muốn nhờ chỉ cách làm món ăn: この料理の作り方を（　）。",
+        "options": [
+          "教えてください",
+          "教えましょうか",
+          "教えました",
+          "教えますください"
+        ],
+        "answer": 0,
+        "explanation": "教える→教えて; 教えてください nhờ người nghe chỉ cho người nói.",
+        "source": "sources/speaking.pdf#page=63",
+        "origin": "authored",
+        "solution": {
+          "completed": "この料理の作り方を教えてください。",
+          "meaning": "Hãy chỉ tôi cách làm món ăn này.",
+          "rule": "Nhờ người nghe làm việc dùng động từ thể て + ください. Chia thể て trước rồi gắn ください; không thêm cả ます. Phân biệt người nghe được nhờ làm với lời người nói chủ động đề nghị giúp bằng ましょうか.",
+          "options": [
+            "教える→教えて; 教えてください nhờ người nghe chỉ cho người nói.",
+            "教えましょうか là người nói đề nghị dạy giúp, đảo vai với việc xin được chỉ.",
+            "教えました là đã chỉ/dạy trong quá khứ; không tạo lời nhờ.",
+            "教えますください ghép ます với ください sai; cần thể て trước ください."
+          ]
+        },
+        "id": "c67-4-29"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "g7-tool",
+        "prompt": "Nói việc cắt rau bằng dao: ナイフ（　）野菜（　）切ります。",
+        "options": [
+          "を・で",
+          "に・を",
+          "で・が",
+          "で・を"
+        ],
+        "answer": 3,
+        "explanation": "で đánh dấu dao là dụng cụ; を đánh dấu rau là thứ được cắt.",
+        "source": "sources/speaking.pdf#page=63",
+        "origin": "authored",
+        "solution": {
+          "completed": "ナイフで野菜を切ります。",
+          "meaning": "Tôi cắt rau bằng dao.",
+          "rule": "Dụng cụ hoặc phương tiện thực hiện hành động dùng で; tân ngữ dùng を. Ví dụ ナイフで…を切ります. Không nhầm で chỉ dụng cụ với に chỉ nơi tồn tại hoặc と chỉ người cùng thực hiện.",
+          "options": [
+            "を・で đảo vai dao và rau: dao cần で, còn rau là đối tượng cần を.",
+            "に không đánh dấu dụng cụ cắt trong mẫu này; ナイフ cần đi với で.",
+            "で đúng ở dao nhưng が đặt rau làm chủ thể; đối tượng được cắt cần を.",
+            "で đánh dấu dao là dụng cụ; を đánh dấu rau là thứ được cắt."
+          ]
+        },
+        "id": "c67-4-30"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "g7-how",
+        "prompt": "Từ 書きます, điền danh từ “cách viết”: この名前の（　）がわかりません。",
+        "options": [
+          "書いて方",
+          "書きます方",
+          "書き方",
+          "書く方"
+        ],
+        "answer": 2,
+        "explanation": "書きます bỏ ます rồi thêm 方 thành 書き方; の nối 名前 với cách viết.",
+        "source": "sources/speaking.pdf#page=73",
+        "origin": "authored",
+        "solution": {
+          "completed": "この名前の書き方がわかりません。",
+          "meaning": "Tôi không biết cách viết tên này.",
+          "rule": "Cách làm một việc dùng gốc trước ます + 方（かた）: 使います → 使い方. Với đối tượng danh từ, dùng NのV方: この漢字の書き方. Không gắn 方 sau toàn bộ ます hoặc sau thể て.",
+          "options": [
+            "書いて方 dùng thể て trước 方 sai cấu tạo; từ chỉ cách viết là 書き方.",
+            "書きます方 giữ ます, trái quy tắc bỏ ます trước khi thêm 方.",
+            "書きます bỏ ます rồi thêm 方 thành 書き方; の nối 名前 với cách viết.",
+            "書く方 không tạo danh từ cách viết trong mẫu đang hỏi; cần gốc ます là 書き."
+          ]
+        },
+        "id": "c67-4-31"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "g7-which",
+        "prompt": "Trên bàn có bốn chiếc đĩa. Hỏi đĩa của mình là cái nào: 私のお皿は（　）ですか。",
+        "options": [
+          "いつ",
+          "どれ",
+          "どの",
+          "だれ"
+        ],
+        "answer": 1,
+        "explanation": "どれ tự đứng thay cho một đồ vật, không cần danh từ phía sau.",
+        "source": "sources/speaking.pdf#page=64",
+        "origin": "authored",
+        "solution": {
+          "completed": "私のお皿はどれですか。",
+          "meaning": "Đĩa của tôi là cái nào?",
+          "rule": "どの phải đứng trước một danh từ (どの皿); どれ tự thay cho vật và không đứng trực tiếp trước danh từ (皿はどれですか). Chọn đúng hình thức theo chỗ trống và đối tượng, không chỉ dịch cả hai thành cái nào.",
+          "options": [
+            "いつ hỏi thời điểm; câu đang xác định đồ vật nào.",
+            "どれ tự đứng thay cho một đồ vật, không cần danh từ phía sau.",
+            "どの cần một danh từ ngay sau; どのですか thiếu danh từ nên không hoàn chỉnh.",
+            "だれ hỏi người; không dùng để chọn một chiếc đĩa."
+          ]
+        },
+        "id": "c67-4-32"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "g7-progressive",
+        "prompt": "Ngay bây giờ mẹ đang nói chuyện với bạn: 今、母は友達と（　）。",
+        "options": [
+          "話しています",
+          "話しました",
+          "話しましょう",
+          "話しますでした"
+        ],
+        "answer": 0,
+        "explanation": "話す→話して; thêm います để nói hành động đang diễn ra ngay lúc nói.",
+        "source": "sources/speaking.pdf#page=66",
+        "origin": "authored",
+        "solution": {
+          "completed": "今、母は友達と話しています。",
+          "meaning": "Bây giờ mẹ tôi đang nói chuyện với bạn.",
+          "rule": "Hành động đang diễn ra tại thời điểm nói dùng Vて + います. Bối cảnh 今／見てください xác định nghĩa tiếp diễn trong các câu này; không khẳng định đây là nghĩa duy nhất của ています trong tiếng Nhật.",
+          "options": [
+            "話す→話して; thêm います để nói hành động đang diễn ra ngay lúc nói.",
+            "話しました kể đã nói chuyện; không thể hiện đang diễn ra bây giờ.",
+            "話しましょう rủ cùng nói chuyện; không mô tả hành động hiện tại của mẹ.",
+            "話しますでした ghép sai ます với でした; không phải dạng đang làm."
+          ]
+        },
+        "id": "c67-4-33"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "g7-offer",
+        "prompt": "Chủ nhà có nhiều việc. Bạn muốn đề nghị mình giúp:（　）。",
+        "options": [
+          "手伝ってください",
+          "手伝いましたか",
+          "手伝いませんでした",
+          "手伝いましょうか"
+        ],
+        "answer": 3,
+        "explanation": "手伝います bỏ ます, thêm ましょうか để người nói chủ động đề nghị giúp.",
+        "source": "sources/speaking.pdf#page=67",
+        "origin": "authored",
+        "solution": {
+          "completed": "手伝いましょうか。",
+          "meaning": "Để tôi giúp nhé?",
+          "rule": "Người nói chủ động đề nghị giúp dùng gốc trước ます + ましょうか, chẳng hạn 持ちましょうか. Người thực hiện và ý định phải đúng lời dẫn; Vてください là nhờ người nghe làm, không phải đề nghị mình làm giúp.",
+          "options": [
+            "手伝ってください nhờ người nghe giúp mình, đảo chiều so với đề nghị giúp chủ nhà.",
+            "手伝いましたか hỏi đã giúp chưa; không phải đề nghị làm giúp bây giờ.",
+            "手伝いませんでした kể đã không giúp; không thể hiện ý sẵn sàng giúp.",
+            "手伝います bỏ ます, thêm ましょうか để người nói chủ động đề nghị giúp."
+          ]
+        },
+        "id": "c67-4-34"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "g7-who",
+        "prompt": "A：誰がこの写真を撮りましたか。 B：兄（　）撮りました。",
+        "options": [
+          "で",
+          "に",
+          "が",
+          "を"
+        ],
+        "answer": 2,
+        "explanation": "Câu hỏi 誰が tìm người chụp; câu trả lời dùng 兄が để xác định chủ thể ấy.",
+        "source": "sources/speaking.pdf#page=68",
+        "origin": "authored",
+        "solution": {
+          "completed": "A：誰がこの写真を撮りましたか。 B：兄が撮りました。",
+          "meaning": "Ai đã chụp bức ảnh này? — Anh trai tôi đã chụp.",
+          "rule": "Hỏi ai thực hiện một hành động dùng 誰が + động từ; trả lời người đó が + động từ. Nếu hành động đã hoàn tất, giữ dạng quá khứ ました. Trợ từ を đánh dấu tân ngữ, không đánh dấu người làm trong mẫu này.",
+          "options": [
+            "で không đánh dấu người thực hiện trong câu trả lời ai đã chụp.",
+            "に có thể đánh dấu người nhận/đích trong mẫu khác; không xác định chủ thể chụp ở đây.",
+            "Câu hỏi 誰が tìm người chụp; câu trả lời dùng 兄が để xác định chủ thể ấy.",
+            "を đánh dấu đối tượng; ở đây anh trai là người chụp, không phải đối tượng của động từ."
+          ]
+        },
+        "id": "c67-4-35"
+      },
+      {
+        "category": "grammar",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "g7-remaining",
+        "prompt": "Đĩa pizza đã hết, không còn miếng nào. Điền: ピザは（　）。",
+        "options": [
+          "もう食べましょう",
+          "もうありません",
+          "まだあります",
+          "まだです"
+        ],
+        "answer": 1,
+        "explanation": "もうありません nói một thứ đã không còn nữa, phù hợp bối cảnh đĩa đã hết pizza.",
+        "source": "sources/speaking.pdf#page=69",
+        "origin": "authored",
+        "solution": {
+          "completed": "ピザはもうありません。",
+          "meaning": "Pizza đã hết rồi.",
+          "rule": "Khi nói lượng đồ còn lại, まだあります là vẫn còn, もうありません là đã hết. Chú ý dữ kiện đồ vẫn còn hay không còn; khác với まだです trả lời việc chưa làm xong ở bài 6.",
+          "options": [
+            "もう食べましょう rủ bây giờ ăn thôi; không nói pizza đã hết.",
+            "もうありません nói một thứ đã không còn nữa, phù hợp bối cảnh đĩa đã hết pizza.",
+            "まだあります là vẫn còn, trái với bối cảnh không còn miếng nào.",
+            "まだです là chưa trong mẫu hỏi đã làm chưa; không diễn đạt hết đồ ăn."
+          ]
+        },
+        "id": "c67-4-36"
+      },
+      {
+        "category": "dialogue",
+        "lesson": 6,
+        "topic": 0,
+        "unit": "g6-invite",
+        "prompt": "A：金曜日、一緒にコンサートへ行きませんか。 B：（　）。Điền lời nhận rủ cùng đi.",
+        "options": [
+          "いいですね。行きましょう",
+          "すみません。金曜日はちょっと",
+          "金曜日は用事がありますから、行きません",
+          "残念ですが、行きません"
+        ],
+        "answer": 0,
+        "explanation": "いいですね hưởng ứng lời rủ; 行きましょう xác nhận cùng đi.",
+        "source": "sources/speaking.pdf#page=43",
+        "origin": "authored",
+        "solution": {
+          "completed": "A：金曜日、一緒にコンサートへ行きませんか。 B：いいですね。行きましょう。",
+          "meaning": "Thứ sáu cùng đi hòa nhạc nhé? — Hay đấy. Cùng đi nhé.",
+          "rule": "Rủ cùng làm dùng gốc trước ます + ませんか; nhận lời hoặc đề nghị cùng làm dùng ましょう. Từ chối nhẹ bằng …はちょっと… và lý do. Chọn lời đáp đúng ý định đã nêu, không chỉ dựa vào câu có đúng ngữ pháp hay không.",
+          "options": [
+            "いいですね hưởng ứng lời rủ; 行きましょう xác nhận cùng đi.",
+            "金曜日はちょっと… là từ chối nhẹ; không nhận lời rủ.",
+            "用事がありますから、行きません nêu lý do có việc và từ chối đi.",
+            "残念ですが、行きません nói rất tiếc nhưng không đi; trái yêu cầu nhận lời."
+          ]
+        },
+        "id": "c67-4-37"
+      },
+      {
+        "category": "dialogue",
+        "lesson": 6,
+        "topic": 2,
+        "unit": "g6-suggest",
+        "prompt": "A：どこで会いますか。 B：（　）。Điền đề xuất “Trước cửa hàng bách hóa thì sao?”.",
+        "options": [
+          "デパートは何階ですか",
+          "デパートで買いましたか",
+          "デパートは広かったです",
+          "デパートの前はどうですか"
+        ],
+        "answer": 3,
+        "explanation": "デパートの前はどうですか đề xuất địa điểm gặp là trước cửa hàng bách hóa.",
+        "source": "sources/speaking.pdf#page=50",
+        "origin": "authored",
+        "solution": {
+          "completed": "A：どこで会いますか。 B：デパートの前はどうですか。",
+          "meaning": "Gặp nhau ở đâu? — Trước cửa hàng bách hóa thì sao?",
+          "rule": "Đề xuất một phương án dùng Nはどうですか, chẳng hạn giờ hẹn hoặc nơi gặp. Nếu đồng ý chọn phương án đó, đáp そうしましょう. Phải khớp thông tin và ý định trong hội thoại, không phủ nhận một lời đáp chỉ vì nó ít thông dụng.",
+          "options": [
+            "何階ですか hỏi tầng mấy; không đưa ra phương án trước cửa hàng.",
+            "買いましたか hỏi đã mua ở cửa hàng chưa; không đề xuất nơi gặp.",
+            "広かったです nhận xét cửa hàng đã rộng; không có chức năng đề xuất địa điểm.",
+            "デパートの前はどうですか đề xuất địa điểm gặp là trước cửa hàng bách hóa."
+          ]
+        },
+        "id": "c67-4-38"
+      },
+      {
+        "category": "dialogue",
+        "lesson": 6,
+        "topic": 2,
+        "unit": "g6-particles",
+        "prompt": "Bạn đã ăn ở quán này và mách người chưa từng đến rằng món ăn ngon. Chọn câu phù hợp nghĩa “ngon đấy”.",
+        "options": [
+          "この店の料理を食べませんでした",
+          "この店の料理はどれですか",
+          "この店の料理はおいしいですよ",
+          "この店の料理はおいしかったですか"
+        ],
+        "answer": 2,
+        "explanation": "よ báo cho người nghe một thông tin người nói biết từ trải nghiệm, hợp tình huống mách món ngon.",
+        "source": "sources/speaking.pdf#page=49",
+        "origin": "authored",
+        "solution": {
+          "completed": "この店の料理はおいしいですよ。",
+          "meaning": "Món ăn của quán này ngon đấy.",
+          "rule": "よ báo thông tin mới người nói cung cấp; ね dùng xác nhận thông tin vừa thống nhất hoặc tìm đồng tình. Trong bài tập này ý định được nêu rõ bằng tiếng Việt để phân biệt hai đuôi câu vốn đều có thể đúng ở những ngữ cảnh khác.",
+          "options": [
+            "食べませんでした nói đã không ăn; không đưa nhận xét ngon đấy.",
+            "どれですか hỏi món nào; không thông báo chất lượng món ăn.",
+            "よ báo cho người nghe một thông tin người nói biết từ trải nghiệm, hợp tình huống mách món ngon.",
+            "おいしかったですか hỏi người nghe món ăn trước đó có ngon không, không báo tin ngon đấy."
+          ]
+        },
+        "id": "c67-4-39"
+      },
+      {
+        "category": "dialogue",
+        "lesson": 7,
+        "topic": 0,
+        "unit": "g7-there",
+        "prompt": "A：玄関に誰がいますか。 B：（　）。Chọn lời đáp nói có bố ở cửa ra vào.",
+        "options": [
+          "父を使います",
+          "父がいます",
+          "父があります",
+          "靴があります"
+        ],
+        "answer": 1,
+        "explanation": "誰がいますか hỏi người có mặt; 父がいます giới thiệu bố ở đó và dùng います cho người.",
+        "source": "sources/speaking.pdf#page=62",
+        "origin": "authored",
+        "solution": {
+          "completed": "A：玄関に誰がいますか。 B：父がいます。",
+          "meaning": "Ở cửa ra vào có ai? — Có bố tôi.",
+          "rule": "Giới thiệu có gì hoặc có ai tại một nơi dùng địa điểm に + Nが + あります／います. に đánh dấu nơi tồn tại, が nêu đối tượng mới; います dùng cho người và động vật, あります cho đồ vật/cây.",
+          "options": [
+            "父を使います nghĩa là dùng bố, không mô tả bố có mặt ở cửa.",
+            "誰がいますか hỏi người có mặt; 父がいます giới thiệu bố ở đó và dùng います cho người.",
+            "父があります dùng động từ tồn tại của vật cho người; cần 父がいます.",
+            "靴があります nói có giày, không trả lời câu hỏi ai có mặt."
+          ]
+        },
+        "id": "c67-4-40"
+      },
+      {
+        "category": "dialogue",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "g7-which",
+        "prompt": "A：どのナイフを使いますか。 B：（　）。Chọn lời đáp chỉ “con dao đó”.",
+        "options": [
+          "そのナイフです",
+          "そのです",
+          "だれですか",
+          "ナイフで切ります"
+        ],
+        "answer": 0,
+        "explanation": "どのN hỏi chọn vật; そのN chỉ rõ vật được chọn và giữ danh từ ナイフ.",
+        "source": "sources/speaking.pdf#page=64",
+        "origin": "authored",
+        "solution": {
+          "completed": "A：どのナイフを使いますか。 B：そのナイフです。",
+          "meaning": "Dùng con dao nào? — Con dao đó.",
+          "rule": "どの phải đứng trước một danh từ (どの皿); どれ tự thay cho vật và không đứng trực tiếp trước danh từ (皿はどれですか). Chọn đúng hình thức theo chỗ trống và đối tượng, không chỉ dịch cả hai thành cái nào.",
+          "options": [
+            "どのN hỏi chọn vật; そのN chỉ rõ vật được chọn và giữ danh từ ナイフ.",
+            "その cần danh từ theo sau; そのです thiếu danh từ và không phải đại từ それ.",
+            "だれですか hỏi ai, không chỉ con dao được chọn.",
+            "ナイフで切ります nói cắt bằng dao, không xác định là con dao nào."
+          ]
+        },
+        "id": "c67-4-41"
+      },
+      {
+        "category": "dialogue",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "g7-progressive",
+        "prompt": "A：ハーさんは今、何をしていますか。 B：（　）。Điền “Đang hát”.",
+        "options": [
+          "歌を歌いました",
+          "歌を歌いましょう",
+          "歌はもうありません",
+          "歌を歌っています"
+        ],
+        "answer": 3,
+        "explanation": "歌う→歌って＋います tạo 歌っています, trả lời hành động đang diễn ra.",
+        "source": "sources/speaking.pdf#page=66",
+        "origin": "authored",
+        "solution": {
+          "completed": "A：ハーさんは今、何をしていますか。 B：歌を歌っています。",
+          "meaning": "Bây giờ Hà đang làm gì? — Đang hát.",
+          "rule": "Hành động đang diễn ra tại thời điểm nói dùng Vて + います. Bối cảnh 今／見てください xác định nghĩa tiếp diễn trong các câu này; không khẳng định đây là nghĩa duy nhất của ています trong tiếng Nhật.",
+          "options": [
+            "歌いました là đã hát trong quá khứ, không trả lời đang làm gì bây giờ.",
+            "歌いましょう rủ cùng hát, không mô tả hành động hiện tại của Hà.",
+            "歌はもうありません nói không còn bài hát nữa, không nói Hà đang hát.",
+            "歌う→歌って＋います tạo 歌っています, trả lời hành động đang diễn ra."
+          ]
+        },
+        "id": "c67-4-42"
+      },
+      {
+        "category": "dialogue",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "g7-remaining",
+        "prompt": "A：ケーキはまだありますか。 B：（　）。Điền lời đáp “Có, vẫn còn”.",
+        "options": [
+          "はい、まだです",
+          "いいえ、食べました",
+          "はい、まだあります",
+          "いいえ、もうありません"
+        ],
+        "answer": 2,
+        "explanation": "はい、まだあります xác nhận bánh vẫn còn ở thời điểm nói.",
+        "source": "sources/speaking.pdf#page=69",
+        "origin": "authored",
+        "solution": {
+          "completed": "A：ケーキはまだありますか。 B：はい、まだあります。",
+          "meaning": "Còn bánh ngọt không? — Có, vẫn còn.",
+          "rule": "Khi nói lượng đồ còn lại, まだあります là vẫn còn, もうありません là đã hết. Chú ý dữ kiện đồ vẫn còn hay không còn; khác với まだです trả lời việc chưa làm xong ở bài 6.",
+          "options": [
+            "まだです là chưa trong câu hỏi đã làm chưa; không nói còn lượng bánh.",
+            "いいえ、食べました nói không, đã ăn; không diễn đạt có, vẫn còn như yêu cầu.",
+            "はい、まだあります xác nhận bánh vẫn còn ở thời điểm nói.",
+            "いいえ、もうありません phủ định và nói đã hết; trái nghĩa vẫn còn."
+          ]
+        },
+        "id": "c67-4-43"
+      },
+      {
+        "category": "translation",
+        "lesson": 7,
+        "topic": 1,
+        "unit": "g7-request",
+        "prompt": "Chọn bản dịch: Xin lỗi, hãy đóng cửa sổ giúp tôi.",
+        "options": [
+          "すみませんが、窓を閉めました。",
+          "すみませんが、窓を閉めてください。",
+          "すみませんが、窓を開けてください。",
+          "すみませんが、窓を閉めましょうか。"
+        ],
+        "answer": 1,
+        "explanation": "閉める→閉めて; Vてください nhờ người nghe đóng cửa sổ, すみませんが làm mềm lời nhờ.",
+        "source": "sources/speaking.pdf#page=63",
+        "origin": "authored",
+        "solution": {
+          "completed": "すみませんが、窓を閉めてください。",
+          "meaning": "Xin lỗi, hãy đóng cửa sổ giúp tôi.",
+          "rule": "Nhờ người nghe làm việc dùng động từ thể て + ください. Chia thể て trước rồi gắn ください; không thêm cả ます. Phân biệt người nghe được nhờ làm với lời người nói chủ động đề nghị giúp bằng ましょうか.",
+          "options": [
+            "閉めました kể đã đóng cửa sổ, không yêu cầu làm giúp.",
+            "閉める→閉めて; Vてください nhờ người nghe đóng cửa sổ, すみませんが làm mềm lời nhờ.",
+            "開けてください là nhờ mở cửa sổ, ngược với đóng.",
+            "閉めましょうか là người nói đề nghị mình đóng giúp, đảo vai so với lời nhờ người nghe."
+          ]
+        },
+        "id": "c67-4-44"
+      },
+      {
+        "category": "translation",
+        "lesson": 7,
+        "topic": 2,
+        "unit": "g7-offer",
+        "prompt": "Chọn bản dịch: Để tôi mang ảnh đến nhà một người bạn giúp nhé?",
+        "options": [
+          "友達の家へ写真を持って行きましょうか。",
+          "友達の家へ写真を持って行ってください。",
+          "友達の家へ写真を持って行きましたか。",
+          "友達の家へ写真を持って行きませんでした。"
+        ],
+        "answer": 0,
+        "explanation": "持って行きます bỏ ます, thêm ましょうか để chủ động đề nghị mang ảnh đi giúp; へ chỉ nơi đến.",
+        "source": "sources/speaking.pdf#page=67",
+        "origin": "authored",
+        "solution": {
+          "completed": "友達の家へ写真を持って行きましょうか。",
+          "meaning": "Để tôi mang ảnh đến nhà một người bạn giúp nhé?",
+          "rule": "Người nói chủ động đề nghị giúp dùng gốc trước ます + ましょうか, chẳng hạn 持ちましょうか. Người thực hiện và ý định phải đúng lời dẫn; Vてください là nhờ người nghe làm, không phải đề nghị mình làm giúp.",
+          "options": [
+            "持って行きます bỏ ます, thêm ましょうか để chủ động đề nghị mang ảnh đi giúp; へ chỉ nơi đến.",
+            "持って行ってください nhờ người nghe mang ảnh đi; đổi người làm so với đề nghị mình làm giúp.",
+            "持って行きましたか hỏi đã mang ảnh đến chưa; không đề nghị làm giúp.",
+            "持って行きませんでした kể đã không mang ảnh đi trong quá khứ; trái chức năng đề nghị."
+          ]
+        },
+        "id": "c67-4-45"
+      }
+    ],
+    "contentVersion": "2026-10-23"
   }
 ];

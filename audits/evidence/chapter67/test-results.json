@@ -1,0 +1,138 @@
+{
+  "archivedUtc": "2026-10-22T18:12:40.628972+00:00",
+  "platform": "Windows; Playwright1.63.0; Python3.11; Node24",
+  "staticChecks": [
+    {
+      "name": "logic",
+      "code": 0,
+      "output": "PASS: 921 semantic option sets; independent synonym/polysemy/accent, fill/order and changed-answer grading fixtures; 666 grammar + 360 paper structural invariants. Content verification is tracked separately."
+    },
+    {
+      "name": "new scope and independent expectations",
+      "code": 0,
+      "output": "PASS: 4 new papers/180 distinct questions, exact sample matrix, all18 units/6topics each, 56 PDF lexical targets, detailed aligned solutions, balanced keys, independent grading, original four papers unchanged."
+    },
+    {
+      "name": "format",
+      "code": 0,
+      "output": "> format:check\n> prettier --check assets/app.js assets/quiz-core.js assets/grammar-core.js assets/grammar.js assets/exam-core.js assets/attempt-store.js assets/exams.js assets/loader.js assets/dialogs.js assets/mobile.js\n\nChecking formatting...\nAll matched files use Prettier code style!"
+    },
+    {
+      "name": "whitespace",
+      "code": 0,
+      "output": ""
+    },
+    {
+      "name": "reproducible build",
+      "code": 0,
+      "sha256": "371d9681f7c8a02fec3000170c49279ea70e63fb0a9d29c1be8e6fdca3bb06bf",
+      "output": "Built 8 exams x 45 questions: sample 44 + 1 addition, 3 papers lessons 4–5, 4 papers lessons 6–7.\n"
+    }
+  ],
+  "browserRuns": {
+    "ui": [
+      {
+        "test": "check_exams.py",
+        "code": 0,
+        "seconds": 101.1,
+        "output": "PASS: 8x45 exam audit, all 360 answers graded, lesson scopes, 252 vocabulary entries, accessible filters and resume, marks, restore, wrong/skipped review, timer, history, JSON validation/XSS, preview/import/export/delete, 45-row image editor, draft persistence, blocked storage, 320/390/1280 light/dark, Firefox file://.\n",
+        "browser_config": "chromium",
+        "completed_utc": "2026-10-22T18:10:09.554760+00:00"
+      },
+      {
+        "test": "check_exam_shuffle.py",
+        "code": 0,
+        "seconds": 26.6,
+        "output": "PASS: 360 detailed solutions, option/source alignment, 200 randomized plans, stable answers/flags/order across reload/history/export, legacy progress and grades, invalid-order protection, import validation, responsive light/dark, Firefox lesson 6–7 file://.\n",
+        "browser_config": "chromium",
+        "completed_utc": "2026-10-22T18:10:36.203731+00:00"
+      }
+    ],
+    "final": [
+      {
+        "test": "check_regressions.py",
+        "code": 0,
+        "seconds": 4.7,
+        "output": "PASS: equivalent meanings; grammar cancel/continue/new preserve state; two tabs, takeover, stale legacy writes, new-attempt fencing, single history and owner close.\n",
+        "browser_config": "chromium",
+        "completed_utc": "2026-10-22T18:05:31.629002+00:00"
+      },
+      {
+        "test": "check_imported_tabs.py",
+        "code": 0,
+        "seconds": 9.6,
+        "output": "PASS: stale imported-library initialization, live-tab import refresh, retained attempt/history on document read failure, and explicit retry recovery.\n",
+        "browser_config": "chromium",
+        "completed_utc": "2026-10-22T18:05:41.203535+00:00"
+      },
+      {
+        "test": "check_chapter67.py",
+        "code": 0,
+        "seconds": 5.1,
+        "output": "PASS: new67 papers lazy loaded; 125-word scope; all new glyphs; independent correct/wrong/blank/edit score1/1/43; reload/order/flags/clock; filter keeps active paper; 11 mobile/desktop screenshots; detailed result export and file://; no JS errors.\n",
+        "browser_config": "chromium",
+        "completed_utc": "2026-10-22T18:09:41.830820+00:00"
+      },
+      {
+        "test": "check_mobile.py",
+        "code": 0,
+        "seconds": 18.9,
+        "output": "PASS: mobile geometry/navigation, 7 modes, pickers/filters, progressive list, reading hints and panels, writing, grammar/quiz/exam flows, review disclosures, 320/390/430/740 light/dark, desktop restoration and Firefox.\n",
+        "browser_config": "chromium",
+        "completed_utc": "2026-10-22T18:10:00.725522+00:00"
+      },
+      {
+        "test": "check_attempt_store.py",
+        "code": 0,
+        "seconds": 5.2,
+        "output": "PASS: atomic CAS conflict, one editor, read-only timeout, exact deadline, once-only history, blocked stores and isolated memory copy on write failure.\n",
+        "browser_config": "chromium",
+        "completed_utc": "2026-10-22T18:10:05.944147+00:00"
+      }
+    ],
+    "firefox": [
+      {
+        "test": "check_chapter67.py",
+        "code": 0,
+        "seconds": 8.8,
+        "output": "PASS: new67 papers lazy loaded; 125-word scope; all new glyphs; independent correct/wrong/blank/edit score1/1/43; reload/order/flags/clock; filter keeps active paper; 11 mobile/desktop screenshots; detailed result export and file://; no JS errors.\n",
+        "browser_config": "firefox",
+        "completed_utc": "2026-10-22T18:08:38.584541+00:00"
+      }
+    ]
+  },
+  "browser": {
+    "browser": "chromium",
+    "version": "153.0.8010.12",
+    "transport": [
+      "HTTP",
+      "file://"
+    ],
+    "expandedLibrary": {
+      "dom": 1694,
+      "papers": 8,
+      "questions": 360
+    },
+    "unhandledPageErrors": []
+  },
+  "notes": [
+    "Question-bank UI grading verifies mappings, not independent Japanese content correctness.",
+    "Core key fixtures and all56 lexical targets are independently checked by check_chapter67.js.",
+    "Existing handoff evidence outside this directory describes the earlier4-paper snapshot.",
+    "No GitHub push/deployment or GitHub Actions run in this task."
+  ],
+  "firefoxBrowser": {
+    "browser": "firefox",
+    "version": "155.0",
+    "transport": [
+      "HTTP",
+      "file://"
+    ],
+    "expandedLibrary": {
+      "dom": 1694,
+      "papers": 8,
+      "questions": 360
+    },
+    "unhandledPageErrors": []
+  }
+}

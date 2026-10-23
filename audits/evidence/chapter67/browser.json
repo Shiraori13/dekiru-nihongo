@@ -1,0 +1,14 @@
+{
+  "browser": "chromium",
+  "version": "153.0.8010.12",
+  "transport": [
+    "HTTP",
+    "file://"
+  ],
+  "expandedLibrary": {
+    "dom": 1694,
+    "papers": 8,
+    "questions": 360
+  },
+  "unhandledPageErrors": []
+}

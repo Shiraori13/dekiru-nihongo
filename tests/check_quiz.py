@@ -4,10 +4,12 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'.tools'))
 from playwright.sync_api import sync_playwright
+from browser_support import launch, install_legacy_readiness, reset_attempt_store
+install_legacy_readiness()
 (ROOT/'.work').mkdir(exist_ok=True)
 
 with sync_playwright() as p:
-    browser=p.chromium.launch(channel='msedge',headless=True)
+    browser=launch(p)
     context=browser.new_context(viewport={'width':1440,'height':1100},reduced_motion='reduce')
     context.route('https://**/*',lambda route:route.abort())
     page=context.new_page(); errors=[]
@@ -46,10 +48,10 @@ with sync_playwright() as p:
     page.locator('#quizQuestionNavigator').screenshot(path=str(ROOT/'.work/quiz-map-unanswered-mobile.png'))
     page.locator('#themeToggle').click()
     page.set_viewport_size({'width':1440,'height':1100})
-    page.locator('.quiz-new-setup').click();page.locator('.quiz-start-btn').click()
+    page.locator('.quiz-new-setup').click();page.locator('.study-confirm [data-replace]').click();page.locator('.quiz-start-btn').click()
     assert page.locator('#quizQuestionMap .is-answered').count()==0
     assert page.locator('.quiz-map-answer-mark').all_inner_texts()==['○']*5
-    assert page.locator('#quizMapCurrentStatus').inner_text()=='Câu 1: Chưa trả lời'
+    assert page.locator('#quizMapCurrentStatus').text_content()=='Câu 1: Chưa trả lời'
     questions=page.evaluate('quizQuestions')
     options=page.evaluate('quizOptionSets')
     assert all(len(set(opts))==4 and q['m'] in opts for opts,q in zip(options,questions))
@@ -102,7 +104,7 @@ with sync_playwright() as p:
     assert page.locator('.quiz-review-card.skipped').count()==1
     assert page.locator('.quiz-review-option.is-correct').count()==5
     assert page.locator('.quiz-review-option.is-incorrect').count()==2
-    assert 'Bạn chưa chọn' in page.locator('[data-review-index="2"]').inner_text()
+    assert 'Bạn chưa chọn' in page.locator('[data-review-index="2"]').text_content()
     page.evaluate('submitQuiz(); handleQuizAnswer(quizQuestions[quizIndex].m, quizIndex)')
     assert page.evaluate('quizAnswers')==saved_answers
     page.locator('#quizReviewMistakes').click()
@@ -120,7 +122,7 @@ with sync_playwright() as p:
     assert page.evaluate('quizAnswers.every(a => a === null)')
     assert page.locator('#quizProgressBar').get_attribute('value')=='0'
     assert page.locator('#quizQuestionMap .is-answered').count()==0
-    assert page.locator('#quizMapCurrentStatus').inner_text()=='Câu 1: Chưa trả lời'
+    assert page.locator('#quizMapCurrentStatus').text_content()=='Câu 1: Chưa trả lời'
     assert page.locator('.quiz-review-card').count()==0
     for index,q in enumerate(questions):
         page.locator('#quizQuestionMap button').nth(index).click()
@@ -134,14 +136,14 @@ with sync_playwright() as p:
     assert page.locator('.quiz-review-card').count()==0
     assert 'đúng tất cả' in page.locator('#quizReviewList').inner_text()
     # Empty and single-question attempts have consistent scoring/progress.
-    page.evaluate('showQuizSetup()')
+    page.evaluate('showQuizSetup(true)')
     page.locator('input[name="quizCount"][value="custom"]').check()
     page.fill('#quizCustomCount','1');page.locator('.quiz-start-btn').click()
     page.locator('#quizSubmit').click();page.locator('#quizSubmitAnyway').click()
     assert page.locator('#finalScore').inner_text()=='0%'
     assert page.locator('#quizSkippedCount').inner_text()=='1'
     # Immediate grading still advances and safely resumes after a tab change.
-    page.evaluate('showQuizSetup()')
+    page.evaluate('showQuizSetup(true)')
     page.locator('input[name="quizGrading"][value="instant"]').check()
     page.fill('#quizCustomCount','2');page.locator('.quiz-start-btn').click()
     correct=page.evaluate('quizQuestions[0].m')
@@ -161,13 +163,13 @@ with sync_playwright() as p:
     # A delayed callback from an abandoned immediate attempt cannot alter a new one.
     page.evaluate('retryQuiz()')
     page.get_by_role('button',name=page.evaluate('quizQuestions[0].m'),exact=True).click()
-    page.evaluate('showQuizSetup()')
+    page.evaluate('showQuizSetup(true)')
     page.locator('input[name="quizGrading"][value="submit"]').check()
     page.locator('.quiz-start-btn').click();page.wait_for_timeout(1000)
     assert page.evaluate('quizIndex')==0
     assert page.evaluate('quizAnswers.every(a => a === null)')
     # Full vocabulary scope: navigation and review remain usable at 921 questions.
-    page.evaluate('showQuizSetup()');page.select_option('#lessonSelect','all')
+    page.evaluate('showQuizSetup(true)');page.select_option('#lessonSelect','all')
     page.locator('input[name="quizCount"][value="all"]').check()
     page.locator('.quiz-start-btn').click()
     assert page.locator('#quizQuestionMap button').count()==921

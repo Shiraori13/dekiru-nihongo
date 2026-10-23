@@ -1,0 +1,86 @@
+{
+  "dom": 1140,
+  "resources": [
+    {
+      "path": "/css2",
+      "bytes": 0
+    },
+    {
+      "path": "/dekiru-nihongo/assets/app.css",
+      "bytes": 15321
+    },
+    {
+      "path": "/dekiru-nihongo/assets/fonts/NotoSansJP-study.woff2",
+      "bytes": 417516
+    },
+    {
+      "path": "/dekiru-nihongo/assets/study.css",
+      "bytes": 40243
+    },
+    {
+      "path": "/dekiru-nihongo/assets/mobile.css",
+      "bytes": 20605
+    },
+    {
+      "path": "/dekiru-nihongo/data/audio.js",
+      "bytes": 59802
+    },
+    {
+      "path": "/dekiru-nihongo/data/vocabulary.js",
+      "bytes": 130522
+    },
+    {
+      "path": "/dekiru-nihongo/assets/audio.js",
+      "bytes": 7264
+    },
+    {
+      "path": "/dekiru-nihongo/data/meaning-groups.js",
+      "bytes": 4454
+    },
+    {
+      "path": "/dekiru-nihongo/assets/quiz-core.js",
+      "bytes": 2117
+    },
+    {
+      "path": "/dekiru-nihongo/assets/attempt-store.js",
+      "bytes": 11571
+    },
+    {
+      "path": "/dekiru-nihongo/assets/dialogs.js",
+      "bytes": 2271
+    },
+    {
+      "path": "/dekiru-nihongo/assets/loader.js",
+      "bytes": 3763
+    },
+    {
+      "path": "/dekiru-nihongo/assets/app.js",
+      "bytes": 33482
+    },
+    {
+      "path": "/dekiru-nihongo/assets/mobile.js",
+      "bytes": 19981
+    },
+    {
+      "path": "/dekiru-nihongo/data/grammar.js",
+      "bytes": 43129
+    },
+    {
+      "path": "/dekiru-nihongo/assets/exams.css",
+      "bytes": 14556
+    },
+    {
+      "path": "/dekiru-nihongo/data/exams.js",
+      "bytes": 246739
+    },
+    {
+      "path": "/dekiru-nihongo/assets/exam-core.js",
+      "bytes": 9134
+    },
+    {
+      "path": "/dekiru-nihongo/assets/exams.js",
+      "bytes": 58935
+    }
+  ],
+  "documentBytes": 30652
+}

@@ -1,5 +1,32 @@
 # Các thay đổi mới của Dekiru
 
+## 23/10/2026 — Bốn đề chuyên bài 6–7
+
+- Thêm 4 đề × 45 câu, phủ đủ 18 mục ngữ pháp/6 topic bài 6–7. Bám đúng ma trận đề mẫu đã nhập: 6 đọc Hán tự, 8 chọn chữ Hán, 1 từ vựng, 21 ngữ pháp, 7 hội thoại, 2 dịch.
+- Mỗi câu có câu hoàn chỉnh/từ chuẩn, nghĩa Việt, quy tắc và lời giải đủ A–D sau nộp; giữ luồng xáo trộn, hẹn giờ, đánh dấu, khôi phục, nhiều tab, nhập/xuất và lịch sử hiện có.
+- Thêm bộ lọc nhóm đề, nhãn/phạm vi theo đúng bài và danh mục ôn 125 mục từ bài 6–7. Đề bài 4–5 vẫn giữ phạm vi riêng.
+- Tổng ngân hàng tăng từ 4 đề/180 câu lên 8 đề/360 câu; bốn đề cũ giữ nội dung, ID và dấu nhận diện. Có nguồn sinh dữ liệu, audit và kiểm thử riêng: [báo cáo bài 6–7](audits/CHAPTER67_EXAMS.md).
+
+## 22–23/10/2026 — Hiệu đính đáp án, bảo vệ bài và tải theo chế độ
+
+- Quiz dùng nhóm nghĩa Việt có dữ liệu duyệt; loại nghĩa tương đương/giao nhau khỏi nhiễu, giữ dấu khi chấm, phân biệt cách đọc/ngữ cảnh. Ưu tiên phạm vi học trước kho chung; báo rõ nếu không đủ phương án. Hiển thị bài/topic/trang nguồn ở câu hỏi.
+- Ngữ pháp và quiz hỏi trước khi thay bài chưa nộp. Giữ thứ tự phương án, câu đang làm và gợi ý; hộp thoại hỗ trợ Tab/Shift+Tab, Escape và focus.
+- Luyện đề dùng quyền sửa một tab và transaction kiểm ID/revision; chuyển quyền, hết giờ, lịch sử một lần, chống tab cũ ghi đè lượt mới. Lỗi lưu giữa phiên tạo bản sao RAM riêng, không ghi đè bài đã lưu.
+- Giữ bài và lịch sử khi tab chưa tải được đề vừa nhập ở tab khác; tự tải lại thư viện, có trạng thái lỗi/thử lại, không xóa bản lưu do cache đề cũ.
+- Rà soát 666 bài ngữ pháp/180 câu đề; sửa nhiễu vẫn hợp ngữ pháp, câu thiếu ngữ cảnh và hai lỗi giải thích lệch phương án. Có migration câu đã lưu và audit theo ID với nguồn/giới hạn xác minh; số lượng nội dung giữ nguyên.
+- Tách CSS/JS khỏi HTML, trì hoãn các bộ dữ liệu và khởi tạo reading/kanji/grammar/exam; loader classic script hỗ trợ `file://`, lỗi/thử lại và chuyển chế độ nhanh.
+- Hoàn thiện mobile màn hình ngắn, tiến trình/đồng hồ cạnh câu hỏi; font cục bộ bổ sung 7 thành phần Hán bị thiếu. Có ảnh trước/sau, số liệu tải và bộ kiểm thử hồi quy mới.
+- Ghim dependency, lockfile, lựa chọn Chromium/Edge/Firefox và workflow push/PR. [Báo cáo bàn giao](IMPLEMENTATION_REPORT.md).
+
+## 22/10/2026 — Tối ưu giao diện và thao tác mobile
+
+- Thu gọn header, đưa Thẻ ghi nhớ/Luyện đọc/Ngữ pháp/Luyện đề xuống thanh điều hướng đáy; Kiểm tra/Danh sách/Hán tự vào menu Khác. Nút cũ được dùng lại; bản PC vẫn có đủ 7 chế độ tại header.
+- Thay phần giới thiệu dài bằng tiêu đề ngắn. Thu gọn bộ lọc, thư viện bài đọc/từ Hán/mẫu câu, gợi ý/cỡ chữ và từ vựng bài đọc. Chọn nội dung xong tự đóng bộ chọn, cuộn đến đúng phần đang học.
+- Chuyển danh sách từ sang thẻ dọc, mỗi đợt 50 mục có nút Xem thêm. Tập viết có hai mục Xem nét/Tự viết để không xếp cả hai bảng nối tiếp trên điện thoại.
+- Khi làm bài, thu gọn bảng số và thiết lập phụ; đề 45 câu có tiến trình ngay trên câu hỏi. Phần kết quả thu gọn từng câu, vẫn mở được lời giải chi tiết và chuyển nhanh bằng bảng số.
+- Tăng vùng chạm/cỡ chữ nhập, chừa safe area và khoảng trống dưới thanh đáy. Bố trí popup nghĩa/âm thanh tránh đè điều hướng và đè nhau, gồm cả màn hình ngang. Giữ chế độ sáng/tối và giảm chuyển động.
+- Thêm kiểm tra mobile cho 7 chế độ ở 320/390/430/740 px, thao tác học/làm bài, menu, popup, quay về PC và Firefox. Chi tiết: [MOBILE_UX.md](MOBILE_UX.md).
+
 ## 20/10/2026 — Lời giải chi tiết và xáo trộn đề
 
 - Bổ sung lời giải cho **180/180 câu** trong 4 đề: từ/câu chuẩn, nghĩa tiếng Việt, lý do chọn đáp án, điểm ngữ pháp/từ vựng cần nhớ và phân tích từng lựa chọn A–D. Lời giải chỉ xuất hiện sau khi nộp; áp dụng cả câu đúng, sai và bỏ trống, xem lại lịch sử và file xuất kết quả.

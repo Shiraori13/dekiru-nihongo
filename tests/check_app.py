@@ -5,9 +5,11 @@ ROOT=Path(__file__).resolve().parents[1]
 (ROOT/'.work').mkdir(exist_ok=True)
 sys.path.insert(0,str(ROOT/'.tools'))
 from playwright.sync_api import sync_playwright
+from browser_support import launch, install_legacy_readiness, reset_attempt_store
+install_legacy_readiness()
 
 with sync_playwright() as p:
-    browser=p.chromium.launch(channel='msedge',headless=True)
+    browser=launch(p)
     context=browser.new_context(viewport={'width':1440,'height':1000},reduced_motion='reduce')
     page=context.new_page();errors=[]
     page.on('pageerror',lambda e:errors.append(str(e)))
@@ -95,9 +97,13 @@ with sync_playwright() as p:
     page.set_viewport_size({'width':390,'height':844})
     page.screenshot(path=str(ROOT/'.work/mobile.png'),full_page=True)
     page.set_viewport_size({'width':320,'height':844})
+    page.locator('[data-mobile-key=reading-tools] > summary').click()
     page.select_option('#readingFontSize','34')
     for id in reading_ids:
+        if not page.locator('[data-mobile-key=reading-picker]').evaluate('(d)=>d.open'):
+            page.locator('[data-mobile-key=reading-picker] > summary').click()
         page.locator(f'[data-reading="{id}"]').click()
+        page.wait_for_function('!document.querySelector("[data-mobile-key=reading-picker]").open')
         assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'),f'Large-font overflow: {id}'
         assert page.locator('#readerArticle').evaluate('(el) => el.scrollWidth <= el.clientWidth+1'),f'Clipped article: {id}'
     # Corrupted or unavailable local storage must not prevent startup.

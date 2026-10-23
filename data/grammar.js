@@ -69,7 +69,7 @@ const GRAMMAR_DATA = (() => {
   add(5,0,'g5-with','Làm cùng ai; kể việc tiếp theo','Trợ từ','Người と V ／ 一人で V ／ Câu 1。それから、câu 2。',
     'と sau tên người chỉ người cùng thực hiện. 一人で = một mình. それから dùng kể hành động tiếp theo trong chuỗi sự việc.',
     'それから ở đây chỉ trình tự “sau đó”; から nối sau một câu ở topic sau lại chỉ nguyên nhân.',
-    '友達と|食事をしました。|それから、|映画を見ました。','ともだちと しょくじをしました。それから、えいがをみました。','Tôi ăn cùng bạn. Sau đó tôi xem phim.',[27,28,41],
+    '友達と|食事をしました。|それから、|映画を見ました。','ともだちと しょくじをしました。それから、えいがをみました。','Tôi đã ăn cùng bạn. Sau đó tôi đã xem phim.',[27,28,41],
     '家族（　）買い物をしました。 — Tôi đã mua sắm cùng gia đình.',['と','に','を','の'],'と đánh dấu người cùng thực hiện: 家族と.');
   add(5,0,'g5-somewhere','Có đi đâu không? Không đi đâu cả','Hội thoại','どこか（へ）行きましたか ／ どこ（へ）も行きませんでした',
     'どこか hỏi có đi một nơi nào đó hay không. どこへも đi với phủ định để nói không đi đâu cả. Trong hội thoại có thể lược へ.',
@@ -105,7 +105,7 @@ const GRAMMAR_DATA = (() => {
     'Lấy gốc trước ます rồi thêm たいです: 飲みます → 飲みたいです. たい chia như tính từ い: たくないです, たかったです.',
     'Với tân ngữ của たい có thể gặp を hoặc が. Không chấm が là sai chỉ vì ví dụ dùng を. Không dùng 飲むたい.',
     '私は|お茶を|飲みたいです。','わたしは おちゃを のみたいです。','Tôi muốn uống trà.',[34,37],
-    'Muốn chụp ảnh: 写真を（　）。',['撮りたいです','撮るたいです','撮りますたいです','撮ってたいです'],'撮ります bỏ ます thành 撮り, rồi thêm たいです.');
+    'Muốn chụp ảnh: 写真を（　）。',['撮りたいです','撮るたいです','撮りますたいです','撮りましたたいです'],'撮ります bỏ ます thành 撮り, rồi thêm たいです.');
   add(5,2,'g5-purpose','Đi để làm gì','Mục đích','Địa điểm へ V bỏ ます に 行きます ／ N hoạt động に 行きます',
     'へ chỉ nơi đến; に chỉ mục đích của chuyến đi. Dùng gốc ます như 見に, 食べに; hoặc danh từ hoạt động như 買い物に.',
     '映画を見に行きます, không phải 映画を見ますに行きます. Phân biệt địa điểm và mục đích, dù cả hai đều có thể gặp trợ từ に.',
@@ -207,14 +207,14 @@ const GRAMMAR_DATA = (() => {
   const forms = [
     ['g4-negative','Phủ định lịch sự của 寒いです.',['寒くないです','さむくないです','寒くありません','さむくありません'],'寒い bỏ い, thêm くないです.'],
     ['g5-past-na','Đổi 暇です sang quá khứ phủ định.',['暇じゃありませんでした','ひまじゃありませんでした','暇ではありませんでした','ひまではありませんでした','暇じゃなかったです','ひまじゃなかったです','暇ではなかったです','ひまではなかったです'],'暇 thuộc nhóm tính từ な: 暇じゃありませんでした.'],
-    ['g5-want-noun','Đổi ほしいです thành phủ định (kết thúc bằng です).',['ほしくないです'],'ほしい chia như tính từ い: ほしくないです.'],
+    ['g5-want-noun','Đổi ほしいです thành phủ định (kết thúc bằng です).',['ほしくないです','欲しくないです'],'ほしい chia như tính từ い: ほしくないです.'],
     ['g5-want-verb','Đổi 行きたいです thành phủ định (kết thúc bằng です).',['行きたくないです','いきたくないです'],'たい chia như tính từ い: たくないです.'],
     ['g6-invite','Từ 食べます, viết lời rủ “cùng ăn nhé?” bằng mẫu ませんか.',['食べませんか','たべませんか'],'食べます bỏ ます rồi thêm ませんか.'],
     ['g7-request','Từ 取ります, viết “hãy lấy giúp” bằng mẫu てください.',['取ってください','とってください'],'取る là nhóm 1: 取って + ください.'],
     ['g7-progressive','Từ 電話をかけます, viết “đang gọi điện” (giữ 電話を).',['電話をかけています','でんわをかけています'],'かける thuộc nhóm 2: かけて + います.'],
     ['g7-offer','Từ 手伝います, viết “để tôi giúp nhé?” bằng mẫu ましょうか.',['手伝いましょうか','てつだいましょうか'],'Bỏ ます rồi thêm ましょうか.'],
-    ['g4-negative','Phủ định lịch sự của いいです (nhập cả です).',['よくないです','よくありません'],'いい đổi gốc thành よ: よくないです.'],
-    ['g4-negative','Phủ định lịch sự của 静かです.',['静かじゃありません','しずかじゃありません','静かではありません','しずかではありません','静かじゃないです','しずかじゃないです'],'Tính từ な dùng じゃありません／じゃないです, không đổi sang くない.'],
+    ['g4-negative','Phủ định của いいです (nhập đầy đủ dạng lịch sự).',['よくないです','よくありません'],'いい đổi gốc thành よ: よくないです.'],
+    ['g4-negative','Phủ định lịch sự của 静かです.',['静かじゃありません','しずかじゃありません','静かではありません','しずかではありません','静かじゃないです','しずかじゃないです','静かではないです','しずかではないです'],'Tính từ な dùng じゃありません／じゃないです, không đổi sang くない.'],
     ['g5-past','Đổi 飲みます sang quá khứ khẳng định (lịch sự).',['飲みました','のみました'],'Thay ます bằng ました.'],
     ['g5-past','Đổi 食べます sang quá khứ phủ định (lịch sự).',['食べませんでした','たべませんでした'],'Thay ます bằng ませんでした.'],
     ['g5-past-i','Đổi いいです sang quá khứ khẳng định.',['よかったです'],'いい→よかったです là ngoại lệ cần nhớ.'],

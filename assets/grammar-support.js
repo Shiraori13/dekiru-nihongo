@@ -189,6 +189,8 @@
 遊び方/あそびかた/cách chơi
 入れ方/いれかた/cách cho vào; cách pha
 勉強/べんきょう/việc học
+一年/いちねん/một năm
+仕方/しかた/cách làm
 方/かた/cách (trong từ chỉ cách làm)
 字/じ/chữ
 紙/かみ/giấy

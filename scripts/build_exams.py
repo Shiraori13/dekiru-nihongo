@@ -277,7 +277,15 @@ def build():
     exams[3]['legacyFingerprints']=[legacy_fingerprint(exams[3])]
     exams[3]['questions'][6]['prompt']='Theo mục từ bài 5 trong PDF, chọn cách đọc của「今年」.'
     attach_solutions(exams)
+    from content_corrections import apply
+    apply(exams,legacy_fingerprint)
+    # Keep the four existing papers byte-for-byte equivalent; the new bank has
+    # explicit teaching notes and follows the actual supplied sample matrix.
+    from exam67_common import assemble
+    from exams67_a import papers as papers_a
+    from exams67_b import papers as papers_b
+    exams.extend(assemble([*papers_a(), *papers_b()]))
     (ROOT/'data/exams.js').write_text('// Authored exam bank; see EXAM_AUDIT.md and scripts/build_exams.py.\nwindow.DEKIRU_EXAMS = '+json.dumps(exams,ensure_ascii=False,indent=2)+';\n',encoding='utf-8')
-    print('Built 4 exams x 45 questions: 44 transcribed + 1 labelled addition, 135 authored.')
+    print('Built 8 exams x 45 questions: sample 44 + 1 addition, 3 papers lessons 4–5, 4 papers lessons 6–7.')
 
 if __name__=='__main__':build()

@@ -1,0 +1,316 @@
+{
+  "date": "2026-10-22",
+  "exams": {
+    "sample-10": {
+      "issue": "友達の約束 cũng tạo câu có nghĩa khác; thiếu nghĩa đích.",
+      "prompt": "あした、（　）約束があります。Chọn cách nói ‘có hẹn với bạn’.",
+      "source": "sources/speaking.pdf#page=44; data/grammar.js:g6-event",
+      "status": "context-corrected"
+    },
+    "sample-17": {
+      "issue": "Lý do loại D nói hai trợ từ đầu đúng, trong khi D là で・へ・が.",
+      "reasonsByOption": {
+        "で・へ・が": "で ở vị trí đích đến và へ ở vị trí nơi chụp đều không khớp. 写真 là tân ngữ của 撮る nên cũng cần を, không dùng が."
+      },
+      "source": "sources/speaking.pdf#page=26; scripts/build_exams.py:sample_text",
+      "status": "explanation-corrected"
+    },
+    "sample-18": {
+      "issue": "十分 có thể đọc じゅうぶん (đủ), gây nhập nhằng với mười phút.",
+      "prompt": "家から駅まで、電車（　）10分です。",
+      "completed": "家から駅まで、電車で10分です。",
+      "source": "sources/new-words.pdf#page=12; data/grammar.js:g4-duration",
+      "status": "notation-corrected"
+    },
+    "sample-19": {
+      "issue": "のほうは có thể hợp câu tương phản; không nên làm phương án sai tuyệt đối.",
+      "replaceOptions": {
+        "の・は": "の・を"
+      },
+      "reasonsByOption": {
+        "の・を": "のほう đúng cách nối danh từ, nhưng を không đánh dấu bên được so sánh trước 近いです; mẫu cần が."
+      },
+      "source": "sources/speaking.pdf#page=46; data/grammar.js:g6-compare",
+      "status": "distractor-corrected"
+    },
+    "sample-24": {
+      "issue": "いいですね có thể hưởng ứng ý tưởng rồi từ chối; câu chưa yêu cầu lặp lại thời điểm.",
+      "prompt": "B lặp lại thời điểm ‘lần tới à?’ trước khi từ chối. A：今度、ビールを飲みませんか。\nB：ああ、（　）。すみません。今度はちょっと…。",
+      "reasonsByOption": {
+        "いいですね": "いいですね có thể hưởng ứng ý tưởng trước khi từ chối, nhưng không lặp lại thời điểm ‘lần tới à?’ như yêu cầu cụ thể của câu này."
+      },
+      "source": "sources/speaking.pdf#page=43; data/grammar.js:g6-invite",
+      "status": "context-corrected"
+    },
+    "sample-35": {
+      "issue": "つ là lượng từ chung; cần nói rõ đang kiểm tra lượng từ vật mỏng/phẳng.",
+      "prompt": "Chọn lượng từ chuyên dùng cho vé (vật mỏng, phẳng): サッカーのチケットが（　）あります。",
+      "source": "sources/new-words.pdf#page=18; data/grammar.js:g6-event",
+      "status": "context-corrected"
+    },
+    "c45-1-07": {
+      "issue": "景色 có cách đọc けいしょく trong từ điển; không được phủ nhận mọi cách đọc ngoài けしき.",
+      "prompt": "Theo mục từ bài 5 trong PDF, chọn cách đọc của「景色」.",
+      "reasonsByOption": {
+        "けいしょく": "けいしょく cũng có trong từ điển, dùng trong văn viết. Câu này yêu cầu cách đọc mục từ bài 5 của PDF là けしき; không coi mọi cách đọc khác là không tồn tại."
+      },
+      "source": "sources/new-words.pdf#page=17; https://mmsrv.ninjal.ac.jp/kamus/data/item1597.html; https://kotobank.jp/word/景色-488813",
+      "status": "reading-context-corrected"
+    },
+    "c45-1-25": {
+      "issue": "Ba giải thích nhiễu bị gán lệch: lựa chọn thực tế là を/の/へ, ghi chú lại nói に/を/の.",
+      "reasonsByOption": {
+        "を": "を đánh dấu tân ngữ, không chỉ người cùng thực hiện việc ăn trong 家族と食事しました.",
+        "の": "の nối danh từ; 家族の食事 nói bữa ăn của gia đình, không phải cùng gia đình ăn.",
+        "へ": "へ chỉ hướng đến, không đánh dấu người cùng thực hiện hành động. Cần 家族と."
+      },
+      "source": "sources/speaking.pdf#page=26; scripts/build_exams.py; scripts/exam_solutions.py",
+      "status": "option-alignment-corrected"
+    },
+    "c45-2-06": {
+      "issue": "Phong tà/ふうじゃ là cách đọc Hán y cổ; cần giới hạn nghĩa/cách đọc mục từ cảm ở bài 5.",
+      "prompt": "Theo mục từ bệnh cảm ở bài 5 trong PDF, đọc「風邪」.",
+      "reasonsByOption": {
+        "ふうじゃ": "ふうじゃ là cách đọc trong thuật ngữ y học cổ. Mục từ chỉ bệnh cảm trong bài 5 đang hỏi đọc かぜ; không phủ nhận cách đọc chuyên ngành."
+      },
+      "source": "sources/new-words.pdf#page=16; https://kotobank.jp/word/風邪-44719; https://kanjibunka.com/kanji-faq/mean/q0137/",
+      "status": "context-corrected-expert-review-pending"
+    },
+    "c45-2-17": {
+      "issue": "高いのです là cấu trúc giải thích có thật, cùng nghĩa cơ bản với 高いです.",
+      "replaceOptions": {
+        "高いの": "高くな"
+      },
+      "reasonsByOption": {
+        "高くな": "高くな không phải dạng tính từ hoàn chỉnh đứng trước です. Câu khẳng định theo mẫu bài 4 là 高いです."
+      },
+      "source": "https://www.jpf.go.jp/j/project/japanese/teach/tsushin/grammar/201006.html; sources/speaking.pdf#page=14",
+      "status": "distractor-corrected"
+    }
+  },
+  "grammar": {
+    "g5-want-verb-choice": {
+      "issue": "撮ってたいです có cách hiểu là dạng hội thoại lược い của 撮っていたいです; nghĩa tiếp diễn/duy trì có thể hợp ngữ cảnh rộng, không dùng làm dạng sai ngữ pháp tuyệt đối.",
+      "replaceOptions": {
+        "撮ってたいです": "撮りましたたいです"
+      },
+      "status": "distractor-corrected",
+      "source": "https://doi.org/10.19024/jajls.28.1_262; data/grammar.js:g5-want-verb",
+      "sourceBasis": "Nguồn nghiên cứu xác nhận biến thể ている／てる; áp dụng quy tắc lược い cho dạng たい／ましょう. Thay nhiễu để không đòi người học phân biệt sắc thái tiếp diễn chưa được nêu trong đề."
+    },
+    "practice-g5-want-verb-0-choice": {
+      "issue": "行ってたいです có cách hiểu là dạng hội thoại lược い của 行っていたいです; nghĩa tiếp diễn/duy trì có thể hợp ngữ cảnh rộng, không dùng làm dạng sai ngữ pháp tuyệt đối.",
+      "replaceOptions": {
+        "行ってたいです": "行きましたたいです"
+      },
+      "status": "distractor-corrected",
+      "source": "https://doi.org/10.19024/jajls.28.1_262; data/grammar-practice.js:g5-want-verb",
+      "sourceBasis": "Nguồn nghiên cứu xác nhận biến thể ている／てる; áp dụng quy tắc lược い cho dạng たい／ましょう. Thay nhiễu để không đòi người học phân biệt sắc thái tiếp diễn chưa được nêu trong đề."
+    },
+    "practice-g5-want-verb-2-choice": {
+      "issue": "食べてたいです có cách hiểu là dạng hội thoại lược い của 食べていたいです; nghĩa tiếp diễn/duy trì có thể hợp ngữ cảnh rộng, không dùng làm dạng sai ngữ pháp tuyệt đối.",
+      "replaceOptions": {
+        "食べてたいです": "食べましたたいです"
+      },
+      "status": "distractor-corrected",
+      "source": "https://doi.org/10.19024/jajls.28.1_262; data/grammar-practice.js:g5-want-verb",
+      "sourceBasis": "Nguồn nghiên cứu xác nhận biến thể ている／てる; áp dụng quy tắc lược い cho dạng たい／ましょう. Thay nhiễu để không đòi người học phân biệt sắc thái tiếp diễn chưa được nêu trong đề."
+    },
+    "practice-g5-want-verb-3-choice": {
+      "issue": "してたいですか có cách hiểu là dạng hội thoại lược い của していたいですか; nghĩa tiếp diễn/duy trì có thể hợp ngữ cảnh rộng, không dùng làm dạng sai ngữ pháp tuyệt đối.",
+      "replaceOptions": {
+        "してたいですか": "しましたたいですか"
+      },
+      "status": "distractor-corrected",
+      "source": "https://doi.org/10.19024/jajls.28.1_262; data/grammar-practice.js:g5-want-verb",
+      "sourceBasis": "Nguồn nghiên cứu xác nhận biến thể ている／てる; áp dụng quy tắc lược い cho dạng たい／ましょう. Thay nhiễu để không đòi người học phân biệt sắc thái tiếp diễn chưa được nêu trong đề."
+    },
+    "practice-g5-want-verb-4-choice": {
+      "issue": "会ってたいです có cách hiểu là dạng hội thoại lược い của 会っていたいです; nghĩa tiếp diễn/duy trì có thể hợp ngữ cảnh rộng, không dùng làm dạng sai ngữ pháp tuyệt đối.",
+      "replaceOptions": {
+        "会ってたいです": "会いましたたいです"
+      },
+      "status": "distractor-corrected",
+      "source": "https://doi.org/10.19024/jajls.28.1_262; data/grammar-practice.js:g5-want-verb",
+      "sourceBasis": "Nguồn nghiên cứu xác nhận biến thể ている／てる; áp dụng quy tắc lược い cho dạng たい／ましょう. Thay nhiễu để không đòi người học phân biệt sắc thái tiếp diễn chưa được nêu trong đề."
+    },
+    "practice-g5-want-verb-6-choice": {
+      "issue": "撮ってたいです có cách hiểu là dạng hội thoại lược い của 撮っていたいです; nghĩa tiếp diễn/duy trì có thể hợp ngữ cảnh rộng, không dùng làm dạng sai ngữ pháp tuyệt đối.",
+      "replaceOptions": {
+        "撮ってたいです": "撮りましたたいです"
+      },
+      "status": "distractor-corrected",
+      "source": "https://doi.org/10.19024/jajls.28.1_262; data/grammar-practice.js:g5-want-verb",
+      "sourceBasis": "Nguồn nghiên cứu xác nhận biến thể ている／てる; áp dụng quy tắc lược い cho dạng たい／ましょう. Thay nhiễu để không đòi người học phân biệt sắc thái tiếp diễn chưa được nêu trong đề."
+    },
+    "practice-g6-invite-2-choice-v3": {
+      "issue": "泳いでましょう có cách hiểu là dạng hội thoại lược い của 泳いでいましょう; nghĩa tiếp diễn/duy trì có thể hợp ngữ cảnh rộng, không dùng làm dạng sai ngữ pháp tuyệt đối.",
+      "replaceOptions": {
+        "泳いでましょう": "泳ぎましたましょう"
+      },
+      "status": "distractor-corrected",
+      "source": "https://doi.org/10.19024/jajls.28.1_262; data/grammar-practice.js:g6-invite",
+      "sourceBasis": "Nguồn nghiên cứu xác nhận biến thể ている／てる; áp dụng quy tắc lược い cho dạng たい／ましょう. Thay nhiễu để không đòi người học phân biệt sắc thái tiếp diễn chưa được nêu trong đề."
+    },
+    "practice-g6-invite-5-choice": {
+      "issue": "飲んでましょう có cách hiểu là dạng hội thoại lược い của 飲んでいましょう; nghĩa tiếp diễn/duy trì có thể hợp ngữ cảnh rộng, không dùng làm dạng sai ngữ pháp tuyệt đối.",
+      "replaceOptions": {
+        "飲んでましょう": "飲みましたましょう"
+      },
+      "status": "distractor-corrected",
+      "source": "https://doi.org/10.19024/jajls.28.1_262; data/grammar-practice.js:g6-invite",
+      "sourceBasis": "Nguồn nghiên cứu xác nhận biến thể ている／てる; áp dụng quy tắc lược い cho dạng たい／ましょう. Thay nhiễu để không đòi người học phân biệt sắc thái tiếp diễn chưa được nêu trong đề."
+    },
+    "practice-g6-suggest-3-choice": {
+      "issue": "そうしてましょう có cách hiểu là dạng hội thoại lược い của そうしていましょう; nghĩa tiếp diễn/duy trì có thể hợp ngữ cảnh rộng, không dùng làm dạng sai ngữ pháp tuyệt đối.",
+      "replaceOptions": {
+        "そうしてましょう": "そうしましたましょう"
+      },
+      "status": "distractor-corrected",
+      "source": "https://doi.org/10.19024/jajls.28.1_262; data/grammar-practice.js:g6-suggest",
+      "sourceBasis": "Nguồn nghiên cứu xác nhận biến thể ている／てる; áp dụng quy tắc lược い cho dạng たい／ましょう. Thay nhiễu để không đòi người học phân biệt sắc thái tiếp diễn chưa được nêu trong đề."
+    },
+    "practice-g7-offer-0-choice": {
+      "issue": "開けてましょうか có cách hiểu là dạng hội thoại lược い của 開けていましょうか; nghĩa tiếp diễn/duy trì có thể hợp ngữ cảnh rộng, không dùng làm dạng sai ngữ pháp tuyệt đối.",
+      "replaceOptions": {
+        "開けてましょうか": "開けましたましょうか"
+      },
+      "status": "distractor-corrected",
+      "source": "https://doi.org/10.19024/jajls.28.1_262; data/grammar-practice.js:g7-offer",
+      "sourceBasis": "Nguồn nghiên cứu xác nhận biến thể ている／てる; áp dụng quy tắc lược い cho dạng たい／ましょう. Thay nhiễu để không đòi người học phân biệt sắc thái tiếp diễn chưa được nêu trong đề."
+    },
+    "practice-g7-offer-1-choice": {
+      "issue": "入れてましょうか có cách hiểu là dạng hội thoại lược い của 入れていましょうか; nghĩa tiếp diễn/duy trì có thể hợp ngữ cảnh rộng, không dùng làm dạng sai ngữ pháp tuyệt đối.",
+      "replaceOptions": {
+        "入れてましょうか": "入れましたましょうか"
+      },
+      "status": "distractor-corrected",
+      "source": "https://doi.org/10.19024/jajls.28.1_262; data/grammar-practice.js:g7-offer",
+      "sourceBasis": "Nguồn nghiên cứu xác nhận biến thể ている／てる; áp dụng quy tắc lược い cho dạng たい／ましょう. Thay nhiễu để không đòi người học phân biệt sắc thái tiếp diễn chưa được nêu trong đề."
+    },
+    "practice-g7-offer-2-choice": {
+      "issue": "持ってましょうか có cách hiểu là dạng hội thoại lược い của 持っていましょうか; nghĩa tiếp diễn/duy trì có thể hợp ngữ cảnh rộng, không dùng làm dạng sai ngữ pháp tuyệt đối.",
+      "replaceOptions": {
+        "持ってましょうか": "持ちましたましょうか"
+      },
+      "status": "distractor-corrected",
+      "source": "https://doi.org/10.19024/jajls.28.1_262; data/grammar-practice.js:g7-offer",
+      "sourceBasis": "Nguồn nghiên cứu xác nhận biến thể ている／てる; áp dụng quy tắc lược い cho dạng たい／ましょう. Thay nhiễu để không đòi người học phân biệt sắc thái tiếp diễn chưa được nêu trong đề."
+    },
+    "practice-g7-offer-3-choice": {
+      "issue": "取ってましょうか có cách hiểu là dạng hội thoại lược い của 取っていましょうか; nghĩa tiếp diễn/duy trì có thể hợp ngữ cảnh rộng, không dùng làm dạng sai ngữ pháp tuyệt đối.",
+      "replaceOptions": {
+        "取ってましょうか": "取りましたましょうか"
+      },
+      "status": "distractor-corrected",
+      "source": "https://doi.org/10.19024/jajls.28.1_262; data/grammar-practice.js:g7-offer",
+      "sourceBasis": "Nguồn nghiên cứu xác nhận biến thể ている／てる; áp dụng quy tắc lược い cho dạng たい／ましょう. Thay nhiễu để không đòi người học phân biệt sắc thái tiếp diễn chưa được nêu trong đề."
+    },
+    "practice-g7-offer-4-choice": {
+      "issue": "切ってましょうか có cách hiểu là dạng hội thoại lược い của 切っていましょうか; nghĩa tiếp diễn/duy trì có thể hợp ngữ cảnh rộng, không dùng làm dạng sai ngữ pháp tuyệt đối.",
+      "replaceOptions": {
+        "切ってましょうか": "切りましたましょうか"
+      },
+      "status": "distractor-corrected",
+      "source": "https://doi.org/10.19024/jajls.28.1_262; data/grammar-practice.js:g7-offer",
+      "sourceBasis": "Nguồn nghiên cứu xác nhận biến thể ている／てる; áp dụng quy tắc lược い cho dạng たい／ましょう. Thay nhiễu để không đòi người học phân biệt sắc thái tiếp diễn chưa được nêu trong đề."
+    },
+    "practice-g7-offer-5-choice": {
+      "issue": "閉めてましょうか có cách hiểu là dạng hội thoại lược い của 閉めていましょうか; nghĩa tiếp diễn/duy trì có thể hợp ngữ cảnh rộng, không dùng làm dạng sai ngữ pháp tuyệt đối.",
+      "replaceOptions": {
+        "閉めてましょうか": "閉めましたましょうか"
+      },
+      "status": "distractor-corrected",
+      "source": "https://doi.org/10.19024/jajls.28.1_262; data/grammar-practice.js:g7-offer",
+      "sourceBasis": "Nguồn nghiên cứu xác nhận biến thể ている／てる; áp dụng quy tắc lược い cho dạng たい／ましょう. Thay nhiễu để không đòi người học phân biệt sắc thái tiếp diễn chưa được nêu trong đề."
+    },
+    "practice-g7-offer-6-choice": {
+      "issue": "持って来てましょうか có cách hiểu là dạng hội thoại lược い của 持って来ていましょうか; nghĩa tiếp diễn/duy trì có thể hợp ngữ cảnh rộng, không dùng làm dạng sai ngữ pháp tuyệt đối.",
+      "replaceOptions": {
+        "持って来てましょうか": "持って来ましたましょうか"
+      },
+      "status": "distractor-corrected",
+      "source": "https://doi.org/10.19024/jajls.28.1_262; data/grammar-practice.js:g7-offer",
+      "sourceBasis": "Nguồn nghiên cứu xác nhận biến thể ている／てる; áp dụng quy tắc lược い cho dạng たい／ましょう. Thay nhiễu để không đòi người học phân biệt sắc thái tiếp diễn chưa được nêu trong đề."
+    },
+    "practice-g7-offer-7-choice": {
+      "issue": "洗ってましょうか có cách hiểu là dạng hội thoại lược い của 洗っていましょうか; nghĩa tiếp diễn/duy trì có thể hợp ngữ cảnh rộng, không dùng làm dạng sai ngữ pháp tuyệt đối.",
+      "replaceOptions": {
+        "洗ってましょうか": "洗いましたましょうか"
+      },
+      "status": "distractor-corrected",
+      "source": "https://doi.org/10.19024/jajls.28.1_262; data/grammar-practice.js:g7-offer",
+      "sourceBasis": "Nguồn nghiên cứu xác nhận biến thể ている／てる; áp dụng quy tắc lược い cho dạng たい／ましょう. Thay nhiễu để không đòi người học phân biệt sắc thái tiếp diễn chưa được nêu trong đề."
+    },
+    "practice-g4-adjective-1-choice": {
+      "issue": "高いの trước です tạo cấu trúc giải thích 高いのです hợp ngữ pháp, vẫn diễn đạt tòa nhà cao.",
+      "status": "distractor-corrected",
+      "source": "https://www.jpf.go.jp/j/project/japanese/teach/tsushin/grammar/201006.html; data/grammar-practice.js:g4-adjective"
+    },
+    "practice-g4-adjective-3-choice": {
+      "issue": "古いの trước です tạo cấu trúc giải thích 古いのです hợp ngữ pháp, vẫn diễn đạt ngôi chùa cổ.",
+      "status": "distractor-corrected",
+      "source": "https://www.jpf.go.jp/j/project/japanese/teach/tsushin/grammar/201006.html; data/grammar-practice.js:g4-adjective"
+    },
+    "practice-g4-adjective-6-choice": {
+      "issue": "低いの trước です tạo cấu trúc giải thích 低いのです hợp ngữ pháp, vẫn diễn đạt ngọn núi thấp.",
+      "status": "distractor-corrected",
+      "source": "https://www.jpf.go.jp/j/project/japanese/teach/tsushin/grammar/201006.html; data/grammar-practice.js:g4-adjective"
+    },
+    "practice-g4-adjective-7-choice": {
+      "issue": "新しいの trước です tạo cấu trúc giải thích 新しいのです hợp ngữ pháp, vẫn diễn đạt nhà ga mới.",
+      "status": "distractor-corrected",
+      "source": "https://www.jpf.go.jp/j/project/japanese/teach/tsushin/grammar/201006.html; data/grammar-practice.js:g4-adjective"
+    },
+    "form-2": {
+      "issue": "Thiếu cách viết Kanji 欲しくないです.",
+      "status": "accepted-form-expanded",
+      "source": "data/grammar.js:g5-want-noun"
+    },
+    "form-8": {
+      "issue": "Yêu cầu です nhưng danh sách nhận よくありません.",
+      "status": "instruction-clarified",
+      "source": "data/grammar.js:g4-negative"
+    },
+    "form-9": {
+      "issue": "Thiếu 静かではないです/しずかではないです.",
+      "status": "accepted-form-expanded",
+      "source": "data/grammar.js:g4-negative"
+    },
+    "g5-with-order": {
+      "issue": "Nghĩa Việt chưa thể hiện quá khứ của hai hành động.",
+      "status": "translation-corrected",
+      "source": "sources/speaking.pdf#page=26"
+    },
+    "practice-g6-best-6-order-v2": {
+      "issue": "季節でいつ thiếu tự nhiên khi hỏi thời điểm trong năm.",
+      "status": "context-corrected",
+      "source": "data/grammar.js:g6-best"
+    },
+    "practice-g7-how-0-order-v2": {
+      "issue": "Chuẩn hóa cách viết し方 thành 仕方 trong 勉強の仕方.",
+      "status": "orthography-corrected",
+      "source": "https://www.kobe-cufs.ac.jp/library/about/pamphlet/la.html"
+    },
+    "practice-g4-degree-1-choice": {
+      "issue": "Aいのです là cấu trúc giải thích hợp ngữ pháp, không dùng làm đáp án sai tuyệt đối.",
+      "status": "distractor-corrected",
+      "source": "https://www.jpf.go.jp/j/project/japanese/teach/tsushin/grammar/201006.html; data/grammar.js:g4-degree"
+    },
+    "practice-g4-degree-2-choice": {
+      "issue": "Aいのです là cấu trúc giải thích hợp ngữ pháp, không dùng làm đáp án sai tuyệt đối.",
+      "status": "distractor-corrected",
+      "source": "https://www.jpf.go.jp/j/project/japanese/teach/tsushin/grammar/201006.html; data/grammar.js:g4-degree"
+    },
+    "practice-g4-degree-5-choice": {
+      "issue": "Aいのです là cấu trúc giải thích hợp ngữ pháp, không dùng làm đáp án sai tuyệt đối.",
+      "status": "distractor-corrected",
+      "source": "https://www.jpf.go.jp/j/project/japanese/teach/tsushin/grammar/201006.html; data/grammar.js:g4-degree"
+    },
+    "practice-g4-degree-6-choice": {
+      "issue": "Aいのです là cấu trúc giải thích hợp ngữ pháp, không dùng làm đáp án sai tuyệt đối.",
+      "status": "distractor-corrected",
+      "source": "https://www.jpf.go.jp/j/project/japanese/teach/tsushin/grammar/201006.html; data/grammar.js:g4-degree"
+    }
+  }
+}

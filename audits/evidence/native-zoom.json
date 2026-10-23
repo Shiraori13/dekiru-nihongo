@@ -1,0 +1,9 @@
+{
+  "width": 720,
+  "dpr": 2,
+  "scale": 1,
+  "mobile": true,
+  "browser": "chromium",
+  "version": "153.0.8010.12",
+  "method": "native default page zoom preference; viewport 1440x1000; no device_scale_factor override"
+}

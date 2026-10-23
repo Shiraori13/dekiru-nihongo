@@ -1,0 +1,35 @@
+name: Dekiru checks
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      DEKIRU_BROWSER: chromium
+      DEKIRU_CHANNEL: ''
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: pip install -r requirements-dev.txt
+      - run: npm ci --ignore-scripts
+      - run: npm run format:check
+      - run: python -m playwright install --with-deps chromium firefox
+      - run: node tests/check_logic.js
+      - run: node tests/check_chapter67.js
+      - run: python tests/run_checks.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-evidence
+          path: |
+            .work/test-results/
+            audits/evidence/

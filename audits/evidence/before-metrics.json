@@ -1,0 +1,92 @@
+{
+  "dom": 4926,
+  "resources": [
+    {
+      "path": "/assets/fonts/NotoSansJP-study.woff2",
+      "bytes": 415400
+    },
+    {
+      "path": "/assets/study.css",
+      "bytes": 38336
+    },
+    {
+      "path": "/assets/grammar.css",
+      "bytes": 12355
+    },
+    {
+      "path": "/assets/exams.css",
+      "bytes": 14556
+    },
+    {
+      "path": "/assets/mobile.css",
+      "bytes": 18503
+    },
+    {
+      "path": "/assets/audio.js",
+      "bytes": 7264
+    },
+    {
+      "path": "/data/audio.js",
+      "bytes": 59802
+    },
+    {
+      "path": "/data/vocabulary.js",
+      "bytes": 130522
+    },
+    {
+      "path": "/data/readings.js",
+      "bytes": 101997
+    },
+    {
+      "path": "/assets/reading.js",
+      "bytes": 13434
+    },
+    {
+      "path": "/assets/kanji.js",
+      "bytes": 22890
+    },
+    {
+      "path": "/data/kanji.js",
+      "bytes": 697870
+    },
+    {
+      "path": "/data/grammar.js",
+      "bytes": 42754
+    },
+    {
+      "path": "/data/grammar-practice.js",
+      "bytes": 67469
+    },
+    {
+      "path": "/assets/grammar-support.js",
+      "bytes": 11376
+    },
+    {
+      "path": "/assets/grammar.js",
+      "bytes": 27342
+    },
+    {
+      "path": "/assets/exam-core.js",
+      "bytes": 7080
+    },
+    {
+      "path": "/data/exams.js",
+      "bytes": 245417
+    },
+    {
+      "path": "/assets/exams.js",
+      "bytes": 41770
+    },
+    {
+      "path": "/assets/mobile.js",
+      "bytes": 15404
+    },
+    {
+      "path": "/favicon.ico",
+      "bytes": 0
+    }
+  ],
+  "documentBytes": 79063,
+  "bytes": 2070604,
+  "requests": 22
+}

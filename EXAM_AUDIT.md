@@ -1,13 +1,18 @@
-# Luyện đề 45 câu — đối chiếu ngày 20/10/2026
+# Luyện đề 45 câu — cập nhật ngày 23/10/2026
+
+Cập nhật 22/10/2026: [audit 180 ID và migration](audits/answers.md), [báo cáo lưu nhiều tab/kiểm thử](IMPLEMENTATION_REPORT.md). Hiện IndexedDB là nguồn trạng thái bài/lịch sử và localStorage v1 chỉ là bản chiếu. Các câu đã hiệu đính được ghi trong `audits/content-decisions.json`.
+
+Hiện có **8 đề / 360 câu**. Phần mới: [bốn đề chuyên bài 6–7](audits/CHAPTER67_EXAMS.md).
 
 ## Nguồn và phạm vi
 
 - Đề ảnh: `Material/chim-20261020T143204Z-1-001/chim/`, 44 ảnh PNG, đánh số câu 1–17 và 19–45. Không có ảnh câu 18, không có khóa đáp án.
 - New words list: [PDF từ vựng](sources/new-words.pdf), trang 12–14 cho bài 4; trang 15–17 cho bài 5. Có 68 mục từ bài 4 và 59 mục từ bài 5, tổng 127 mục (một số từ lặp giữa hai bài).
 - Ngữ pháp: 19 mục bài 4–5 đã đối chiếu trong [GRAMMAR_AUDIT.md](GRAMMAR_AUDIT.md). PDF từ vựng giúp xác định bài/topic và ví dụ, không được coi là giáo trình giải thích toàn bộ ngữ pháp.
-- Ba đề mới là bài tập biên soạn theo **dạng câu hỏi** của ảnh, không phải đề thi chính thức hoặc ảnh gốc được thay vài tên riêng.
+- Bài 6–7 đối chiếu thêm PDF từ vựng trang 18–23: 55 mục bài 6, 70 mục bài 7; ngữ pháp theo 18 mục hiện có và PDF speaking. [Phạm vi chi tiết](audits/CHAPTER67_EXAMS.md).
+- Bảy đề biên soạn theo **dạng câu hỏi** của ảnh, không phải đề thi chính thức hoặc ảnh gốc được thay vài tên riêng.
 
-## Bốn đề có sẵn
+## Tám đề có sẵn
 
 | Đề | Số câu | Nội dung |
 |---|---:|---|
@@ -15,12 +20,16 @@
 | Bài 4–5 · Đề 01 | 45 | Hành trình và ngày nghỉ |
 | Bài 4–5 · Đề 02 | 45 | Thành phố và trải nghiệm |
 | Bài 4–5 · Đề 03 | 45 | Mùa, sở thích và kế hoạch |
+| Bài 6–7 · Đề 01 | 45 | Rủ xem thể thao, hẹn gặp và đến nhà bạn |
+| Bài 6–7 · Đề 02 | 45 | Sự kiện âm nhạc và chuẩn bị tiệc |
+| Bài 6–7 · Đề 03 | 45 | Đi chơi trong thành phố, hỏi đường và đồ ăn |
+| Bài 6–7 · Đề 04 | 45 | Hòa nhạc, gặp gỡ, nấu ăn và chụp ảnh |
 
-Mỗi đề mới có 7 câu đọc chữ Hán, 4 câu chọn chữ Hán, 3 câu nghĩa từ, 25 câu ngữ pháp, 3 hội thoại và 3 câu dịch. Mỗi câu có 4 lựa chọn, một đáp án và giải thích tiếng Việt. 135 đề bài của ba đề mới khác nhau.
+Ba đề bài 4–5 có 7 câu đọc chữ Hán, 4 câu chọn chữ Hán, 3 câu nghĩa từ, 25 câu ngữ pháp, 3 hội thoại và 3 câu dịch. Bốn đề bài 6–7 bám đúng ma trận đề mẫu: **6 đọc, 8 viết Hán tự, 1 từ vựng, 21 ngữ pháp, 7 hội thoại, 2 dịch**, đủ 18 mục/6 topic. Mỗi câu có 4 lựa chọn, một đáp án và lời giải từng lựa chọn. 315 đề bài của bảy đề biên soạn khác nhau. [Nguồn, ma trận và kiểm thử bài 6–7](audits/CHAPTER67_EXAMS.md).
 
-Trong màn hình chọn đề có danh mục ôn đầy đủ 127 mục từ theo 6 topic, gồm cách viết, cách đọc và nghĩa Việt. Danh mục không xuất hiện trong màn hình làm bài. Ảnh của đề tự thêm có nút phóng to/kích thước gốc để đọc chữ nhỏ trên điện thoại.
+Trong màn hình chọn đề có bộ lọc bài 4–5/bài 6–7/đề mẫu/đề của bạn; bài đang làm vẫn có nút tiếp tục khi đổi nhóm. Hai danh mục ôn riêng: 127 mục từ bài 4–5 và 125 mục từ bài 6–7, mỗi nhóm 6 topic, có chữ/cách đọc/nghĩa Việt. Danh mục không xuất hiện trong màn hình làm bài. Ảnh đề tự thêm vẫn phóng to được.
 
-Mỗi đề mới phủ đủ **19 mục ngữ pháp / 6 topic**, cùng kiến thức nền bài 1–3. Không đưa mẫu so sánh, rủ với ませんか/ましょう, thể て hay tiếp diễn vào phần kiến thức mới của ba đề này. Từ vựng được chọn luân phiên; **45 câu không kiểm tra riêng toàn bộ 127 mục từ**. Danh sách từ đầy đủ vẫn nằm trong chế độ Danh sách và PDF; không quảng cáo mỗi đề kiểm tra hết từng từ.
+Mỗi đề bài 4–5 phủ đủ **19 mục ngữ pháp / 6 topic**, cùng kiến thức nền bài 1–3. Không đưa mẫu so sánh, rủ với ませんか/ましょう, thể て hay tiếp diễn vào phần kiến thức mới của ba đề này. Từ vựng được chọn luân phiên; **45 câu không kiểm tra riêng toàn bộ 127 mục từ**. Danh sách từ đầy đủ vẫn nằm trong chế độ Danh sách và PDF; không quảng cáo mỗi đề kiểm tra hết từng từ.
 
 | Bài / topic | Mục ngữ pháp có trong mỗi đề mới |
 |---|---|
@@ -56,7 +65,7 @@ Các câu khác được chuẩn hóa dấu câu, khoảng trắng, chữ số v
 
 Mỗi lượt mới chọn một hoán vị của đủ 45 câu, không thay nội dung hay thứ tự A–D. Lượt làm lại dùng hoán vị mới; đổi câu, đổi chế độ, tải lại hoặc mở lịch sử giữ nguyên hoán vị đã lưu. Bài làm và lịch sử từ trước cập nhật chưa có `order` dùng thứ tự tự nhiên 1–45 để giữ đúng lựa chọn cũ. Hoán vị sai/trùng/thiếu bị từ chối thay vì gán lại đáp án vào câu khác.
 
-180 câu có lời giải biên soạn trong `scripts/exam_solutions.py`, được ghép vào `data/exams.js` khi chạy `scripts/build_exams.py`. Mỗi lời giải có câu hoàn chỉnh/từ chuẩn, nghĩa Việt, lý do đúng, quy tắc và lý do loại từng lựa chọn. Các ghi chú được ghép bằng ID câu và vị trí phương án thực tế, không dựa vào chữ A/B/C/D cố định. Người học chỉ thấy sau khi nộp, gồm cả câu đã đúng và câu bỏ trống. Phần phân tích cả 4 lựa chọn có thể mở/đóng.
+360 câu có lời giải: 180 câu cũ trong `scripts/exam_solutions.py`, 180 câu mới bài 6–7 trong `scripts/exams67_a.py`/`scripts/exams67_b.py`, được ghép vào `data/exams.js` khi chạy `scripts/build_exams.py`. Mỗi lời giải có câu hoàn chỉnh/từ chuẩn, nghĩa Việt, lý do đúng, quy tắc và lý do loại từng lựa chọn. Các ghi chú được ghép bằng ID câu và vị trí phương án thực tế, không dựa vào chữ A/B/C/D cố định. Người học chỉ thấy sau khi nộp, gồm cả câu đã đúng và câu bỏ trống. Phần phân tích cả 4 lựa chọn có thể mở/đóng.
 
 Câu 7 đề 03 hỏi rõ cách đọc theo mục từ bài 5 trong PDF là ことし. こんねん cũng là cách đọc có thật trong văn viết trang trọng; lời giải không tuyên bố đây là cách đọc sai. Đối chiếu: [NINJAL — 今年](https://mmsrv.ninjal.ac.jp/kamus/data/item1864.html). Chỉ làm rõ đề bài, không đổi vị trí lựa chọn/khóa đáp án; dấu nhận diện bản trước được giữ để khôi phục bài và lịch sử.
 
@@ -71,7 +80,7 @@ Trong **Luyện đề → Thêm đề**, có hai cách:
 
 Ảnh được gán từ câu đang mở, sắp theo số trong tên file; cần kiểm tra nếu bộ ảnh bị thiếu câu hoặc tên không phản ánh thứ tự đề. Ảnh tối đa 5 MB đầu vào, được thu gọn về tối đa 1600 px và JPEG trong trình duyệt. File đề tối đa 30 MB; chỉ nhận ảnh data URL PNG/JPEG/WebP, không nhận SVG hay liên kết ảnh bên ngoài trong file nhập.
 
-Đề và ảnh lưu ở IndexedDB, bài làm/lịch sử lưu ở localStorage. Không tải file lên máy chủ, không tự đồng bộ giữa máy/trình duyệt. **Xuất đề** giữ bản sao chuyển thiết bị; **Xuất kết quả** xuất từng lựa chọn, đáp án, trạng thái và giải thích. Lịch sử giữ 30 lượt gần nhất. Xóa đề tự thêm sẽ xóa bài/lịch sử liên quan sau bước xác nhận. Đề có sẵn không bị xóa.
+Đề/ảnh và nguồn bài làm/lịch sử lưu ở IndexedDB; localStorage v1 chỉ là bản chiếu tương thích. Không tải file lên máy chủ, không tự đồng bộ giữa máy/trình duyệt. **Xuất đề** giữ bản sao chuyển thiết bị; **Xuất kết quả** xuất từng lựa chọn, đáp án, trạng thái và giải thích. Lịch sử giữ 30 lượt gần nhất. Xóa đề tự thêm sẽ xóa bài/lịch sử liên quan sau bước xác nhận. Đề có sẵn không bị xóa.
 
 JSON tối thiểu có cấu trúc sau; `questions` phải có đúng 45 phần tử:
 

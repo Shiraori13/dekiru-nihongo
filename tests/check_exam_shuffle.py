@@ -3,11 +3,13 @@ import json,subprocess,sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'.tools'))
 from playwright.sync_api import sync_playwright
+from browser_support import launch, install_legacy_readiness, reset_attempt_store, continue_exam
+install_legacy_readiness()
 KEY='dekiru_exam_attempt_v1'
 HISTORY='dekiru_exam_history_v1'
 
 with sync_playwright() as p:
-    browser=p.chromium.launch(channel='msedge',headless=True)
+    browser=launch(p)
     context=browser.new_context(viewport={'width':1280,'height':1000},reduced_motion='reduce')
     context.route('https://**/*',lambda r:r.abort())
     page=context.new_page();errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
@@ -17,7 +19,7 @@ with sync_playwright() as p:
       const old=Function('window',source+';return window.DEKIRU_EXAMS;')({});
       return old.map(e=>({id:e.id,fingerprint:ExamCore.fingerprint(e)}));
     }''',old_data)
-    assert page.evaluate('''old=>old.every(o=>{const e=DEKIRU_EXAMS.find(e=>e.id===o.id);return ExamCore.fingerprint(e)===o.fingerprint || e.legacyFingerprints.includes(o.fingerprint);})''',old_fps)
+    assert page.evaluate('''old=>old.every(o=>{const e=DEKIRU_EXAMS.find(e=>e.id===o.id);return ExamCore.fingerprint(e)===o.fingerprint || e.legacyFingerprints?.includes(o.fingerprint) || e.migrations?.[o.fingerprint];})''',old_fps)
     assert page.evaluate('''()=>{
       const originals=JSON.stringify(DEKIRU_EXAMS.map(e=>e.questions.map(q=>q.id)));
       for(let n=0;n<200;n++){
@@ -30,6 +32,8 @@ with sync_playwright() as p:
       } finally{Math.random=originalRandom;}
       return JSON.stringify(DEKIRU_EXAMS.map(e=>e.questions.map(q=>q.id)))===originals;
     }''')
+    assert page.evaluate('DEKIRU_EXAMS.length')==8
+    assert page.evaluate('DEKIRU_EXAMS.flatMap(e=>e.questions).length')==360
     assert page.evaluate('''()=>DEKIRU_EXAMS.flatMap(e=>e.questions).every(q=>{
       const s=q.solution;return s.completed&&s.meaning&&s.rule.length>70&&s.options.length===4&&s.options.every(t=>t.length>10)&&s.options[q.answer]===q.explanation;
     })''')
@@ -45,7 +49,7 @@ with sync_playwright() as p:
     assert page.locator('.ex-solution').count()==0
     page.locator(f'[data-ex-answer="{q["answer"]}"]').click();page.locator('[data-ex-flag]').click()
     page.locator('[data-ex-next]').click();page.locator('[data-mode=flashcard]').click();page.locator('[data-mode=exam]').click()
-    page.reload();page.wait_for_selector('#examMode[data-ready=true]',state='attached');page.locator('[data-mode=exam]').click();page.locator('[data-ex-resume]').click()
+    page.reload();page.wait_for_selector('#examMode[data-ready=true]',state='attached');page.locator('[data-mode=exam]').click();page.locator('[data-ex-resume]').click();continue_exam(page)
     restored=page.evaluate(f'JSON.parse(localStorage.getItem("{KEY}"))')
     assert restored['order']==first['order'] and restored['answers'][0]==q['answer'] and restored['flags'][0]
     page.locator('[data-ex-jump="0"]').click();assert page.locator('#exRun .ex-prompt').inner_text()==q['prompt']
@@ -76,7 +80,7 @@ with sync_playwright() as p:
           localStorage.setItem('dekiru_exam_attempt_v1',JSON.stringify({id:crypto.randomUUID(),examId:id,fingerprint:ExamCore.fingerprint(e),order,
             answers:order.map((n,i)=>i%3===0?e.questions[n].answer:i%3===1?(e.questions[n].answer+1)%4:null),flags:Array(45).fill(false),index:0,startedAt:Date.now()-10000,minutes:0,submittedAt:Date.now()}));
         }''',e)
-        page.reload();page.wait_for_selector('#examMode[data-ready=true]',state='attached');page.locator('[data-mode=exam]').click();page.locator('[data-ex-resume]').click()
+        reset_attempt_store(page);page.reload();page.wait_for_selector('#examMode[data-ready=true]',state='attached');page.locator('[data-mode=exam]').click();page.locator('[data-ex-resume]').click();continue_exam(page)
         assert [page.locator('#ex'+name).inner_text() for name in ['Correct','Wrong','Skipped']]==['15','15','15']
         expected=page.evaluate('''()=>{const s=JSON.parse(localStorage.getItem('dekiru_exam_attempt_v1'));const e=DEKIRU_EXAMS.find(e=>e.id===s.examId);return s.order.map(i=>e.questions[i]);}''')
         assert page.locator('.ex-solution').count()==45
@@ -92,15 +96,20 @@ with sync_playwright() as p:
           const e=DEKIRU_EXAMS.find(e=>e.id===o.id),s={id:'legacy-'+o.id,examId:o.id,fingerprint:o.fingerprint,answers:e.questions.map(q=>q.answer),flags:Array(45).fill(false),index:7,startedAt:Date.now()-1000,minutes:0,submittedAt:null};
           localStorage.setItem('dekiru_exam_attempt_v1',JSON.stringify(s));localStorage.setItem('dekiru_exam_history_v1',JSON.stringify([{...s,id:'old-result',submittedAt:Date.now()}]));
         }''',old)
-        page.reload();page.wait_for_selector('#examMode[data-ready=true]',state='attached');page.locator('[data-mode=exam]').click();page.locator('[data-ex-resume]').click()
+        reset_attempt_store(page);page.reload();page.wait_for_selector('#examMode[data-ready=true]',state='attached');page.locator('[data-mode=exam]').click();page.locator('[data-ex-resume]').click();continue_exam(page)
         assert 'Câu 8:' in page.locator('#exMapStatus').inner_text()
         page.locator('[data-ex-submit]').click();page.locator('#exConfirmAccept').click()
-        assert page.locator('#exCorrect').inner_text()=='45'
-        page.locator('[data-ex-tab=history]').click();page.locator('[data-ex-history="old-result"]').click()
-        assert page.locator('#exCorrect').inner_text()=='45'
+        expected={'material-adapted-01':40,'chapter45-1':44,'chapter45-2':43,'chapter45-3':45}[old['id']]
+        assert page.locator('#exCorrect').inner_text()==str(expected)
+        page.locator('[data-ex-tab=history]').click()
+        if expected==45:
+            page.locator('[data-ex-history="old-result"]').click()
+            assert page.locator('#exCorrect').inner_text()=='45'
+        else:
+            assert not page.locator('[data-ex-history="old-result"]').count()
     # A corrupted order must never silently attach answers to different questions.
     page.evaluate("localStorage.setItem('dekiru_exam_attempt_v1',JSON.stringify({...JSON.parse(localStorage.getItem('dekiru_exam_attempt_v1')),order:Array(45).fill(0)}))")
-    page.reload();page.wait_for_selector('#examMode[data-ready=true]',state='attached');page.locator('[data-mode=exam]').click()
+    reset_attempt_store(page);page.reload();page.wait_for_selector('#examMode[data-ready=true]',state='attached');page.locator('[data-mode=exam]').click()
     assert 'không còn khớp' in page.locator('#exNotice').inner_text() and not page.locator('[data-ex-resume]').count()
     # Plain imported explanation remains visible without generated/guessed teaching notes.
     assert page.evaluate('d=>{delete d.exam.questions[0].solution;return !ExamCore.validate(d).questions[0].solution}',doc)
@@ -116,10 +125,10 @@ with sync_playwright() as p:
     browser.close()
     firefox=p.firefox.launch(headless=True)
     fp=firefox.new_page();fp.goto((ROOT/'index.html').as_uri());fp.wait_for_selector('#examMode[data-ready=true]',state='attached')
-    fp.locator('[data-mode=exam]').click();fp.select_option('#exMinutes','0');fp.locator('[data-ex-start="chapter45-2"]').click()
+    fp.locator('[data-mode=exam]').click();fp.select_option('#exScope','6-7');fp.select_option('#exMinutes','0');fp.locator('[data-ex-start="chapter67-4"]').click()
     order=fp.evaluate(f'JSON.parse(localStorage.getItem("{KEY}")).order');assert order!=list(range(45))
-    fp.reload();fp.wait_for_selector('#examMode[data-ready=true]',state='attached');fp.locator('[data-mode=exam]').click();fp.locator('[data-ex-resume]').click()
+    fp.reload();fp.wait_for_selector('#examMode[data-ready=true]',state='attached');fp.locator('[data-mode=exam]').click();fp.locator('[data-ex-resume]').click();continue_exam(fp)
     assert fp.evaluate(f'JSON.parse(localStorage.getItem("{KEY}")).order')==order
     fp.locator('[data-ex-submit]').click();fp.locator('#exConfirmAccept').click();assert fp.locator('.ex-solution').count()==45
     firefox.close()
-    print('PASS: 180 detailed solutions, option/source alignment, 200 randomized plans, stable answers/flags/order across reload/history/export, legacy progress and grades, invalid-order protection, import validation, responsive light/dark, Firefox file://.')
+    print('PASS: 360 detailed solutions, option/source alignment, 200 randomized plans, stable answers/flags/order across reload/history/export, legacy progress and grades, invalid-order protection, import validation, responsive light/dark, Firefox lesson 6–7 file://.')

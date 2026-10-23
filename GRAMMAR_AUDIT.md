@@ -1,5 +1,7 @@
 # Đối chiếu ngữ pháp Dekiru — bài 4–7
 
+Cập nhật 22/10/2026: [audit từng ID và các hiệu đính mới](audits/answers.md). Bài chưa nộp được bảo vệ bằng xác nhận; thứ tự phương án/gợi ý được lưu. Cột `pending` phân biệt rà soát theo quy tắc với xác minh độc lập bởi giáo viên.
+
 Ngày đối chiếu ban đầu: **09/10/2026**; mở rộng bài tập **18/10/2026**, tách câu tiết lộ đáp án và thêm gợi ý Hán **19/10/2026**. Phạm vi triển khai: **4 chapter, 12 topic, 37 mục ôn tập, 18 câu/mục / 666 bài tập**.
 
 ## Nguồn và cách phân loại

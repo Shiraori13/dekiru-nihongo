@@ -4,10 +4,12 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'.tools'))
 from playwright.sync_api import sync_playwright
+from browser_support import launch, install_legacy_readiness, reset_attempt_store
+install_legacy_readiness()
 (ROOT/'.work').mkdir(exist_ok=True)
 
 with sync_playwright() as p:
-    browser=p.chromium.launch(channel='msedge',headless=True)
+    browser=launch(p)
     context=browser.new_context(viewport={'width':1440,'height':1100})
     context.route('https://**/*',lambda route:route.abort())
     page=context.new_page(); errors=[]
@@ -129,16 +131,23 @@ with sync_playwright() as p:
     # Exercise actual touch events through Chromium, with pointer capture on canvas.
     page.locator('#kanjiCanvas').scroll_into_view_if_needed()
     box=page.locator('#kanjiCanvas').bounding_box()
-    client=context.new_cdp_session(page)
-    client.send('Emulation.setTouchEmulationEnabled',{'enabled':True,'maxTouchPoints':1})
-    client.send('Input.dispatchTouchEvent',{'type':'touchStart','touchPoints':[{'x':box['x']+box['width']*.2,'y':box['y']+box['height']*.4}]})
-    client.send('Input.dispatchTouchEvent',{'type':'touchMove','touchPoints':[{'x':box['x']+box['width']*.8,'y':box['y']+box['height']*.4}]})
-    client.send('Input.dispatchTouchEvent',{'type':'touchEnd','touchPoints':[]})
+    client=None
+    if browser.browser_type.name=='chromium':
+        client=context.new_cdp_session(page)
+        client.send('Emulation.setTouchEmulationEnabled',{'enabled':True,'maxTouchPoints':1})
+        client.send('Input.dispatchTouchEvent',{'type':'touchStart','touchPoints':[{'x':box['x']+box['width']*.2,'y':box['y']+box['height']*.4}]})
+        client.send('Input.dispatchTouchEvent',{'type':'touchMove','touchPoints':[{'x':box['x']+box['width']*.8,'y':box['y']+box['height']*.4}]})
+        client.send('Input.dispatchTouchEvent',{'type':'touchEnd','touchPoints':[]})
+    else:
+        print('Firefox: CDP touch injection unavailable; checking canvas with pointer drag.')
+        page.mouse.move(box['x']+box['width']*.2,box['y']+box['height']*.4);page.mouse.down()
+        page.mouse.move(box['x']+box['width']*.8,box['y']+box['height']*.4);page.mouse.up()
     assert '1 nét tự do' in page.locator('#kanjiCanvasStatus').inner_text()
     page.locator('#kanjiClearCanvas').click()
     assert page.locator('#kanjiClearCanvas').is_disabled()
-    client.send('Emulation.setTouchEmulationEnabled',{'enabled':False})
-    client.detach()
+    if client:
+        client.send('Emulation.setTouchEmulationEnabled',{'enabled':False})
+        client.detach()
     page.screenshot(path=str(ROOT/'.work/kanji-dark.png'),full_page=True)
     # Custom quiz must reject invalid entries and respect the exact requested count.
     page.locator('[data-mode=quiz]').click()
@@ -155,7 +164,7 @@ with sync_playwright() as p:
         page.locator('#quizCustomCount').press('Enter')
         assert page.evaluate('quizQuestions.length')==count
         assert page.locator('#quizProgress').inner_text()==f'Câu hỏi 1 / {count}'
-        page.evaluate('showQuizSetup()')
+        page.evaluate('showQuizSetup(true)')
     page.fill('#quizCustomCount','68')
     page.select_option('#topicSelect',page.locator('#topicSelect option').nth(1).get_attribute('value'))
     page.get_by_role('button',name='Bắt đầu làm bài',exact=True).click()
