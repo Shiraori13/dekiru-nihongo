@@ -322,7 +322,7 @@ try:
         upload(page)
         page.wait_for_function('Appearance.getState().background==="custom"')
         page.locator('#appearanceReset').click()
-        page.wait_for_function('Appearance.getState().background==="mint"')
+        page.wait_for_function('Appearance.getState().background==="sakura"')
         assert background_blob(page) is None
         close_appearance(page)
         assert study_state(page) == before
@@ -402,7 +402,7 @@ try:
         assert fp.evaluate('JSON.parse(localStorage.dekiru_exam_attempt_v1).answers[0]') == 1
         fp.reload()
         ready(fp)
-        assert state(fp)['background'] == 'mint' and not state(fp)['hasCustomImage']
+        assert state(fp)['background'] == 'sakura' and not state(fp)['hasCustomImage']
         failed.close()
 
         # A later settings quota failure reports the session limit and stays live.
@@ -432,7 +432,7 @@ try:
         cp.on('pageerror', lambda error: errors.append(str(error)))
         cp.goto(URL)
         ready(cp)
-        assert state(cp)['background'] == 'mint' and not state(cp)['hasCustomImage']
+        assert state(cp)['background'] == 'sakura' and not state(cp)['hasCustomImage']
         cp.locator('#fcNext').click()
         assert cp.evaluate('currentIndex') == 1
         corrupt.close()

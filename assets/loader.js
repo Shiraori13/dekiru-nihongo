@@ -6,6 +6,10 @@
     features = new Map();
   const definitions = {
     reading: { scripts: ["data/readings.js", "assets/reading.js"] },
+    speaking: {
+      css: "assets/speaking.css",
+      scripts: ["data/speaking.js", "assets/speaking.js"],
+    },
     kanji: { scripts: ["data/kanji.js", "assets/kanji.js"] },
     "grammar-data": { scripts: ["data/grammar.js"] },
     grammar: {

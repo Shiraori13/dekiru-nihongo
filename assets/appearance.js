@@ -68,11 +68,11 @@
       </fieldset>
       <fieldset class="appearance-section">
         <legend>Chất liệu kính</legend>
-        <label class="appearance-slider-label" for="appearanceOpacity">Độ đậm của kính<output id="appearanceOpacityValue" for="appearanceOpacity">66%</output></label>
-        <input type="range" id="appearanceOpacity" min="55" max="96" step="1" value="66" aria-describedby="appearanceOpacityHelp">
+        <label class="appearance-slider-label" for="appearanceOpacity">Độ đậm của kính<output id="appearanceOpacityValue" for="appearanceOpacity">72%</output></label>
+        <input type="range" id="appearanceOpacity" min="55" max="96" step="1" value="72" aria-describedby="appearanceOpacityHelp">
         <p class="appearance-help" id="appearanceOpacityHelp">Giảm để trong hơn, tăng để nền chữ đậm hơn.</p>
-        <label class="appearance-slider-label" for="appearanceBlur">Độ mờ nền<output id="appearanceBlurValue" for="appearanceBlur">20 px</output></label>
-        <input type="range" id="appearanceBlur" min="0" max="28" step="1" value="20">
+        <label class="appearance-slider-label" for="appearanceBlur">Độ mờ nền<output id="appearanceBlurValue" for="appearanceBlur">16 px</output></label>
+        <input type="range" id="appearanceBlur" min="0" max="28" step="1" value="16">
       </fieldset>
       <fieldset class="appearance-section">
         <legend>Cỡ chữ giao diện</legend>
@@ -108,7 +108,7 @@
       storageStatus.dataset.storage = "partial";
       storageStatus.textContent = customBlob
         ? state.background === "custom"
-          ? "Tùy chọn đã được lưu. Bộ nhớ ảnh đang bị chặn hoặc đã đầy: ảnh này chỉ giữ trong phiên hiện tại; khi mở lại sẽ dùng nền Mint."
+          ? "Tùy chọn đã được lưu. Bộ nhớ ảnh đang bị chặn hoặc đã đầy: ảnh này chỉ giữ trong phiên hiện tại; khi mở lại sẽ dùng nền Sakura."
           : "Tùy chọn đã được lưu. Ảnh cá nhân chỉ giữ trong phiên hiện tại vì bộ nhớ ảnh bị chặn hoặc đã đầy. Nền có sẵn đang chọn vẫn được lưu."
         : "Tùy chọn đã được lưu. Bộ nhớ ảnh đang bị chặn hoặc đã đầy; ảnh tải lên chỉ giữ trong phiên hiện tại. Nền có sẵn luôn dùng được.";
     } else {
@@ -123,7 +123,7 @@
       // A RAM-only replacement must not restore an older saved image on reload.
       const savedState =
         state.background === "custom" && imageStorage === "session"
-          ? { ...state, background: "mint" }
+          ? { ...state, background: defaults.background }
           : state;
       localStorage.setItem(key, JSON.stringify(savedState));
       localStorage.setItem("dekiru_theme", state.theme);
@@ -435,7 +435,8 @@
     const generation = cancelUpload();
     setCustomBlob(null);
     apply({
-      background: state.background === "custom" ? "mint" : state.background,
+      background:
+        state.background === "custom" ? defaults.background : state.background,
     });
     showImageStatus("Đã xóa ảnh cá nhân. Nền có sẵn vẫn dùng được.");
     const removed = await storeImage(null, generation);
@@ -556,9 +557,9 @@
     }
     if (generation !== imageGeneration) return;
     if (state.background === "custom" && !customBlob) {
-      apply({ background: "mint" });
+      apply({ background: defaults.background });
       showImageStatus(
-        "Không đọc được ảnh đã lưu. Đã dùng nền Mint; bạn có thể tải lại ảnh.",
+        "Không đọc được ảnh đã lưu. Đã dùng nền Sakura; bạn có thể tải lại ảnh.",
         "error",
       );
     }

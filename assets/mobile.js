@@ -7,6 +7,7 @@
   const names = {
     flashcard: "Thẻ ghi nhớ",
     reading: "Luyện đọc",
+    speaking: "Luyện nói",
     grammar: "Ngữ pháp",
     exam: "Luyện đề",
     quiz: "Kiểm tra từ vựng",
@@ -16,6 +17,7 @@
   const subtitles = {
     flashcard: "Chạm thẻ để lật nghĩa.",
     reading: "Đọc theo nhịp của bạn.",
+    speaking: "57 câu hỏi phỏng vấn JPD123.",
     grammar: "Học mẫu câu, luyện cách dùng.",
     exam: "45 câu mỗi đề · Chấm sau khi nộp",
     quiz: "Ôn từ vựng theo mục tiêu của bạn.",
@@ -97,7 +99,8 @@
     return h;
   }
   heading($("vocabIntro").parentElement, "vocab");
-  for (const mode of ["reading", "kanji"]) heading($(mode + "Mode"), mode);
+  for (const mode of ["reading", "speaking", "kanji"])
+    heading($(mode + "Mode"), mode);
   function setText(node, value) {
     if (node && node.textContent !== value) node.textContent = value;
   }
@@ -187,6 +190,25 @@
         "reading-glossary",
         "Từ vựng trong bài",
         () => text("glossaryCount"),
+        "tools",
+      );
+    } else if (
+      mode === "speaking" &&
+      document.querySelector(".speaking-sidebar")
+    ) {
+      const picker = fold(
+        [...document.querySelector(".speaking-sidebar").children],
+        "speaking-picker",
+        "Chọn câu hỏi nói",
+        () => text("speakingTitle"),
+        "picker",
+      );
+      picker.dataset.mobilePicker = "true";
+      fold(
+        [document.querySelector(".speaking-controls")],
+        "speaking-tools",
+        "Gợi ý hiển thị",
+        "Furigana, kana, nghĩa Việt và tốc độ nghe",
         "tools",
       );
     } else if (mode === "grammar" && document.querySelector(".gr-sidebar")) {
@@ -311,7 +333,7 @@
         tabs.append(buttons.find((b) => b.dataset.mode === mode)),
       );
       tabs.append(more);
-      ["quiz", "list", "kanji"].forEach((mode) =>
+      ["quiz", "list", "kanji", "speaking"].forEach((mode) =>
         menu
           .querySelector(".mobile-menu-items")
           .append(buttons.find((b) => b.dataset.mode === mode)),
@@ -382,21 +404,25 @@
         h.querySelector(".mobile-heading-stat"),
         m === "reading"
           ? text("readingProgressCount") + " đã luyện"
-          : m === "kanji"
-            ? text("kanjiProgressCount") + " đã học"
-            : m === "grammar"
-              ? text("grDoneCount") + " đã nắm"
-              : "",
+          : m === "speaking"
+            ? text("speakingProgressCount") + " đã luyện"
+            : m === "kanji"
+              ? text("kanjiProgressCount") + " đã học"
+              : m === "grammar"
+                ? text("grDoneCount") + " đã nắm"
+                : "",
       );
     });
     setText(crumb, names[mode]);
     more.setAttribute(
       "aria-pressed",
-      String(["quiz", "list", "kanji"].includes(mode)),
+      String(["quiz", "list", "kanji", "speaking"].includes(mode)),
     );
     setText(
       more.querySelector(".mobile-more-label"),
-      ["quiz", "list", "kanji"].includes(mode) ? names[mode] : "Khác",
+      ["quiz", "list", "kanji", "speaking"].includes(mode)
+        ? names[mode]
+        : "Khác",
     );
     const paper = document.querySelector(".ex-paper");
     if (paper && !paper.querySelector(".mobile-paper-progress")) {

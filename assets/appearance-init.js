@@ -6,9 +6,9 @@
   const defaults = Object.freeze({
     version: 1,
     theme: "light",
-    background: "mint",
-    glassAlpha: 0.66,
-    glassBlur: 20,
+    background: "sakura",
+    glassAlpha: 0.72,
+    glassBlur: 16,
     uiSize: 17,
   });
   const clamp = (value, min, max, fallback) =>

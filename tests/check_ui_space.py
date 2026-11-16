@@ -20,8 +20,8 @@ from glass_support import serve, ready, mode, close_appearance
 OUT = ROOT / os.environ.get('DEKIRU_UI_SPACE_EVIDENCE_DIR', 'audits/evidence/ui-space')
 NAMES = {
     'flashcard': 'Thẻ ghi nhớ', 'quiz': 'Kiểm tra từ vựng',
-    'list': 'Danh sách', 'reading': 'Luyện đọc', 'kanji': 'Hán tự',
-    'grammar': 'Ngữ pháp', 'exam': 'Luyện đề',
+    'list': 'Danh sách', 'reading': 'Luyện đọc', 'speaking': 'Luyện nói',
+    'kanji': 'Hán tự', 'grammar': 'Ngữ pháp', 'exam': 'Luyện đề',
 }
 
 
@@ -49,8 +49,8 @@ def navigation(page, width):
     """The seven original buttons survive every responsive move, once each."""
     page.wait_for_function('''mobile=>mobile
       ? document.querySelectorAll('.mode-tabs [data-mode]').length===4
-        &&document.querySelectorAll('#mobileMenu [data-mode]').length===3
-      : document.querySelectorAll('#sidebarNavigation [data-mode]').length===7
+        &&document.querySelectorAll('#mobileMenu [data-mode]').length===4
+      : document.querySelectorAll('#sidebarNavigation [data-mode]').length===8
         &&!document.querySelector('#mobileMore')''', arg=width<=760)
     assert sorted(page.locator('[data-mode]').evaluate_all('(es)=>es.map(e=>e.dataset.mode)')) == sorted(NAMES)
     assert page.evaluate('''()=>originalNavButtons.every(e=>e.isConnected)
@@ -69,8 +69,8 @@ def menu_items(page):
       mobileLabel:getComputedStyle(e.querySelector('.mobile-tab-label')).display,
       clipped:e.scrollWidth>e.clientWidth+1||e.scrollHeight>e.clientHeight+1
     }))''')
-    assert len(items)==3
-    assert {item['mode'] for item in items} == {'quiz','list','kanji'}
+    assert len(items)==4
+    assert {item['mode'] for item in items} == {'quiz','list','kanji','speaking'}
     for item in items:
         assert item['text']==NAMES[item['mode']], item
         assert item['icons']==1, item

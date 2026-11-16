@@ -29,7 +29,7 @@ with sync_playwright() as p:
     assert observed=={'width':720,'dpr':2,'scale':1,'mobile':True},observed
     for theme in ['light','dark']:
       page.evaluate('(t)=>window.Appearance?Appearance.setTheme(t):document.body.dataset.theme=t',theme)
-      for mode in ['flashcard','reading','kanji','grammar','exam','quiz','list']:
+      for mode in ['flashcard','reading','speaking','kanji','grammar','exam','quiz','list']:
         button=page.locator(f'[data-mode={mode}]')
         if not button.is_visible():page.locator('#mobileMore').click()
         button.click();page.evaluate('(m)=>FeatureLoader.ensure(m)',mode);page.wait_for_timeout(60)

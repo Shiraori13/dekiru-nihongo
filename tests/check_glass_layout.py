@@ -65,7 +65,7 @@ try:
         page.goto(URL)
         ready(page)
         geometry(page)
-        assert page.locator('#sidebarNavigation .mode-tabs [data-mode]').count() == 7
+        assert page.locator('#sidebarNavigation .mode-tabs [data-mode]').count() == 8
         assert page.locator('#sidebarFooter #appearanceToggle').count() == 1
         assert page.locator('#appSidebar').inner_text().count('Dekiru Master') == 1
         assert page.locator('#appSidebar .brand-logo').evaluate('(e)=>e instanceof HTMLImageElement&&e.naturalWidth>0&&e.src.endsWith("assets/logo.svg")')
@@ -79,12 +79,12 @@ try:
         marker = page.evaluate('shellPageMarker')
         titles = {}
         # The contextual title changes with the actual study area.
-        for name in ['flashcard','quiz','list','reading','kanji','grammar','exam']:
+        for name in ['flashcard','quiz','list','reading','speaking','kanji','grammar','exam']:
             mode(page, name)
             titles[name] = page.locator('#areaTitle').inner_text().strip()
             assert titles[name]
             assert page.locator(f'[data-mode="{name}"]').get_attribute('aria-pressed') == 'true'
-        assert len(set(titles.values())) == 7, titles
+        assert len(set(titles.values())) == 8, titles
         assert not any('toàn' in title.lower() for title in titles.values()), titles
 
         # All responsive moves reuse the same buttons and preserve the selection.
@@ -115,7 +115,7 @@ try:
             page.set_viewport_size({'width':width,'height':height})
             for theme in ['light','dark']:
                 set_theme(page, theme)
-                for name in ['flashcard','quiz','list','reading','kanji','grammar','exam']:
+                for name in ['flashcard','quiz','list','reading','speaking','kanji','grammar','exam']:
                     mode(page, name)
                     page.evaluate('scrollTo(0,0)')
                     measured = geometry(page)
@@ -142,7 +142,7 @@ try:
             page.set_viewport_size({'width':width,'height':height})
             for theme in ['light','dark']:
                 set_theme(page, theme)
-                for name in ['flashcard','quiz','list','reading','kanji','grammar','exam']:
+                for name in ['flashcard','quiz','list','reading','speaking','kanji','grammar','exam']:
                     mode(page, name)
                     page.evaluate('scrollTo(0,0)')
                     measured = geometry(page)

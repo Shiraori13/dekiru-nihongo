@@ -105,10 +105,10 @@ try:
         page.goto(URL)
         ready(page)
         initial = page.evaluate('Appearance.getState()')
-        assert initial['theme']=='light' and initial['background']=='mint', initial
+        assert initial['theme']=='light' and initial['background']=='sakura', initial
         assert .55 <= initial['glassAlpha'] <= .72 and 16 <= initial['glassBlur'] <= 24, initial
         assert not page.locator('#appearanceDialog').is_visible()
-        assert page.locator('[data-mode]').count()==7
+        assert page.locator('[data-mode]').count()==8
         assert not page.locator('[data-mode=appearance]').count()
         mode(page, 'quiz')
         page.locator('input[name=quizCount][value="5"]').check()

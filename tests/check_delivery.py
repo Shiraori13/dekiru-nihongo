@@ -20,7 +20,7 @@ def mode(page,name):
     if not b.is_visible():page.locator('#mobileMore').click()
     b.click()
     page.wait_for_function('(m)=>currentMode===m',arg=name)
-    if name in ['reading','kanji','grammar','exam']:
+    if name in ['reading','speaking','kanji','grammar','exam']:
         page.evaluate('(m)=>FeatureLoader.ensure(m)',name)
     page.wait_for_timeout(80)
 def geometry(page):
@@ -66,7 +66,7 @@ try:
       page.set_viewport_size({'width':width,'height':height})
       for theme in ['light','dark']:
         page.evaluate('(t)=>document.body.dataset.theme=t',theme)
-        for name in ['flashcard','quiz','list','reading','kanji','grammar','exam']:
+        for name in ['flashcard','quiz','list','reading','speaking','kanji','grammar','exam']:
           mode(page,name);geometry(page);page.evaluate('scrollTo(0,0)')
           texts.append(page.locator('body').text_content())
           page.screenshot(path=str(OUT/f'after-{name}-{width}-{theme}.png'))

@@ -32,13 +32,26 @@
         <button type="button" class="tab-btn active" data-mode="flashcard" aria-pressed="true" aria-label="Thẻ ghi nhớ" title="Thẻ ghi nhớ" onclick="switchMode('flashcard')"><span class="desktop-tab-label"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="6" width="15" height="14" rx="3"/><path d="M16 3H7a4 4 0 0 0-4 4v10M9 11h7M9 15h4"/></svg><span>Thẻ ghi nhớ</span></span></button>
         <button type="button" class="tab-btn" data-mode="quiz" aria-pressed="false" aria-label="Kiểm tra từ vựng" title="Kiểm tra từ vựng" onclick="switchMode('quiz')"><span class="desktop-tab-label"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4H6a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h13a2 2 0 0 0 2-2v-8M8 9h3M8 13h2M14 17l3-1 5-5-2-2-5 5-1 3Z"/><path d="m17 5 2 2 3-3-2-2-3 3Z"/></svg><span>Kiểm tra từ vựng</span></span></button>
         <button type="button" class="tab-btn" data-mode="list" aria-pressed="false" aria-label="Danh sách" title="Danh sách" onclick="switchMode('list')"><span class="desktop-tab-label"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></svg><span>Danh sách</span></span></button>
-        <button type="button" class="tab-btn" data-mode="reading" aria-pressed="false" aria-label="Luyện đọc" title="Luyện đọc" onclick="switchMode('reading')"><span class="desktop-tab-label"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v15M3 4h5a4 4 0 0 1 4 2 4 4 0 0 1 4-2h5v15h-5a4 4 0 0 0-4 2 4 4 0 0 0-4-2H3V4ZM6 8h3M6 12h3M15 8h3M15 12h3"/></svg><span>Luyện đọc</span></span></button>
+        <button type="button" class="tab-btn" data-mode="reading" aria-pressed="false" aria-label="Luyện đọc" title="Luyện đọc" onclick="switchMode('reading')"><span class="desktop-tab-label"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v15M3 4h5a4 4 0 0 1 4 2 4 4 0 0 1 4-2h5v15h-5a4 4 0 0 0-4 2 4 4 0 0 0-4-2H3V4ZM6 8h3M6 12h3M15 8h3M15 12h3"/></svg><span>Luyện đọc</span></span><span class="nav-badge" data-badge-mode="reading">71</span></button>
+        <button type="button" class="tab-btn" data-mode="speaking" aria-pressed="false" aria-label="Luyện nói" title="Luyện nói" onclick="switchMode('speaking')"><span class="desktop-tab-label"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v3M8 21h8"/></svg><span>Luyện nói</span></span><span class="nav-badge" data-badge-mode="speaking">57</span></button>
         <button type="button" class="tab-btn" data-mode="kanji" aria-pressed="false" aria-label="Hán tự" title="Hán tự" onclick="switchMode('kanji')"><span class="desktop-tab-label"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14M12 2v2M7 8h10l-5 4v8M5 14h14M9 21h3"/></svg><span>Hán tự</span></span></button>
-        <button type="button" class="tab-btn" data-mode="grammar" aria-pressed="false" aria-label="Ngữ pháp" title="Ngữ pháp" onclick="switchMode('grammar')"><span class="desktop-tab-label"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16M12 3v2M7 5c1 6 5 10 11 13M17 5c-1 6-5 10-11 13M4 21h16"/></svg><span>Ngữ pháp</span></span></button>
-        <button type="button" class="tab-btn" data-mode="exam" aria-pressed="false" aria-label="Luyện đề" title="Luyện đề" onclick="switchMode('exam')"><span class="desktop-tab-label"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="15" height="17" rx="2"/><path d="M9 4V2h7v2M9 9h7M9 13h3m2 4 2 2 4-4"/></svg><span>Luyện đề</span></span></button>
+        <button type="button" class="tab-btn" data-mode="grammar" aria-pressed="false" aria-label="Ngữ pháp" title="Ngữ pháp" onclick="switchMode('grammar')"><span class="desktop-tab-label"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16M12 3v2M7 5c1 6 5 10 11 13M17 5c-1 6-5 10-11 13M4 21h16"/></svg><span>Ngữ pháp</span></span><span class="nav-badge" data-badge-mode="grammar">37</span></button>
+        <button type="button" class="tab-btn" data-mode="exam" aria-pressed="false" aria-label="Luyện đề" title="Luyện đề" onclick="switchMode('exam')"><span class="desktop-tab-label"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="15" height="17" rx="2"/><path d="M9 4V2h7v2M9 9h7M9 13h3m2 4 2 2 4-4"/></svg><span>Luyện đề</span></span><span class="nav-badge" data-badge-mode="exam">8</span></button>
       </nav>
     </div>
     <div id="sidebarFooter" class="sidebar-footer">
+      <div class="sidebar-user-profile" id="sidebarUserProfile">
+        <button type="button" class="profile-close-btn" aria-label="Thu gọn hồ sơ" title="Thu gọn hồ sơ" aria-expanded="true" onclick="const p=document.getElementById('sidebarUserProfile');const c=p.classList.toggle('is-collapsed');this.setAttribute('aria-expanded',String(!c));this.textContent=c?'+':'×';this.setAttribute('aria-label',c?'Mở hồ sơ':'Thu gọn hồ sơ');this.title=c?'Mở hồ sơ':'Thu gọn hồ sơ';">×</button>
+        <button type="button" class="user-profile-trigger" onclick="document.getElementById('appearanceToggle').click()" title="Mở tùy chỉnh giao diện">
+          <span class="user-avatar-wrap">
+            <img src="assets/avatar.svg" alt="Avatar người dùng" class="user-avatar" width="54" height="54">
+          </span>
+          <span class="user-profile-meta">
+            <span class="user-profile-name">Học viên Dekiru</span>
+            <span class="user-settings-hint">Cài đặt</span>
+          </span>
+        </button>
+      </div>
       <button id="appearanceToggle" type="button" class="appearance-toggle" data-appearance-open aria-haspopup="dialog" aria-label="Mở tùy chỉnh Giao diện" title="Tùy chỉnh giao diện"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18h1a2 2 0 0 0 1-3.7 1.5 1.5 0 0 1 .8-2.8H17a4 4 0 0 0 4-4C21 6.4 17 3 12 3Z"/><path d="M7.5 9h.01M11 6.5h.01M16 8h.01M6.5 13h.01"/></svg><span>Giao diện</span></button>
       <p class="sidebar-note">Từng bước nhỏ, thêm tự tin.</p>
     </div>
@@ -49,17 +62,25 @@
       <button type="button" class="mobile-brand" onclick="returnToFlashcards()" aria-label="Dekiru Master — về Thẻ ghi nhớ, giữ tiến độ học"><img src="assets/logo.svg" alt="" width="36" height="36"><span>Dekiru Master<small id="mobileAreaName">Thẻ ghi nhớ</small></span></button>
       <div class="area-context"><p id="areaTitle" class="area-title">Thẻ ghi nhớ</p><p id="areaSubtitle" class="area-subtitle">Ghi nhớ từ mới, theo nhịp của bạn.</p></div>
       <div class="nav-controls">
-        <button type="button" id="contextSearchToggle" class="context-search" onclick="focusContextSearch()" aria-label="Tìm trong từ vựng" title="Tìm trong từ vựng"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg><span id="contextSearchLabel">Tìm trong từ vựng</span></button>
+        <button type="button" id="contextSearchToggle" class="context-search" onclick="focusContextSearch()" aria-label="Tìm trong từ vựng" title="Tìm trong từ vựng"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg><span id="contextSearchLabel">Tìm trong từ vựng...</span></button>
         <span id="streakHost"></span>
         <span id="mobileAppearanceHost"></span>
         <button type="button" class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Chuyển sang giao diện tối" aria-pressed="false" title="Chuyển sang giao diện tối (phím D)"><svg class="theme-icon nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path data-theme-icon="moon" d="M21 13a8.5 8.5 0 0 1-10-10A9 9 0 1 0 21 13Z"/><g data-theme-icon="sun" hidden><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></g></svg><span class="theme-label">Chế độ tối</span></button>
+        <button type="button" class="notification-btn" id="notificationBtn" aria-label="Thông báo" title="Thông báo" aria-haspopup="dialog" aria-controls="notificationDialog" aria-expanded="false" onclick="window.StudyNotifications?.open(this)"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg><span class="notification-dot" id="notificationDot" hidden aria-hidden="true"></span></button>
       </div>
     </div>
   </header>
 
   <main>
     <div id="featureStatus" class="feature-status" role="status" hidden></div>
-    <div class="study-intro" id="vocabIntro"><div><span class="eyebrow">DEKIRU NIHONGO · SƠ CẤP</span><h1>Mỗi từ mới, một bước tiến.</h1><p>15 bài học · 45 chủ đề · Học từ vựng theo cách của bạn.</p></div><span class="intro-stamp" lang="ja" aria-hidden="true">学</span></div>
+    <div class="study-intro" id="vocabIntro">
+      <div>
+        <span class="eyebrow">DEKIRU NIHONGO • SƠ CẤP</span>
+        <h1>Mỗi từ mới, một bước tiến.</h1>
+        <p>15 bài học · 45 chủ đề · Học từ vựng theo cách của bạn.</p>
+      </div>
+      <div class="intro-stamp" lang="ja" aria-hidden="true"><span>学</span></div>
+    </div>
     <!-- Filter Card -->
     <div class="filter-card" id="vocabFilters">
       <select aria-label="Chọn bài từ vựng" id="lessonSelect" onchange="onLessonChange()">
@@ -95,8 +116,8 @@
             <div class="card-top">
               <span class="badge-topic" id="fcTagFront">Bài 1</span>
               <div class="card-actions" onclick="event.stopPropagation()">
-                <button class="icon-btn" data-fc-audio onclick="playAudioCurrent()" title="Nghe phát âm (Phím A)">🔊</button>
-                <button class="icon-btn" id="fcFavBtn" aria-pressed="false" onclick="toggleFavCurrent()" title="Lưu từ yêu thích (Phím S)">★</button>
+                <button type="button" class="btn-card-audio" data-fc-audio onclick="playAudioCurrent()" title="Nghe phát âm (Phím A)" aria-label="Nghe phát âm"><svg class="card-action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg><span>Loa phát âm</span></button>
+                <button type="button" class="icon-btn icon-btn-round" id="fcFavBtn" aria-pressed="false" onclick="toggleFavCurrent()" title="Lưu từ yêu thích (Phím S)"><svg class="card-action-icon star-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
               </div>
             </div>
             <div class="card-center">
@@ -109,7 +130,9 @@
           <div class="flashcard-face flashcard-back">
             <div class="card-top">
               <span class="badge-topic">Ý nghĩa tiếng Việt</span>
-              <button class="icon-btn" data-fc-audio onclick="event.stopPropagation(); playAudioCurrent()" title="Nghe phát âm">🔊</button>
+              <div class="card-actions" onclick="event.stopPropagation()">
+                <button type="button" class="btn-card-audio" data-fc-audio onclick="playAudioCurrent()" title="Nghe phát âm" aria-label="Nghe phát âm"><svg class="card-action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg><span>Loa phát âm</span></button>
+              </div>
             </div>
             <div class="card-center">
               <div class="meaning-text" id="fcMeaning">Tôi</div>
@@ -350,6 +373,7 @@
       <p class="study-footer">Từ, bài và chủ đề: <a class="source-link" href="sources/new-words.pdf" target="_blank" rel="noopener">New words list ↗</a> · Âm Hán Việt và giải thích là phần bổ sung.<br>Âm đọc tham khảo: <a class="source-link" href="https://www.edrdg.org/kanjidic/kanjd2index_legacy.html" target="_blank" rel="noopener">KANJIDIC2 · EDRDG</a> (<a class="source-link" href="https://www.edrdg.org/edrdg/licence.html" target="_blank" rel="noopener">CC BY-SA 4.0</a>). Nét viết: <a class="source-link" href="https://kanjivg.tagaini.net/" target="_blank" rel="noopener">KanjiVG · Ulrich Apel</a> (<a class="source-link" href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>).</p>
           </template>
     </section>
+    <section id="speakingMode" style="display:none" aria-label="Luyện nói vấn đáp JPD123"></section>
     <section id="grammarMode" style="display:none" aria-label="Ôn ngữ pháp bài 4 đến 7"></section>
     <section id="examMode" style="display:none" aria-label="Luyện đề 45 câu"></section>
     <section id="studyShortcuts" class="study-shortcuts" aria-labelledby="studyShortcutsTitle">

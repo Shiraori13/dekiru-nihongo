@@ -209,6 +209,12 @@ const AREA_CONTEXT = {
     search: "readingSearch",
     scope: "bài đọc",
   },
+  speaking: {
+    title: "Luyện nói",
+    subtitle: "57 câu hỏi phỏng vấn và gợi ý trả lời JPD123.",
+    search: "speakingSearch",
+    scope: "câu luyện nói",
+  },
   kanji: {
     title: "Hán tự",
     subtitle: "Hiểu chữ, nhớ từ và luyện từng nét viết.",
@@ -270,6 +276,7 @@ async function switchMode(mode) {
       "quiz",
       "list",
       "reading",
+      "speaking",
       "kanji",
       "grammar",
       "exam",
@@ -287,16 +294,24 @@ async function switchMode(mode) {
     btn.classList.toggle("active", selected);
     btn.setAttribute("aria-pressed", String(selected));
   });
-  ["flashcard", "quiz", "list", "reading", "kanji", "grammar", "exam"].forEach(
-    (name) => {
-      document.getElementById(name + "Mode").style.display =
-        mode === name ? (name === "flashcard" ? "flex" : "block") : "none";
-    },
-  );
+  [
+    "flashcard",
+    "quiz",
+    "list",
+    "reading",
+    "speaking",
+    "kanji",
+    "grammar",
+    "exam",
+  ].forEach((name) => {
+    document.getElementById(name + "Mode").style.display =
+      mode === name ? (name === "flashcard" ? "flex" : "block") : "none";
+  });
   ["vocabIntro", "vocabFilters", "vocabCoverage"].forEach(
     (id) =>
       (document.getElementById(id).hidden = [
         "reading",
+        "speaking",
         "kanji",
         "grammar",
         "exam",
@@ -307,7 +322,7 @@ async function switchMode(mode) {
   window.MobileUI?.modeChanged(mode);
   const status = document.getElementById("featureStatus");
   status.hidden = true;
-  if (["reading", "kanji", "grammar", "exam"].includes(mode)) {
+  if (["reading", "speaking", "kanji", "grammar", "exam"].includes(mode)) {
     status.hidden = false;
     status.textContent = "Đang mở nội dung học…";
     try {
@@ -434,6 +449,7 @@ function toggleFavCurrent() {
   else favorites.push(k);
   safeSet("dekiru_favs_v2", JSON.stringify(favorites));
   updateCardUI();
+  window.StudyNotifications?.refresh();
 }
 
 function playAudio(text) {
@@ -996,6 +1012,7 @@ document.addEventListener("keydown", (e) => {
 initLessons();
 onFilterChange();
 updateShellContext();
+window.StudyNotifications?.refresh();
 
 AttemptStore.hasActive()
   .then((active) => {

@@ -31,7 +31,7 @@ with sync_playwright() as p:
     page.wait_for_selector('#examMode[data-ready=true]',state='attached')
     geometry(page)
     assert page.locator('.mode-tabs [data-mode]').count()==4
-    assert page.locator('#mobileMenu [data-mode]').count()==3
+    assert page.locator('#mobileMenu [data-mode]').count()==4
     assert page.locator('#mobileMenu').is_hidden()
     assert page.locator('.flashcard-container').bounding_box()['y']<410
     assert not page.locator('#lessonSelect').is_visible()
@@ -115,7 +115,7 @@ with sync_playwright() as p:
       page.set_viewport_size({'width':width,'height':height})
       for theme in ['light','dark']:
         page.evaluate('(t)=>document.body.dataset.theme=t',theme)
-        for name in ['flashcard','reading','kanji','grammar','exam','quiz','list']:
+        for name in ['flashcard','reading','speaking','kanji','grammar','exam','quiz','list']:
           mode(page,name);geometry(page)
         mode(page,'flashcard');page.screenshot(path=str(ROOT/f'.work/mobile-{width}-{theme}-home.png'))
         mode(page,'reading');page.locator('.reading-word').first.click()
@@ -124,9 +124,9 @@ with sync_playwright() as p:
         assert page.evaluate('document.querySelector("#audioFeedback").getBoundingClientRect().bottom<document.querySelector("#wordDetail").getBoundingClientRect().top'),'Floating panels overlap'
         page.evaluate('document.querySelector("#audioFeedback").hidden=true')
         page.locator('.close-detail').click()
-    # Resizing back to desktop restores all 7 nav actions and the original full controls.
+    # Resizing back to desktop restores all 8 nav actions and the original full controls.
     page.set_viewport_size({'width':1440,'height':1000});page.wait_for_function('document.querySelector("#sidebarNavigation .mode-tabs")!==null')
-    assert page.locator('#sidebarNavigation [data-mode]').count()==7
+    assert page.locator('#sidebarNavigation [data-mode]').count()==8
     assert page.locator('#mobileMore').count()==0
     mode(page,'reading');assert page.locator('#readingLesson').is_visible() and page.locator('#readingFontSize').is_visible()
     assert page.locator('.reading-sidebar').bounding_box()['width']>=230
@@ -140,9 +140,9 @@ with sync_playwright() as p:
     # Firefox also exercises native details/dialog and restoration across the breakpoint.
     ff=p.firefox.launch(headless=True);fp=ff.new_page(viewport={'width':390,'height':844});ff_errors=[];fp.on('pageerror',lambda e:ff_errors.append(str(e)))
     fp.goto((ROOT/'index.html').as_uri());fp.wait_for_selector('body[data-mobile-ready=true]');geometry(fp)
-    for name in ['kanji','reading','grammar','exam','quiz','list','flashcard']:mode(fp,name);geometry(fp)
+    for name in ['kanji','reading','speaking','grammar','exam','quiz','list','flashcard']:mode(fp,name);geometry(fp)
     fp.reload();fp.wait_for_selector('body[data-mobile-ready=true]');geometry(fp)
-    fp.set_viewport_size({'width':1280,'height':900});fp.wait_for_function('document.querySelectorAll("#sidebarNavigation [data-mode]").length===7')
+    fp.set_viewport_size({'width':1280,'height':900});fp.wait_for_function('document.querySelectorAll("#sidebarNavigation [data-mode]").length===8')
     assert not ff_errors,ff_errors
     ff.close()
     print('PASS: mobile geometry/navigation, 7 modes, pickers/filters, progressive list, reading hints and panels, writing, grammar/quiz/exam flows, review disclosures, 320/390/430/740 light/dark, desktop restoration and Firefox.')

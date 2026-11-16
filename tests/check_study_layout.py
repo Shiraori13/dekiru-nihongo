@@ -54,24 +54,26 @@ def bounds(page, selector):
 def header(page):
     width = page.viewport_size['width']
     result = {s:bounds(page, s) for s in ['header', '.nav-container', '.nav-controls',
-              '#contextSearchToggle', '#streakButton', '#themeToggle']}
+              '#contextSearchToggle', '#streakButton', '#themeToggle', '#notificationBtn']}
     streak = result['#streakButton']
     assert streak['width'] >= 42 and streak['height'] >= 42, result
     assert page.locator('#streakButton').get_attribute('aria-label'), result
     assert result['#themeToggle']['right'] <= width + 1, result
+    assert result['#notificationBtn']['right'] <= width + 1, result
     if width > 760:
+        assert result['#themeToggle']['right'] <= result['#notificationBtn']['x'] + 1, result
         # A single 24px inner inset remains, rather than a reserved empty lane.
-        assert 12 <= result['header']['right'] - result['#themeToggle']['right'] <= 32, result
+        assert 12 <= result['header']['right'] - result['#notificationBtn']['right'] <= 32, result
         if page.locator('#contextSearchToggle').is_visible():
             assert 4 <= streak['x'] - result['#contextSearchToggle']['right'] <= 20, result
-            assert result['#contextSearchToggle']['width'] >= result['header']['width'] - 370, result
+            assert result['#contextSearchToggle']['width'] >= result['header']['width'] - 440, result
     else:
         result['brand'] = bounds(page, '.mobile-brand')
         result['appearance'] = bounds(page, '#appearanceToggle')
-        controls = sorted([result['brand'], streak, result['appearance'], result['#themeToggle']], key=lambda r:r['x'])
+        controls = sorted([result['brand'], streak, result['appearance'], result['#themeToggle'], result['#notificationBtn']], key=lambda r:r['x'])
         for left, right in zip(controls, controls[1:]):
             assert left['right'] <= right['x'] + 1, result
-        assert result['#themeToggle']['right'] <= width - 4, result
+        assert result['#notificationBtn']['right'] <= width - 4, result
         assert result['header']['height'] <= 90, result
     return result
 
