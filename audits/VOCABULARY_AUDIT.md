@@ -77,7 +77,7 @@ Giọng đọc thật phụ thuộc thiết bị. Nếu chưa có giọng Nhật
 
 - Tách 607 mục từ có chữ Hán từ 921 thẻ; không tính câu ví dụ riêng của bản cũ. Tổng cộng 496 chữ khác nhau.
 - Số mục từ theo bài 1–15: **29, 30, 56, 51, 48, 31, 48, 61, 40, 46, 31, 39, 25, 35, 37**. Một từ có thể xuất hiện ở nhiều bài/chủ đề; các lần xuất hiện giữ riêng nghĩa và trang nguồn.
-- Mỗi mục giữ nguyên bài, chủ đề, cách đọc và nghĩa trong bộ từ đã đối chiếu; bổ sung cách viết gốc trong PDF. Bốn mục có chữ Hán bổ sung cho kana được ghi rõ, xem [nguồn Hán tự](sources/kanji/README.md).
+- Mỗi mục giữ nguyên bài, chủ đề, cách đọc và nghĩa trong bộ từ đã đối chiếu; bổ sung cách viết gốc trong PDF. Bốn mục có chữ Hán bổ sung cho kana được ghi rõ, xem [nguồn Hán tự](../sources/kanji/README.md).
 - Âm Hán Việt, nghĩa gợi nhớ từng chữ và ghi chú học từ là nội dung bổ sung; PDF không chứa các phần này. Các âm On/Kun tham khảo từ KANJIDIC2; nét viết từ KanjiVG. 496/496 hình chữ có số đường nét khớp số nét trong KANJIDIC2.
 - Có mô phỏng nét, tiến/lùi từng nét, chọn tốc độ, số thứ tự, ô tập viết tự do, hoàn tác/xóa, chữ mờ và tiến độ đã học. Viết mẫu dừng khi đổi chữ/từ/tab; giảm chuyển động theo tùy chọn của thiết bị.
 - Quiz cho nhập số nguyên từ 1 đến số từ được lọc, có thông báo lỗi cho ô trống/số âm/số lẻ/vượt giới hạn. Đáp án nhiễu lấy từ kho chung nên phạm vi chỉ có một từ vẫn kiểm tra được.

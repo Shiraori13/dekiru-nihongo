@@ -1,15 +1,15 @@
 # Luyện đề 45 câu — cập nhật ngày 23/10/2026
 
-Cập nhật 22/10/2026: [audit 180 ID và migration](audits/answers.md), [báo cáo lưu nhiều tab/kiểm thử](IMPLEMENTATION_REPORT.md). Hiện IndexedDB là nguồn trạng thái bài/lịch sử và localStorage v1 chỉ là bản chiếu. Các câu đã hiệu đính được ghi trong `audits/content-decisions.json`.
+Cập nhật 22/10/2026: [audit 180 ID và migration](answers.md), [báo cáo lưu nhiều tab/kiểm thử](IMPLEMENTATION_REPORT.md). Hiện IndexedDB là nguồn trạng thái bài/lịch sử và localStorage v1 chỉ là bản chiếu. Các câu đã hiệu đính được ghi trong `audits/content-decisions.json`.
 
-Hiện có **8 đề / 360 câu**. Phần mới: [bốn đề chuyên bài 6–7](audits/CHAPTER67_EXAMS.md).
+Hiện có **8 đề / 360 câu**. Phần mới: [bốn đề chuyên bài 6–7](CHAPTER67_EXAMS.md).
 
 ## Nguồn và phạm vi
 
 - Đề ảnh: `Material/chim-20261020T143204Z-1-001/chim/`, 44 ảnh PNG, đánh số câu 1–17 và 19–45. Không có ảnh câu 18, không có khóa đáp án.
-- New words list: [PDF từ vựng](sources/new-words.pdf), trang 12–14 cho bài 4; trang 15–17 cho bài 5. Có 68 mục từ bài 4 và 59 mục từ bài 5, tổng 127 mục (một số từ lặp giữa hai bài).
+- New words list: [PDF từ vựng](../sources/new-words.pdf), trang 12–14 cho bài 4; trang 15–17 cho bài 5. Có 68 mục từ bài 4 và 59 mục từ bài 5, tổng 127 mục (một số từ lặp giữa hai bài).
 - Ngữ pháp: 19 mục bài 4–5 đã đối chiếu trong [GRAMMAR_AUDIT.md](GRAMMAR_AUDIT.md). PDF từ vựng giúp xác định bài/topic và ví dụ, không được coi là giáo trình giải thích toàn bộ ngữ pháp.
-- Bài 6–7 đối chiếu thêm PDF từ vựng trang 18–23: 55 mục bài 6, 70 mục bài 7; ngữ pháp theo 18 mục hiện có và PDF speaking. [Phạm vi chi tiết](audits/CHAPTER67_EXAMS.md).
+- Bài 6–7 đối chiếu thêm PDF từ vựng trang 18–23: 55 mục bài 6, 70 mục bài 7; ngữ pháp theo 18 mục hiện có và PDF speaking. [Phạm vi chi tiết](CHAPTER67_EXAMS.md).
 - Bảy đề biên soạn theo **dạng câu hỏi** của ảnh, không phải đề thi chính thức hoặc ảnh gốc được thay vài tên riêng.
 
 ## Tám đề có sẵn
@@ -25,7 +25,7 @@ Hiện có **8 đề / 360 câu**. Phần mới: [bốn đề chuyên bài 6–7
 | Bài 6–7 · Đề 03 | 45 | Đi chơi trong thành phố, hỏi đường và đồ ăn |
 | Bài 6–7 · Đề 04 | 45 | Hòa nhạc, gặp gỡ, nấu ăn và chụp ảnh |
 
-Ba đề bài 4–5 có 7 câu đọc chữ Hán, 4 câu chọn chữ Hán, 3 câu nghĩa từ, 25 câu ngữ pháp, 3 hội thoại và 3 câu dịch. Bốn đề bài 6–7 bám đúng ma trận đề mẫu: **6 đọc, 8 viết Hán tự, 1 từ vựng, 21 ngữ pháp, 7 hội thoại, 2 dịch**, đủ 18 mục/6 topic. Mỗi câu có 4 lựa chọn, một đáp án và lời giải từng lựa chọn. 315 đề bài của bảy đề biên soạn khác nhau. [Nguồn, ma trận và kiểm thử bài 6–7](audits/CHAPTER67_EXAMS.md).
+Ba đề bài 4–5 có 7 câu đọc chữ Hán, 4 câu chọn chữ Hán, 3 câu nghĩa từ, 25 câu ngữ pháp, 3 hội thoại và 3 câu dịch. Bốn đề bài 6–7 bám đúng ma trận đề mẫu: **6 đọc, 8 viết Hán tự, 1 từ vựng, 21 ngữ pháp, 7 hội thoại, 2 dịch**, đủ 18 mục/6 topic. Mỗi câu có 4 lựa chọn, một đáp án và lời giải từng lựa chọn. 315 đề bài của bảy đề biên soạn khác nhau. [Nguồn, ma trận và kiểm thử bài 6–7](CHAPTER67_EXAMS.md).
 
 Trong màn hình chọn đề có bộ lọc bài 4–5/bài 6–7/đề mẫu/đề của bạn; bài đang làm vẫn có nút tiếp tục khi đổi nhóm. Hai danh mục ôn riêng: 127 mục từ bài 4–5 và 125 mục từ bài 6–7, mỗi nhóm 6 topic, có chữ/cách đọc/nghĩa Việt. Danh mục không xuất hiện trong màn hình làm bài. Ảnh đề tự thêm vẫn phóng to được.
 

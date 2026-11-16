@@ -1,6 +1,6 @@
 # Bằng chứng kiểm thử và ảnh giao diện
 
-Đọc [báo cáo bàn giao](../../IMPLEMENTATION_REPORT.md), [audit đáp án theo ID](../answers.md) và [số đo tài nguyên](performance.md). Kết quả máy đọc được: [test-results.json](test-results.json). Kết quả trước sửa: [11 bộ kiểm thử](baseline-tests.json), [ba lỗi đã tái hiện](baseline-reproduction.json).
+Đọc [báo cáo bàn giao](../IMPLEMENTATION_REPORT.md), [audit đáp án theo ID](../answers.md) và [số đo tài nguyên](performance.md). Kết quả máy đọc được: [test-results.json](test-results.json). Kết quả trước sửa: [11 bộ kiểm thử](baseline-tests.json), [ba lỗi đã tái hiện](baseline-reproduction.json).
 
 ## Cách đọc bằng chứng
 

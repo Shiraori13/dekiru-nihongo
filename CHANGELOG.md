@@ -48,7 +48,7 @@
 - Rà soát 666 bài ngữ pháp/180 câu đề; sửa nhiễu vẫn hợp ngữ pháp, câu thiếu ngữ cảnh và hai lỗi giải thích lệch phương án. Có migration câu đã lưu và audit theo ID với nguồn/giới hạn xác minh; số lượng nội dung giữ nguyên.
 - Tách CSS/JS khỏi HTML, trì hoãn các bộ dữ liệu và khởi tạo reading/kanji/grammar/exam; loader classic script hỗ trợ `file://`, lỗi/thử lại và chuyển chế độ nhanh.
 - Hoàn thiện mobile màn hình ngắn, tiến trình/đồng hồ cạnh câu hỏi; font cục bộ bổ sung 7 thành phần Hán bị thiếu. Có ảnh trước/sau, số liệu tải và bộ kiểm thử hồi quy mới.
-- Ghim dependency, lockfile, lựa chọn Chromium/Edge/Firefox và workflow push/PR. [Báo cáo bàn giao](IMPLEMENTATION_REPORT.md).
+- Ghim dependency, lockfile, lựa chọn Chromium/Edge/Firefox và workflow push/PR. [Báo cáo bàn giao](audits/IMPLEMENTATION_REPORT.md).
 
 ## 22/10/2026 — Tối ưu giao diện và thao tác mobile
 
@@ -57,7 +57,7 @@
 - Chuyển danh sách từ sang thẻ dọc, mỗi đợt 50 mục có nút Xem thêm. Tập viết có hai mục Xem nét/Tự viết để không xếp cả hai bảng nối tiếp trên điện thoại.
 - Khi làm bài, thu gọn bảng số và thiết lập phụ; đề 45 câu có tiến trình ngay trên câu hỏi. Phần kết quả thu gọn từng câu, vẫn mở được lời giải chi tiết và chuyển nhanh bằng bảng số.
 - Tăng vùng chạm/cỡ chữ nhập, chừa safe area và khoảng trống dưới thanh đáy. Bố trí popup nghĩa/âm thanh tránh đè điều hướng và đè nhau, gồm cả màn hình ngang. Giữ chế độ sáng/tối và giảm chuyển động.
-- Thêm kiểm tra mobile cho 7 chế độ ở 320/390/430/740 px, thao tác học/làm bài, menu, popup, quay về PC và Firefox. Chi tiết: [MOBILE_UX.md](MOBILE_UX.md).
+- Thêm kiểm tra mobile cho 7 chế độ ở 320/390/430/740 px, thao tác học/làm bài, menu, popup, quay về PC và Firefox. Chi tiết: [audits/MOBILE_UX.md](audits/MOBILE_UX.md).
 
 ## 20/10/2026 — Lời giải chi tiết và xáo trộn đề
 
@@ -79,7 +79,7 @@
 - Chọn 30/45/60 phút hoặc không giới hạn; lưu bài qua lần tải lại, tính thời gian khi ẩn/đổi tab và tự nộp khi hết giờ. Chấm đúng/sai/bỏ trống từng câu, lọc câu cần ôn, làm lại đề, giữ 30 lượt lịch sử, xuất kết quả JSON.
 - **Thêm đề**: nhập JSON với bước kiểm tra/xem trước; tải file đề mẫu để chỉnh; trình soạn 45 câu cho phép tải nhiều ảnh, nhập đề bài/lựa chọn/đáp án và lưu bản nháp. Không có OCR hoặc tự đoán đáp án từ ảnh.
 - Đề và ảnh lưu cục bộ trong IndexedDB; hỗ trợ xuất/nhập để chuyển thiết bị và xóa đề tự thêm. Kiểm tra dữ liệu, giới hạn file/ảnh, hiển thị lỗi khi bộ nhớ bị chặn. Giao diện dùng font Nhật cục bộ, hỗ trợ di động và sáng/tối.
-- Chi tiết nguồn, hiệu đính, phạm vi và định dạng file: [EXAM_AUDIT.md](EXAM_AUDIT.md). Thêm kiểm thử toàn bộ 180 câu và luồng nhập/ảnh/lưu/chấm, trên Edge/Firefox.
+- Chi tiết nguồn, hiệu đính, phạm vi và định dạng file: [audits/EXAM_AUDIT.md](audits/EXAM_AUDIT.md). Thêm kiểm thử toàn bộ 180 câu và luồng nhập/ảnh/lưu/chấm, trên Edge/Firefox.
 
 ## 19/10/2026 — Tách câu dễ lộ đáp án và thêm gợi ý chữ Hán
 
@@ -114,12 +114,12 @@ So với bản trước trên GitHub, commit [`0a8ab99`](https://github.com/Shir
 | Hiển thị thẻ | Viền focus mặc định và xoay 3D | Viền tím bo góc khi dùng bàn phím, chuyển mặt nhẹ để tránh mảng trắng |
 | Giao diện di động | 5 chế độ trên một hàng | 6 chế độ trên hai hàng, bổ sung giao diện ngữ pháp sáng/tối và font Nhật |
 
-Chi tiết nội dung, nguồn PDF và phân loại: [GRAMMAR_AUDIT.md](GRAMMAR_AUDIT.md). Các ghi chú triển khai ngày 08–09/10 được giữ bên dưới.
+Chi tiết nội dung, nguồn PDF và phân loại: [audits/GRAMMAR_AUDIT.md](audits/GRAMMAR_AUDIT.md). Các ghi chú triển khai ngày 08–09/10 được giữ bên dưới.
 
 ## 09/10/2026 — Ôn ngữ pháp bài 4–7
 
 - Thêm tab **Ngữ pháp**, gồm 37 mục theo 4 bài/12 topic; có giải thích, công thức, ví dụ mới, cách đọc, nghĩa, nghe câu, lỗi thường gặp và liên kết trang PDF để đối chiếu.
-- Phân loại từ PDF từ vựng, đối chiếu PDF ôn speaking và đề cương chính thức; tách mẫu mới của bài khỏi mẫu ôn lại/xuất hiện sớm. Chi tiết: [GRAMMAR_AUDIT.md](GRAMMAR_AUDIT.md).
+- Phân loại từ PDF từ vựng, đối chiếu PDF ôn speaking và đề cương chính thức; tách mẫu mới của bài khỏi mẫu ôn lại/xuất hiện sớm. Chi tiết: [audits/GRAMMAR_AUDIT.md](audits/GRAMMAR_AUDIT.md).
 - Thêm 127 câu luyện: 57 chọn đáp án, 37 sắp xếp, 33 điền dạng từ; bảng chia thể て với 16 động từ và các ngoại lệ.
 - Lọc bài/topic, tìm kiếm không dấu, tự đánh dấu nắm vững, luyện riêng mẫu, chọn dạng bài và tự nhập số câu.
 - Làm rồi nộp, tiến trình theo số câu hoàn tất, sửa đáp án trước nộp; kết quả phân biệt đúng/sai/bỏ trống, giải thích và luyện lại câu cần ôn.
@@ -138,7 +138,7 @@ Chi tiết nội dung, nguồn PDF và phân loại: [GRAMMAR_AUDIT.md](GRAMMAR_
 
 Mốc so sánh: bản `main` trước đợt cập nhật này, commit [`72673f0`](https://github.com/Shiraori13/dekiru-nihongo/commit/72673f0c86798346ba91201c87f865c49ba9863e).
 
-Bản trước đã có **921 thẻ từ vựng, 15 bài, 45 chủ đề và 71 bài luyện đọc**. Đợt này bổ sung chức năng học Hán tự từ bộ dữ liệu đó và nâng cấp phần kiểm tra. Nếu so với file gốc `index - Back_up.html` có 475 thẻ, xem thêm bảng đối chiếu từng bài trong [VOCABULARY_AUDIT.md](VOCABULARY_AUDIT.md).
+Bản trước đã có **921 thẻ từ vựng, 15 bài, 45 chủ đề và 71 bài luyện đọc**. Đợt này bổ sung chức năng học Hán tự từ bộ dữ liệu đó và nâng cấp phần kiểm tra. Nếu so với file gốc `index - Back_up.html` có 475 thẻ, xem thêm bảng đối chiếu từng bài trong [audits/VOCABULARY_AUDIT.md](audits/VOCABULARY_AUDIT.md).
 
 ### So sánh trước và sau
 
@@ -218,6 +218,6 @@ Các lượt kiểm thử đã đạt bao gồm:
 | `data/kanji.js`, `data/kanji-source.json`, `data/kanji-meanings.tsv` | Dữ liệu học chữ, cách viết gốc và âm/nghĩa được rà soát |
 | `scripts/build_kanji.py`, `sources/kanji/` | Tạo dữ liệu, ghi nguồn và giấy phép |
 | `assets/fonts/NotoSansJP-study.woff2` | Font Nhật mở rộng cho nội dung mới |
-| `README.md`, `VOCABULARY_AUDIT.md`, `tests/` | Hướng dẫn, đối chiếu dữ liệu và kiểm thử |
+| `README.md`, `audits/VOCABULARY_AUDIT.md`, `tests/` | Hướng dẫn, đối chiếu dữ liệu và kiểm thử |
 
 File `index - Back_up.html` được giữ tại máy; các thư mục công cụ `.tools`, `.work` không được đưa lên repo.

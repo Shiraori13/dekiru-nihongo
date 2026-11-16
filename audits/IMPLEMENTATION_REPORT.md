@@ -1,12 +1,12 @@
 # Bàn giao Dekiru Master — 22–23/10/2026
 
-**Cập nhật header và ôn tập:** [streak thật theo ngày truy cập, quiz toàn chiều rộng và bộ chọn bài dễ đọc hơn](audits/STUDY_LAYOUT_STREAK.md). Bằng chứng của đợt này được lưu riêng; thay đổi vẫn ở workspace, chưa commit/push/deploy.
+**Cập nhật header và ôn tập:** [streak thật theo ngày truy cập, quiz toàn chiều rộng và bộ chọn bài dễ đọc hơn](STUDY_LAYOUT_STREAK.md). Bằng chứng của đợt này được lưu riêng; thay đổi vẫn ở workspace, chưa commit/push/deploy.
 
-**Theo ảnh mẫu mới nhất:** [đợt hoàn thiện thị giác, teal và typography](audits/REFERENCE_UI_REPORT.md), có ảnh quiz trước/sau cùng câu hỏi và lựa chọn. Thay đổi hiện ở workspace chưa commit/push/deploy.
+**Theo ảnh mẫu mới nhất:** [đợt hoàn thiện thị giác, teal và typography](REFERENCE_UI_REPORT.md), có ảnh quiz trước/sau cùng câu hỏi và lựa chọn. Thay đổi hiện ở workspace chưa commit/push/deploy.
 
-**Giao diện mới:** xem [báo cáo liquid glass, tùy chỉnh giao diện và bằng chứng riêng](audits/GLASS_UI_REPORT.md). Các số đo và trạng thái phát hành trong phần bên dưới là hồ sơ lịch sử của đợt hiệu đính trước, không phải số đo hay trạng thái của diff giao diện hiện tại.
+**Giao diện mới:** xem [báo cáo liquid glass, tùy chỉnh giao diện và bằng chứng riêng](GLASS_UI_REPORT.md). Các số đo và trạng thái phát hành trong phần bên dưới là hồ sơ lịch sử của đợt hiệu đính trước, không phải số đo hay trạng thái của diff giao diện hiện tại.
 
-**Cập nhật tiếp theo:** đã bổ sung [4 đề bài 6–7 / 180 câu](audits/CHAPTER67_EXAMS.md), nâng ngân hàng luyện đề lên 8 đề/360 câu. Báo cáo và số đo bên dưới ghi nhận mốc hiệu đính trước lần mở rộng này; bằng chứng của phần mới được lưu riêng.
+**Cập nhật tiếp theo:** đã bổ sung [4 đề bài 6–7 / 180 câu](CHAPTER67_EXAMS.md), nâng ngân hàng luyện đề lên 8 đề/360 câu. Báo cáo và số đo bên dưới ghi nhận mốc hiệu đính trước lần mở rộng này; bằng chứng của phần mới được lưu riêng.
 
 Đã sửa chấm nghĩa tương đương, bảo vệ tiến độ nhiều tab và xác nhận trước khi thay bài; hoàn thiện giao diện mobile, font Nhật và tải theo chế độ. **16 bộ kiểm thử Python, logic Node và kiểm tra định dạng đều đạt** trong môi trường đã ghi bên dưới. Bản sửa ở workspace, chưa commit/push/deploy.
 
@@ -55,13 +55,13 @@ Nếu cả bộ nhớ bị chặn, bài chạy trong RAM và không chiếu vào
 - `scripts/content_corrections.py`, `scripts/build_exams.py`, `audits/content-decisions.json`: hiệu đính có thể tái tạo; `data/grammar*.js`, `data/exams.js`: nội dung hiện hành.
 - `tests/`, `requirements-dev.txt`, `package-lock.json`, `.github/workflows/checks.yml`: kiểm tra logic, hồi quy, trình duyệt và CI push/PR.
 
-Audit đáp án và giới hạn từng ID: [audits/answers.md](audits/answers.md). Các câu tự biên soạn chưa có khóa chính thức/giáo viên duyệt độc lập; không coi kiểm thử đạt điểm tối đa là chứng minh nội dung đáp án.
+Audit đáp án và giới hạn từng ID: [answers.md](answers.md). Các câu tự biên soạn chưa có khóa chính thức/giáo viên duyệt độc lập; không coi kiểm thử đạt điểm tối đa là chứng minh nội dung đáp án.
 
 ## Bằng chứng và cách chạy
 
-[Thư mục ảnh và số đo](audits/evidence/README.md) chứa ảnh trước/sau của 7 chế độ và ma trận sáng/tối 320×568, 390×844, 768×1024, 1440×1000; thêm màn hình đang làm/kết quả. `check_zoom.py` kiểm tra **zoom trang gốc 200% trên Chromium/Edge** bằng cấu hình profile riêng: viewport 1440, `innerWidth=720`, `devicePixelRatio=2`, `visualViewport.scale=1`; có 14 ảnh sáng/tối. Còn có mô phỏng reflow độc lập. Phím Ctrl+ không kích hoạt zoom trong môi trường headless nên không dùng làm bằng chứng. Firefox native zoom, Safari/iOS và TalkBack/VoiceOver còn cần kiểm tra trên thiết bị thật.
+[Thư mục ảnh và số đo](evidence/README.md) chứa ảnh trước/sau của 7 chế độ và ma trận sáng/tối 320×568, 390×844, 768×1024, 1440×1000; thêm màn hình đang làm/kết quả. `check_zoom.py` kiểm tra **zoom trang gốc 200% trên Chromium/Edge** bằng cấu hình profile riêng: viewport 1440, `innerWidth=720`, `devicePixelRatio=2`, `visualViewport.scale=1`; có 14 ảnh sáng/tối. Còn có mô phỏng reflow độc lập. Phím Ctrl+ không kích hoạt zoom trong môi trường headless nên không dùng làm bằng chứng. Firefox native zoom, Safari/iOS và TalkBack/VoiceOver còn cần kiểm tra trên thiết bị thật.
 
-Kết quả chạy chi tiết và số đo cuối cùng nằm trong [audits/evidence/test-results.json](audits/evidence/test-results.json) và [audits/evidence/performance.md](audits/evidence/performance.md). Workflow đã thêm nhưng lần chạy trên GitHub Actions/Linux cần được xác nhận sau khi push. GitHub Pages được kiểm tra bằng HTTP có tiền tố `/dekiru-nihongo/`; chưa triển khai bản này lên website công khai trong lượt sửa.
+Kết quả chạy chi tiết và số đo cuối cùng nằm trong [evidence/test-results.json](evidence/test-results.json) và [evidence/performance.md](evidence/performance.md). Workflow đã thêm nhưng lần chạy trên GitHub Actions/Linux cần được xác nhận sau khi push. GitHub Pages được kiểm tra bằng HTTP có tiền tố `/dekiru-nihongo/`; chưa triển khai bản này lên website công khai trong lượt sửa.
 
 ```powershell
 python -m pip install -r requirements-dev.txt

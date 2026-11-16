@@ -1,13 +1,13 @@
 # Đối chiếu ngữ pháp Dekiru — bài 4–7
 
-Cập nhật 22/10/2026: [audit từng ID và các hiệu đính mới](audits/answers.md). Bài chưa nộp được bảo vệ bằng xác nhận; thứ tự phương án/gợi ý được lưu. Cột `pending` phân biệt rà soát theo quy tắc với xác minh độc lập bởi giáo viên.
+Cập nhật 22/10/2026: [audit từng ID và các hiệu đính mới](answers.md). Bài chưa nộp được bảo vệ bằng xác nhận; thứ tự phương án/gợi ý được lưu. Cột `pending` phân biệt rà soát theo quy tắc với xác minh độc lập bởi giáo viên.
 
 Ngày đối chiếu ban đầu: **09/10/2026**; mở rộng bài tập **18/10/2026**, tách câu tiết lộ đáp án và thêm gợi ý Hán **19/10/2026**. Phạm vi triển khai: **4 chapter, 12 topic, 37 mục ôn tập, 18 câu/mục / 666 bài tập**.
 
 ## Nguồn và cách phân loại
 
-- [New words list](sources/new-words.pdf): trang 12–23 xác định tên bài, topic, từ vựng và một số câu mẫu. Đây **không phải PDF giáo trình ngữ pháp đầy đủ**.
-- [Ôn speaking JPD123](sources/speaking.pdf): đoạn đọc bài 4–7 ở trang 5–8; phần luyện câu/hội thoại ở trang 10–24, 26–41, 43–58 và 60–76. Đã xem lại ảnh các trang và đối chiếu bản chép `data/readings-source.txt`.
+- [New words list](../sources/new-words.pdf): trang 12–23 xác định tên bài, topic, từ vựng và một số câu mẫu. Đây **không phải PDF giáo trình ngữ pháp đầy đủ**.
+- [Ôn speaking JPD123](../sources/speaking.pdf): đoạn đọc bài 4–7 ở trang 5–8; phần luyện câu/hội thoại ở trang 10–24, 26–41, 43–58 và 60–76. Đã xem lại ảnh các trang và đối chiếu bản chép `data/readings-source.txt`.
 - [Đề cương chính thức Dekiru sơ cấp, bản 1 và bản 2](https://www.dekirunihongo.jp/?page_id=100): kiểm tra việc xếp mẫu vào đúng ST/topic. Bản 1: trang PDF 2–3; bản 2: trang PDF 1–2. Bản 2 nêu rõ thể て ở bài 7; hai bản giữ cùng cấu trúc 12 topic đang dùng.
 - Giải thích tiếng Việt, ví dụ, câu hỏi và lời giải trong phần mới được biên soạn riêng. Liên kết “đối chiếu” dẫn đến nơi xuất hiện **mẫu liên quan**, không có nghĩa ví dụ mới được chép nguyên văn từ PDF.
 - Hai PDF trong `sources/` đã đối chiếu SHA-256, trùng với hai file gốc tại `D:\Fall2026\JPN123`.

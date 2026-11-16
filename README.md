@@ -2,7 +2,7 @@
 
 Website: https://shiraori13.github.io/dekiru-nihongo/
 
-Bản hiệu đính 22–23/10/2026: [báo cáo triển khai, kiểm thử và ảnh trước/sau](IMPLEMENTATION_REPORT.md), [audit đáp án theo ID](audits/answers.md). Hiện có 921 thẻ, 71 bài đọc, 666 bài ngữ pháp và **8 đề / 360 câu luyện đề**, gồm [4 đề mới chuyên bài 6–7](audits/CHAPTER67_EXAMS.md).
+Bản hiệu đính 22–23/10/2026: [báo cáo triển khai, kiểm thử và ảnh trước/sau](audits/IMPLEMENTATION_REPORT.md), [audit đáp án theo ID](audits/answers.md). Hiện có 921 thẻ, 71 bài đọc, 666 bài ngữ pháp và **8 đề / 360 câu luyện đề**, gồm [4 đề mới chuyên bài 6–7](audits/CHAPTER67_EXAMS.md).
 
 Bản giao diện liquid glass: sidebar trái trên desktop, thanh điều hướng đáy trên mobile, font Việt/Nhật cục bộ và bảng **Giao diện** để đổi sáng/tối, nền có sẵn/ảnh cá nhân, độ đậm/độ mờ kính và cỡ chữ. [Thiết kế, bằng chứng kiểm thử và ảnh trước/sau](audits/GLASS_UI_REPORT.md). Mở nút Giao diện ở cuối sidebar hoặc biểu tượng bảng màu trên điện thoại; phím **D** đổi sáng/tối khi không nhập liệu. Khôi phục giao diện chỉ đặt lại phần nhìn, giữ bài đang làm và tiến độ.
 
@@ -17,11 +17,11 @@ Mở `index.html` bằng trình duyệt để học và luyện đề. Giữ cá
 - **Thẻ ghi nhớ / Kiểm tra / Danh sách:** 921 thẻ, 15 bài, 45 chủ đề. Bộ lọc và tìm kiếm tiếng Việt không dấu.
 - **Luyện đọc:** 71 mục từ PDF speaking; lọc theo bài, dạng bài và từ khóa. Bật/tắt furigana, kana, romaji; chỉnh cỡ chữ; chạm vào từ để xem nghĩa; xem từ vựng riêng cho từng bài.
 - **Hán tự:** 607 mục từ, 496 chữ Hán theo 15 bài/45 chủ đề; âm Hán Việt, giải thích, On/Kun, trang PDF gốc. Xem viết mẫu, từng nét, luyện viết bằng chuột/cảm ứng, tra từ cùng chữ và lưu tiến độ. Tìm kiếm hỗ trợ âm Hán Việt không dấu.
-- **Ngữ pháp:** bài 4–7, 12 topic, 37 mục học, **18 câu mỗi mục / 666 bài tập**. Giải thích, ví dụ có cách đọc/nghĩa và nghe, lỗi thường gặp, bảng thể て; luyện chọn đáp án, điền dạng từ, ghép câu. Nộp rồi chấm, xem giải thích, luyện lại câu sai/bỏ trống và lưu bài đang làm qua lần tải lại trang. [Tổng hợp và đối chiếu ngữ pháp](GRAMMAR_AUDIT.md).
+- **Ngữ pháp:** bài 4–7, 12 topic, 37 mục học, **18 câu mỗi mục / 666 bài tập**. Giải thích, ví dụ có cách đọc/nghĩa và nghe, lỗi thường gặp, bảng thể て; luyện chọn đáp án, điền dạng từ, ghép câu. Nộp rồi chấm, xem giải thích, luyện lại câu sai/bỏ trống và lưu bài đang làm qua lần tải lại trang. [Tổng hợp và đối chiếu ngữ pháp](audits/GRAMMAR_AUDIT.md).
 - **Luyện đề:** 8 đề × 45 câu: một đề chuyển thể từ 44 ảnh trong Material (câu 18 bổ sung), 3 đề bài 4–5 (19 mục/6 topic) và **4 đề bài 6–7 (18 mục/6 topic)**. Bốn đề mới bám đúng ma trận đề mẫu: 6 đọc Hán tự, 8 chọn chữ Hán, 1 từ vựng, 21 ngữ pháp, 7 hội thoại, 2 dịch. Có bộ lọc nhóm đề và danh mục 125 từ bài 6–7. Tiến trình, đánh dấu, sửa trước khi nộp, hẹn giờ, lưu/tiếp tục, lọc câu sai/bỏ trống, lịch sử và xuất kết quả dùng chung luồng hiện có.
 - **Xáo trộn và lời giải đề:** mỗi lượt mới/làm lại trộn đủ 45 câu, giữ nguyên thứ tự khi tiếp tục hoặc tải lại. Sau khi nộp, cả 360 câu có từ/câu chuẩn, nghĩa Việt, lý do đúng, điểm cần nhớ và phân tích A–D; xem được trong lịch sử và file kết quả. Bốn đề cũ giữ nội dung, ID và dấu nhận diện; thêm đề không buộc làm lại bài đang lưu.
-- **Thêm đề:** nhập JSON có kiểm tra/xem trước, hoặc soạn 45 câu và tải ảnh minh họa câu hỏi. Nhập thủ công nội dung và đáp án; không tự đọc chữ/đoán đáp án từ ảnh. Lưu bản nháp, xuất/nhập đề, xóa đề tự thêm. Đề và ảnh lưu cục bộ ở IndexedDB, không tự đồng bộ thiết bị; xuất file để sao lưu. [Nguồn, hiệu đính, cấu trúc đề và hướng dẫn thêm đề](EXAM_AUDIT.md).
-- **Mobile:** điều hướng đáy và menu Khác, bộ chọn/bộ lọc thu gọn, danh sách từ thành thẻ dọc theo đợt 50 mục, Xem nét/Tự viết riêng, kết quả mở từng câu. Giữ nguyên chức năng và bài đang làm khi đổi chế độ; tự mở đầy đủ điều khiển khi trở về PC. [Thiết kế và kiểm tra mobile](MOBILE_UX.md).
+- **Thêm đề:** nhập JSON có kiểm tra/xem trước, hoặc soạn 45 câu và tải ảnh minh họa câu hỏi. Nhập thủ công nội dung và đáp án; không tự đọc chữ/đoán đáp án từ ảnh. Lưu bản nháp, xuất/nhập đề, xóa đề tự thêm. Đề và ảnh lưu cục bộ ở IndexedDB, không tự đồng bộ thiết bị; xuất file để sao lưu. [Nguồn, hiệu đính, cấu trúc đề và hướng dẫn thêm đề](audits/EXAM_AUDIT.md).
+- **Mobile:** điều hướng đáy và menu Khác, bộ chọn/bộ lọc thu gọn, danh sách từ thành thẻ dọc theo đợt 50 mục, Xem nét/Tự viết riêng, kết quả mở từng câu. Giữ nguyên chức năng và bài đang làm khi đổi chế độ; tự mở đầy đủ điều khiển khi trở về PC. [Thiết kế và kiểm tra mobile](audits/MOBILE_UX.md).
 - **Đề ngữ pháp độc lập:** câu điền và ghép dùng ngữ cảnh riêng. Khi tạo đề, hệ thống loại các cặp chứa sẵn câu/dạng từ đang được hỏi ở câu khác; số câu nhập tối đa điều chỉnh theo phạm vi. Ngân hàng giữ 18 câu/mục; một lượt ôn riêng có 15–18 câu không lộ trực tiếp cho nhau. Ngay dưới câu hỏi có mục mở **gợi ý chữ Hán: từ, cách đọc và nghĩa**; động/tính từ dùng từ gốc để tránh cho sẵn dạng chia.
 - **Số câu kiểm tra:** giữ các mức có sẵn và thêm “Tự nhập số câu…”. Nhập số nguyên từ 1 đến số từ trong bộ lọc; số không hợp lệ có thông báo ngay trong phần thiết lập.
 - **Cách chấm bài:** mặc định “Nộp bài rồi xem đáp án”, hoặc chọn “Chấm từng câu” để biết kết quả ngay. Thanh tiến trình hiển thị số câu đã trả lời. Ở chế độ nộp sau, mỗi câu chọn một đáp án, có thể đổi lựa chọn và chuyển câu bằng bảng số câu trước khi nộp.
@@ -31,7 +31,7 @@ Mở `index.html` bằng trình duyệt để học và luyện đề. Giữ cá
 - Tiến độ, gợi ý và bài đọc gần nhất được lưu trong trình duyệt. Phát âm dùng **1.178 MP3 đi kèm website**, hoạt động trên Firefox/Edge mà không cần cài giọng Nhật. Giọng thiết bị chỉ là dự phòng khi thiếu file; có thông báo khi bị chặn quyền hoặc không phát được. [Nguồn giọng tổng hợp và cách tạo file cục bộ](assets/audio/README.md).
 - Nội dung, dữ liệu, font tiếng Nhật Noto Sans JP và font Việt Plus Jakarta Sans đều được đóng gói cục bộ. Không cần tải font từ Google; nguồn và giấy phép ở [assets/fonts/README.md](assets/fonts/README.md).
 
-Chi tiết đối chiếu: [VOCABULARY_AUDIT.md](VOCABULARY_AUDIT.md).
+Chi tiết đối chiếu: [audits/VOCABULARY_AUDIT.md](audits/VOCABULARY_AUDIT.md).
 
 Các thay đổi cụ thể so với bản trước trên repo: [CHANGELOG.md](CHANGELOG.md).
 
