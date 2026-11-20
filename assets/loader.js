@@ -3,18 +3,31 @@
 (() => {
   "use strict";
   const scripts = new Map(),
+    styles = new Map(),
     features = new Map();
   const definitions = {
-    reading: { scripts: ["data/readings.js", "assets/reading.js"] },
+    reading: {
+      css: ["assets/study-modes.css"],
+      scripts: ["data/readings.js", "assets/reading.js"],
+    },
     speaking: {
-      css: "assets/speaking.css",
+      css: ["assets/study-modes.css", "assets/speaking.css"],
       scripts: ["data/speaking.js", "assets/speaking.js"],
     },
-    kanji: { scripts: ["data/kanji.js", "assets/kanji.js"] },
+    kanji: {
+      css: [
+        "assets/study-modes.css",
+        { href: "assets/pickers.css", after: "assets/shell.css" },
+      ],
+      scripts: ["data/kanji.js", "assets/kanji.js"],
+    },
     "grammar-data": { scripts: ["data/grammar.js"] },
     grammar: {
       dependencies: ["grammar-data"],
-      css: "assets/grammar.css",
+      css: [
+        "assets/grammar.css",
+        { href: "assets/pickers.css", after: "assets/shell.css" },
+      ],
       scripts: [
         "data/grammar-practice.js",
         "assets/grammar-support.js",
@@ -24,7 +37,7 @@
     },
     exam: {
       dependencies: ["grammar-data"],
-      css: "assets/exams.css",
+      css: ["assets/exams.css"],
       scripts: ["data/exams.js", "assets/exam-core.js", "assets/exams.js"],
     },
   };
@@ -38,33 +51,45 @@
       node.onerror = () => {
         node.remove();
         scripts.delete(path);
-        reject(
-          Error(
-            `Không tải được ${path}. Kiểm tra kết nối hoặc thư mục đã sao chép.`,
-          ),
-        );
+        const hint =
+          location.protocol === "file:"
+            ? "Kiểm tra thư mục đã sao chép đủ tệp rồi thử lại."
+            : "Kiểm tra kết nối hoặc máy chủ cục bộ (Live Server) đã bật chưa, rồi bấm Thử lại hoặc tải lại trang.";
+        reject(Error(`Không tải được ${path}. ${hint}`));
       };
       document.body.append(node);
     });
     scripts.set(path, promise);
     return promise;
   }
-  function stylesheet(path) {
+  function stylesheet(spec) {
+    const path = typeof spec === "string" ? spec : spec.href;
+    const after = typeof spec === "string" ? null : spec.after;
+    if (styles.has(path)) return styles.get(path);
     if (document.querySelector(`link[href="${path}"]`))
       return Promise.resolve();
-    return new Promise((resolve, reject) => {
+    const promise = new Promise((resolve, reject) => {
       const node = document.createElement("link");
       node.rel = "stylesheet";
       node.href = path;
       node.onload = resolve;
       node.onerror = () => {
         node.remove();
+        styles.delete(path);
         reject(Error("Không tải được giao diện. Vui lòng thử lại."));
       };
-      const mobile = document.querySelector('link[href="assets/mobile.css"]');
-      if (mobile) mobile.before(node);
-      else document.head.append(node);
+      const anchor = after
+        ? document.querySelector(`link[href="${after}"]`)
+        : document.querySelector('link[href="assets/mobile.css"]');
+      if (anchor) {
+        if (after) anchor.after(node);
+        else anchor.before(node);
+      } else {
+        document.head.append(node);
+      }
     });
+    styles.set(path, promise);
+    return promise;
   }
   function ensure(mode) {
     if (!definitions[mode]) return Promise.resolve();
@@ -73,15 +98,27 @@
       const definition = definitions[mode];
       for (const dependency of definition.dependencies || [])
         await ensure(dependency);
-      if (definition.css) await stylesheet(definition.css);
+      const cssList = Array.isArray(definition.css)
+        ? definition.css
+        : definition.css
+          ? [definition.css]
+          : [];
+      for (const css of cssList) await stylesheet(css);
       const template = document.getElementById(`${mode}Template`);
+      // Load feature data before stamping its template so failed fetches do not expose an empty skeleton.
+      const preScripts = template
+        ? definition.scripts.slice(0, -1)
+        : definition.scripts;
+      for (const path of preScripts) await script(path);
       if (template) {
         document
           .getElementById(`${mode}Mode`)
           .append(template.content.cloneNode(true));
         template.remove();
       }
-      for (const path of definition.scripts) await script(path);
+      if (template && definition.scripts.length) {
+        await script(definition.scripts[definition.scripts.length - 1]);
+      }
       if (mode === "exam")
         await new Promise((resolve, reject) => {
           const root = document.getElementById("examMode");

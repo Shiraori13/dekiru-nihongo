@@ -121,14 +121,22 @@ window.StudyNotifications = (() => {
     }
 
     const favs = safeJson("dekiru_favs_v2");
-    if (Array.isArray(favs) && favs.length > 0) {
+    const favCount =
+      typeof window.getFavoriteVocabCount === "function"
+        ? window.getFavoriteVocabCount()
+        : Array.isArray(favs)
+          ? favs.length
+          : 0;
+    if (favCount > 0) {
       items.push({
-        id: `favs:${favs.length}`,
+        id: `favs:${favCount}`,
         urgent: false,
-        title: `Đã lưu ${favs.length} từ vựng yêu thích`,
-        detail: "Chọn chủ đề Yêu thích trong bộ lọc để ôn tập nhanh.",
-        actionLabel: "Xem từ vựng",
+        title: `Đã lưu ${favCount} từ vựng yêu thích`,
+        detail:
+          'Bấm nút "Yêu thích" trong bộ lọc từ vựng hoặc bấm bên dưới để ôn tập ngay.',
+        actionLabel: "Ôn từ yêu thích",
         mode: "flashcard",
+        action: "favorites",
       });
     }
 
@@ -138,7 +146,7 @@ window.StudyNotifications = (() => {
         urgent: false,
         title: "Mọi mục tiêu học hôm nay đã sẵn sàng",
         detail:
-          "Kho dữ liệu offline gồm 921 từ vựng, 71 bài đọc, 666 câu ngữ pháp và 8 đề luyện.",
+          "Kho dữ liệu offline gồm 921 từ vựng, 607 mục Hán tự, 71 bài đọc, 57 câu luyện nói, 666 câu ngữ pháp và 8 đề luyện.",
         actionLabel: null,
         mode: null,
       });
@@ -196,8 +204,13 @@ window.StudyNotifications = (() => {
         const action = event.target.closest("[data-notif-mode]");
         if (action) {
           const targetMode = action.dataset.notifMode;
+          const targetAction = action.dataset.notifAction;
           close();
-          window.switchMode?.(targetMode);
+          if (targetAction === "favorites" && window.openFavoriteVocab) {
+            window.openFavoriteVocab();
+          } else {
+            window.switchMode?.(targetMode);
+          }
           return;
         }
         if (event.target === dialog) {
@@ -236,6 +249,7 @@ window.StudyNotifications = (() => {
           btn.type = "button";
           btn.className = "notification-item-btn";
           btn.dataset.notifMode = item.mode;
+          if (item.action) btn.dataset.notifAction = item.action;
           btn.textContent = item.actionLabel;
           card.append(btn);
         }

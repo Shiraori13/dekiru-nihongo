@@ -13,7 +13,6 @@
   <link rel="stylesheet" href="assets/study.css">
   <link rel="stylesheet" href="assets/mobile.css">
   <link rel="stylesheet" href="assets/shell.css">
-  <link rel="stylesheet" href="assets/pickers.css">
   <link rel="stylesheet" href="assets/streak.css">
   <link rel="stylesheet" href="assets/appearance.css">
 </head>
@@ -93,6 +92,29 @@
 
       <input type="text" aria-label="Tìm từ vựng" id="searchBox" placeholder="Tra cứu Kanji, Kana hoặc tiếng Việt..." oninput="onFilterChange()">
 
+      <div class="type-filter-wrap" id="vocabTypeWrap">
+        <div class="vocab-subfilters">
+          <button type="button" id="typeFilterToggle" class="type-filter-toggle" aria-expanded="false" aria-controls="typeFilterPanel" onclick="toggleTypeFilterPanel()">
+            <span id="typeFilterBtnLabel">Tính chất từ: Tất cả (921)</span>
+            <span class="type-filter-chevron" aria-hidden="true">▾</span>
+          </button>
+          <button type="button" id="favOnlyToggle" class="fav-filter-toggle" aria-pressed="false" onclick="toggleFavOnlyFilter()" title="Chỉ hiện các từ đã đánh dấu sao">
+            <span class="fav-filter-star" aria-hidden="true">★</span>
+            <span id="favOnlyLabel">Yêu thích (0)</span>
+          </button>
+        </div>
+        <div id="typeFilterPanel" class="type-filter-panel" hidden>
+          <div class="type-filter-panel-head">
+            <span id="typeFilterHint">Tick chọn một hoặc nhiều tính chất từ để kết hợp ôn tập</span>
+            <div class="type-filter-actions">
+              <button type="button" class="type-filter-mini-btn" id="typeFilterSelectAll" onclick="selectAllVocabTypes()">Chọn tất cả</button>
+              <button type="button" class="type-filter-mini-btn" id="typeFilterClear" onclick="clearVocabTypes()">Bỏ chọn</button>
+            </div>
+          </div>
+          <div id="typeFilterChecks" class="type-filter-checks" role="group" aria-label="Bộ lọc theo tính chất từ vựng"></div>
+        </div>
+      </div>
+
       <div id="topicDetail" class="topic-detail">Chủ đề đang chọn: Tất cả các chủ đề</div>
     </div>
 
@@ -114,7 +136,10 @@
           <!-- Mặt trước -->
           <div class="flashcard-face flashcard-front">
             <div class="card-top">
-              <span class="badge-topic" id="fcTagFront">Bài 1</span>
+              <div class="card-badges">
+                <span class="badge-topic" id="fcTagFront">Bài 1</span>
+                <span class="badge-type" id="fcTypeFront">Con người &amp; Gia đình</span>
+              </div>
               <div class="card-actions" onclick="event.stopPropagation()">
                 <button type="button" class="btn-card-audio" data-fc-audio onclick="playAudioCurrent()" title="Nghe phát âm (Phím A)" aria-label="Nghe phát âm"><svg class="card-action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg><span>Loa phát âm</span></button>
                 <button type="button" class="icon-btn icon-btn-round" id="fcFavBtn" aria-pressed="false" onclick="toggleFavCurrent()" title="Lưu từ yêu thích (Phím S)"><svg class="card-action-icon star-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
@@ -129,9 +154,13 @@
           <!-- Mặt sau -->
           <div class="flashcard-face flashcard-back">
             <div class="card-top">
-              <span class="badge-topic">Ý nghĩa tiếng Việt</span>
+              <div class="card-badges">
+                <span class="badge-topic">Ý nghĩa tiếng Việt</span>
+                <span class="badge-type" id="fcTypeBack">Con người &amp; Gia đình</span>
+              </div>
               <div class="card-actions" onclick="event.stopPropagation()">
                 <button type="button" class="btn-card-audio" data-fc-audio onclick="playAudioCurrent()" title="Nghe phát âm" aria-label="Nghe phát âm"><svg class="card-action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg><span>Loa phát âm</span></button>
+                <button type="button" class="icon-btn icon-btn-round" data-fc-fav aria-pressed="false" onclick="toggleFavCurrent()" title="Lưu từ yêu thích (Phím S)" aria-label="Lưu từ yêu thích"><svg class="card-action-icon star-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
               </div>
             </div>
             <div class="card-center">
@@ -246,7 +275,7 @@
 
     <!-- 3. LIST VIEW MODE -->
     <div id="listMode" class="list-scroll" style="display: none;">
-      <table class="vocab-table"><caption class="sr-only">Từ vựng trong phạm vi đã chọn</caption><thead><tr><th scope="col">Từ vựng</th><th scope="col">Cách đọc</th><th scope="col">Nghĩa tiếng Việt</th><th scope="col">Nghe</th></tr></thead>
+      <table class="vocab-table"><caption class="sr-only">Từ vựng trong phạm vi đã chọn</caption><thead><tr><th scope="col">Từ vựng</th><th scope="col">Cách đọc</th><th scope="col">Nghĩa tiếng Việt</th><th scope="col">Thao tác</th></tr></thead>
         <tbody id="vocabTableBody"></tbody>
       </table>
     </div>
@@ -379,14 +408,17 @@
     <section id="studyShortcuts" class="study-shortcuts" aria-labelledby="studyShortcutsTitle">
       <h2 id="studyShortcutsTitle">Khám phá cách học</h2>
       <div class="study-shortcut-grid">
-        <button type="button" class="study-shortcut" onclick="switchMode('reading')"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v15M3 4h5a4 4 0 0 1 4 2 4 4 0 0 1 4-2h5v15h-5a4 4 0 0 0-4 2 4 4 0 0 0-4-2H3V4Z"/></svg><span><strong>Luyện đọc</strong><small>Đọc, nghe và hiểu từng câu.</small></span><span aria-hidden="true">›</span></button>
-        <button type="button" class="study-shortcut" onclick="switchMode('grammar')"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16M12 3v2M7 5c1 6 5 10 11 13M17 5c-1 6-5 10-11 13M4 21h16"/></svg><span><strong>Ngữ pháp</strong><small>Hiểu mẫu câu, luyện vận dụng.</small></span><span aria-hidden="true">›</span></button>
-        <button type="button" class="study-shortcut" onclick="switchMode('exam')"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="15" height="17" rx="2"/><path d="M9 4V2h7v2M9 10h7M9 14h3m2 3 2 2 4-4"/></svg><span><strong>Luyện đề</strong><small>45 câu, lời giải sau khi nộp.</small></span><span aria-hidden="true">›</span></button>
+        <button type="button" class="study-shortcut" onclick="switchMode('reading')"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v15M3 4h5a4 4 0 0 1 4 2 4 4 0 0 1 4-2h5v15h-5a4 4 0 0 0-4 2 4 4 0 0 0-4-2H3V4Z"/></svg><span><strong>Luyện đọc</strong><small>71 bài đọc, nghe và hiểu từng câu.</small></span><span aria-hidden="true">›</span></button>
+        <button type="button" class="study-shortcut" onclick="switchMode('speaking')"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3Z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v3M8 21h8"/></svg><span><strong>Luyện nói</strong><small>57 câu hỏi vấn đáp JPD123 kèm audio.</small></span><span aria-hidden="true">›</span></button>
+        <button type="button" class="study-shortcut" onclick="switchMode('kanji')"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14M12 2v2M7 8h10l-5 4v8M5 14h14M9 21h3"/></svg><span><strong>Hán tự</strong><small>496 chữ Hán, âm Hán Việt và tập viết.</small></span><span aria-hidden="true">›</span></button>
+        <button type="button" class="study-shortcut" onclick="switchMode('grammar')"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16M12 3v2M7 5c1 6 5 10 11 13M17 5c-1 6-5 10-11 13M4 21h16"/></svg><span><strong>Ngữ pháp</strong><small>37 mục mẫu câu, luyện vận dụng.</small></span><span aria-hidden="true">›</span></button>
+        <button type="button" class="study-shortcut" onclick="switchMode('exam')"><svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="15" height="17" rx="2"/><path d="M9 4V2h7v2M9 10h7M9 14h3m2 3 2 2 4-4"/></svg><span><strong>Luyện đề</strong><small>8 đề 45 câu, lời giải sau khi nộp.</small></span><span aria-hidden="true">›</span></button>
       </div>
     </section>
   </main>
 
   <script src="data/vocabulary.js"></script>
+  <script src="data/vocab-types.js"></script>
   <script src="data/audio.js"></script>
   <script src="assets/audio.js"></script>
   <script src="data/meaning-groups.js"></script>

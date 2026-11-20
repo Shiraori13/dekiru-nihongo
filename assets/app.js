@@ -105,6 +105,80 @@ const TOPIC_DETAILS = {
 const lessonSelect = document.getElementById("lessonSelect");
 const topicSelect = document.getElementById("topicSelect");
 const searchBox = document.getElementById("searchBox");
+const VOCAB_TYPES = window.VOCAB_TYPE_LIST || [];
+const VOCAB_TYPE_MAP = new Map(VOCAB_TYPES);
+const VOCAB_ITEM_TYPE = new Map(
+  RAW_VOCAB.map((item, idx) => [
+    item,
+    (window.VOCAB_TYPE_CODES || "")[idx] || "e",
+  ]),
+);
+const selectedTypes = new Set();
+let favOnly = false;
+
+function getVocabKey(item) {
+  return `${item.l}::${item.k}::${item.h}`;
+}
+
+function isFavoriteItem(item) {
+  if (!item) return false;
+  return favorites.includes(getVocabKey(item)) || favorites.includes(item.k);
+}
+
+function getFavoriteCount() {
+  return RAW_VOCAB.filter(isFavoriteItem).length;
+}
+
+window.getFavoriteVocabCount = getFavoriteCount;
+
+function updateFavFilterButton() {
+  const btn = document.getElementById("favOnlyToggle");
+  const label = document.getElementById("favOnlyLabel");
+  if (!btn || !label) return;
+  const count = getFavoriteCount();
+  btn.classList.toggle("is-active", favOnly);
+  btn.setAttribute("aria-pressed", String(favOnly));
+  label.textContent = `Yêu thích (${count})`;
+}
+
+function toggleFavOnlyFilter(force) {
+  favOnly = typeof force === "boolean" ? force : !favOnly;
+  onFilterChange();
+}
+
+window.openFavoriteVocab = () => {
+  favOnly = true;
+  lessonSelect.value = "all";
+  updateTopicList();
+  topicSelect.value = "all";
+  searchBox.value = "";
+  selectedTypes.clear();
+  switchMode("flashcard");
+  onFilterChange();
+};
+
+function getVocabTypeCode(item) {
+  return VOCAB_ITEM_TYPE.get(item) || "e";
+}
+
+function getVocabTypeLabel(item) {
+  return VOCAB_TYPE_MAP.get(getVocabTypeCode(item)) || "Khác";
+}
+
+function getVocabTypeSummary() {
+  if (!selectedTypes.size) return "";
+  return [...selectedTypes]
+    .map((code) => VOCAB_TYPE_MAP.get(code))
+    .filter(Boolean)
+    .join(", ");
+}
+
+window.getVocabTypeShortSummary = () => {
+  const parts = [];
+  if (selectedTypes.size) parts.push(`${selectedTypes.size} tính chất`);
+  if (favOnly) parts.push("Yêu thích ★");
+  return parts.join(" · ");
+};
 
 function getTopicLabel(topic) {
   if (topic === "all") return "Tất cả các chủ đề";
@@ -113,9 +187,83 @@ function getTopicLabel(topic) {
 }
 
 function updateTopicDetail() {
-  document.getElementById("topicDetail").textContent =
-    `Chủ đề đang chọn: ${getTopicLabel(topicSelect.value)}`;
+  const parts = [`Chủ đề đang chọn: ${getTopicLabel(topicSelect.value)}`];
+  const summary = getVocabTypeSummary();
+  if (summary) parts.push(`Tính chất (${selectedTypes.size}): ${summary}`);
+  if (favOnly) parts.push("Chỉ từ yêu thích ★");
+  document.getElementById("topicDetail").textContent = parts.join(" · ");
 }
+
+function renderTypeFilterOptions(scopeItems) {
+  const host = document.getElementById("typeFilterChecks");
+  if (!host) return;
+  const counts = Object.fromEntries(VOCAB_TYPES.map(([code]) => [code, 0]));
+  scopeItems.forEach((item) => {
+    const code = getVocabTypeCode(item);
+    counts[code] = (counts[code] || 0) + 1;
+  });
+  host.innerHTML = VOCAB_TYPES.map(([code, label]) => {
+    const checked = selectedTypes.has(code);
+    const n = counts[code] || 0;
+    return `<label class="type-check-chip${n === 0 && !checked ? " is-empty" : ""}" data-type-code="${code}"><input type="checkbox" value="${code}"${checked ? " checked" : ""}><span class="type-check-name">${escapeHTML(label)}</span><span class="type-check-count">${n}</span></label>`;
+  }).join("");
+  updateTypeFilterButton(scopeItems.length);
+}
+
+function updateTypeFilterButton(scopeTotal) {
+  const btn = document.getElementById("typeFilterToggle");
+  const label = document.getElementById("typeFilterBtnLabel");
+  if (!btn || !label) return;
+  const active = selectedTypes.size > 0;
+  btn.classList.toggle("is-active", active);
+  if (!active) {
+    label.textContent = `Tính chất từ: Tất cả (${scopeTotal})`;
+  } else {
+    const names = [...selectedTypes]
+      .map((c) => VOCAB_TYPE_MAP.get(c))
+      .filter(Boolean);
+    const preview =
+      names.length <= 2
+        ? names.join(", ")
+        : `${names.slice(0, 2).join(", ")} +${names.length - 2}`;
+    label.textContent = `Tính chất (${names.length}): ${preview} · ${currentFiltered.length} thẻ`;
+  }
+}
+
+function toggleTypeFilterPanel(force) {
+  const btn = document.getElementById("typeFilterToggle");
+  const panel = document.getElementById("typeFilterPanel");
+  if (!btn || !panel) return;
+  const open = typeof force === "boolean" ? force : panel.hidden;
+  panel.hidden = !open;
+  btn.setAttribute("aria-expanded", String(open));
+}
+
+function selectAllVocabTypes() {
+  VOCAB_TYPES.forEach(([code]) => selectedTypes.add(code));
+  onFilterChange();
+}
+
+function clearVocabTypes() {
+  selectedTypes.clear();
+  onFilterChange();
+}
+
+document.getElementById("typeFilterChecks")?.addEventListener("change", (e) => {
+  const input = e.target.closest('input[type="checkbox"]');
+  if (!input) return;
+  if (input.checked) selectedTypes.add(input.value);
+  else selectedTypes.delete(input.value);
+  onFilterChange();
+});
+
+document.getElementById("typeFilterPanel")?.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    e.stopPropagation();
+    toggleTypeFilterPanel(false);
+    document.getElementById("typeFilterToggle")?.focus();
+  }
+});
 
 function initLessons() {
   for (let i = 1; i <= 15; i++) {
@@ -151,7 +299,7 @@ function onLessonChange() {
   onFilterChange();
 }
 
-function onFilterChange() {
+function onFilterChange(preserveIndex = false) {
   clearTimeout(quizTimer);
   const l = lessonSelect.value;
   const t = topicSelect.value;
@@ -164,23 +312,34 @@ function onFilterChange() {
       .toLowerCase();
   const q = normalizeSearch(searchBox.value.trim());
 
-  updateTopicDetail();
-
-  currentFiltered = RAW_VOCAB.filter((item) => {
+  const scoped = RAW_VOCAB.filter((item) => {
     const matchL = l === "all" || item.l == l;
     const matchT = t === "all" || item.t === t;
+    const matchFav = !favOnly || isFavoriteItem(item);
     const matchQ =
       !q ||
       normalizeSearch(item.k).includes(q) ||
       normalizeSearch(item.h).includes(q) ||
       normalizeSearch(item.m).includes(q);
-    return matchL && matchT && matchQ;
+    return matchL && matchT && matchFav && matchQ;
   });
 
-  currentIndex = 0;
+  currentFiltered = scoped.filter(
+    (item) =>
+      selectedTypes.size === 0 || selectedTypes.has(getVocabTypeCode(item)),
+  );
+
+  updateTopicDetail();
+  updateFavFilterButton();
+  renderTypeFilterOptions(scoped);
+
+  currentIndex = preserveIndex
+    ? Math.min(currentIndex, Math.max(0, currentFiltered.length - 1))
+    : 0;
   document.getElementById("vocabCount").textContent =
     `${currentFiltered.length} thẻ trong phạm vi chọn · ${RAW_VOCAB.length} thẻ đã đối chiếu PDF`;
   updateUI();
+  window.MobileUI?.modeChanged(currentMode);
 }
 
 let modeRequest = 0;
@@ -333,6 +492,7 @@ async function switchMode(mode) {
       window.MobileUI?.modeChanged(mode);
     } catch (error) {
       if (request !== modeRequest) return;
+      document.getElementById(mode + "Mode").style.display = "none";
       status.replaceChildren(document.createTextNode(error.message + " "));
       const retry = document.createElement("button");
       retry.textContent = "Thử lại";
@@ -367,6 +527,16 @@ function flipCard() {
   syncCardFaces();
 }
 
+function syncFlashcardFavButtons() {
+  const empty = currentFiltered.length === 0;
+  const isFav = !empty && isFavoriteItem(currentFiltered[currentIndex]);
+  document.querySelectorAll("#fcFavBtn, [data-fc-fav]").forEach((btn) => {
+    btn.disabled = empty;
+    btn.classList.toggle("active", isFav);
+    btn.setAttribute("aria-pressed", String(isFav));
+  });
+}
+
 function updateCardUI() {
   isFlipped = false;
   syncCardFaces();
@@ -375,7 +545,6 @@ function updateCardUI() {
   document.getElementById("fcNext").disabled =
     empty || currentIndex === currentFiltered.length - 1;
   document.getElementById("fcShuffle").disabled = currentFiltered.length < 2;
-  document.getElementById("fcFavBtn").disabled = empty;
   document
     .querySelectorAll("[data-fc-audio]")
     .forEach((btn) => (btn.disabled = empty));
@@ -385,32 +554,41 @@ function updateCardUI() {
   if (currentFiltered.length === 0) {
     document.getElementById("fcKanji").textContent = "Không có từ";
     document.getElementById("fcKana").textContent = "";
-    document.getElementById("fcMeaning").textContent = "Đổi bộ lọc tra cứu";
+    document.getElementById("fcMeaning").textContent = favOnly
+      ? "Chưa có từ yêu thích trong phạm vi này"
+      : "Đổi bộ lọc tra cứu";
     document.getElementById("fcProgressText").textContent = "0 / 0";
     document.getElementById("fcProgressBar").style.width = "0%";
     document.getElementById("fcTopicTag").textContent = "Không có kết quả";
     document.getElementById("fcTagFront").textContent = "Đổi bộ lọc";
-    document.getElementById("fcFavBtn").classList.remove("active");
-    document.getElementById("fcFavBtn").setAttribute("aria-pressed", "false");
+    document.getElementById("fcTypeFront").hidden = true;
+    document.getElementById("fcTypeBack").hidden = true;
+    syncFlashcardFavButtons();
     return;
   }
 
   const item = currentFiltered[currentIndex];
+  const typeCode = getVocabTypeCode(item);
+  const typeLabel = getVocabTypeLabel(item);
   document.getElementById("fcKanji").textContent = item.k;
   document.getElementById("fcKana").textContent = item.h;
   document.getElementById("fcMeaning").textContent = item.m;
   document.getElementById("fcTagFront").textContent = `Bài ${item.l}`;
+  ["fcTypeFront", "fcTypeBack"].forEach((id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.hidden = false;
+    el.textContent = typeLabel;
+    el.title = typeLabel;
+    el.dataset.typeCode = typeCode;
+  });
   document.getElementById("fcTopicTag").textContent = item.t;
   document.getElementById("fcProgressText").textContent =
     `${currentIndex + 1} / ${currentFiltered.length}`;
   document.getElementById("fcProgressBar").style.width =
     `${((currentIndex + 1) / currentFiltered.length) * 100}%`;
 
-  const isFav = favorites.includes(item.k);
-  document.getElementById("fcFavBtn").classList.toggle("active", isFav);
-  document
-    .getElementById("fcFavBtn")
-    .setAttribute("aria-pressed", String(isFav));
+  syncFlashcardFavButtons();
 }
 
 function nextCard() {
@@ -442,14 +620,36 @@ function playAudioCurrent() {
   }
 }
 
+function toggleFavItem(item, source = "flashcard") {
+  if (!item) return;
+  const key = getVocabKey(item);
+  if (favorites.includes(key) || favorites.includes(item.k)) {
+    if (favorites.includes(item.k)) {
+      favorites = favorites.filter((x) => x !== item.k);
+      RAW_VOCAB.forEach((other) => {
+        if (other !== item && other.k === item.k) {
+          const otherKey = getVocabKey(other);
+          if (!favorites.includes(otherKey)) favorites.push(otherKey);
+        }
+      });
+    }
+    favorites = favorites.filter((x) => x !== key);
+  } else {
+    favorites.push(key);
+  }
+  safeSet("dekiru_favs_v2", JSON.stringify(favorites));
+  updateFavFilterButton();
+  if (favOnly && source !== "quiz-review") {
+    onFilterChange(true);
+  } else if (source === "flashcard") {
+    syncFlashcardFavButtons();
+  }
+  window.StudyNotifications?.refresh();
+}
+
 function toggleFavCurrent() {
   if (currentFiltered.length === 0) return;
-  const k = currentFiltered[currentIndex].k;
-  if (favorites.includes(k)) favorites = favorites.filter((x) => x !== k);
-  else favorites.push(k);
-  safeSet("dekiru_favs_v2", JSON.stringify(favorites));
-  updateCardUI();
-  window.StudyNotifications?.refresh();
+  toggleFavItem(currentFiltered[currentIndex], "flashcard");
 }
 
 function playAudio(text) {
@@ -478,8 +678,15 @@ function showQuizSetup(confirmed = false) {
       ? "Tất cả các bài"
       : `Bài ${lessonSelect.value}`;
   const tName = getTopicLabel(topicSelect.value);
+  const scopeParts = [lName, tName];
+  if (selectedTypes.size > 0) {
+    scopeParts.push(
+      `Tính chất (${selectedTypes.size}): ${getVocabTypeSummary()}`,
+    );
+  }
+  if (favOnly) scopeParts.push("Chỉ từ yêu thích ★");
   document.getElementById("setupDesc").textContent =
-    `Phạm vi: ${lName} • ${tName} (Tổng: ${count} từ vựng)`;
+    `Phạm vi: ${scopeParts.join(" • ")} (Tổng: ${count} từ vựng)`;
 
   document.getElementById("quizAllDetail").textContent = `${count} câu`;
   updateQuizCountInput();
@@ -914,33 +1121,62 @@ function renderQuizReview(filter) {
             return `<div class="quiz-review-option${right ? " is-correct" : selected ? " is-incorrect" : ""}"><span class="quiz-option-letter" aria-hidden="true">${"ABCD"[i]}</span><span class="quiz-option-text">${escapeHTML(option)}</span>${right || selected ? `<strong>${right ? (selected ? "✓ Bạn chọn · Đúng" : "✓ Đáp án đúng") : "✕ Bạn chọn · Sai"}</strong>` : ""}</div>`;
           })
           .join("");
-        return `<article class="quiz-review-card ${state}" data-review-index="${index}"><div class="quiz-review-meta"><h4>Câu ${index + 1}</h4><span class="quiz-review-status">${label}</span></div><p class="quiz-review-word" lang="ja">${escapeHTML(question.k)}</p><p class="quiz-review-kana" lang="ja">${escapeHTML(question.h)}</p>${chosen === null ? '<p class="quiz-skipped-note">Bạn chưa chọn đáp án cho câu này.</p>' : ""}<div class="quiz-review-options">${options}</div><p class="quiz-review-source">Bài ${question.l} · ${escapeHTML(getTopicLabel(question.t))} · <a class="source-link" href="sources/new-words.pdf#page=${question.p}" target="_blank" rel="noopener">PDF trang ${question.p} ↗</a></p></article>`;
+        const fav = isFavoriteItem(question);
+        return `<article class="quiz-review-card ${state}" data-review-index="${index}"><div class="quiz-review-meta"><h4>Câu ${index + 1}</h4><div class="quiz-review-meta-actions"><button type="button" class="quiz-review-fav${fav ? " active" : ""}" data-quiz-fav="${index}" aria-pressed="${fav}" aria-label="Lưu từ ${escapeHTML(question.k)} vào yêu thích">${fav ? "★ Đã lưu" : "☆ Lưu từ"}</button><span class="quiz-review-status">${label}</span></div></div><p class="quiz-review-word" lang="ja">${escapeHTML(question.k)}</p><p class="quiz-review-kana" lang="ja">${escapeHTML(question.h)}</p>${chosen === null ? '<p class="quiz-skipped-note">Bạn chưa chọn đáp án cho câu này.</p>' : ""}<div class="quiz-review-options">${options}</div><p class="quiz-review-source">Bài ${question.l} · ${escapeHTML(getTopicLabel(question.t))} · <a class="source-link" href="sources/new-words.pdf#page=${question.p}" target="_blank" rel="noopener">PDF trang ${question.p} ↗</a></p></article>`;
       })
       .join("") ||
     '<p class="empty-state">Bạn đã trả lời đúng tất cả các câu. Không có câu sai hoặc bỏ trống.</p>';
 }
+document.getElementById("quizReviewList").addEventListener("click", (e) => {
+  const favBtn = e.target.closest("[data-quiz-fav]");
+  if (!favBtn) return;
+  const q = quizQuestions[Number(favBtn.dataset.quizFav)];
+  if (!q) return;
+  toggleFavItem(q, "quiz-review");
+  const fav = isFavoriteItem(q);
+  favBtn.classList.toggle("active", fav);
+  favBtn.setAttribute("aria-pressed", String(fav));
+  favBtn.textContent = fav ? "★ Đã lưu" : "☆ Lưu từ";
+});
 
 /* LIST VIEW */
 function renderListView() {
   const tbody = document.getElementById("vocabTableBody");
   tbody.innerHTML = currentFiltered.length
     ? currentFiltered
-        .map(
-          (i, index) => `
+        .map((i, index) => {
+          const fav = isFavoriteItem(i);
+          return `
         <tr class="vocab-row">
-          <td lang="ja">${escapeHTML(i.k)}<span class="source-cell" lang="vi">Bài ${i.l} · PDF tr. ${i.p}</span></td>
+          <td lang="ja">${escapeHTML(i.k)}<span class="source-cell" lang="vi">Bài ${i.l} · PDF tr. ${i.p} · <span class="vocab-type-badge" data-type-code="${getVocabTypeCode(i)}">${escapeHTML(getVocabTypeLabel(i))}</span></span></td>
           <td class="kana-cell" lang="ja">${escapeHTML(i.h)}</td>
           <td class="meaning-cell">${escapeHTML(i.m)}</td>
-          <td><button class="icon-btn" data-vocab-audio="${index}" aria-label="Nghe ${escapeHTML(i.k)}">🔊</button></td>
+          <td><div class="vocab-row-actions"><button type="button" class="icon-btn vocab-fav-btn${fav ? " active" : ""}" data-vocab-fav="${index}" aria-pressed="${fav}" aria-label="Lưu từ ${escapeHTML(i.k)} vào yêu thích" title="${fav ? "Bỏ lưu yêu thích" : "Lưu từ yêu thích"}">${fav ? "★" : "☆"}</button><button type="button" class="icon-btn" data-vocab-audio="${index}" aria-label="Nghe ${escapeHTML(i.k)}" title="Nghe phát âm">🔊</button></div></td>
         </tr>
-      `,
-        )
+      `;
+        })
         .join("")
-    : '<tr><td colspan="4" class="empty-state">Không tìm thấy từ. Hãy đổi bộ lọc hoặc từ khóa.</td></tr>';
+    : `<tr><td colspan="4" class="empty-state">${favOnly ? "Chưa có từ yêu thích nào trong phạm vi này. Bấm ★ trên thẻ hoặc bỏ lọc Yêu thích." : "Không tìm thấy từ. Hãy đổi bộ lọc hoặc từ khóa."}</td></tr>`;
 }
 document.getElementById("vocabTableBody").addEventListener("click", (e) => {
-  const btn = e.target.closest("[data-vocab-audio]");
-  if (btn) playAudio(currentFiltered[Number(btn.dataset.vocabAudio)].h);
+  const audioBtn = e.target.closest("[data-vocab-audio]");
+  if (audioBtn) {
+    playAudio(currentFiltered[Number(audioBtn.dataset.vocabAudio)].h);
+    return;
+  }
+  const favBtn = e.target.closest("[data-vocab-fav]");
+  if (favBtn) {
+    const item = currentFiltered[Number(favBtn.dataset.vocabFav)];
+    if (!item) return;
+    toggleFavItem(item, "list");
+    if (!favOnly) {
+      const fav = isFavoriteItem(item);
+      favBtn.classList.toggle("active", fav);
+      favBtn.setAttribute("aria-pressed", String(fav));
+      favBtn.title = fav ? "Bỏ lưu yêu thích" : "Lưu từ yêu thích";
+      favBtn.textContent = fav ? "★" : "☆";
+    }
+  }
 });
 
 function updateUI() {

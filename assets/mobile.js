@@ -163,7 +163,10 @@
     [$("vocabFilters")],
     "vocab-filters",
     "Bài học & bộ lọc",
-    () => `${selected("lessonSelect")} · ${selected("topicSelect")}`,
+    () => {
+      const typeSum = window.getVocabTypeShortSummary?.();
+      return `${selected("lessonSelect")} · ${selected("topicSelect")}${typeSum ? ` · ${typeSum}` : ""}`;
+    },
     "filters",
   );
   const prepared = new Set();

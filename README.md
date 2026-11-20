@@ -14,8 +14,9 @@ Header tận dụng chiều rộng cho tìm kiếm, streak và nút sáng/tối;
 
 Mở `index.html` bằng trình duyệt để học và luyện đề. Giữ các thư mục `assets`, `data`, `sources`, `Material` cùng cấp với file HTML khi sao chép hoặc đưa lên hosting. `Material` chứa ảnh gốc để đối chiếu đề mẫu. `index - Back_up.html` là bản cũ được giữ nguyên tại máy, không đưa lên repo.
 
-- **Thẻ ghi nhớ / Kiểm tra / Danh sách:** 921 thẻ, 15 bài, 45 chủ đề. Bộ lọc và tìm kiếm tiếng Việt không dấu.
+- **Thẻ ghi nhớ / Kiểm tra / Danh sách:** 921 thẻ, 15 bài, 45 chủ đề. Hỗ trợ tìm kiếm tiếng Việt không dấu, bộ lọc đa chọn **15 tính chất từ** (`data/vocab-types.js`) kèm nhãn phân loại trên thẻ/danh sách, và bộ lọc **Từ yêu thích ★** (lưu riêng theo từng bài để tránh trùng chữ, hỗ trợ gắn sao trực tiếp trên cả hai mặt thẻ, bảng Danh sách và màn hình xem lại Quiz).
 - **Luyện đọc:** 71 mục từ PDF speaking; lọc theo bài, dạng bài và từ khóa. Bật/tắt furigana, kana, romaji; chỉnh cỡ chữ; chạm vào từ để xem nghĩa; xem từ vựng riêng cho từng bài.
+- **Luyện nói:** 57 câu hỏi phỏng vấn JPD123 (Bài 4–7) chuẩn hóa từ `sources/jpd123.docx` kèm **166 bản ghi MP3** câu hỏi và câu trả lời mẫu; hỗ trợ lọc theo chủ đề/bài/trạng thái, chế độ Thẻ phỏng vấn hoặc Danh sách 57 câu, bốc ngẫu nhiên, bật/tắt Furigana/Kana/nghĩa Việt và lưu tiến độ.
 - **Hán tự:** 607 mục từ, 496 chữ Hán theo 15 bài/45 chủ đề; âm Hán Việt, giải thích, On/Kun, trang PDF gốc. Xem viết mẫu, từng nét, luyện viết bằng chuột/cảm ứng, tra từ cùng chữ và lưu tiến độ. Tìm kiếm hỗ trợ âm Hán Việt không dấu.
 - **Ngữ pháp:** bài 4–7, 12 topic, 37 mục học, **18 câu mỗi mục / 666 bài tập**. Giải thích, ví dụ có cách đọc/nghĩa và nghe, lỗi thường gặp, bảng thể て; luyện chọn đáp án, điền dạng từ, ghép câu. Nộp rồi chấm, xem giải thích, luyện lại câu sai/bỏ trống và lưu bài đang làm qua lần tải lại trang. [Tổng hợp và đối chiếu ngữ pháp](audits/GRAMMAR_AUDIT.md).
 - **Luyện đề:** 8 đề × 45 câu: một đề chuyển thể từ 44 ảnh trong Material (câu 18 bổ sung), 3 đề bài 4–5 (19 mục/6 topic) và **4 đề bài 6–7 (18 mục/6 topic)**. Bốn đề mới bám đúng ma trận đề mẫu: 6 đọc Hán tự, 8 chọn chữ Hán, 1 từ vựng, 21 ngữ pháp, 7 hội thoại, 2 dịch. Có bộ lọc nhóm đề và danh mục 125 từ bài 6–7. Tiến trình, đánh dấu, sửa trước khi nộp, hẹn giờ, lưu/tiếp tục, lọc câu sai/bỏ trống, lịch sử và xuất kết quả dùng chung luồng hiện có.
@@ -28,7 +29,7 @@ Mở `index.html` bằng trình duyệt để học và luyện đề. Giữ cá
 - **Xem kết quả:** thống kê đúng/sai/bỏ trống; từng câu đánh dấu lựa chọn sai và đáp án đúng, có bộ lọc “Sai / bỏ trống”. Câu bỏ trống không được điểm; nộp thiếu có thông báo để quay lại làm tiếp hoặc vẫn nộp. “Làm lại đề này” giữ nguyên đề và xóa các lựa chọn cũ.
 - Bài kiểm tra **từ vựng** giữ nguyên khi đổi chế độ/bộ lọc; thiết lập bài mới có xác nhận nếu chưa nộp. Quiz từ vựng chưa lưu qua tải lại trang. Ngữ pháp lưu câu, phương án, lựa chọn và gợi ý; tạo bài mới cũng cần xác nhận.
 - **Một tab sửa luyện đề:** tab khác chỉ xem; dùng “Tiếp tục ở tab này” để chuyển quyền. Trạng thái kiểm tra bằng transaction IndexedDB, ID lượt và revision; localStorage v1 chỉ là bản chiếu. Sau cập nhật nội dung, chỉ giữ đáp án còn tương thích và có thông báo nếu cần trả lời lại. Khi lưu bị chặn, hiển thị đúng giới hạn phiên hiện tại.
-- Tiến độ, gợi ý và bài đọc gần nhất được lưu trong trình duyệt. Phát âm dùng **1.178 MP3 đi kèm website**, hoạt động trên Firefox/Edge mà không cần cài giọng Nhật. Giọng thiết bị chỉ là dự phòng khi thiếu file; có thông báo khi bị chặn quyền hoặc không phát được. [Nguồn giọng tổng hợp và cách tạo file cục bộ](assets/audio/README.md).
+- Tiến độ, gợi ý và bài đọc gần nhất được lưu trong trình duyệt. Phát âm dùng **1.343 MP3 đi kèm website** (1.178 bản ghi từ vựng/bài đọc/ngữ pháp + 166 bản ghi luyện nói), hoạt động trên Firefox/Edge mà không cần cài giọng Nhật. Giọng thiết bị chỉ là dự phòng khi thiếu file; có thông báo khi bị chặn quyền hoặc không phát được. [Nguồn giọng tổng hợp và cách tạo file cục bộ](assets/audio/README.md).
 - Nội dung, dữ liệu, font tiếng Nhật Noto Sans JP và font Việt Plus Jakarta Sans đều được đóng gói cục bộ. Không cần tải font từ Google; nguồn và giấy phép ở [assets/fonts/README.md](assets/fonts/README.md).
 
 Chi tiết đối chiếu: [audits/VOCABULARY_AUDIT.md](audits/VOCABULARY_AUDIT.md).
@@ -37,10 +38,11 @@ Các thay đổi cụ thể so với bản trước trên repo: [CHANGELOG.md](C
 
 ## Dữ liệu
 
-- `data/vocabulary.js`: từ vựng, nghĩa, bài, chủ đề và số trang PDF.
+- `data/vocabulary.js`, `data/vocab-types.js`: từ vựng, nghĩa, bài, chủ đề, số trang PDF và phân loại 15 tính chất từ.
 - `data/readings-source.txt`: bản chép các bài đọc, mỗi mục có trang nguồn.
 - `data/readings.js`: bài đọc và từ điển gợi ý theo từng từ.
-- `assets/reading.js`, `assets/study.css`: tương tác và giao diện luyện đọc.
+- `data/speaking.js`, `assets/speaking.js`, `assets/speaking.css`: 57 câu hỏi luyện nói vấn đáp JPD123 và ánh xạ 166 MP3 cục bộ.
+- `assets/reading.js`, `assets/study.css`, `assets/study-modes.css`: giao diện chung và CSS nạp lười cho Luyện đọc / Hán tự / Luyện nói.
 - `assets/kanji.js`, `data/kanji.js`: học Hán tự và tập viết, dùng được ngoại tuyến.
 - `data/grammar.js`, `assets/grammar.js`, `assets/grammar.css`: học ngữ pháp bài 4–7 và bộ luyện tập riêng.
 - `data/grammar-practice.js`: bổ sung câu hỏi theo từng mục, đưa mỗi mục lên 18 câu. Câu không đổi nội dung giữ ID cũ; câu viết lại có ID mới.
@@ -98,6 +100,8 @@ python tests/check_zoom.py
 python tests/check_appearance.py
 python tests/check_glass_layout.py
 python tests/check_study_layout.py
+python tests/check_vocab_filters.py
+python tests/check_speaking.py
 ```
 
 Kiểm thử dùng trình duyệt ẩn với hồ sơ riêng. Ảnh hồi quy ở `.work`; ma trận bàn giao và số đo ở `audits/evidence`. Bộ cũ yêu cầu tải các phần trước các kiểm tra bao phủ toàn dữ liệu; bộ `check_delivery.py` riêng kiểm tra tải theo thao tác thực tế, lỗi/thử lại, đổi chế độ nhanh, `file://` và đường dẫn như GitHub Pages.
