@@ -27,6 +27,16 @@ function readFavorites() {
     return [];
   }
 }
+function readQuizMistakes() {
+  try {
+    const value = JSON.parse(safeGet("dekiru_quiz_mistakes_v1", "[]"));
+    return Array.isArray(value)
+      ? value.filter((x) => typeof x === "string")
+      : [];
+  } catch {
+    return [];
+  }
+}
 function escapeHTML(value) {
   const span = document.createElement("span");
   span.textContent = String(value);
@@ -39,6 +49,7 @@ let currentIndex = 0;
 let isFlipped = false;
 let currentMode = "flashcard";
 let favorites = readFavorites();
+let quizMistakes = readQuizMistakes();
 
 // Quiz State
 let quizIndex = 0;
@@ -47,10 +58,12 @@ let quizScore = 0;
 let quizTimer = null;
 let quizState = "setup";
 let quizGrading = "submit";
+let quizDirection = "jp-vi";
 let quizAnswers = [];
 let quizOptionSets = [];
 let quizScope = "";
 let quizRun = 0;
+let lastQuizAudioKey = "";
 
 // Bản dịch tiếng Việt của các chủ đề, dùng để hỗ trợ lựa chọn bộ từ vựng.
 const TOPIC_DETAILS = {
@@ -339,7 +352,7 @@ function onFilterChange(preserveIndex = false) {
   document.getElementById("vocabCount").textContent =
     `${currentFiltered.length} thẻ trong phạm vi chọn · ${RAW_VOCAB.length} thẻ đã đối chiếu PDF`;
   updateUI();
-  window.MobileUI?.modeChanged(currentMode);
+  window.MobileUI?.refresh();
 }
 
 let modeRequest = 0;
@@ -489,7 +502,7 @@ async function switchMode(mode) {
       if (request !== modeRequest) return;
       status.hidden = true;
       updateShellContext();
-      window.MobileUI?.modeChanged(mode);
+      window.MobileUI?.refresh();
     } catch (error) {
       if (request !== modeRequest) return;
       document.getElementById(mode + "Mode").style.display = "none";
@@ -657,6 +670,64 @@ function playAudio(text) {
 }
 
 /* QUIZ SETUP & LOGIC */
+const QUIZ_DIRECTION_LABELS = {
+  "jp-vi": "Nhật → Nghĩa Việt",
+  "vi-jp": "Nghĩa Việt → Tiếng Nhật",
+  "kanji-kana": "Chữ Hán → Cách đọc Kana",
+  "audio-vi": "Nghe phát âm → Nghĩa Việt",
+};
+
+function getQuizDirectionChoice() {
+  return (
+    document.querySelector('input[name="quizDirection"]:checked')?.value ||
+    "jp-vi"
+  );
+}
+
+function getQuizPool(direction = getQuizDirectionChoice()) {
+  return QuizCore.eligiblePool(direction, currentFiltered);
+}
+
+function getSavedMistakeItems(direction = null) {
+  const saved = RAW_VOCAB.filter((w) => quizMistakes.includes(getVocabKey(w)));
+  return direction ? QuizCore.eligiblePool(direction, saved) : saved;
+}
+
+window.getQuizMistakeCount = () => getSavedMistakeItems().length;
+
+function updateQuizMistakeBanner() {
+  const banner = document.getElementById("quizMistakeBanner");
+  if (!banner) return;
+  const allSaved = getSavedMistakeItems();
+  if (!allSaved.length) {
+    banner.hidden = true;
+    return;
+  }
+  const dir = getQuizDirectionChoice();
+  const eligible = QuizCore.eligiblePool(dir, allSaved);
+  banner.hidden = false;
+  document.getElementById("quizMistakeTitle").textContent =
+    dir === "kanji-kana" && eligible.length !== allSaved.length
+      ? `${allSaved.length} từ hay sai (${eligible.length} từ có chữ Hán)`
+      : `${allSaved.length} từ hay sai cần ôn lại`;
+  const btn = document.getElementById("quizPracticeMistakesBtn");
+  btn.disabled = eligible.length === 0;
+  btn.textContent = eligible.length
+    ? `🎯 Ôn ngay ${eligible.length} từ`
+    : "Chưa có từ Hán sai";
+}
+
+function clearSavedQuizMistakes() {
+  quizMistakes = [];
+  safeSet("dekiru_quiz_mistakes_v1", "[]");
+  updateQuizMistakeBanner();
+  window.StudyNotifications?.refresh();
+}
+
+function onQuizDirectionChange() {
+  if (quizState === "setup") showQuizSetup(true);
+}
+
 function showQuizSetup(confirmed = false) {
   if (quizState === "running" && !confirmed) {
     StudyDialogs.replace({
@@ -666,13 +737,15 @@ function showQuizSetup(confirmed = false) {
     return;
   }
   clearTimeout(quizTimer);
+  window.StudyAudio?.stop();
   quizRun++;
   quizState = "setup";
   document.getElementById("quizSetup").style.display = "block";
   document.getElementById("quizBox").style.display = "none";
   document.getElementById("quizResult").style.display = "none";
 
-  const count = currentFiltered.length;
+  const dir = getQuizDirectionChoice();
+  const count = getQuizPool(dir).length;
   const lName =
     lessonSelect.value === "all"
       ? "Tất cả các bài"
@@ -685,10 +758,12 @@ function showQuizSetup(confirmed = false) {
     );
   }
   if (favOnly) scopeParts.push("Chỉ từ yêu thích ★");
+  if (dir === "kanji-kana") scopeParts.push("Chỉ từ có chữ Hán");
   document.getElementById("setupDesc").textContent =
     `Phạm vi: ${scopeParts.join(" • ")} (Tổng: ${count} từ vựng)`;
 
   document.getElementById("quizAllDetail").textContent = `${count} câu`;
+  updateQuizMistakeBanner();
   updateQuizCountInput();
   syncQuizChrome();
 }
@@ -718,17 +793,18 @@ function clearQuizCountError() {
 }
 
 function updateQuizCountInput() {
+  const total = getQuizPool().length;
   const custom = getQuizCountChoice() === "custom";
   document.getElementById("quizCustomBody").hidden = !custom;
   document
     .getElementById("quizCustomGroup")
     .classList.toggle("is-active", custom);
-  document.getElementById("quizCustomCount").max = currentFiltered.length;
-  document.getElementById("quizCountHint").textContent = currentFiltered.length
+  document.getElementById("quizCustomCount").max = total;
+  document.getElementById("quizCountHint").textContent = total
     ? custom
-      ? `Nhập từ 1 đến ${currentFiltered.length} câu · Mỗi câu là một từ trong phạm vi đã chọn.`
-      : `Có ${currentFiltered.length} từ để ôn tập. Số câu tối đa bằng số từ đang chọn.`
-    : "Chưa có từ để kiểm tra. Hãy đổi bộ lọc hoặc từ khóa.";
+      ? `Nhập từ 1 đến ${total} câu · Mỗi câu là một từ trong phạm vi đã chọn.`
+      : `Có ${total} từ để ôn tập. Số câu tối đa bằng số từ đang chọn.`
+    : "Chưa có từ phù hợp với dạng câu hỏi này. Hãy đổi bộ lọc hoặc dạng câu hỏi.";
   clearQuizCountError();
   updateQuizCountPreview();
 }
@@ -739,7 +815,7 @@ function getQuizCountChoice() {
 
 function updateQuizCountPreview() {
   const choice = getQuizCountChoice();
-  const total = currentFiltered.length;
+  const total = getQuizPool().length;
   const input = document.getElementById("quizCustomCount");
   const entered = Number(input.value);
   const valid =
@@ -767,7 +843,7 @@ function updateQuizCountPreview() {
 }
 
 function adjustQuizCount(delta) {
-  const total = currentFiltered.length;
+  const total = getQuizPool().length;
   if (!total) return;
   const input = document.getElementById("quizCustomCount");
   const value = Number(input.value);
@@ -777,12 +853,77 @@ function adjustQuizCount(delta) {
   updateQuizCountPreview();
 }
 
+function launchCustomQuiz(items, scopeLabel, direction, grading) {
+  if (!items.length) return false;
+  const questions = shuffledQuizItems(items);
+  let optionSets;
+  try {
+    optionSets = questions.map((question) =>
+      QuizCore.optionsFor(
+        direction,
+        question,
+        items,
+        RAW_VOCAB,
+        shuffledQuizItems,
+      ),
+    );
+  } catch (error) {
+    document.getElementById("quizCountError").textContent = error.message;
+    document.getElementById("quizCountError").hidden = false;
+    return false;
+  }
+  quizDirection = direction;
+  quizGrading = grading;
+  quizQuestions = questions;
+  quizOptionSets = optionSets;
+  quizScope =
+    direction === "jp-vi"
+      ? scopeLabel
+      : `${scopeLabel} · ${QUIZ_DIRECTION_LABELS[direction]}`;
+  beginQuizAttempt();
+  return true;
+}
+
+function startMistakesBankQuiz() {
+  const dir = getQuizDirectionChoice();
+  const items = getSavedMistakeItems(dir);
+  if (!items.length) return;
+  const grading = document.querySelector(
+    'input[name="quizGrading"]:checked',
+  ).value;
+  launchCustomQuiz(items, `Ôn từ hay sai (${items.length} từ)`, dir, grading);
+}
+
+window.openMistakeQuiz = () => {
+  switchMode("quiz");
+  let dir = getQuizDirectionChoice();
+  let items = getSavedMistakeItems(dir);
+  if (!items.length && getSavedMistakeItems().length) {
+    dir = "jp-vi";
+    const jpRadio = document.querySelector(
+      'input[name="quizDirection"][value="jp-vi"]',
+    );
+    if (jpRadio) jpRadio.checked = true;
+    items = getSavedMistakeItems(dir);
+  }
+  if (items.length) {
+    const grading = document.querySelector(
+      'input[name="quizGrading"]:checked',
+    ).value;
+    launchCustomQuiz(items, `Ôn từ hay sai (${items.length} từ)`, dir, grading);
+  } else {
+    showQuizSetup(true);
+  }
+};
+
 function startQuizEngine() {
   clearTimeout(quizTimer);
-  const total = currentFiltered.length;
+  const dir = getQuizDirectionChoice();
+  const pool = getQuizPool(dir);
+  const total = pool.length;
   if (!total) {
     document.getElementById("quizCountError").textContent =
-      "Không có từ trong phạm vi chọn. Hãy đổi bộ lọc trước khi bắt đầu.";
+      "Không có từ trong phạm vi chọn. Hãy đổi bộ lọc hoặc dạng câu hỏi trước khi bắt đầu.";
     document.getElementById("quizCountError").hidden = false;
     return;
   }
@@ -812,10 +953,17 @@ function startQuizEngine() {
         ? total
         : Math.min(Number(countChoice), total);
 
-  quizQuestions = shuffledQuizItems(currentFiltered).slice(0, qNum);
+  quizDirection = dir;
+  quizQuestions = shuffledQuizItems(pool).slice(0, qNum);
   try {
     quizOptionSets = quizQuestions.map((question) =>
-      QuizCore.options(question, currentFiltered, RAW_VOCAB, shuffledQuizItems),
+      QuizCore.optionsFor(
+        quizDirection,
+        question,
+        pool,
+        RAW_VOCAB,
+        shuffledQuizItems,
+      ),
     );
   } catch (error) {
     document.getElementById("quizCountError").textContent = error.message;
@@ -825,13 +973,19 @@ function startQuizEngine() {
   quizGrading = document.querySelector(
     'input[name="quizGrading"]:checked',
   ).value;
-  quizScope = `${lessonSelect.value === "all" ? "Tất cả các bài" : `Bài ${lessonSelect.value}`} · ${getTopicLabel(topicSelect.value)}`;
+  const baseScope = `${lessonSelect.value === "all" ? "Tất cả các bài" : `Bài ${lessonSelect.value}`} · ${getTopicLabel(topicSelect.value)}`;
+  quizScope =
+    quizDirection === "jp-vi"
+      ? baseScope
+      : `${baseScope} · ${QUIZ_DIRECTION_LABELS[quizDirection]}`;
   beginQuizAttempt();
 }
 
 function beginQuizAttempt() {
   clearTimeout(quizTimer);
+  window.StudyAudio?.stop();
   quizRun++;
+  lastQuizAudioKey = "";
   quizIndex = 0;
   quizScore = 0;
   quizAnswers = Array(quizQuestions.length).fill(null);
@@ -851,6 +1005,77 @@ function beginQuizAttempt() {
 
 function retryQuiz() {
   if (quizState === "submitted" && quizQuestions.length) beginQuizAttempt();
+}
+
+function getQuizMistakeItemsFromResult() {
+  return quizQuestions.filter(
+    (question, index) =>
+      !QuizCore.isCorrect(getQuizAnswer(index), question, quizDirection),
+  );
+}
+
+function retryQuizMistakes() {
+  if (quizState !== "submitted") return;
+  const wrongItems = getQuizMistakeItemsFromResult();
+  if (!wrongItems.length) return;
+  launchCustomQuiz(
+    wrongItems,
+    `Ôn lại ${wrongItems.length} từ sai`,
+    quizDirection,
+    quizGrading,
+  );
+}
+
+function saveQuizMistakesToFav() {
+  if (quizState !== "submitted") return;
+  const wrongItems = getQuizMistakeItemsFromResult();
+  if (!wrongItems.length) return;
+  let added = 0;
+  wrongItems.forEach((item) => {
+    if (!isFavoriteItem(item)) {
+      favorites.push(getVocabKey(item));
+      added++;
+    }
+  });
+  if (added > 0) {
+    safeSet("dekiru_favs_v2", JSON.stringify(favorites));
+    updateFavFilterButton();
+    window.StudyNotifications?.refresh();
+  }
+  document
+    .querySelectorAll("#quizReviewList [data-quiz-fav]")
+    .forEach((btn) => {
+      const q = quizQuestions[Number(btn.dataset.quizFav)];
+      if (!q) return;
+      const fav = isFavoriteItem(q);
+      btn.classList.toggle("active", fav);
+      btn.setAttribute("aria-pressed", String(fav));
+      btn.textContent = fav ? "★ Đã lưu" : "☆ Lưu từ";
+    });
+  syncQuizMistakeResultActions();
+}
+
+function syncQuizMistakeResultActions() {
+  const wrongItems = getQuizMistakeItemsFromResult();
+  const retryBtn = document.getElementById("quizRetryMistakesBtn");
+  const saveBtn = document.getElementById("quizSaveMistakesBtn");
+  if (!retryBtn || !saveBtn) return;
+  const hasWrong = wrongItems.length > 0;
+  retryBtn.hidden = !hasWrong;
+  saveBtn.hidden = !hasWrong;
+  if (!hasWrong) return;
+  retryBtn.textContent = `🎯 Luyện lại ${wrongItems.length} câu sai`;
+  const unsaved = wrongItems.filter((item) => !isFavoriteItem(item)).length;
+  saveBtn.disabled = unsaved === 0;
+  saveBtn.textContent =
+    unsaved === 0
+      ? "✓ Đã lưu hết từ sai vào Yêu thích"
+      : `★ Lưu ${unsaved} từ sai vào Yêu thích`;
+}
+
+function playQuizQuestionAudio() {
+  if (quizState !== "running" || !quizQuestions[quizIndex]) return;
+  playAudio(quizQuestions[quizIndex].h);
 }
 
 function renderQuizView() {
@@ -931,6 +1156,9 @@ function renderQuizQuestion() {
   const questionIndex = quizIndex;
   const selected = getQuizAnswer(quizIndex);
   const instant = quizGrading === "instant";
+  const dir = quizDirection;
+  const expected = QuizCore.correctAnswer(q, dir);
+  const isJaOptions = dir === "vi-jp" || dir === "kanji-kana";
   document.getElementById("quizProgress").textContent =
     `Câu hỏi ${quizIndex + 1} / ${quizQuestions.length}`;
   document.getElementById("quizScore").hidden = !instant;
@@ -938,17 +1166,65 @@ function renderQuizQuestion() {
     `${quizScope} · ${instant ? "Chấm ngay sau mỗi câu." : "Mỗi câu chọn một đáp án. Bạn có thể đổi lựa chọn trước khi nộp."}`;
   document.getElementById("quizQuestionNavigator").hidden = instant;
   document.getElementById("quizExamActions").hidden = instant;
-  document.getElementById("quizKanji").textContent = q.k;
-  document.getElementById("quizKana").textContent = q.h;
-  document.getElementById("quizContext").textContent =
-    `Nghĩa theo Bài ${q.l} · ${getTopicLabel(q.t)} · PDF tr. ${q.p}`;
+
+  const labelEl = document.getElementById("quizLabel");
+  const audioPrompt = document.getElementById("quizAudioPrompt");
+  const kanjiEl = document.getElementById("quizKanji");
+  const kanaEl = document.getElementById("quizKana");
+  const contextEl = document.getElementById("quizContext");
+  kanjiEl.classList.toggle("is-vietnamese", dir === "vi-jp");
+
+  if (dir === "vi-jp") {
+    labelEl.textContent = "Chọn từ tiếng Nhật tương ứng với nghĩa sau:";
+    audioPrompt.hidden = true;
+    kanjiEl.hidden = false;
+    kanjiEl.setAttribute("lang", "vi");
+    kanjiEl.textContent = q.m;
+    kanaEl.hidden = true;
+    kanaEl.textContent = "";
+    contextEl.textContent = `Bài ${q.l} · ${getTopicLabel(q.t)} · PDF tr. ${q.p}`;
+  } else if (dir === "kanji-kana") {
+    labelEl.textContent = "Chọn cách đọc (Kana) đúng của từ Hán tự sau:";
+    audioPrompt.hidden = true;
+    kanjiEl.hidden = false;
+    kanjiEl.setAttribute("lang", "ja");
+    kanjiEl.textContent = q.k;
+    kanaEl.hidden = true;
+    kanaEl.textContent = "";
+    contextEl.textContent = `Nghĩa: ${q.m} · Bài ${q.l} · ${getTopicLabel(q.t)}`;
+  } else if (dir === "audio-vi") {
+    labelEl.textContent = "Nghe phát âm và chọn nghĩa tiếng Việt đúng:";
+    audioPrompt.hidden = false;
+    const reveal = instant && selected !== null;
+    kanjiEl.hidden = !reveal;
+    kanjiEl.setAttribute("lang", "ja");
+    kanjiEl.textContent = reveal ? q.k : "";
+    kanaEl.hidden = !reveal;
+    kanaEl.textContent = reveal ? q.h : "";
+    contextEl.textContent = `Bài ${q.l} · ${getTopicLabel(q.t)} · PDF tr. ${q.p}`;
+    const audioKey = `${quizRun}:${quizIndex}`;
+    if (!reveal && lastQuizAudioKey !== audioKey) {
+      lastQuizAudioKey = audioKey;
+      playAudio(q.h);
+    }
+  } else {
+    labelEl.textContent = "Chọn nghĩa chính xác của từ sau:";
+    audioPrompt.hidden = true;
+    kanjiEl.hidden = false;
+    kanjiEl.setAttribute("lang", "ja");
+    kanjiEl.textContent = q.k;
+    kanaEl.hidden = false;
+    kanaEl.textContent = q.h;
+    contextEl.textContent = `Nghĩa theo Bài ${q.l} · ${getTopicLabel(q.t)} · PDF tr. ${q.p}`;
+  }
+
   document.getElementById("quizAnswerStatus").textContent =
     selected === null
       ? "Chọn một đáp án bên dưới."
       : instant
-        ? QuizCore.equivalent(selected, q.m)
+        ? QuizCore.isCorrect(selected, q, dir)
           ? "✓ Chính xác."
-          : `✕ Chưa đúng. Đáp án: ${q.m}`
+          : `✕ Chưa đúng. Đáp án: ${expected}`
         : "Đã ghi nhận lựa chọn. Bạn có thể xem lại hoặc chuyển câu.";
   const optsBox = document.getElementById("quizOptions");
   optsBox.replaceChildren();
@@ -958,13 +1234,13 @@ function renderQuizQuestion() {
     btn.classList.toggle("is-selected", selected === opt);
     btn.setAttribute("aria-label", opt);
     btn.setAttribute("aria-pressed", String(selected === opt));
-    btn.innerHTML = `<span class="quiz-option-letter" aria-hidden="true">${"ABCD"[index]}</span><span class="quiz-option-text">${escapeHTML(opt)}</span>`;
+    btn.innerHTML = `<span class="quiz-option-letter" aria-hidden="true">${"ABCD"[index]}</span><span class="quiz-option-text"${isJaOptions ? ' lang="ja"' : ""}>${escapeHTML(opt)}</span>`;
     if (instant && selected !== null) {
       btn.disabled = true;
-      btn.classList.toggle("correct", QuizCore.equivalent(opt, q.m));
+      btn.classList.toggle("correct", QuizCore.isCorrect(opt, q, dir));
       btn.classList.toggle(
         "incorrect",
-        selected === opt && !QuizCore.equivalent(opt, q.m),
+        selected === opt && !QuizCore.isCorrect(opt, q, dir),
       );
     }
     btn.onclick = () => handleQuizAnswer(opt, questionIndex);
@@ -997,7 +1273,8 @@ function handleQuizAnswer(chosen, index) {
     updateQuizProgress();
     return;
   }
-  if (QuizCore.equivalent(chosen, quizQuestions[index].m)) quizScore += 10;
+  if (QuizCore.isCorrect(chosen, quizQuestions[index], quizDirection))
+    quizScore += 10;
   renderQuizQuestion();
   const run = quizRun;
   quizTimer = setTimeout(() => {
@@ -1021,6 +1298,7 @@ function goToQuizQuestion(index) {
     index >= quizQuestions.length
   )
     return;
+  window.StudyAudio?.stop();
   quizIndex = index;
   document.getElementById("quizSubmitNotice").hidden = true;
   renderQuizQuestion();
@@ -1059,19 +1337,45 @@ function submitQuiz() {
   showQuizResult();
 }
 
+function recordQuizMistakes() {
+  const next = new Set(quizMistakes);
+  let changed = false;
+  quizQuestions.forEach((question, index) => {
+    const key = getVocabKey(question);
+    const right = QuizCore.isCorrect(
+      getQuizAnswer(index),
+      question,
+      quizDirection,
+    );
+    if (right) {
+      if (next.delete(key)) changed = true;
+    } else if (!next.has(key)) {
+      next.add(key);
+      changed = true;
+    }
+  });
+  if (changed) {
+    quizMistakes = [...next];
+    safeSet("dekiru_quiz_mistakes_v1", JSON.stringify(quizMistakes));
+    window.StudyNotifications?.refresh();
+  }
+}
+
 function showQuizResult() {
   if (quizState !== "running" || !quizQuestions.length) return;
   clearTimeout(quizTimer);
+  window.StudyAudio?.stop();
   quizRun++;
   quizState = "submitted";
   const correct = quizQuestions.filter((question, index) =>
-    QuizCore.equivalent(getQuizAnswer(index), question.m),
+    QuizCore.isCorrect(getQuizAnswer(index), question, quizDirection),
   ).length;
   const skipped = quizQuestions.filter(
     (_, index) => getQuizAnswer(index) === null,
   ).length;
   const wrong = quizQuestions.length - correct - skipped;
   quizScore = correct * 10;
+  recordQuizMistakes();
   document.getElementById("quizBox").style.display = "none";
   document.getElementById("quizResult").style.display = "block";
   const pct = Math.round((correct / quizQuestions.length) * 100);
@@ -1081,6 +1385,7 @@ function showQuizResult() {
   document.getElementById("quizCorrectCount").textContent = correct;
   document.getElementById("quizWrongCount").textContent = wrong;
   document.getElementById("quizSkippedCount").textContent = skipped;
+  syncQuizMistakeResultActions();
   syncQuizChrome();
   renderQuizReview("all");
   document.getElementById("quizResultTitle").focus({ preventScroll: true });
@@ -1091,6 +1396,8 @@ function showQuizResult() {
 
 function renderQuizReview(filter) {
   if (quizState !== "submitted") return;
+  const dir = quizDirection;
+  const isJaOptions = dir === "vi-jp" || dir === "kanji-kana";
   document
     .getElementById("quizReviewAll")
     .setAttribute("aria-pressed", String(filter === "all"));
@@ -1098,7 +1405,8 @@ function renderQuizReview(filter) {
     .getElementById("quizReviewMistakes")
     .setAttribute("aria-pressed", String(filter === "mistakes"));
   const wrongCount = quizQuestions.filter(
-    (question, index) => !QuizCore.equivalent(getQuizAnswer(index), question.m),
+    (question, index) =>
+      !QuizCore.isCorrect(getQuizAnswer(index), question, dir),
   ).length;
   document.getElementById("quizReviewAll").textContent =
     `Tất cả (${quizQuestions.length})`;
@@ -1108,7 +1416,7 @@ function renderQuizReview(filter) {
     quizQuestions
       .map((question, index) => {
         const chosen = getQuizAnswer(index);
-        const correct = QuizCore.equivalent(chosen, question.m);
+        const correct = QuizCore.isCorrect(chosen, question, dir);
         if (filter === "mistakes" && correct) return "";
         const state =
           chosen === null ? "skipped" : correct ? "correct" : "incorrect";
@@ -1116,18 +1424,28 @@ function renderQuizReview(filter) {
           chosen === null ? "— Bỏ trống" : correct ? "✓ Đúng" : "✕ Sai";
         const options = quizOptionSets[index]
           .map((option, i) => {
-            const right = QuizCore.equivalent(option, question.m),
+            const right = QuizCore.isCorrect(option, question, dir),
               selected = option === chosen;
-            return `<div class="quiz-review-option${right ? " is-correct" : selected ? " is-incorrect" : ""}"><span class="quiz-option-letter" aria-hidden="true">${"ABCD"[i]}</span><span class="quiz-option-text">${escapeHTML(option)}</span>${right || selected ? `<strong>${right ? (selected ? "✓ Bạn chọn · Đúng" : "✓ Đáp án đúng") : "✕ Bạn chọn · Sai"}</strong>` : ""}</div>`;
+            return `<div class="quiz-review-option${right ? " is-correct" : selected ? " is-incorrect" : ""}"><span class="quiz-option-letter" aria-hidden="true">${"ABCD"[i]}</span><span class="quiz-option-text"${isJaOptions ? ' lang="ja"' : ""}>${escapeHTML(option)}</span>${right || selected ? `<strong>${right ? (selected ? "✓ Bạn chọn · Đúng" : "✓ Đáp án đúng") : "✕ Bạn chọn · Sai"}</strong>` : ""}</div>`;
           })
           .join("");
         const fav = isFavoriteItem(question);
-        return `<article class="quiz-review-card ${state}" data-review-index="${index}"><div class="quiz-review-meta"><h4>Câu ${index + 1}</h4><div class="quiz-review-meta-actions"><button type="button" class="quiz-review-fav${fav ? " active" : ""}" data-quiz-fav="${index}" aria-pressed="${fav}" aria-label="Lưu từ ${escapeHTML(question.k)} vào yêu thích">${fav ? "★ Đã lưu" : "☆ Lưu từ"}</button><span class="quiz-review-status">${label}</span></div></div><p class="quiz-review-word" lang="ja">${escapeHTML(question.k)}</p><p class="quiz-review-kana" lang="ja">${escapeHTML(question.h)}</p>${chosen === null ? '<p class="quiz-skipped-note">Bạn chưa chọn đáp án cho câu này.</p>' : ""}<div class="quiz-review-options">${options}</div><p class="quiz-review-source">Bài ${question.l} · ${escapeHTML(getTopicLabel(question.t))} · <a class="source-link" href="sources/new-words.pdf#page=${question.p}" target="_blank" rel="noopener">PDF trang ${question.p} ↗</a></p></article>`;
+        const meaningNote =
+          dir === "vi-jp" || dir === "kanji-kana"
+            ? `<p class="quiz-review-meaning">${escapeHTML(question.m)}</p>`
+            : "";
+        return `<article class="quiz-review-card ${state}" data-review-index="${index}"><div class="quiz-review-meta"><h4>Câu ${index + 1}</h4><div class="quiz-review-meta-actions"><button type="button" class="quiz-review-audio" data-quiz-audio="${index}" aria-label="Nghe ${escapeHTML(question.k)}" title="Nghe phát âm">🔊</button><button type="button" class="quiz-review-fav${fav ? " active" : ""}" data-quiz-fav="${index}" aria-pressed="${fav}" aria-label="Lưu từ ${escapeHTML(question.k)} vào yêu thích">${fav ? "★ Đã lưu" : "☆ Lưu từ"}</button><span class="quiz-review-status">${label}</span></div></div><p class="quiz-review-word" lang="ja">${escapeHTML(question.k)}</p><p class="quiz-review-kana" lang="ja">${escapeHTML(question.h)}</p>${meaningNote}${chosen === null ? '<p class="quiz-skipped-note">Bạn chưa chọn đáp án cho câu này.</p>' : ""}<div class="quiz-review-options">${options}</div><p class="quiz-review-source">Bài ${question.l} · ${escapeHTML(getTopicLabel(question.t))} · <a class="source-link" href="sources/new-words.pdf#page=${question.p}" target="_blank" rel="noopener">PDF trang ${question.p} ↗</a></p></article>`;
       })
       .join("") ||
     '<p class="empty-state">Bạn đã trả lời đúng tất cả các câu. Không có câu sai hoặc bỏ trống.</p>';
 }
 document.getElementById("quizReviewList").addEventListener("click", (e) => {
+  const audioBtn = e.target.closest("[data-quiz-audio]");
+  if (audioBtn) {
+    const q = quizQuestions[Number(audioBtn.dataset.quizAudio)];
+    if (q) playAudio(q.h);
+    return;
+  }
   const favBtn = e.target.closest("[data-quiz-fav]");
   if (!favBtn) return;
   const q = quizQuestions[Number(favBtn.dataset.quizFav)];
@@ -1137,6 +1455,7 @@ document.getElementById("quizReviewList").addEventListener("click", (e) => {
   favBtn.classList.toggle("active", fav);
   favBtn.setAttribute("aria-pressed", String(fav));
   favBtn.textContent = fav ? "★ Đã lưu" : "☆ Lưu từ";
+  syncQuizMistakeResultActions();
 });
 
 /* LIST VIEW */
@@ -1241,6 +1560,13 @@ document.addEventListener("keydown", (e) => {
     } else if (e.key.toLowerCase() === "s") {
       toggleFavCurrent();
     }
+  } else if (
+    currentMode === "quiz" &&
+    quizState === "running" &&
+    quizDirection === "audio-vi" &&
+    e.key.toLowerCase() === "a"
+  ) {
+    playQuizQuestionAudio();
   }
 });
 

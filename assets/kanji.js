@@ -2,6 +2,72 @@
 (() => {
   'use strict';
   const $ = id => document.getElementById(id);
+  if (!$('kanjiCanvas')) {
+    $('kanjiMode').insertAdjacentHTML('beforeend', `<div class="reading-intro">
+        <div><span class="eyebrow">DEKIRU · HÁN TỰ & HÁN VIỆT</span><h1>Hiểu chữ, nhớ từ, luyện nét.</h1><p>Học chữ trong đúng từ vựng của bài. Dùng âm Hán Việt để ghi nhớ, đọc tiếng Nhật theo kana.</p></div>
+        <div class="reading-progress"><strong id="kanjiProgressCount">0 / 607</strong><p>từ đã học</p><progress id="kanjiProgress" value="0" max="607" aria-label="Tiến độ học Hán tự"></progress></div>
+      </div>
+      <div class="kanji-layout">
+        <aside class="kanji-sidebar" aria-label="Chọn từ Hán">
+          <div class="chooser-head">
+            <h2>Từ Hán theo bài</h2>
+            <label for="kanjiLesson">Bài học</label><select id="kanjiLesson"><option value="all">Tất cả 15 bài</option></select>
+            <label for="kanjiTopic">Chủ đề</label><select id="kanjiTopic"><option value="all">Tất cả chủ đề</option></select>
+            <label for="kanjiSearch">Tìm chữ, kana, âm Hán Việt hoặc nghĩa</label><input id="kanjiSearch" type="search" placeholder="Ví dụ: 学, がく, học, trường…">
+            <label for="kanjiStatus">Tiến độ</label><select id="kanjiStatus"><option value="all">Tất cả từ</option><option value="new">Chưa học</option><option value="done">Đã học</option></select>
+            <button class="small-btn kanji-clear" id="clearKanjiFilters">Xóa bộ lọc</button>
+          </div>
+          <p id="kanjiResultCount" class="chooser-count" role="status"></p>
+          <div id="kanjiWordList" class="kanji-word-list"></div>
+        </aside>
+        <div class="kanji-column">
+          <div id="kanjiEmpty" class="empty-state reader-card" hidden>Không tìm thấy từ Hán. Hãy đổi bài, chủ đề hoặc từ khóa.</div>
+          <div id="kanjiStudy">
+            <article class="reader-card kanji-word-card">
+              <div class="reader-heading">
+                <div class="reader-meta"><span id="kanjiWordLesson" class="badge-topic"></span><a id="kanjiPdfLink" class="source-link" target="_blank" rel="noopener">Xem PDF ↗</a></div>
+                <h2 id="kanjiWordTitle" lang="ja"></h2><p id="kanjiWordKana" lang="ja"></p><p id="kanjiWordMeaning" class="kanji-word-meaning"></p>
+                <p id="kanjiPdfSpelling" class="kanji-pdf-spelling"></p>
+              </div>
+              <div class="kanji-word-content">
+                <p class="kanji-small-label">Từng chữ & âm Hán Việt · Chọn chữ để tập viết</p>
+                <div id="kanjiCharacterTabs" class="kanji-character-tabs" role="group" aria-label="Chọn chữ trong từ"></div>
+                <p id="kanjiWordNote" class="kanji-note"></p>
+                <div class="kanji-word-actions"><button class="small-btn" id="kanjiPrevious">← Từ trước</button><span id="kanjiPosition"></span><button class="small-btn" id="kanjiNext">Từ tiếp →</button><button class="small-btn" id="kanjiComplete" aria-pressed="false">✓ Đánh dấu đã học</button></div>
+              </div>
+            </article>
+            <section class="kanji-writing-card" aria-labelledby="kanjiCharacterHeading">
+              <div class="kanji-character-summary">
+                <div><span class="kanji-small-label">CHỮ ĐANG HỌC</span><h2 id="kanjiCharacterHeading"></h2><p id="kanjiCharacterMeaning"></p><p id="kanjiParts" class="kanji-note"></p></div>
+                <span class="kanji-stroke-badge" id="kanjiStrokeCount"></span>
+              </div>
+              <details class="kanji-readings"><summary>Âm On / Kun tham khảo</summary><p id="kanjiOn"></p><p id="kanjiKun"></p><p>Dấu chấm ngăn phần chữ Hán và đuôi kana; dấu gạch chỉ vị trí ghép. Khi học từ này, ưu tiên cách đọc kana ở phía trên.</p></details>
+              <div class="kanji-writing-grid">
+                <div>
+                  <h3>1. Xem thứ tự nét</h3>
+                  <svg id="kanjiStrokeSvg" class="kanji-board" viewBox="0 0 109 109" role="img" aria-label="Thứ tự nét chữ Hán"></svg>
+                  <div class="kanji-stroke-controls"><button id="kanjiPlay" class="small-btn primary">▶ Viết mẫu</button><button id="kanjiStepBack" class="small-btn" aria-label="Lùi một nét">← Nét</button><button id="kanjiStepNext" class="small-btn" aria-label="Thêm một nét">Nét →</button><button id="kanjiShowAll" class="small-btn">Toàn chữ</button></div>
+                  <label class="kanji-slider-label" for="kanjiStrokeRange">Nét đang xem <span id="kanjiStrokeLabel" role="status"></span></label><input id="kanjiStrokeRange" type="range" min="0" max="1" value="0" step="1">
+                  <div class="kanji-options"><label><input id="kanjiNumbers" type="checkbox" checked> Số thứ tự</label><label for="kanjiSpeed">Tốc độ <select id="kanjiSpeed"><option value="1100">Chậm</option><option value="650" selected>Vừa</option><option value="350">Nhanh</option></select></label></div>
+                  <p class="kanji-note">Bắt đầu ở chấm màu. Đi theo nét tô sáng và nhấc bút khi chuyển sang nét kế tiếp.</p>
+                </div>
+                <div>
+                  <h3>2. Tự tập viết</h3>
+                  <div class="kanji-trace-board kanji-board"><svg id="kanjiTraceGuide" viewBox="0 0 109 109" aria-hidden="true"></svg><canvas id="kanjiCanvas" width="654" height="654" aria-label="Ô tập viết bằng chuột, bút hoặc ngón tay. Có thể tập trên giấy theo hình bên cạnh."></canvas></div>
+                  <div class="kanji-stroke-controls"><button id="kanjiUndo" class="small-btn" disabled>↶ Hoàn tác</button><button id="kanjiClearCanvas" class="small-btn" disabled>Xóa nét viết</button></div>
+                  <label class="kanji-guide-toggle"><input id="kanjiGuide" type="checkbox" checked> Hiện chữ mờ để viết theo</label>
+                  <p id="kanjiCanvasStatus" class="kanji-note" role="status">Dùng chuột, bút hoặc ngón tay. Ô viết không chấm điểm; bạn cũng có thể luyện trên giấy.</p>
+                </div>
+              </div>
+              <details class="pronunciation-note"><summary>Gợi ý khi luyện viết</summary><p>Thường viết từ trên xuống dưới, từ trái sang phải; nét ngang trước nét dọc khi chúng giao nhau. Với khung bao, phần đóng khung thường viết sau phần bên trong. Xem mô phỏng của từng chữ để theo đúng thứ tự cụ thể.</p><p>Đọc kana của cả từ, nhìn nghĩa, rồi viết từng chữ. Khi đã quen, tắt chữ mờ và thử viết lại từ trí nhớ. Âm Hán Việt của từng chữ không thay thế nghĩa của cả từ trong tiếng Nhật.</p></details>
+            </section>
+            <section class="glossary-card kanji-related"><h3>Từ khác có chữ này</h3><p class="glossary-desc">Trong danh sách từ vựng đã đối chiếu PDF. Chọn một từ để chuyển đến bài tương ứng.</p><div id="kanjiRelated" class="kanji-related-list"></div></section>
+          </div>
+        </div>
+      </div>
+      <p id="kanjiSaveStatus" class="study-footer" role="status"></p>
+      <p class="study-footer">Từ, bài và chủ đề: <a class="source-link" href="sources/new-words.pdf" target="_blank" rel="noopener">New words list ↗</a> · Âm Hán Việt và giải thích là phần bổ sung.<br>Âm đọc tham khảo: <a class="source-link" href="https://www.edrdg.org/kanjidic/kanjd2index_legacy.html" target="_blank" rel="noopener">KANJIDIC2 · EDRDG</a> (<a class="source-link" href="https://www.edrdg.org/edrdg/licence.html" target="_blank" rel="noopener">CC BY-SA 4.0</a>). Nét viết: <a class="source-link" href="https://kanjivg.tagaini.net/" target="_blank" rel="noopener">KanjiVG · Ulrich Apel</a> (<a class="source-link" href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC BY-SA 3.0</a>).</p>`);
+  }
   const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const normalize = value => String(value).normalize('NFKC').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/đ/g, 'd');
   const characters = word => [...new Set([...word.k].filter(c => KANJI_CHARACTERS[c]))];

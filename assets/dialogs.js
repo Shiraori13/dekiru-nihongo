@@ -107,6 +107,26 @@ window.StudyNotifications = (() => {
       });
     }
 
+    const quizMistakes = safeJson("dekiru_quiz_mistakes_v1");
+    const mistakeCount =
+      typeof window.getQuizMistakeCount === "function"
+        ? window.getQuizMistakeCount()
+        : Array.isArray(quizMistakes)
+          ? quizMistakes.length
+          : 0;
+    if (mistakeCount > 0) {
+      items.push({
+        id: `quiz-mistakes:${mistakeCount}`,
+        urgent: true,
+        title: `${mistakeCount} từ vựng hay sai cần ôn lại`,
+        detail:
+          "Các từ làm sai hoặc bỏ trống trong Kiểm tra từ vựng đã được lưu lại.",
+        actionLabel: "Ôn từ sai",
+        mode: "quiz",
+        action: "mistakes",
+      });
+    }
+
     const streakBtn = document.getElementById("streakButton");
     const isLit = streakBtn?.dataset.lit === "true";
     if (!isLit) {
@@ -208,6 +228,8 @@ window.StudyNotifications = (() => {
           close();
           if (targetAction === "favorites" && window.openFavoriteVocab) {
             window.openFavoriteVocab();
+          } else if (targetAction === "mistakes" && window.openMistakeQuiz) {
+            window.openMistakeQuiz();
           } else {
             window.switchMode?.(targetMode);
           }

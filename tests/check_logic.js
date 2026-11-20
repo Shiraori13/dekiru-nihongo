@@ -40,6 +40,28 @@ for (const w of words) {
   assert(options.every(o=>quiz.equivalent(o,w.m)||!otherSenses.some(s=>quiz.equivalent(o,s.m))));
 }
 assert.throws(()=>quiz.options(words[44],[words[44]],[words[44]],shuffle),/Không đủ 4/);
+// Exhaustive multi-directional quiz option generation & ambiguity checks.
+assert.equal(quiz.eligiblePool('kanji-kana',words).length,608);
+for (const w of words) {
+  const scope=words.filter(x=>x.l===w.l&&x.t===w.t);
+  const viJp=quiz.optionsFor('vi-jp',w,scope,words,shuffle);
+  assert.equal(viJp.length,4);
+  assert.equal(new Set(viJp).size,4);
+  assert.equal(viJp.filter(o=>quiz.isCorrect(o,w,'vi-jp')).length,1,JSON.stringify(w));
+  const audioVi=quiz.optionsFor('audio-vi',w,scope,words,shuffle);
+  assert.equal(audioVi.length,4);
+  assert.equal(audioVi.filter(o=>quiz.isCorrect(o,w,'audio-vi')).length,1,JSON.stringify(w));
+  const homophones=words.filter(x=>quiz.audioKey(x.h)===quiz.audioKey(w.h)&&!quiz.equivalent(x.m,w.m));
+  assert(audioVi.every(o=>quiz.equivalent(o,w.m)||!homophones.some(h=>quiz.overlaps(o,h.m))),JSON.stringify(w));
+  if (quiz.hasKanji(w)) {
+    const kk=quiz.optionsFor('kanji-kana',w,scope,words,shuffle);
+    assert.equal(kk.length,4);
+    assert.equal(new Set(kk.map(quiz.normalizeKana)).size,4);
+    assert.equal(kk.filter(o=>quiz.isCorrect(o,w,'kanji-kana')).length,1,JSON.stringify(w));
+    const altReadings=words.filter(x=>x.k===w.k&&quiz.normalizeKana(x.h)!==quiz.normalizeKana(w.h));
+    assert(kk.every(o=>!altReadings.some(a=>quiz.normalizeKana(a.h)===quiz.normalizeKana(o))),JSON.stringify(w));
+  }
+}
 // Kanji/kana aliases are declared, not guessed from orthography.
 const fill={type:'fill',answer:'行って',answers:['行って','いって']};
 assert(gr.correct(fill,'いって。'));assert(gr.correct(fill,' 行って '));

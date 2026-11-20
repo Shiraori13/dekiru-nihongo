@@ -2,6 +2,58 @@
 (() => {
   'use strict';
   const $ = id => document.getElementById(id);
+  if (!$('readingTitle')) {
+    $('readingMode').insertAdjacentHTML('beforeend', `<div class="reading-intro">
+        <div><span class="eyebrow">JPD123 · ĐỌC & NÓI</span><h1>Đọc một chút, tiến bộ mỗi ngày.</h1><p>Chọn bài, bật gợi ý và luyện đọc thành tiếng theo nhịp của bạn.</p></div>
+        <div class="reading-progress"><strong id="readingProgressCount">0 / 71</strong><p>bài đã luyện</p><progress id="readingProgress" value="0" max="71" aria-label="Tiến độ luyện đọc"></progress></div>
+      </div>
+      <div class="reading-layout">
+        <aside class="reading-sidebar" aria-label="Chọn bài luyện đọc">
+          <div class="chooser-head">
+            <h2>Thư viện bài đọc <span aria-hidden="true">↗</span></h2>
+            <div class="chooser-filters">
+              <div><label for="readingLesson">Bài học</label><select id="readingLesson"><option value="all">Tất cả bài</option></select></div>
+              <div><label for="readingKind">Dạng bài</label><select id="readingKind"><option value="all">Tất cả dạng</option><option value="passage">Đoạn văn</option><option value="dialogue">Hội thoại</option><option value="sentences">Câu luyện đọc</option></select></div>
+            </div>
+            <label for="readingSearch">Tìm tên, từ trong bài hoặc số trang</label><input id="readingSearch" type="text" placeholder="Ví dụ: gia đình, 東京, 27…">
+          </div>
+          <p id="readingResultCount" class="chooser-count" role="status"></p>
+          <div id="exerciseList" class="exercise-list"></div>
+        </aside>
+        <div class="reader-column">
+          <div id="readingEmpty" class="reader-card empty-state" hidden><p>Chưa tìm thấy bài phù hợp.</p><button class="small-btn" id="clearReadingFilters" style="margin-top:16px">Xóa bộ lọc</button></div>
+          <div id="readerContent">
+            <article class="reader-card" id="readerArticle">
+              <div class="reader-heading">
+                <div class="reader-meta"><span class="badge-topic" id="readingLessonBadge"></span><span id="readingKindLabel"></span><a id="readingSource" class="source-link" target="_blank" rel="noopener">Trang PDF ↗</a></div>
+                <h2 id="readingTitle" lang="ja" tabindex="-1"></h2><p id="readingSubtitle"></p>
+              </div>
+              <div class="reader-controls" aria-label="Gợi ý và cỡ chữ">
+                <label class="hint-chip"><input type="checkbox" id="hintKanji" checked>Kanji · Furigana</label>
+                <label class="hint-chip"><input type="checkbox" id="hintKatakana" checked>Katakana · Kana</label>
+                <label class="hint-chip"><input type="checkbox" id="hintHiragana">Hiragana · Romaji</label>
+                <label class="size-control" for="readingFontSize">Cỡ chữ <select id="readingFontSize"><option value="22">22</option><option value="26" selected>26</option><option value="30">30</option><option value="34">34</option></select></label>
+              </div>
+              <p class="reader-tip">Chạm vào từ để xem cách đọc và nghĩa. Tắt gợi ý khi bạn muốn tự thử sức.</p>
+              <div id="readingBody" class="reading-text-body show-kanji show-katakana" lang="ja"></div>
+              <div class="reader-footer">
+                <div class="audio-controls"><button class="small-btn primary" id="listenReading">▷ Nghe bài</button><button class="small-btn" id="stopReading" disabled aria-label="Dừng nghe">■ Dừng</button><label class="sr-only" for="readingRate">Tốc độ đọc</label><select id="readingRate" class="audio-rate"><option value="0.65">0,65×</option><option value="0.85" selected>0,85×</option><option value="1">1×</option></select></div>
+                <button class="small-btn" id="completeReading" aria-pressed="false">✓ Đánh dấu đã luyện</button>
+              </div>
+              <p class="audio-status" id="readingAudioStatus" role="status">Giọng đọc tiếng Nhật của thiết bị.</p>
+            </article>
+            <div class="reader-navigation"><button class="small-btn" id="previousReading">← Bài trước</button><span id="readingPosition"></span><button class="small-btn" id="nextReading">Bài tiếp →</button></div>
+            <div class="word-detail" id="wordDetail" hidden role="dialog" aria-modal="false" aria-label="Giải nghĩa từ đang chọn" lang="vi" tabindex="-1"></div>
+            <section class="glossary-card" aria-labelledby="glossaryTitle">
+              <div class="glossary-heading"><h3 id="glossaryTitle">Từ vựng trong bài <span id="glossaryCount"></span></h3><label class="sr-only" for="glossaryFilter">Loại từ trong bài</label><select id="glossaryFilter"><option value="words">Từ & cụm từ</option><option value="all">Tất cả, gồm trợ từ</option><option value="kanji">Kanji</option><option value="katakana">Katakana</option><option value="hiragana">Hiragana</option></select></div>
+              <p class="glossary-desc">Theo thứ tự xuất hiện · Mỗi từ hiển thị một lần · Có cách đọc và nghĩa tiếng Việt.</p><div id="readingGlossary" class="glossary-grid"></div>
+            </section>
+            <details class="pronunciation-note"><summary>Mẹo đọc Kanji, Katakana và Hiragana</summary><p><strong>Kanji:</strong> đọc theo furigana phía trên. Chú ý số đếm: 4時 → よじ, 9時 → くじ, 1つ → ひとつ.</p><p><strong>Katakana:</strong> ー kéo dài âm trước (コーヒー); ッ ngắt một nhịp (サッカー); ャ・ュ・ョ nhỏ ghép với âm trước. Gợi ý kana giữ dấu ー để bạn thấy trường âm.</p><p><strong>Hiragana:</strong> は đọc <em>wa</em> khi là trợ từ, へ đọc <em>e</em>, を đọc <em>o</em>. っ ngắt một nhịp; ゃ・ゅ・ょ nhỏ là âm ghép. Romaji chỉ hỗ trợ bước đầu, hãy tập đọc trực tiếp kana.</p></details>
+          </div>
+        </div>
+      </div>
+      <p class="study-footer">Nguồn: Ôn speaking JPD123 – SV luyện đọc · 7 đoạn văn và 64 bài hội thoại/câu luyện đọc.<br>Tiến độ được lưu trên trình duyệt này.</p>`);
+  }
   const kinds = { passage: 'Đoạn văn', dialogue: 'Hội thoại', sentences: 'Câu luyện đọc' };
   const labels = { kanji: 'Kanji', katakana: 'Katakana', hiragana: 'Hiragana' };
   const escape = text => String(text).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));

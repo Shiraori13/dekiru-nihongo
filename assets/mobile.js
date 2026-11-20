@@ -587,6 +587,9 @@
       }
       update();
     },
+    refresh() {
+      update();
+    },
   };
   mq.addEventListener("change", responsive);
   compactPickers.addEventListener("change", responsive);

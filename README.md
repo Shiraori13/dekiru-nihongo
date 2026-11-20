@@ -25,8 +25,8 @@ Mở `index.html` bằng trình duyệt để học và luyện đề. Giữ cá
 - **Mobile:** điều hướng đáy và menu Khác, bộ chọn/bộ lọc thu gọn, danh sách từ thành thẻ dọc theo đợt 50 mục, Xem nét/Tự viết riêng, kết quả mở từng câu. Giữ nguyên chức năng và bài đang làm khi đổi chế độ; tự mở đầy đủ điều khiển khi trở về PC. [Thiết kế và kiểm tra mobile](audits/MOBILE_UX.md).
 - **Đề ngữ pháp độc lập:** câu điền và ghép dùng ngữ cảnh riêng. Khi tạo đề, hệ thống loại các cặp chứa sẵn câu/dạng từ đang được hỏi ở câu khác; số câu nhập tối đa điều chỉnh theo phạm vi. Ngân hàng giữ 18 câu/mục; một lượt ôn riêng có 15–18 câu không lộ trực tiếp cho nhau. Ngay dưới câu hỏi có mục mở **gợi ý chữ Hán: từ, cách đọc và nghĩa**; động/tính từ dùng từ gốc để tránh cho sẵn dạng chia.
 - **Số câu kiểm tra:** giữ các mức có sẵn và thêm “Tự nhập số câu…”. Nhập số nguyên từ 1 đến số từ trong bộ lọc; số không hợp lệ có thông báo ngay trong phần thiết lập.
-- **Cách chấm bài:** mặc định “Nộp bài rồi xem đáp án”, hoặc chọn “Chấm từng câu” để biết kết quả ngay. Thanh tiến trình hiển thị số câu đã trả lời. Ở chế độ nộp sau, mỗi câu chọn một đáp án, có thể đổi lựa chọn và chuyển câu bằng bảng số câu trước khi nộp.
-- **Xem kết quả:** thống kê đúng/sai/bỏ trống; từng câu đánh dấu lựa chọn sai và đáp án đúng, có bộ lọc “Sai / bỏ trống”. Câu bỏ trống không được điểm; nộp thiếu có thông báo để quay lại làm tiếp hoặc vẫn nộp. “Làm lại đề này” giữ nguyên đề và xóa các lựa chọn cũ.
+- **Cách chấm bài & 4 dạng câu hỏi Quiz từ vựng:** hỗ trợ 4 chiều kiểm tra (**Nhật → Nghĩa Việt**, **Nghĩa Việt → Tiếng Nhật**, **Chữ Hán → Cách đọc Kana** trên 608 từ có Hán tự, và **Nghe phát âm 🔊 → Nghĩa Việt** có chống nhiễu từ đồng âm). Mặc định “Nộp bài rồi xem đáp án”, hoặc chọn “Chấm từng câu” để biết kết quả ngay. Thanh tiến trình hiển thị số câu đã trả lời. Ở chế độ nộp sau, mỗi câu chọn một đáp án, có thể đổi lựa chọn và chuyển câu bằng bảng số câu trước khi nộp.
+- **Xem kết quả & Ôn từ hay sai:** thống kê đúng/sai/bỏ trống; từng câu có nút nghe lại, nút gắn sao Yêu thích, đánh dấu lựa chọn sai/đáp án đúng và bộ lọc “Sai / bỏ trống”. Ngay màn kết quả có nút **Luyện lại các câu sai** và **Lưu tất cả từ sai vào Yêu thích**. Các từ làm sai/bỏ trống được tự động lưu cục bộ (`dekiru_quiz_mistakes_v1`) để ôn lại từ màn thiết lập hoặc chuông thông báo, và tự xóa khi bạn trả lời đúng. “Làm lại đề này” giữ nguyên đề và xóa các lựa chọn cũ.
 - Bài kiểm tra **từ vựng** giữ nguyên khi đổi chế độ/bộ lọc; thiết lập bài mới có xác nhận nếu chưa nộp. Quiz từ vựng chưa lưu qua tải lại trang. Ngữ pháp lưu câu, phương án, lựa chọn và gợi ý; tạo bài mới cũng cần xác nhận.
 - **Một tab sửa luyện đề:** tab khác chỉ xem; dùng “Tiếp tục ở tab này” để chuyển quyền. Trạng thái kiểm tra bằng transaction IndexedDB, ID lượt và revision; localStorage v1 chỉ là bản chiếu. Sau cập nhật nội dung, chỉ giữ đáp án còn tương thích và có thông báo nếu cần trả lời lại. Khi lưu bị chặn, hiển thị đúng giới hạn phiên hiện tại.
 - Tiến độ, gợi ý và bài đọc gần nhất được lưu trong trình duyệt. Phát âm dùng **1.343 MP3 đi kèm website** (1.178 bản ghi từ vựng/bài đọc/ngữ pháp + 166 bản ghi luyện nói), hoạt động trên Firefox/Edge mà không cần cài giọng Nhật. Giọng thiết bị chỉ là dự phòng khi thiếu file; có thông báo khi bị chặn quyền hoặc không phát được. [Nguồn giọng tổng hợp và cách tạo file cục bộ](assets/audio/README.md).
@@ -101,6 +101,7 @@ python tests/check_appearance.py
 python tests/check_glass_layout.py
 python tests/check_study_layout.py
 python tests/check_vocab_filters.py
+python tests/check_quiz_modes.py
 python tests/check_speaking.py
 ```
 
