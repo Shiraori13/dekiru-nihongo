@@ -19,7 +19,7 @@ for(const [id,wanted] of oldHashes){
   assert.equal(crypto.createHash('sha256').update(JSON.stringify(papers.find(e=>e.id===id))).digest('hex'),wanted,id+' original content/metadata must remain unchanged');
 }
 const added=papers.filter(e=>e.id.startsWith('chapter67-'));
-assert.equal(added.length,4);assert.equal(papers.length,8);
+assert.equal(added.length,4);assert.equal(papers.length,15);
 const expectedUnits=units.filter(u=>[6,7].includes(u.lesson));assert.equal(expectedUnits.length,18);
 const allPrompts=new Set(),allIds=new Set();
 for(const [i,paper] of added.entries()){

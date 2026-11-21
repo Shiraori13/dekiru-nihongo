@@ -225,7 +225,7 @@
         change.type !== "submit" &&
         (!Number.isInteger(change.index) ||
           change.index < 0 ||
-          change.index > 44)
+          change.index > 179)
       )
         return Promise.reject(Error("Vị trí câu không hợp lệ."));
       if (
@@ -243,7 +243,9 @@
           row.attempt?.id !== id ||
           row.revision !== revision ||
           !this.editable(row) ||
-          row.attempt.submittedAt
+          row.attempt.submittedAt ||
+          (change.type !== "submit" &&
+            change.index >= row.attempt.answers.length)
         )
           return { row, changed: false, conflict: true };
         const next = clone(row);

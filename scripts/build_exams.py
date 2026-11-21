@@ -285,7 +285,14 @@ def build():
     from exams67_a import papers as papers_a
     from exams67_b import papers as papers_b
     exams.extend(assemble([*papers_a(), *papers_b()]))
+    # Append the 7 #Thi FE papers (3 real SU26 FE/RE papers + 4 authored FE mock papers).
+    from fe_common import assemble_fe, _canon
+    from fe_source_papers import source_papers
+    from fe_mock_papers_a import mock_papers_a
+    from fe_mock_papers_b import mock_papers_b
+    existing_prompts = {_canon(q['prompt']) for e in exams for q in e['questions']}
+    exams.extend(assemble_fe(source_papers(), [*mock_papers_a(), *mock_papers_b()], existing_prompts))
     (ROOT/'data/exams.js').write_text('// Authored exam bank; see EXAM_AUDIT.md and scripts/build_exams.py.\nwindow.DEKIRU_EXAMS = '+json.dumps(exams,ensure_ascii=False,indent=2)+';\n',encoding='utf-8')
-    print('Built 8 exams x 45 questions: sample 44 + 1 addition, 3 papers lessons 4–5, 4 papers lessons 6–7.')
+    print(f'Built {len(exams)} exams ({sum(len(e["questions"]) for e in exams)} questions): 8x45 chapter/sample papers + 3 SU26 FE/RE papers (30/30/31) + 4 authored FE mock papers (4x30).')
 
 if __name__=='__main__':build()

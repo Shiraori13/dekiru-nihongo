@@ -11,7 +11,7 @@
     fingerprint,
     grade,
     validOrder,
-    shuffleOrder,
+    shuffleExamOrder,
     orderedExam,
     store,
   } = ExamCore;
@@ -54,7 +54,7 @@
     libraryRetryAt = 0,
     libraryReadFailed = false;
   root.innerHTML = `
-    <div class="ex-hero"><div><div class="eyebrow">DEKIRU · PHÒNG LUYỆN ĐỀ</div><h1>45 câu hỏi.<br><span>Một lượt ôn trọn bài.</span></h1><p class="ex-muted">Làm đề theo mẫu, giữ nhịp làm bài và xem lại từng lỗi sau khi nộp.</p></div><div class="ex-stamp"><strong>45</strong><span>CÂU / ĐỀ</span></div></div>
+    <div class="ex-hero"><div><div class="eyebrow">DEKIRU · PHÒNG LUYỆN ĐỀ · #THI FE</div><h1>Luyện đề chuẩn.<br><span>Ôn bài &amp; thực chiến FE.</span></h1><p class="ex-muted">Làm đề ôn theo bài (45 câu) hoặc đề #Thi FE (30–31 câu có đọc hiểu), giữ nhịp làm bài và xem lại từng lỗi sau khi nộp.</p></div><div class="ex-stamp"><strong>30–45</strong><span>CÂU / ĐỀ</span></div></div>
     <div class="ex-tabs" role="group" aria-label="Khu vực luyện đề"><button data-ex-tab="library" aria-pressed="true">01 · Chọn đề</button><button data-ex-tab="builder" aria-pressed="false">02 · Thêm đề</button><button data-ex-tab="history" aria-pressed="false">03 · Lịch sử</button></div>
     <p id="exNotice" class="ex-banner" role="status" aria-live="polite"></p>
     <div id="exLibraryStatus" class="ex-banner" role="status" hidden></div><div id="exOwnership" class="ex-banner" role="status"></div><div id="exLibrary"></div><div id="exBuilder" hidden></div><div id="exHistory" hidden></div><div id="exRun" hidden></div><div id="exPreview" hidden></div>
@@ -312,7 +312,48 @@
       })
       .join("")}</details>`;
   }
+  function isFeExam(exam) {
+    return (
+      exam.kind === "fe-source" ||
+      exam.kind === "fe-authored" ||
+      Boolean(exam.tags?.includes("Thi FE"))
+    );
+  }
+  function cardTag(exam) {
+    if (exam.kind === "sample") return "TỪ ẢNH · ĐÃ HIỆU ĐÍNH";
+    if (exam.kind === "imported") return "ĐỀ CỦA BẠN";
+    if (exam.kind === "fe-source") return "ĐỀ GỐC SU26 · ĐÃ HIỆU ĐÍNH";
+    if (exam.kind === "fe-authored") return "MẪU FE · BIÊN SOẠN MỚI";
+    return `BÀI ${lessonScope(exam.lessons)} · BIÊN SOẠN MỚI`;
+  }
+  function hashtagsHTML(exam) {
+    const tags = exam.tags?.length
+      ? exam.tags
+      : isFeExam(exam)
+        ? ["Thi FE"]
+        : [];
+    return tags
+      .map((tag) => `<span class="ex-hashtag">#${esc(tag)}</span>`)
+      .join("");
+  }
+  function passageHTML(q) {
+    if (!q.passage) return "";
+    return `<section class="ex-passage" aria-label="Đoạn văn đọc hiểu"><div class="ex-passage-head">${esc(q.passageTitle || "Đoạn văn đọc hiểu")}</div><p class="ex-passage-text" lang="ja">${esc(q.passage)}</p></section>`;
+  }
   function coverage(exam) {
+    if (exam.kind === "fe-source" || exam.kind === "fe-authored") {
+      const counts = Object.keys(categories)
+        .filter((c) => exam.questions.some((q) => q.category === c))
+        .map(
+          (c) =>
+            `${exam.questions.filter((q) => q.category === c).length} ${categories[c].toLowerCase()}`,
+        )
+        .join(" · ");
+      const passages = [
+        ...new Set(exam.questions.map((q) => q.passageTitle).filter(Boolean)),
+      ];
+      return `<details class="ex-coverage"><summary>Ma trận và phạm vi ${exam.questions.length} câu (#Thi FE)</summary><p class="ex-muted">${esc(counts)}. Phủ kiến thức JPD123 Bài ${lessonScope(exam.lessons)} cùng Kanji ghép mở rộng.${passages.length ? ` Phần đọc hiểu cuối đề: ${esc(passages.join(", "))}.` : ""}</p><p class="ex-muted">${exam.kind === "fe-source" ? "Chuyển thể có hiệu đính từ PDF đề thi thật SU26; liên kết đối chiếu từng trang PDF hiển thị ở phần xem lại sau khi nộp." : "Biên soạn mới hoàn toàn theo đúng ma trận đề thi thật FE (27 câu trắc nghiệm + 1 đoạn đọc hiểu 3 câu), kèm lời giải chi tiết cả 4 lựa chọn."}</p></details>`;
+    }
     if (exam.kind !== "authored") return "";
     const lessons = [...new Set(exam.lessons)].sort((a, b) => a - b),
       unitIds = new Set(exam.questions.map((q) => q.unit)),
@@ -323,6 +364,7 @@
       words = scopeWords(lessons),
       pages = [...new Set(words.map((w) => w.p))].sort((a, b) => a - b),
       counts = Object.keys(categories)
+        .filter((c) => exam.questions.some((q) => q.category === c))
         .map(
           (c) =>
             `${exam.questions.filter((q) => q.category === c).length} ${categories[c].toLowerCase()}`,
@@ -345,6 +387,7 @@
       catalog = exams
         .filter((e) => {
           if (libraryScope === "all") return true;
+          if (libraryScope === "fe") return isFeExam(e);
           if (["sample", "imported"].includes(libraryScope))
             return e.kind === libraryScope;
           return e.kind === "authored" && e.lessons.join("-") === libraryScope;
@@ -357,9 +400,10 @@
           ),
         );
     $("exLibrary").innerHTML =
-      `${resume ? `<div class="ex-banner"><strong>${attempt.submittedAt ? "Kết quả gần nhất" : "Bạn có bài đang làm"}: ${esc(resume.title)}</strong><p class="ex-muted">${attempt.answers.filter(Number.isInteger).length}/45 câu đã chọn${attempt.submittedAt ? " · Đã nộp" : ""}.</p><button data-ex-resume class="ex-primary">${attempt.submittedAt ? "Xem kết quả" : "Tiếp tục làm bài"}</button></div>` : ""}
-      <div class="ex-toolbar"><label>Lọc đề theo bài<select id="exScope">${[
+      `${resume ? `<div class="ex-banner"><strong>${attempt.submittedAt ? "Kết quả gần nhất" : "Bạn có bài đang làm"}: ${esc(resume.title)}</strong><p class="ex-muted">${attempt.answers.filter(Number.isInteger).length}/${resume.questions.length} câu đã chọn${attempt.submittedAt ? " · Đã nộp" : ""}.</p><button data-ex-resume class="ex-primary">${attempt.submittedAt ? "Xem kết quả" : "Tiếp tục làm bài"}</button></div>` : ""}
+      <div class="ex-toolbar"><label>Lọc đề theo nhóm<select id="exScope">${[
         ["all", "Tất cả"],
+        ["fe", "#Thi FE · Cuối kỳ"],
         ["4-5", "Bài 4–5"],
         ["6-7", "Bài 6–7"],
         ["sample", "Đề mẫu từ ảnh"],
@@ -383,14 +427,15 @@
         )
         .join(
           "",
-        )}</select></label><p class="ex-muted">Mỗi lần bắt đầu, 45 câu được xáo trộn. Chọn một đáp án mỗi câu và sửa trước khi nộp.<br>Đáp án, giải thích và ảnh gốc chỉ hiện ở phần xem lại.</p></div>
+        )}</select></label><p class="ex-muted">Mỗi lần bắt đầu, câu hỏi được xáo trộn (bài đọc hiểu giữ liền mạch). Chọn một đáp án mỗi câu và sửa trước khi nộp.<br>Đáp án, giải thích và tài liệu gốc chỉ hiện ở phần xem lại.</p></div>
       <p id="exCatalogStatus" class="ex-muted" role="status" aria-live="polite">${catalog.length ? `${catalog.length} đề trong nhóm đã chọn.` : "Chưa có đề trong nhóm này. Dùng mục Thêm đề để nhập đề của bạn."}</p>
       <div class="ex-catalog">${catalog
         .map(
           (e) =>
-            `<article class="ex-card" data-ex-id="${esc(e.id)}"><span class="ex-tag">${e.kind === "sample" ? "TỪ ẢNH · ĐÃ HIỆU ĐÍNH" : e.kind === "imported" ? "ĐỀ CỦA BẠN" : `BÀI ${lessonScope(e.lessons)} · BIÊN SOẠN MỚI`}</span><h2>${esc(e.title)}</h2><p class="ex-muted">${esc(e.description)}</p><div class="ex-legend"><span>45 câu · 4 lựa chọn</span><span>Bài ${e.lessons.join(", ")}</span></div><div class="ex-actions"><button class="ex-primary" data-ex-start="${esc(e.id)}">Làm đề</button><button data-ex-export="${esc(e.id)}" aria-label="Xuất file đề ${esc(e.title)}">Xuất đề</button>${e.kind === "imported" ? `<button class="ex-danger" data-ex-delete="${esc(e.id)}" aria-label="Xóa đề ${esc(e.title)}">Xóa</button>` : ""}</div>${coverage(e)}</article>`,
+            `<article class="ex-card${isFeExam(e) ? " is-fe" : ""}" data-ex-id="${esc(e.id)}"><div class="ex-tag-row"><span class="ex-tag">${cardTag(e)}</span>${hashtagsHTML(e)}</div><h2>${esc(e.title)}</h2><p class="ex-muted">${esc(e.description)}</p><div class="ex-legend"><span>${e.questions.length} câu · 4 lựa chọn</span><span>Bài ${e.lessons.join(", ")}</span></div><div class="ex-actions"><button class="ex-primary" data-ex-start="${esc(e.id)}">Làm đề</button><button data-ex-export="${esc(e.id)}" aria-label="Xuất file đề ${esc(e.title)}">Xuất đề</button>${e.kind === "imported" ? `<button class="ex-danger" data-ex-delete="${esc(e.id)}" aria-label="Xóa đề ${esc(e.title)}">Xóa</button>` : ""}</div>${coverage(e)}</article>`,
         )
         .join("")}</div>
+      <details class="ex-coverage"><summary>Về bộ đề #Thi FE (3 đề SU26 + 4 đề luyện theo ma trận)</summary><p class="ex-muted">Gồm 3 đề thi thật JPD123 kỳ SU26 chuyển thể từ PDF nguồn (30, 30 và 31 câu, đã hiệu đính lỗi gõ/nhiễu trùng nghĩa và cân bằng vị trí A–D) cùng 4 đề luyện mới biên soạn theo đúng ma trận FE thực tế (3 đọc Hán tự, 3 viết Hán tự, 11 ngữ pháp, 4 hội thoại, 6 từ vựng và 3 câu đọc hiểu theo đoạn văn chung). Khi làm bài, các câu đọc hiểu luôn đi liền nhau ở cuối đề giống phần mềm EOS.</p><a class="source-link" href="sources/FE/JPD123_FE+RE_SU26.pdf" target="_blank" rel="noopener">Mở PDF đề gốc SU26 ↗</a></details>
       <details class="ex-coverage"><summary>Về đề từ ảnh và câu 18</summary><p class="ex-muted">Material có 44 ảnh cho đề 45 câu, thiếu câu số 18. Bản này chép 44 câu, sửa lỗi gõ/đáp án trùng và thêm ngữ cảnh ở câu có nhiều cách trả lời. Câu 18 là câu bổ sung, không phải bản chép từ ảnh. Ảnh không có đáp án; đáp án và giải thích là phần biên soạn. Đề mẫu có cả bài 6 và chữ Hán mở rộng. Các đề biên soạn chia riêng theo bài 4–5 và bài 6–7; phạm vi nội dung mới ghi trên từng thẻ đề.</p><a class="source-link" href="audits/EXAM_AUDIT.md" target="_blank" rel="noopener">Xem ghi chú đối chiếu ↗</a></details>${[
         [4, 5],
         [6, 7],
@@ -402,14 +447,16 @@
   function sanitizeAttempt(s) {
     if (!s || typeof s !== "object") return null;
     const e = byId(s.examId);
+    const count = e?.questions.length || 0;
     const migrated = e?.migrations?.[s.fingerprint];
     if (
       !e ||
+      !count ||
       (s.fingerprint !== fingerprint(e) &&
         !e.legacyFingerprints?.includes(s.fingerprint) &&
         !migrated) ||
       !Array.isArray(s.answers) ||
-      s.answers.length !== 45 ||
+      s.answers.length !== count ||
       typeof s.id !== "string" ||
       !Number.isFinite(s.startedAt) ||
       s.startedAt <= 0 ||
@@ -420,8 +467,10 @@
     )
       return null;
     const order =
-      s.order === undefined ? Array.from({ length: 45 }, (_, i) => i) : s.order;
-    if (!validOrder(order, 45)) return null;
+      s.order === undefined
+        ? Array.from({ length: count }, (_, i) => i)
+        : s.order;
+    if (!validOrder(order, count)) return null;
     if (migrated?.length) {
       contentUpdated = true;
       if (s.submittedAt) return null;
@@ -436,8 +485,10 @@
           ? a
           : null,
       ),
-      flags: Array.from({ length: 45 }, (_, i) => s.flags?.[i] === true),
-      index: Number.isInteger(s.index) ? Math.max(0, Math.min(44, s.index)) : 0,
+      flags: Array.from({ length: count }, (_, i) => s.flags?.[i] === true),
+      index: Number.isInteger(s.index)
+        ? Math.max(0, Math.min(count - 1, s.index))
+        : 0,
       startedAt: s.startedAt,
       minutes: s.minutes,
       submittedAt:
@@ -450,6 +501,7 @@
   function start(id, minutes) {
     const e = byId(id);
     if (!e) return;
+    const count = e.questions.length;
     const expectedId = attempt?.id || null;
     const run = async () => {
       root.dataset.saving = "true";
@@ -458,9 +510,9 @@
         id: uid(),
         examId: e.id,
         fingerprint: fingerprint(e),
-        order: shuffleOrder(e.questions.length, previous),
-        answers: Array(45).fill(null),
-        flags: Array(45).fill(false),
+        order: shuffleExamOrder(e, previous),
+        answers: Array(count).fill(null),
+        flags: Array(count).fill(false),
         index: 0,
         startedAt: Date.now(),
         minutes,
@@ -527,13 +579,14 @@
       renderResult(focus);
       return;
     }
-    const q = e.questions[s.index],
+    const total = e.questions.length,
+      q = e.questions[s.index],
       answered = s.answers.filter(Number.isInteger).length,
       selected = s.answers[s.index];
     $("exRun").innerHTML =
-      `<div class="ex-attempt-head"><div><button data-ex-back>← Danh sách đề</button><h2 style="margin-top:16px">${esc(e.title)}</h2><p class="ex-muted">Câu hỏi đã xáo trộn · Chỉ chấm khi nộp · Phím 1–4 để chọn khi không nhập văn bản</p></div><div id="exClock" class="ex-clock" role="timer" aria-label="Thời gian còn lại"><span class="ex-muted">${s.minutes ? "Còn lại" : "Đã làm"}</span><strong id="exClockValue"></strong></div></div>
-      <div class="ex-attempt-layout"><article class="ex-paper"><div class="ex-question-top"><span class="ex-tag">Câu ${s.index + 1} / 45 · ${esc(categories[q.category])}</span><button data-ex-flag aria-pressed="${s.flags[s.index]}">${s.flags[s.index] ? "⚑ Đã đánh dấu" : "⚐ Xem lại sau"}</button></div><h2 id="exQuestionHeading" tabindex="-1" class="ex-focus-heading">Chọn đáp án đúng</h2><p class="ex-prompt" lang="ja">${esc(q.prompt)}</p>${q.origin === "added" ? '<p class="ex-muted">Câu biên soạn bổ sung cho vị trí thiếu trong ảnh.</p>' : ""}${q.image ? picture(q.image, `ảnh đề câu ${s.index + 1}`) : ""}<div class="ex-options" role="group" aria-label="Bốn lựa chọn">${q.options.map((o, i) => `<button class="ex-option" data-ex-answer="${i}" type="button" aria-pressed="${selected === i}"><b>${letters[i]}</b><span lang="ja">${esc(o)}</span></button>`).join("")}</div><p id="exAnswerStatus" class="ex-muted" role="status" aria-live="polite">${Number.isInteger(selected) ? "Đã chọn " + letters[selected] : "Chưa chọn đáp án"}</p><div class="ex-question-nav"><button data-ex-prev ${s.index === 0 ? "disabled" : ""}>← Câu trước</button><button data-ex-clear ${!Number.isInteger(selected) ? "disabled" : ""}>Bỏ lựa chọn</button><button data-ex-next ${s.index === 44 ? "disabled" : ""}>Câu sau →</button></div></article>
-      <aside class="ex-sidebar"><strong id="exAnsweredCount">${answered}/45 đã chọn</strong><progress class="ex-progress" max="45" value="${answered}" aria-label="Số câu đã chọn"></progress><div class="ex-legend"><span>• Đã chọn</span><span>Trống: chưa chọn</span><span>Viền trên: xem lại</span></div><div class="ex-map" aria-label="Đi đến câu hỏi">${questionMap(s, e)}</div><p id="exMapStatus" class="ex-muted">Câu ${s.index + 1}: ${Number.isInteger(selected) ? "Đã chọn " + letters[selected] : "Chưa chọn"}</p><button data-ex-first-empty>Đến câu chưa chọn</button><button data-ex-submit class="ex-primary">Nộp bài</button></aside></div>`;
+      `<div class="ex-attempt-head"><div><button data-ex-back>← Danh sách đề</button><div class="ex-title-row"><h2>${esc(e.title)}</h2>${hashtagsHTML(e)}</div><p class="ex-muted">Câu hỏi đã xáo trộn · Chỉ chấm khi nộp · Phím 1–4 để chọn khi không nhập văn bản</p></div><div id="exClock" class="ex-clock" role="timer" aria-label="Thời gian còn lại"><span class="ex-muted">${s.minutes ? "Còn lại" : "Đã làm"}</span><strong id="exClockValue"></strong></div></div>
+      <div class="ex-attempt-layout"><article class="ex-paper"><div class="ex-question-top"><span class="ex-tag">Câu ${s.index + 1} / ${total} · ${esc(categories[q.category])}</span><button data-ex-flag aria-pressed="${s.flags[s.index]}">${s.flags[s.index] ? "⚑ Đã đánh dấu" : "⚐ Xem lại sau"}</button></div><h2 id="exQuestionHeading" tabindex="-1" class="ex-focus-heading">Chọn đáp án đúng</h2>${passageHTML(q)}<p class="ex-prompt" lang="ja">${esc(q.prompt)}</p>${q.origin === "added" ? '<p class="ex-muted">Câu biên soạn bổ sung cho vị trí thiếu trong ảnh.</p>' : ""}${q.image ? picture(q.image, `ảnh đề câu ${s.index + 1}`) : ""}<div class="ex-options" role="group" aria-label="Bốn lựa chọn">${q.options.map((o, i) => `<button class="ex-option" data-ex-answer="${i}" type="button" aria-pressed="${selected === i}"><b>${letters[i]}</b><span lang="ja">${esc(o)}</span></button>`).join("")}</div><p id="exAnswerStatus" class="ex-muted" role="status" aria-live="polite">${Number.isInteger(selected) ? "Đã chọn " + letters[selected] : "Chưa chọn đáp án"}</p><div class="ex-question-nav"><button data-ex-prev ${s.index === 0 ? "disabled" : ""}>← Câu trước</button><button data-ex-clear ${!Number.isInteger(selected) ? "disabled" : ""}>Bỏ lựa chọn</button><button data-ex-next ${s.index === total - 1 ? "disabled" : ""}>Câu sau →</button></div></article>
+      <aside class="ex-sidebar"><strong id="exAnsweredCount">${answered}/${total} đã chọn</strong><progress class="ex-progress" max="${total}" value="${answered}" aria-label="Số câu đã chọn"></progress><div class="ex-legend"><span>• Đã chọn</span><span>Trống: chưa chọn</span><span>Viền trên: xem lại</span></div><div class="ex-map" aria-label="Đi đến câu hỏi">${questionMap(s, e)}</div><p id="exMapStatus" class="ex-muted">Câu ${s.index + 1}: ${Number.isInteger(selected) ? "Đã chọn " + letters[selected] : "Chưa chọn"}</p><button data-ex-first-empty>Đến câu chưa chọn</button><button data-ex-submit class="ex-primary">Nộp bài</button></aside></div>`;
     ownership();
     tick();
     if (focus && $("exQuestionHeading")) {
@@ -564,7 +617,8 @@
         ?.scrollIntoView({ behavior: "instant", block: "start" });
       return;
     }
-    const next = Math.max(0, Math.min(44, index));
+    const maxIndex = (byId(s.examId)?.questions.length ?? s.answers.length) - 1;
+    const next = Math.max(0, Math.min(maxIndex, index));
     if (!attemptStore.editable()) {
       s.index = next;
       renderRun(true);
@@ -587,11 +641,12 @@
   function requestSubmit() {
     tick();
     if (!attempt || attempt.submittedAt) return;
-    const missing = attempt.answers.filter((a) => !Number.isInteger(a)).length,
+    const total = attempt.answers.length,
+      missing = attempt.answers.filter((a) => !Number.isInteger(a)).length,
       flags = attempt.flags.filter(Boolean).length;
     confirmAction(
       "Nộp và chấm bài?",
-      `Đã chọn ${45 - missing}/45 câu. ${missing ? `${missing} câu chưa chọn sẽ tính là bỏ trống. ` : ""}${flags ? `${flags} câu đang đánh dấu xem lại. ` : ""}Sau khi nộp, bài làm được khóa và hiện giải thích.`,
+      `Đã chọn ${total - missing}/${total} câu. ${missing ? `${missing} câu chưa chọn sẽ tính là bỏ trống. ` : ""}${flags ? `${flags} câu đang đánh dấu xem lại. ` : ""}Sau khi nộp, bài làm được khóa và hiện giải thích.`,
       () => submit(),
       "Nộp bài",
     );
@@ -644,8 +699,8 @@
       e = examFor(s),
       r = grade(e, s.answers);
     $("exRun").innerHTML =
-      `<div class="ex-attempt-head"><div><button data-ex-back>← Danh sách đề</button><h2 style="margin-top:16px">${esc(e.title)}</h2><p class="ex-muted">${s.reason === "timeout" ? "Hết giờ · Tự động nộp" : "Đã nộp"} · ${new Date(s.submittedAt).toLocaleString("vi-VN")} · ${Math.max(1, Math.round((s.submittedAt - s.startedAt) / 60000))} phút</p></div><span class="ex-tag">${r.percent}% CHÍNH XÁC</span></div><section class="ex-result"><h2 id="exResultHeading" tabindex="-1">Kết quả và những câu cần ôn</h2><div class="ex-scores"><div><strong id="exScore">${r.score}</strong><span>Điểm / 10</span></div><div><strong id="exCorrect">${r.correct}</strong><span>Đúng</span></div><div><strong id="exWrong">${r.wrong}</strong><span>Sai</span></div><div><strong id="exSkipped">${r.skipped}</strong><span>Bỏ trống</span></div></div><div class="ex-actions"><button class="ex-primary" data-ex-restart>Làm lại đề này</button><button data-ex-result-export>Xuất kết quả</button></div><div class="ex-map" aria-label="Kết quả từng câu">${questionMap(s, e, r)}</div><div class="ex-legend"><span>Đúng: viền xanh</span><span>Sai: viền đỏ</span><span>Bỏ trống: chưa chọn</span></div></section>
-      <div class="ex-toolbar"><label>Xem lại<select id="exReviewFilter"><option value="all">Tất cả 45 câu</option><option value="wrong">Chỉ câu sai</option><option value="skipped">Chỉ câu bỏ trống</option><option value="flagged">Câu đã đánh dấu</option></select></label><p id="exReviewCount" class="ex-muted"></p></div><div id="exReviewList"></div>`;
+      `<div class="ex-attempt-head"><div><button data-ex-back>← Danh sách đề</button><div class="ex-title-row"><h2>${esc(e.title)}</h2>${hashtagsHTML(e)}</div><p class="ex-muted">${s.reason === "timeout" ? "Hết giờ · Tự động nộp" : "Đã nộp"} · ${new Date(s.submittedAt).toLocaleString("vi-VN")} · ${Math.max(1, Math.round((s.submittedAt - s.startedAt) / 60000))} phút</p></div><span class="ex-tag">${r.percent}% CHÍNH XÁC</span></div><section class="ex-result"><h2 id="exResultHeading" tabindex="-1">Kết quả và những câu cần ôn</h2><div class="ex-scores"><div><strong id="exScore">${r.score}</strong><span>Điểm / 10</span></div><div><strong id="exCorrect">${r.correct}</strong><span>Đúng</span></div><div><strong id="exWrong">${r.wrong}</strong><span>Sai</span></div><div><strong id="exSkipped">${r.skipped}</strong><span>Bỏ trống</span></div></div><div class="ex-actions"><button class="ex-primary" data-ex-restart>Làm lại đề này</button><button data-ex-result-export>Xuất kết quả</button></div><div class="ex-map" aria-label="Kết quả từng câu">${questionMap(s, e, r)}</div><div class="ex-legend"><span>Đúng: viền xanh</span><span>Sai: viền đỏ</span><span>Bỏ trống: chưa chọn</span></div></section>
+      <div class="ex-toolbar"><label>Xem lại<select id="exReviewFilter"><option value="all">Tất cả ${e.questions.length} câu</option><option value="wrong">Chỉ câu sai</option><option value="skipped">Chỉ câu bỏ trống</option><option value="flagged">Câu đã đánh dấu</option></select></label><p id="exReviewCount" class="ex-muted"></p></div><div id="exReviewList"></div>`;
     $("exReviewFilter").value = reviewFilter;
     const visible = e.questions
       .map((q, i) => ({ q, i, state: r.states[i] }))
@@ -660,7 +715,7 @@
       visible
         .map(
           ({ q, i, state }) =>
-            `<article class="ex-review is-${state}" data-ex-review="${i}"><div class="ex-question-top"><span class="ex-tag">Câu ${i + 1} · ${stateLabel(state)}</span><span class="ex-muted">Bài ${q.lesson} · ${esc(categories[q.category])}${s.flags[i] ? " · ⚑" : ""}</span></div><p class="ex-prompt" lang="ja">${esc(q.prompt)}</p>${q.image ? picture(q.image, `ảnh câu ${i + 1}`, true) : ""}<ul>${q.options.map((o, j) => `<li class="${j === q.answer ? "is-key" : s.answers[i] === j ? "is-choice-wrong" : ""}"><b>${letters[j]}.</b> ${esc(o)}${j === q.answer ? " · ✓ Đáp án đúng" : ""}${s.answers[i] === j ? " · Bạn chọn" : ""}</li>`).join("")}</ul>${solutionHTML(q)}${q.origin === "added" ? '<p class="ex-muted">Câu bổ sung cho vị trí 18 trong đề ảnh gốc.</p>' : ""}${q.source ? `<a href="${esc(encodeURI(q.source))}" target="_blank" rel="noopener">${q.source.split("#")[0].toLowerCase().endsWith(".pdf") ? "Đối chiếu PDF nguồn" : "Đối chiếu ảnh gốc"} ↗</a>` : ""}</article>`,
+            `<article class="ex-review is-${state}" data-ex-review="${i}"><div class="ex-question-top"><span class="ex-tag">Câu ${i + 1} · ${stateLabel(state)}</span><span class="ex-muted">Bài ${q.lesson} · ${esc(categories[q.category])}${s.flags[i] ? " · ⚑" : ""}</span></div>${passageHTML(q)}<p class="ex-prompt" lang="ja">${esc(q.prompt)}</p>${q.image ? picture(q.image, `ảnh câu ${i + 1}`, true) : ""}<ul>${q.options.map((o, j) => `<li class="${j === q.answer ? "is-key" : s.answers[i] === j ? "is-choice-wrong" : ""}"><b>${letters[j]}.</b> ${esc(o)}${j === q.answer ? " · ✓ Đáp án đúng" : ""}${s.answers[i] === j ? " · Bạn chọn" : ""}</li>`).join("")}</ul>${solutionHTML(q)}${q.origin === "added" ? '<p class="ex-muted">Câu bổ sung cho vị trí 18 trong đề ảnh gốc.</p>' : ""}${q.source ? `<a href="${esc(encodeURI(q.source))}" target="_blank" rel="noopener">${q.source.split("#")[0].toLowerCase().endsWith(".pdf") ? "Đối chiếu PDF nguồn" : "Đối chiếu ảnh gốc"} ↗</a>` : ""}</article>`,
         )
         .join("") || '<p class="ex-banner">Không có câu trong nhóm này.</p>';
     if (focus && currentMode === "exam") {
@@ -675,7 +730,7 @@
           .map((h) => {
             const e = examFor(h),
               r = grade(e, h.answers);
-            return `<article class="ex-history-row"><div><strong>${esc(e.title)}</strong><span class="ex-muted">${new Date(h.submittedAt).toLocaleString("vi-VN")} · ${r.correct}/45 đúng · ${r.wrong} sai · ${r.skipped} trống</span></div><div class="ex-actions"><span class="ex-tag">${r.score}/10</span><button data-ex-history="${esc(h.id)}">Xem lại</button></div></article>`;
+            return `<article class="ex-history-row"><div><div class="ex-title-row"><strong>${esc(e.title)}</strong>${hashtagsHTML(e)}</div><span class="ex-muted">${new Date(h.submittedAt).toLocaleString("vi-VN")} · ${r.correct}/${e.questions.length} đúng · ${r.wrong} sai · ${r.skipped} trống</span></div><div class="ex-actions"><span class="ex-tag">${r.score}/10</span><button data-ex-history="${esc(h.id)}">Xem lại</button></div></article>`;
           })
           .join("") ||
         '<p class="ex-banner">Chưa có bài đã nộp. Chọn một đề để bắt đầu.</p>'
@@ -837,7 +892,7 @@
     pending = validate(document);
     show("preview");
     $("exPreview").innerHTML =
-      `<section class="ex-editor"><span class="ex-tag">XEM TRƯỚC · CHƯA LƯU</span><h2 style="margin-top:16px">${esc(pending.title)}</h2><p class="ex-muted">45 câu hợp lệ · Bài ${pending.lessons.join(", ")} · ${pending.minutes} phút gợi ý. Kiểm tra đáp án trước khi thêm vào danh sách.</p><div class="ex-actions"><button class="ex-primary" data-ex-import-confirm>Thêm đề vào danh sách</button><button data-ex-import-cancel>Quay lại chỉnh sửa</button></div><div class="ex-preview-list">${pending.questions.map((q, i) => `<article><strong>Câu ${i + 1} · ${esc(categories[q.category])} · Bài ${q.lesson}</strong><p>${esc(q.prompt)}</p>${q.image ? picture(q.image, `ảnh xem trước câu ${i + 1}`, true) : ""}<p>${q.options.map((o, j) => `${letters[j]}. ${esc(o)}${j === q.answer ? " ✓" : ""}`).join("<br>")}</p><p class="ex-muted">${esc(q.explanation)}</p></article>`).join("")}</div></section>`;
+      `<section class="ex-editor"><span class="ex-tag">XEM TRƯỚC · CHƯA LƯU</span><h2 style="margin-top:16px">${esc(pending.title)}</h2><p class="ex-muted">${pending.questions.length} câu hợp lệ · Bài ${pending.lessons.join(", ")} · ${pending.minutes} phút gợi ý. Kiểm tra đáp án trước khi thêm vào danh sách.</p><div class="ex-actions"><button class="ex-primary" data-ex-import-confirm>Thêm đề vào danh sách</button><button data-ex-import-cancel>Quay lại chỉnh sửa</button></div><div class="ex-preview-list">${pending.questions.map((q, i) => `<article><strong>Câu ${i + 1} · ${esc(categories[q.category])} · Bài ${q.lesson}</strong>${passageHTML(q)}<p>${esc(q.prompt)}</p>${q.image ? picture(q.image, `ảnh xem trước câu ${i + 1}`, true) : ""}<p>${q.options.map((o, j) => `${letters[j]}. ${esc(o)}${j === q.answer ? " ✓" : ""}`).join("<br>")}</p><p class="ex-muted">${esc(q.explanation)}</p></article>`).join("")}</div></section>`;
   }
   async function acceptImport() {
     if (!pending || busy) return;
@@ -1124,7 +1179,10 @@
     if (b.hasAttribute("data-ex-first-empty")) {
       const i = attempt.answers.findIndex((a) => !Number.isInteger(a));
       if (i >= 0) move(i);
-      else notice("Bạn đã chọn đủ 45 câu. Có thể xem lại hoặc nộp bài.");
+      else
+        notice(
+          `Bạn đã chọn đủ ${attempt.answers.length} câu. Có thể xem lại hoặc nộp bài.`,
+        );
       return;
     }
     if (b.hasAttribute("data-ex-submit")) {
@@ -1158,6 +1216,8 @@
           questions: e.questions.map((q, i) => ({
             number: i + 1,
             sourceNumber: s.order[i] + 1,
+            ...(q.passage ? { passage: q.passage } : {}),
+            ...(q.passageTitle ? { passageTitle: q.passageTitle } : {}),
             prompt: q.prompt,
             options: q.options,
             chosen: s.answers[i],

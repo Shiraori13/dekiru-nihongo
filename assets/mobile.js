@@ -19,7 +19,7 @@
     reading: "Đọc theo nhịp của bạn.",
     speaking: "57 câu hỏi phỏng vấn JPD123.",
     grammar: "Học mẫu câu, luyện cách dùng.",
-    exam: "45 câu mỗi đề · Chấm sau khi nộp",
+    exam: "Đề theo bài & #Thi FE · Chấm sau khi nộp",
     quiz: "Ôn từ vựng theo mục tiêu của bạn.",
     list: "Tra từ, cách đọc và nghĩa.",
     kanji: "Hiểu chữ, nhớ từ, luyện nét.",
@@ -442,8 +442,10 @@
         bar.querySelector("time"),
         `${document.querySelector("#exClock > span")?.textContent || ""} ${text("exClockValue")}`,
       );
-      bar.querySelector("progress").value =
-        Number(document.querySelector(".ex-sidebar progress")?.value) || 0;
+      const sourceProgress = document.querySelector(".ex-sidebar progress");
+      const mobileProgress = bar.querySelector("progress");
+      mobileProgress.max = Number(sourceProgress?.max) || 45;
+      mobileProgress.value = Number(sourceProgress?.value) || 0;
     }
     const exSidebar = document.querySelector(".ex-sidebar");
     if (exSidebar)

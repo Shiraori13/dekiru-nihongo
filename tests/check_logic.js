@@ -110,7 +110,7 @@ const fixture={questions:[{answer:2},{answer:0},{answer:3},{answer:1}]};
 let result=ex.grade(fixture,[2,1,null,1]);
 assert.equal(result.correct,2);assert.equal(result.wrong,1);assert.equal(result.skipped,1);assert.equal(result.score,'5.00');
 result=ex.grade(fixture,[2,0,null,1]);assert.equal(result.correct,3);assert.equal(result.score,'7.50');
-assert.equal(words.length,921);assert.equal(grammar.units.length,37);assert.equal(grammar.questions.length,666);assert.equal(papers.length,8);
+assert.equal(words.length,921);assert.equal(grammar.units.length,37);assert.equal(grammar.questions.length,666);assert.equal(papers.length,15);
 const ids=new Set();
 for(const q of grammar.questions){
   assert(!ids.has(q.id),q.id);ids.add(q.id);
@@ -126,5 +126,5 @@ for(const q of grammar.questions){
     }
   }
 }
-for(const paper of papers){assert.equal(ex.validate(ex.documentOf(paper)).questions.length,45);for(const q of paper.questions){assert.equal(q.solution.options.length,4);assert.equal(q.solution.options[q.answer],q.explanation);}}
-console.log('PASS: 921 semantic option sets; independent synonym/polysemy/accent, fill/order and changed-answer grading fixtures; 666 grammar + 360 paper structural invariants. Content verification is tracked separately.');
+for(const paper of papers){assert.equal(ex.validate(ex.documentOf(paper)).questions.length,paper.questions.length);for(const q of paper.questions){assert.equal(q.solution.options.length,4);assert.equal(q.solution.options[q.answer],q.explanation);}}
+console.log('PASS: 921 semantic option sets; independent synonym/polysemy/accent, fill/order and changed-answer grading fixtures; 666 grammar + 571 paper structural invariants. Content verification is tracked separately.');

@@ -32,8 +32,8 @@ with sync_playwright() as p:
       } finally{Math.random=originalRandom;}
       return JSON.stringify(DEKIRU_EXAMS.map(e=>e.questions.map(q=>q.id)))===originals;
     }''')
-    assert page.evaluate('DEKIRU_EXAMS.length')==8
-    assert page.evaluate('DEKIRU_EXAMS.flatMap(e=>e.questions).length')==360
+    assert page.evaluate('DEKIRU_EXAMS.length')==15
+    assert page.evaluate('DEKIRU_EXAMS.flatMap(e=>e.questions).length')==571
     assert page.evaluate('''()=>DEKIRU_EXAMS.flatMap(e=>e.questions).every(q=>{
       const s=q.solution;return s.completed&&s.meaning&&s.rule.length>70&&s.options.length===4&&s.options.every(t=>t.length>10)&&s.options[q.answer]===q.explanation;
     })''')
@@ -73,17 +73,19 @@ with sync_playwright() as p:
     page.locator('[data-ex-tab=history]').click();page.locator('[data-ex-history]').first.click()
     assert page.locator('.ex-review').first.locator('.ex-prompt').inner_text()==q['prompt']
     assert page.locator('#exCorrect').inner_text()=='1'
-    # Every review must retain its key/notes in the same shuffled order, including image sources.
+    # Every review must retain its key/notes in the same shuffled order, including image/PDF sources.
     for e in page.evaluate('DEKIRU_EXAMS.map(e=>e.id)'):
-        page.evaluate('''id=>{
-          const e=DEKIRU_EXAMS.find(e=>e.id===id),order=ExamCore.shuffleOrder(45);
+        counts=page.evaluate('''id=>{
+          const e=DEKIRU_EXAMS.find(e=>e.id===id),n=e.questions.length,order=ExamCore.shuffleExamOrder(e);
+          const answers=order.map((qIdx,i)=>i%3===0?e.questions[qIdx].answer:i%3===1?(e.questions[qIdx].answer+1)%4:null);
           localStorage.setItem('dekiru_exam_attempt_v1',JSON.stringify({id:crypto.randomUUID(),examId:id,fingerprint:ExamCore.fingerprint(e),order,
-            answers:order.map((n,i)=>i%3===0?e.questions[n].answer:i%3===1?(e.questions[n].answer+1)%4:null),flags:Array(45).fill(false),index:0,startedAt:Date.now()-10000,minutes:0,submittedAt:Date.now()}));
+            answers,flags:Array(n).fill(false),index:0,startedAt:Date.now()-10000,minutes:0,submittedAt:Date.now()}));
+          return {n, c:answers.filter((_,i)=>i%3===0).length, w:answers.filter((_,i)=>i%3===1).length, s:answers.filter((_,i)=>i%3===2).length};
         }''',e)
         reset_attempt_store(page);page.reload();page.wait_for_selector('#examMode[data-ready=true]',state='attached');page.locator('[data-mode=exam]').click();page.locator('[data-ex-resume]').click();continue_exam(page)
-        assert [page.locator('#ex'+name).inner_text() for name in ['Correct','Wrong','Skipped']]==['15','15','15']
+        assert [page.locator('#ex'+name).inner_text() for name in ['Correct','Wrong','Skipped']]==[str(counts['c']),str(counts['w']),str(counts['s'])]
         expected=page.evaluate('''()=>{const s=JSON.parse(localStorage.getItem('dekiru_exam_attempt_v1'));const e=DEKIRU_EXAMS.find(e=>e.id===s.examId);return s.order.map(i=>e.questions[i]);}''')
-        assert page.locator('.ex-solution').count()==45
+        assert page.locator('.ex-solution').count()==counts['n']
         actual=page.locator('.ex-review').evaluate_all('''cards=>cards.map(c=>({prompt:c.querySelector('.ex-prompt').textContent,completed:c.querySelector('.ex-solution-standard p').textContent,reasons:[...c.querySelectorAll('.ex-option-analysis dd')].map(e=>e.textContent),source:c.querySelector('a')?.getAttribute('href')}))''')
         from urllib.parse import unquote
         for got,want in zip(actual,expected):
@@ -131,4 +133,4 @@ with sync_playwright() as p:
     assert fp.evaluate(f'JSON.parse(localStorage.getItem("{KEY}")).order')==order
     fp.locator('[data-ex-submit]').click();fp.locator('#exConfirmAccept').click();assert fp.locator('.ex-solution').count()==45
     firefox.close()
-    print('PASS: 360 detailed solutions, option/source alignment, 200 randomized plans, stable answers/flags/order across reload/history/export, legacy progress and grades, invalid-order protection, import validation, responsive light/dark, Firefox lesson 6–7 file://.')
+    print('PASS: 571 detailed solutions, option/source alignment, 200 randomized plans, stable answers/flags/order across reload/history/export, legacy progress and grades, invalid-order protection, import validation, responsive light/dark, Firefox lesson 6–7 file://.')

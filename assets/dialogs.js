@@ -80,6 +80,7 @@ window.StudyNotifications = (() => {
     const items = [];
     const exam = safeJson("dekiru_exam_attempt_v1");
     if (exam && exam.examId && !exam.submittedAt) {
+      const total = Array.isArray(exam.answers) ? exam.answers.length : 45;
       const answered = Array.isArray(exam.answers)
         ? exam.answers.filter((a) => a !== null && a !== undefined).length
         : 0;
@@ -87,7 +88,7 @@ window.StudyNotifications = (() => {
         id: `exam:${exam.id || exam.examId}:${answered}`,
         urgent: true,
         title: "Đề thi đang làm dở",
-        detail: `Đã chọn ${answered}/45 câu. Mở Luyện đề để làm tiếp bất cứ lúc nào.`,
+        detail: `Đã chọn ${answered}/${total} câu. Mở Luyện đề để làm tiếp bất cứ lúc nào.`,
         actionLabel: "Mở Luyện đề",
         mode: "exam",
       });

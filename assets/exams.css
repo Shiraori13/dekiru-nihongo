@@ -18,7 +18,7 @@
 .ex-hero { display:flex; justify-content:space-between; align-items:center; gap:30px; margin:12px 0 30px; }
 .ex-muted { color:var(--text-muted); font-size:13px; }
 .ex-stamp { background:var(--primary-subtle); border:1px solid var(--border); border-radius:24px; padding:25px 35px; text-align:center; flex-shrink:0; }
-.ex-stamp strong { display:block; font-size:48px; color:var(--primary); }
+.ex-stamp strong { display:block; font-size:clamp(32px,3.2vw,44px); white-space:nowrap; color:var(--primary); }
 .ex-stamp span { font-size:12px; color:var(--text-muted); }
 .ex-toolbar, .ex-actions, .ex-tabs { display:flex; align-items:center; flex-wrap:wrap; gap:10px; }
 .ex-tabs { margin-bottom:24px; }
@@ -29,7 +29,16 @@
 .ex-catalog { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; margin:22px 0; }
 .ex-card { border:1px solid var(--border); background:var(--surface); border-radius:22px; padding:26px; display:flex; flex-direction:column; align-items:start; gap:12px; box-shadow:var(--shadow-sm); }
 .ex-card p { margin:0 0 8px; flex:1; }
+.ex-tag-row { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
 .ex-tag { display:inline-flex; align-items:center; font-size:11px; font-weight:700; letter-spacing:.03em; padding:6px 10px; border-radius:99px; color:var(--primary); background:var(--primary-subtle); }
+.ex-hashtag { display:inline-flex; align-items:center; font-size:11px; font-weight:750; letter-spacing:.02em; padding:5px 11px; border-radius:99px; background:var(--streak-gradient); color:var(--streak-text); border:1px solid var(--streak-border); white-space:nowrap; }
+.ex-title-row { display:flex; flex-wrap:wrap; align-items:center; gap:8px 12px; margin-top:16px; }
+.ex-title-row h2 { margin:0; }
+.ex-history-row .ex-title-row { margin-top:0; margin-bottom:6px; }
+.ex-history-row .ex-title-row strong { margin:0; }
+.ex-passage { background:var(--surface-subtle); border:1px solid var(--border); border-left:4px solid var(--primary); border-radius:14px; padding:18px 20px; margin:16px 0 20px; }
+.ex-passage-head { font-size:12px; font-weight:700; letter-spacing:.03em; color:var(--primary); text-transform:uppercase; margin-bottom:10px; }
+.ex-passage-text { font:450 clamp(17px,2vw,20px)/2.05 var(--jp-font); margin:0; white-space:pre-line; overflow-wrap:anywhere; }
 .ex-card .ex-actions { width:100%; }
 .ex-card .ex-actions button:first-child { flex:1; }
 .ex-coverage { border-top:1px solid var(--border); margin-top:30px; padding-top:22px; line-height:1.9; }
@@ -144,9 +153,10 @@
   .mode-tabs { grid-template-columns:repeat(4,minmax(0,1fr)); }
   .tab-btn { font-size:11px; padding:8px 4px; }
   .ex-hero { gap:12px; margin-top:0; }
-  .ex-stamp { padding:16px; border-radius:18px; }
-  .ex-stamp strong { font-size:34px; }
+  .ex-stamp { padding:14px 16px; border-radius:18px; }
+  .ex-stamp strong { font-size:clamp(22px,6.5vw,32px); }
   .ex-stamp span { font-size:10px; }
+  .ex-passage { padding:14px; }
   .ex-catalog, .ex-coverage-grid, .ex-vocabulary-list { grid-template-columns:1fr; }
   .ex-card, .ex-paper, .ex-editor, .ex-result, .ex-import { padding:20px 16px; border-radius:18px; }
   .ex-paper { scroll-margin-top:180px; }

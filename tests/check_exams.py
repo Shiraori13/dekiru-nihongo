@@ -47,12 +47,21 @@ try:
         topics:[...new Set(e.questions.map(q=>`${q.lesson}:${q.topic}`))],lessons:[...new Set(e.questions.map(q=>q.lesson))],
         sources:e.questions.filter(q=>q.source).map(q=>q.source),added:e.questions.filter(q=>q.origin==='added').map(q=>q.id)}));
     }''')
-    expected_ids={'material-adapted-01',*[f'chapter45-{i}' for i in range(1,4)],*[f'chapter67-{i}' for i in range(1,5)]}
-    assert len(audit)==8 and {e['id'] for e in audit}==expected_ids
-    assert sum(e['count'] for e in audit)==360
+    expected_ids={
+        'material-adapted-01',
+        *[f'chapter45-{i}' for i in range(1,4)],
+        *[f'chapter67-{i}' for i in range(1,5)],
+        'fe-su26-re-1','fe-su26-fe-2','fe-su26-b5re-3',
+        *[f'fe-mock-{i}' for i in range(1,5)],
+    }
+    assert len(audit)==15 and {e['id'] for e in audit}==expected_ids
+    assert sum(e['count'] for e in audit)==571
     assert sum(e['kind']=='authored' for e in audit)==7
+    assert sum(e['kind']=='fe-source' for e in audit)==3
+    assert sum(e['kind']=='fe-authored' for e in audit)==4
     for e in audit:
-        assert e['count']==e['unique']==e['valid']==45,e
+        expected_len=31 if e['id']=='fe-su26-b5re-3' else (30 if e['kind'] in ('fe-source','fe-authored') else 45)
+        assert e['count']==e['unique']==e['valid']==expected_len,e
         for path in e['sources']:assert (ROOT/path.split('#',1)[0]).is_file(),path
         if e['id'].startswith('chapter45-'):
             assert e['kind']=='authored' and len(e['units'])==19 and set(e['lessons'])==set(e['declaredLessons'])=={4,5},e
@@ -62,10 +71,16 @@ try:
             assert e['kind']=='authored' and len(e['units'])==18 and set(e['lessons'])==set(e['declaredLessons'])=={6,7},e
             assert len(e['topics'])==6,e
             assert e['categories']==dict(reading=6,spelling=8,vocabulary=1,grammar=21,dialogue=7,translation=2),e
+        elif e['kind']=='fe-authored':
+            assert set(e['lessons'])==set(e['declaredLessons'])=={4,5,6,7},e
+            assert e['categories']==dict(reading=3,spelling=3,grammar=11,dialogue=4,vocabulary=6,comprehension=3),e
+        elif e['kind']=='fe-source':
+            assert set(e['declaredLessons'])=={4,5,6,7},e
+            assert len(e['sources'])==expected_len,e
         else:assert len(e['sources'])==44 and e['added']==['sample-18']
     assert page.evaluate('new Set(DEKIRU_EXAMS.filter(e=>e.kind==="authored").flatMap(e=>e.questions.map(q=>q.prompt))).size')==315
     page.locator('[data-mode=exam]').click()
-    assert page.locator('#exLibrary .ex-card').count()==8
+    assert page.locator('#exLibrary .ex-card').count()==15
     for scope,words,units,pages in [('4-5',127,19,'12–17'),('6-7',125,18,'18–23')]:
         guide=page.locator(f'[data-ex-vocabulary="{scope}"]')
         assert not guide.evaluate('(el)=>el.open')
@@ -81,7 +96,13 @@ try:
             assert f'toàn bộ {words} mục từ' in text and f'trang {pages}' in text
             assert card.locator('.ex-coverage-grid li').count()==units
     page.select_option('#exMinutes','30')
-    for scope,ids in [('4-5',[f'chapter45-{i}' for i in range(1,4)]),('6-7',[f'chapter67-{i}' for i in range(1,5)]),('sample',['material-adapted-01']),('imported',[])]:
+    for scope,ids in [
+        ('fe',['fe-su26-re-1','fe-su26-fe-2','fe-su26-b5re-3',*[f'fe-mock-{i}' for i in range(1,5)]]),
+        ('4-5',[f'chapter45-{i}' for i in range(1,4)]),
+        ('6-7',[f'chapter67-{i}' for i in range(1,5)]),
+        ('sample',['material-adapted-01']),
+        ('imported',[]),
+    ]:
         page.select_option('#exScope',scope)
         assert page.locator('#exLibrary .ex-card').evaluate_all('(els)=>els.map(el=>el.dataset.exId)')==ids
         assert page.locator('#exMinutes').input_value()=='30'
@@ -120,20 +141,21 @@ try:
     assert page.locator('[data-ex-flag]').get_attribute('aria-pressed')=='true'
     page.locator('[data-ex-submit]').click();assert page.locator('#exConfirm').is_visible()
     page.locator('#exConfirmCancel').click();assert not page.locator('#exConfirm').is_visible()
-    # Grade all 360 answers through real UI; keyboard and map never reveal keys.
+    # Grade all 571 answers across all 15 papers through real UI; keyboard and map never reveal keys.
     for exam in page.evaluate('DEKIRU_EXAMS.map(e=>e.id)'):
         page.locator('[data-ex-back]').click();page.select_option('#exMinutes','0')
         page.locator(f'[data-ex-start="{exam}"]').click()
         if page.locator('#exConfirm').is_visible():page.locator('#exConfirmAccept').click()
         answers=page.evaluate('(id)=>{const e=DEKIRU_EXAMS.find(e=>e.id===id),s=JSON.parse(localStorage.getItem("dekiru_exam_attempt_v1"));return s.order.map(i=>e.questions[i].answer);}',exam)
+        total=str(len(answers))
         for i,a in enumerate(answers):
             page.locator(f'[data-ex-jump="{i}"]').click();page.locator(f'[data-ex-answer="{a}"]').click()
-        assert page.locator('.ex-progress').get_attribute('value')=='45'
+        assert page.locator('.ex-progress').get_attribute('value')==total
         assert page.locator('.ex-review').count()==0
         page.locator('[data-ex-submit]').click();page.locator('#exConfirmAccept').click()
-        assert page.locator('#exCorrect').inner_text()=='45' and page.locator('#exScore').inner_text()=='10.00'
-        assert page.locator('.ex-review.is-correct').count()==45
-        assert page.locator('#exRun .ex-map .is-correct').count()==45
+        assert page.locator('#exCorrect').inner_text()==total and page.locator('#exScore').inner_text()=='10.00'
+        assert page.locator('.ex-review.is-correct').count()==len(answers)
+        assert page.locator('#exRun .ex-map .is-correct').count()==len(answers)
     answers=page.evaluate('DEKIRU_EXAMS[1].questions.map((q,i)=>i===0?q.answer:i===1?(q.answer+1)%4:null)')
     seed(page,answers=answers)
     page.locator('[data-ex-submit]').click();page.locator('#exConfirmAccept').click()
@@ -144,7 +166,7 @@ try:
     page.reload();page.wait_for_selector('#examMode[data-ready=true]',state='attached')
     page.locator('[data-mode=exam]').click();page.locator('[data-ex-resume]').click();continue_exam(page)
     assert page.locator('#exSkipped').inner_text()=='43'
-    page.locator('[data-ex-tab=history]').click();assert page.locator('.ex-history-row').count()==9
+    page.locator('[data-ex-tab=history]').click();assert page.locator('.ex-history-row').count()==16
     page.locator('[data-ex-history]').first.click();assert page.locator('#exScore').inner_text()=='0.22'
     with page.expect_download() as saved:
         page.locator('[data-ex-result-export]').click()
@@ -279,5 +301,5 @@ try:
     assert fp.evaluate('document.documentElement.scrollWidth<=innerWidth')
     assert not ff_errors,ff_errors
     firefox.close()
-    print('PASS: 8x45 exam audit, all 360 answers graded, lesson scopes, 252 vocabulary entries, accessible filters and resume, marks, restore, wrong/skipped review, timer, history, JSON validation/XSS, preview/import/export/delete, 45-row image editor, draft persistence, blocked storage, 320/390/1280 light/dark, Firefox file://.')
+    print('PASS: 15-paper exam audit (8x45 + 3 SU26 FE/RE + 4 FE mock = 571q), all 571 answers graded, lesson & #Thi FE scopes, 252 vocabulary entries, accessible filters and resume, marks, restore, wrong/skipped review, timer, history, JSON validation/XSS, preview/import/export/delete, 45-row image editor, draft persistence, blocked storage, 320/390/1280 light/dark, Firefox file://.')
 finally:server.shutdown();server.server_close()

@@ -8,7 +8,9 @@
     grammar: "Ngữ pháp",
     dialogue: "Hội thoại",
     translation: "Dịch câu",
+    comprehension: "Đọc hiểu",
   };
+  const allowedLengths = new Set([30, 31, 45]);
   const text = (value, max, name, required = true) => {
     if (
       typeof value !== "string" ||
@@ -50,8 +52,10 @@
     if (new Blob([JSON.stringify(input)]).size > 30 * 1024 * 1024)
       throw Error("Đề vượt 30 MB. Hãy giảm hoặc xóa bớt ảnh trước khi lưu.");
     const e = input.exam;
-    if (!Array.isArray(e.questions) || e.questions.length !== 45)
-      throw Error("Mỗi đề phải có đúng 45 câu hỏi.");
+    if (!Array.isArray(e.questions) || !allowedLengths.has(e.questions.length))
+      throw Error(
+        "Mỗi đề phải có đúng 45 câu hỏi (hoặc 30–31 câu theo mẫu FE).",
+      );
     const seen = new Set();
     const questions = e.questions.map((q, i) => {
       const n = `Câu ${i + 1}`;
@@ -83,7 +87,7 @@
         throw Error(`${n}: lesson phải từ 1–15; topic từ 0–2.`);
       if (!Object.hasOwn(categories, q.category))
         throw Error(
-          `${n}: category chưa đúng. Dùng reading, spelling, vocabulary, grammar, dialogue hoặc translation.`,
+          `${n}: category chưa đúng. Dùng reading, spelling, vocabulary, grammar, dialogue, translation hoặc comprehension.`,
         );
       const image = q.image || "";
       if (
@@ -93,6 +97,14 @@
           !/^data:image\/(?:png|jpeg|webp);base64,[a-zA-Z0-9+/=]+$/.test(image))
       )
         throw Error(`${n}: ảnh cần là PNG/JPEG/WebP dạng data URL, dưới 2 MB.`);
+      const passage = text(q.passage ?? "", 5000, `${n}, đoạn văn`, false);
+      const passageId = text(q.passageId ?? "", 80, `${n}, mã đoạn văn`, false);
+      const passageTitle = text(
+        q.passageTitle ?? "",
+        140,
+        `${n}, tiêu đề đoạn văn`,
+        false,
+      );
       const result = {
         id: `q${i + 1}`,
         prompt,
@@ -108,11 +120,25 @@
         result.solution = validateSolution(q.solution, n);
       }
       if (image) result.image = image;
+      if (passage) {
+        result.passage = passage;
+        if (passageId) result.passageId = passageId;
+        if (passageTitle) result.passageTitle = passageTitle;
+      }
       return result;
     });
-    const minutes = e.minutes ?? 45;
+    const minutes = e.minutes ?? (questions.length <= 31 ? 30 : 45);
     if (!Number.isInteger(minutes) || minutes < 1 || minutes > 180)
       throw Error("Thời gian gợi ý phải từ 1 đến 180 phút.");
+    const tags = Array.isArray(e.tags)
+      ? [
+          ...new Set(
+            e.tags
+              .filter((t) => typeof t === "string" && t.trim())
+              .map((t) => t.trim().slice(0, 32)),
+          ),
+        ].slice(0, 6)
+      : [];
     return {
       title: text(e.title, 140, "Tên đề"),
       description: text(e.description ?? "", 1200, "Mô tả", false),
@@ -120,6 +146,7 @@
       lessons: [...new Set(questions.map((q) => q.lesson))].sort(
         (a, b) => a - b,
       ),
+      ...(tags.length ? { tags } : {}),
       questions,
       kind: "imported",
     };
@@ -132,6 +159,7 @@
         title: exam.title,
         description: exam.description,
         minutes: exam.minutes,
+        ...(exam.tags?.length ? { tags: [...exam.tags] } : {}),
         questions: exam.questions.map(
           ({
             prompt,
@@ -144,6 +172,9 @@
             explanation,
             image,
             solution,
+            passage,
+            passageId,
+            passageTitle,
           }) => ({
             prompt,
             options,
@@ -154,6 +185,9 @@
             unit,
             explanation,
             ...(image ? { image } : {}),
+            ...(passage ? { passage } : {}),
+            ...(passageId ? { passageId } : {}),
+            ...(passageTitle ? { passageTitle } : {}),
             ...(solution ? { solution } : {}),
           }),
         ),
@@ -192,6 +226,42 @@
         (count > 2 && order.every((n, i) => n === previous[i]))
       )
         order.push(order.shift());
+    return order;
+  }
+  function shuffleExamOrder(exam, previous = []) {
+    const questions = exam?.questions || [];
+    const count = questions.length;
+    if (!questions.some((q) => q.passageId))
+      return shuffleOrder(count, previous);
+    const standalone = [];
+    const passageGroups = new Map();
+    questions.forEach((q, i) => {
+      if (q.passageId) {
+        if (!passageGroups.has(q.passageId)) passageGroups.set(q.passageId, []);
+        passageGroups.get(q.passageId).push(i);
+      } else {
+        standalone.push(i);
+      }
+    });
+    const prevStandalone = Array.isArray(previous)
+      ? previous.slice(0, standalone.length)
+      : [];
+    const shuffled = [...standalone];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    if (shuffled.length > 1) {
+      while (
+        shuffled.every((n, i) => n === standalone[i]) ||
+        (shuffled.length > 2 &&
+          shuffled.every((n, i) => n === prevStandalone[i]))
+      ) {
+        shuffled.push(shuffled.shift());
+      }
+    }
+    const order = [...shuffled];
+    for (const group of passageGroups.values()) order.push(...group);
     return order;
   }
   function orderedExam(exam, order) {
@@ -265,6 +335,7 @@
     fingerprint,
     validOrder,
     shuffleOrder,
+    shuffleExamOrder,
     orderedExam,
     grade,
     store: {
